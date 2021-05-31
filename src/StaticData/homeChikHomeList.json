@@ -1,0 +1,50 @@
+[
+    {
+        "heading_image": "https://ii1.pepperfry.com/media/wysiwyg/banners/hp-brand-logo-woodsworth_2x_15012021.png",
+        "description": "Contemporary, Clean, Functional",
+        "price": 15000,
+        "product_image": "https://ii2.pepperfry.com/media/wysiwyg/banners/gn_web_23032021_1.jpg",
+        "product_feature": "Our Contemporary Wooden Furniture Brand that offers Wide Furniture Choices.",
+        "product_type": "Dining Sets, Beds, Study Tables & More"
+    },
+    {
+        "heading_image": "https://ii3.pepperfry.com/media/wysiwyg/banners/hp-brand-logo-casacraft_2x_15012021.png",
+        "description": "Trendy, Comfortable, Vibrant",
+        "price": 21000,
+        "product_image": "https://ii1.pepperfry.com/media/wysiwyg/banners/gn_web_23032021_2.jpg",
+        "product_feature": "Modern Living Room Furniture Brand which brings you Latest Trends from across the Globe.",
+        "product_type": "Sofas, Coffee tables, End Tables & More"
+    },
+    {
+        "heading_image": "https://ii2.pepperfry.com/media/wysiwyg/banners/hp-brand-logo-mudramark_2x_15012021.png",
+        "description": "Ethnic, Indian Carvings, Impeccable Crafting",
+        "price": 19000,
+        "product_image": "https://ii3.pepperfry.com/media/wysiwyg/banners/gn_web_23032021_3.jpg",
+        "product_feature": "A wide range of Traditional Furniture inspired from our Indian Heritage.",
+        "product_type": "Coffee Tables, Cabinets, Dining sets & More"
+    },
+    {
+        "heading_image": "https://ii1.pepperfry.com/media/wysiwyg/banners/hp-brand-logo-mintwud_2x_15012021.png",
+        "description": "Modern, Functional, Affordable",
+        "price": 12000,
+        "product_image": "https://ii2.pepperfry.com/media/wysiwyg/banners/gn_web_23032021_4.jpg",
+        "product_feature": "Designed for Compact Homes. Its Minimalistic, Simple and Functional Furniture at Affordable Price.",
+        "product_type": "Wardrobes, Beds, Shoe Racks & More"
+    },
+    {
+        "heading_image": "https://ii3.pepperfry.com/media/wysiwyg/banners/hp-brand-logo-amberville_2x_15012021.png",
+        "description": "Gracious Living, Colonial Style, Curved Lines",
+        "price": 28000,
+        "product_image": "https://ii1.pepperfry.com/media/wysiwyg/banners/gn_web_23032021_5.jpg",
+        "product_feature": "A range of Hand-crafted Colonial Furniture inspired by Mid-Century Designs.",
+        "product_type": "Study Tables, Chest of Drawers, Chairs & More"
+    },
+    {
+        "heading_image": "https://ii2.pepperfry.com/media/wysiwyg/banners/hp-brand-logo-bohemiana_2x_15012021.png",
+        "description": "Hand-Crafted, Free-Spirited , Adventurous",
+        "price": 14000,
+        "product_image": "https://ii3.pepperfry.com/media/wysiwyg/banners/gn_web_23032021_6.jpg",
+        "product_feature": "Eclectic Furniture inspired by the Spirit of Freedom and Adventure.",
+        "product_type": "End Tables, Seating stools, Bar stools & More"
+    }
+]
