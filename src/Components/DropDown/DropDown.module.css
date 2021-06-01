@@ -1,0 +1,12 @@
+.buttonBorder{
+    border: 1px solid;
+}
+
+.buttonBorder:hover{
+    border-bottom: 1px solid;
+    width: 8%;
+    margin-left: 2%;
+    margin-top: 0.8%;
+    cursor: pointer;
+    background-color: blue;
+}
