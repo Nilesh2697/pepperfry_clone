@@ -14,6 +14,11 @@ export const PrimaryCustomCard = styled.div`
     background: white;
     cursor: pointer;
 
+    :hover {
+        border-color: grey;
+        box-shadow: 0 0 10px grey;
+    }
+
     & img:nth-child(1) {
         width: 200px;
         height: 50px;
@@ -60,6 +65,11 @@ export const SecondaryCustomCard = styled.div`
     padding-bottom: 5%;
     background: white;
     cursor: pointer;
+
+    :hover {
+        border-color: grey;
+        box-shadow: 0 0 10px grey;
+    }
 
     & label:nth-child(2) {
         font-weight: bold;
