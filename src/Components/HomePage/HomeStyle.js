@@ -1,34 +1,58 @@
 import styled from "styled-components";
 
 export const HomeChikHomeContainer = styled.div`
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    background: #e8e8e8;
+    text-align: left;
     padding: 1% 2%;
-    gap: 20px;
-    background: #cecece;
 
-    @media (max-width: 768px) {
-        grid-template-columns: repeat(2, 1fr);
+    & > p:nth-child(1) {
+        font-weight: 900;
     }
-    @media (max-width: 600px) {
-        grid-template-columns: repeat(1, 1fr);
+
+    & > p:nth-child(2) {
+        color: #a8a8a8;
+    }
+
+    & > div {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+
+        @media (max-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media (max-width: 600px) {
+            grid-template-columns: repeat(1, 1fr);
+        }
     }
 `;
 
 export const HouseFavouriteContainer = styled.div`
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    background: #e8e8e8;
+    text-align: left;
     padding: 1% 2%;
-    gap: 20px;
-    background: #cecece;
 
-    @media (max-width: 768px) {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 2% 20%;
+    & > p:nth-child(1) {
+        font-weight: bolder;
     }
-    @media (max-width: 600px) {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 2% 15%;
+
+    & > p:nth-child(2) {
+        color: #a8a8a8;
+    }
+
+    & > div {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+
+        @media (max-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+            padding: 2% 20%;
+        }
+        @media (max-width: 600px) {
+            grid-template-columns: repeat(2, 1fr);
+            padding: 2% 15%;
+        }
     }
 `;
 
