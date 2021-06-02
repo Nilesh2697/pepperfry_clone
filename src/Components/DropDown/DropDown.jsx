@@ -14,15 +14,20 @@ const MenuBar = styles.div`
   // border-top: 1px solid black;
 `
 
-// const useStyles = makeStyles((theme) => ({
-//   button: {
-//     '&$hover':{
-//       backgroundColor: "yellow",
-//       border: "1px solid black"
-//     }
-//   },
-// }))
-
+const useStyles = makeStyles((theme) => ({
+  button: {
+    marginLeft: "8%",
+    fontSize: 12,
+    fontWeight: "bold",
+    marginTop: "0.2%"
+  },
+  button2: {
+    marginLeft: "2%",
+    fontSize: 12,
+    fontWeight: "bold",
+    marginTop: "0.2%"
+  },
+}))
 
 const DropDown = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -36,7 +41,7 @@ const DropDown = () => {
   const [anchorEl9, setAnchorEl9] = React.useState(null);
   const [anchorEl10, setAnchorEl10] = React.useState(null);
 
-  // const classes = useStyles()
+  const classes = useStyles()
 
 //button 1
   function handleClick(event) {
@@ -143,7 +148,7 @@ function handleClose10() {
     <MenuBar>
 
       {/* button 1 */}
-      <Button aria-owns={anchorEl ? "simple-menu" : undefined} aria-haspopup="true" onClick={handleClick} onMouseOver={handleClick} style={{marginLeft: "8%", fontSize: 12, fontWeight: "bold", marginTop: "0.2%"}}>
+      <Button className={classes.button} aria-owns={anchorEl ? "simple-menu" : undefined} aria-haspopup="true" onClick={handleClick} onMouseOver={handleClick}>
         Furniture
       </Button>
       <Menu
@@ -270,7 +275,7 @@ function handleClose10() {
       </Menu>
       {/* button 1 end*/}
       {/* button 2 */}
-      <Button aria-owns={anchorEl ? "simple-menu2" : undefined} aria-haspopup="true" onClick={handleClick2} onMouseOver={handleClick2} style={{marginLeft: "2%", fontSize: 12, fontWeight: "bold", marginTop: "0.2%"}}>
+      <Button className={classes.button2} aria-owns={anchorEl ? "simple-menu2" : undefined} aria-haspopup="true" onClick={handleClick2} onMouseOver={handleClick2}>
         Living
       </Button>
       <Menu
@@ -392,7 +397,7 @@ function handleClose10() {
       </Menu>
       {/* button 2 end*/}
       {/* button 3 */}
-      <Button aria-owns={anchorEl ? "simple-menu3" : undefined} aria-haspopup="true" onClick={handleClick3} onMouseOver={handleClick3} style={{fontSize: 12, fontWeight: "bold", marginTop: "0.2%", marginLeft: "2%"}}>
+      <Button className={classes.button2} aria-owns={anchorEl ? "simple-menu3" : undefined} aria-haspopup="true" onClick={handleClick3} onMouseOver={handleClick3}>
         Bedroom
       </Button>
       <Menu
@@ -507,7 +512,7 @@ function handleClose10() {
       </Menu>
       {/* button 3 end*/}
       {/* button 4*/}
-      <Button aria-owns={anchorEl ? "simple-menu4" : undefined} aria-haspopup="true" onClick={handleClick4} onMouseOver={handleClick4} style={{marginLeft: "2%", fontSize: 12, fontWeight: "bold", marginTop: "0.2%"}}>
+      <Button className={classes.button2} aria-owns={anchorEl ? "simple-menu4" : undefined} aria-haspopup="true" onClick={handleClick4} onMouseOver={handleClick4}>
         #WFM
       </Button>
       <Menu
@@ -605,7 +610,7 @@ function handleClose10() {
       </Menu>
       {/* button 4 end*/}
       {/* button 5*/}
-      <Button aria-owns={anchorEl ? "simple-menu5" : undefined} aria-haspopup="true" onClick={handleClick5} onMouseOver={handleClick5} style={{marginLeft: "2%", fontSize: 12, fontWeight: "bold", marginTop: "0.2%"}}>
+      <Button className={classes.button2} aria-owns={anchorEl ? "simple-menu5" : undefined} aria-haspopup="true" onClick={handleClick5} onMouseOver={handleClick5}>
         Kids Room
       </Button>
       <Menu
@@ -707,7 +712,7 @@ function handleClose10() {
       </Menu>
       {/* button 5 end*/}
       {/* button 5*/}
-      <Button aria-owns={anchorEl ? "simple-menu6" : undefined} aria-haspopup="true" onClick={handleClick6} onMouseOver={handleClick6} style={{marginLeft: "2%", fontSize: 12, fontWeight: "bold", marginTop: "0.2%"}}>
+      <Button className={classes.button2} aria-owns={anchorEl ? "simple-menu6" : undefined} aria-haspopup="true" onClick={handleClick6} onMouseOver={handleClick6}>
         Mattresses
       </Button>
       <Menu
@@ -804,7 +809,7 @@ function handleClose10() {
         </table>      </Menu>
       {/* button 6 end*/}
       {/* button 7*/}
-      <Button aria-owns={anchorEl ? "simple-menu7" : undefined} aria-haspopup="true" onClick={handleClick7} onMouseOver={handleClick7} style={{marginLeft: "1.9%", fontSize: 12, fontWeight: "bold", marginTop: "0.2%"}}>
+      <Button className={classes.button2} aria-owns={anchorEl ? "simple-menu7" : undefined} aria-haspopup="true" onClick={handleClick7} onMouseOver={handleClick7}>
         Furnishings
       </Button>
       <Menu
@@ -832,7 +837,7 @@ function handleClose10() {
       </Menu>
       {/* button 7 end*/}
       {/* button 8*/}
-      <Button aria-owns={anchorEl ? "simple-menu8" : undefined} aria-haspopup="true" onClick={handleClick8} onMouseOver={handleClick8} style={{marginLeft: "1.9%", fontSize: 12, fontWeight: "bold", marginTop: "0.2%"}}>
+      <Button className={classes.button2} aria-owns={anchorEl ? "simple-menu8" : undefined} aria-haspopup="true" onClick={handleClick8} onMouseOver={handleClick8}>
         Decor
       </Button>
       <Menu
@@ -860,7 +865,7 @@ function handleClose10() {
       </Menu>
       {/* button 8 end*/}
       {/* button 9*/}
-      <Button aria-owns={anchorEl ? "simple-menu9" : undefined} aria-haspopup="true" onClick={handleClick9} onMouseOver={handleClick9} style={{marginLeft: "1.9%", fontSize: 12, fontWeight: "bold", marginTop: "0.2%"}}>
+      <Button className={classes.button2} aria-owns={anchorEl ? "simple-menu9" : undefined} aria-haspopup="true" onClick={handleClick9} onMouseOver={handleClick9}>
         Lighting
       </Button>
       <Menu
@@ -887,8 +892,8 @@ function handleClose10() {
       </div>
       </Menu>
       {/* button 9 end*/}
-      {/* button 7*/}
-      <Button aria-owns={anchorEl ? "simple-menu10" : undefined} aria-haspopup="true" onClick={handleClick10} onMouseOver={handleClick10} style={{marginLeft: "1.9%", fontSize: 12, fontWeight: "bold", marginTop: "0.2%"}}>
+      {/* button 10*/}
+      <Button className={classes.button2} aria-owns={anchorEl ? "simple-menu10" : undefined} aria-haspopup="true" onClick={handleClick10} onMouseOver={handleClick10}>
         Modular Furniture
       </Button>
       <Menu
