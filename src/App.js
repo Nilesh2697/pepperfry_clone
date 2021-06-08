@@ -1,11 +1,9 @@
-import { DropDown } from "./Components/DropDown/DropDown";
-import { Home } from "./Components/HomePage/Home";
+import Routes from "./Routes/Routes";
 
 function App() {
     return (
         <div>
-            <DropDown />
-            <Home />
+            <Routes />
         </div>
     );
 }

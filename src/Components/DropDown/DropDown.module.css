@@ -1,6 +1,6 @@
-.buttonBorder{
+/* .buttonBorder{
     border: 1px solid;
-}
+} */
 
 .buttonBorder:hover{
     border-bottom: 1px solid;
