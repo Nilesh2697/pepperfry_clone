@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './Footer.module.css';
 import { FooterSocial } from './FooterSocial';
+import {Link} from 'react-router-dom';
 
 const main_footer =   [
     "https://cdn.freelogovectors.net/wp-content/uploads/2019/02/pepperfry-logo.png",
@@ -35,7 +36,7 @@ function Footer(){
         <div className={style.footercont}>
             <div className={style.subfooter}>
                 <div className={style.secfooter}>
-                    <img src={main_footer[0]} style={{width:'100px',marginBottom:'10px'}} alt='pepperfry logo'/>
+                    <Link to='/'><img src={main_footer[0]} style={{width:'100px',marginBottom:'10px'}} alt='pepperfry logo'/></Link>
                     {main_footer[1].map((item) => {
                         return <div className={style.logocont}>{item}</div>
                     })}

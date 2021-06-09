@@ -1179,21 +1179,21 @@ function handleClose10() {
           <tr>
             <td>
               <div style={{width: 280, height: 150, lineHeight: "1%", cursor: "pointer"}}>
-                <img style={{width: "100%", height: "100%"}} src="https://ii1.pepperfry.com/media/wysiwyg/banners/modular-hover20-wardrobe.jpg" alt='banner'/>
+                <img style={{width: "100%", height: "100%"}} src="https://ii1.pepperfry.com/media/wysiwyg/banners/modular-hover20-wardrobe.jpg" />
                 <p style={{color: "#F27335"}}>Modular Wardrobes</p>
               </div>
             </td>
             <Divider orientation="vertical" flexItem />
             <td>
               <div style={{width: 280, height: 150, lineHeight: "1%", cursor: "pointer"}}>
-                <img style={{width: "100%", height: "100%"}} src="https://ii2.pepperfry.com/media/wysiwyg/banners/modular-hover20-kitchen.jpg" alt='banner'/>
+                <img style={{width: "100%", height: "100%"}} src="https://ii2.pepperfry.com/media/wysiwyg/banners/modular-hover20-kitchen.jpg" />
                 <p style={{color: "#F27335"}}>Moduler Kitchens</p>
               </div>
             </td>
             <Divider orientation="vertical" flexItem />
             <td>
               <div style={{width: 150, height: 150, cursor: "pointer"}}>
-                <img style={{width: "100%", height: "100%"}} src={imageModule} alt='images'/>
+                <img style={{width: "100%", height: "100%"}} src={imageModule} />
               </div>
             </td>
           </tr>
