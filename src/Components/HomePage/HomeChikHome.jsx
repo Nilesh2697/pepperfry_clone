@@ -6,7 +6,7 @@ import { CustomCard } from "../CardComponents/CustomCard";
 import { Spinner } from "../Loading/Spinner";
 
 export const HomeChikHome = () => {
-    const { dataListLoading, dataListError, dataListOne } = useSelector(
+    const { dataListLoading, dataListOne } = useSelector(
         (state) => state.dataList,
     );
 

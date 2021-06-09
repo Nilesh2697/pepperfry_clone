@@ -6,7 +6,7 @@ import { CustomCard } from "../CardComponents/CustomCard";
 import { Spinner } from "../Loading/Spinner";
 
 export const HouseFavourite = () => {
-    const { dataListLoading, dataListError, dataListTwo } = useSelector(
+    const { dataListLoading, dataListTwo } = useSelector(
         (state) => state.dataList,
     );
 

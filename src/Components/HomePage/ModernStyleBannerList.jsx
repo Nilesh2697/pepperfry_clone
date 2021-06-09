@@ -1,34 +1,32 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { SecondaryGreyContainer } from "./HomeStyle";
-import happyHomeEssentials from "../../StaticData/happyHomeEssentials.json";
+import { PrimaryWhiteContainer } from "./HomeStyle";
+import modernStyleBanners from "../../StaticData/modernStyleBanners.json";
 import { CustomCard } from "../CardComponents/CustomCard";
 import { Spinner } from "../Loading/Spinner";
 
-export const HomeEssentials = () => {
-    const { dataListLoading, dataListThree } = useSelector(
+export const ModernStyleBannerList = () => {
+    const { dataListLoading, dataListSix } = useSelector(
         (state) => state.dataList,
     );
 
     return (
-        <SecondaryGreyContainer>
-            <p>HAPPY HOME ESSENTIALS</p>
-            <p>Wait No More</p>
+        <PrimaryWhiteContainer>
+            <p>STYLE 101</p>
+            <p>Whispered Words Of Wisdom</p>
             <div>
                 {dataListLoading
-                    ? happyHomeEssentials.map((data, i) => (
+                    ? modernStyleBanners.map((data, i) => (
                           <CustomCard key={i} type="secondary">
                               <Spinner data={data} />
                           </CustomCard>
                       ))
-                    : dataListThree.map((item, index) => (
+                    : dataListSix.map((item, index) => (
                           <CustomCard key={index} type="secondary">
                               <img src={item.image_url} alt="ProductImage" />
-                              <label>{item.heading}</label>
-                              <label>{item.description}</label>
                           </CustomCard>
                       ))}
             </div>
-        </SecondaryGreyContainer>
+        </PrimaryWhiteContainer>
     );
 };

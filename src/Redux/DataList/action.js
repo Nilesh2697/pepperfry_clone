@@ -8,6 +8,7 @@ import {
     GET_DATA_SUCCESS_FOUR,
     GET_DATA_SUCCESS_FIVE,
     GET_DATA_REQUEST_COMPLETE,
+    GET_DATA_SUCCESS_SIX,
 } from "./actionTypes";
 
 const getDataRequest = () => {
@@ -56,6 +57,13 @@ const getDataSuccessFive = (payload) => {
     };
 };
 
+const getDataSuccessSix = (payload) => {
+    return {
+        type: GET_DATA_SUCCESS_SIX,
+        payload: payload,
+    };
+};
+
 const getDataSuccessAll = () => {
     return {
         type: GET_DATA_REQUEST_COMPLETE,
@@ -63,7 +71,14 @@ const getDataSuccessAll = () => {
 };
 
 export const getData =
-    (one = null, two = null, three = null, four = null, five = null) =>
+    (
+        one = null,
+        two = null,
+        three = null,
+        four = null,
+        five = null,
+        six = null,
+    ) =>
     async (dispatch) => {
         dispatch(getDataRequest());
         try {
@@ -88,18 +103,19 @@ export const getData =
                     ? []
                     : await axios.get(five).then((res) => res.data);
 
-            console.log(
-                requestOne,
-                requestTwo,
-                requestThree,
-                requestFour,
-                requestFive,
-            );
+            const requestSix =
+                five === null
+                    ? []
+                    : await axios.get(six).then((res) => res.data);
+
+            //You can console here to see all the requests like requestOne, requestTwo, requestThree, etc...
+
             dispatch(getDataSuccessOne(requestOne));
             dispatch(getDataSuccessTwo(requestTwo));
             dispatch(getDataSuccessThree(requestThree));
             dispatch(getDataSuccessFour(requestFour));
             dispatch(getDataSuccessFive(requestFive));
+            dispatch(getDataSuccessSix(requestSix));
         } catch (err) {
             dispatch(getDataFailure());
         } finally {
