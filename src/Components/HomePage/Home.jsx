@@ -1,35 +1,54 @@
 import React, { useEffect } from "react";
 import { CustomCard } from "../CardComponents/CustomCard";
-import homeChikHomeList from "../../StaticData/homeChikHomeList.json";
 import houseFavouriteList from "../../StaticData/houseFavouriteList.json";
-import { HomeChikHomeContainer, HouseFavouriteContainer } from "./HomeStyle";
+import happyHomeEssentials from "../../StaticData/happyHomeEssentials.json";
+import nightEssential from "../../StaticData/nightEssential.json";
+import decorationList from "../../StaticData/decorationList.json";
+import modernStyleBanners from "../../StaticData/modernStyleBanners.json";
+
+import {
+    PrimaryGreyContainer,
+    SecondaryGreyContainer,
+    PrimaryWhiteContainer,
+} from "./HomeStyle";
 
 import {
     homeChikHomeEndPoint,
     houseFavouriteListEndPoint,
+    happyHomeEssentialsEndPoint,
 } from "../../StaticData/apiEndPoints";
+
 import { useDispatch, useSelector } from "react-redux";
 import { getData } from "../../Redux/DataList/action";
 import { Spinner } from "../Loading/Spinner";
 
 import { Ads } from "../AdsModel/Ads";
+import { HomeChikHome } from "./HomeChikHome";
+import { HouseFavourite } from "./HouseFavourite";
+import { HomeEssentials } from "./HomeEssentials";
 
 export const Home = () => {
-    const homeChikHome = homeChikHomeList;
     const houseFavourite = houseFavouriteList;
     const dispatch = useDispatch();
-    const { dataListLoading, dataListError, dataListOne, dataListTwo } =
-        useSelector((res) => res.dataList);
+    const {
+        dataListLoading,
+        dataListError,
+        dataListOne,
+        dataListTwo,
+        dataListThree,
+    } = useSelector((state) => state.dataList);
 
     const handleGetData = () => {
         const endPointList = {
             homeChikHomeEndPoint,
             houseFavouriteListEndPoint,
+            happyHomeEssentialsEndPoint,
         };
         dispatch(
             getData(
                 endPointList.homeChikHomeEndPoint,
-                houseFavouriteListEndPoint,
+                endPointList.houseFavouriteListEndPoint,
+                endPointList.happyHomeEssentialsEndPoint,
             ),
         );
     };
@@ -39,59 +58,30 @@ export const Home = () => {
     return (
         <div>
             <Ads />
-            <HomeChikHomeContainer>
-                <p>HOME CHIC HOME</p>
-                <p>Give Your Place A Makeover</p>
-                <div>
-                    {dataListLoading
-                        ? homeChikHome.map((data, i) => (
-                              <CustomCard key={i} type="primary">
-                                  <Spinner data={data} />
-                              </CustomCard>
-                          ))
-                        : dataListOne.map((item, index) => (
-                              <CustomCard key={index} type="primary">
-                                  <img
-                                      src={item.heading_image}
-                                      alt="HeadingImage"
-                                  />
-
-                                  <label>
-                                      <span>Traits : </span>
-                                      {item.description}
-                                  </label>
-                                  <label>
-                                      <span>Price : </span>
-                                      {item.price}
-                                  </label>
-                                  <img
-                                      src={item.product_image}
-                                      alt="ProductImage"
-                                  />
-                                  {item.product_feature}
-                                  <label>
-                                      <span>Popular For : </span>
-                                      <span>{item.product_type}</span>
-                                  </label>
-                              </CustomCard>
-                          ))}
-                </div>
-            </HomeChikHomeContainer>
+            <br />
+            <HomeChikHome />
 
             <br />
             <br />
 
-            <HouseFavouriteContainer>
-                <p>HOUSE FAVOURITES</p>
-                <p>Loved By All</p>
+            <HouseFavourite />
+            <br />
+            <br />
+
+            <HomeEssentials />
+            <br />
+            <br />
+            <PrimaryWhiteContainer>
+                <p>SLEEP RIGHT. SLEEP TIGHT</p>
+                <p>Mattresses That Work Like A Dream</p>
                 <div>
                     {dataListLoading
-                        ? houseFavourite.map((data, i) => (
+                        ? nightEssential.map((data, i) => (
                               <CustomCard key={i} type="secondary">
                                   <Spinner data={data} />
                               </CustomCard>
                           ))
-                        : dataListTwo.map((item, index) => (
+                        : nightEssential.map((item, index) => (
                               <CustomCard key={index} type="secondary">
                                   <img
                                       src={item.image_url}
@@ -102,7 +92,53 @@ export const Home = () => {
                               </CustomCard>
                           ))}
                 </div>
-            </HouseFavouriteContainer>
+            </PrimaryWhiteContainer>
+            <br />
+            <br />
+            <SecondaryGreyContainer>
+                <p>ADORN YOUR ADOBES</p>
+                <p>Shop Home Decor</p>
+                <div>
+                    {dataListLoading
+                        ? decorationList.map((data, i) => (
+                              <CustomCard key={i} type="secondary">
+                                  <Spinner data={data} />
+                              </CustomCard>
+                          ))
+                        : decorationList.map((item, index) => (
+                              <CustomCard key={index} type="secondary">
+                                  <img
+                                      src={item.image_url}
+                                      alt="ProductImage"
+                                  />
+                                  <label>{item.heading}</label>
+                                  <label>{item.description}</label>
+                              </CustomCard>
+                          ))}
+                </div>
+            </SecondaryGreyContainer>
+            <br />
+            <br />
+            <PrimaryWhiteContainer>
+                <p>STYLE 101</p>
+                <p>Whispered Words Of Wisdom</p>
+                <div>
+                    {dataListLoading
+                        ? modernStyleBanners.map((data, i) => (
+                              <CustomCard key={i} type="secondary">
+                                  <Spinner data={data} />
+                              </CustomCard>
+                          ))
+                        : modernStyleBanners.map((item, index) => (
+                              <CustomCard key={index} type="secondary">
+                                  <img
+                                      src={item.image_url}
+                                      alt="ProductImage"
+                                  />
+                              </CustomCard>
+                          ))}
+                </div>
+            </PrimaryWhiteContainer>
         </div>
     );
 };

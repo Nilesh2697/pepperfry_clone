@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const HomeChikHomeContainer = styled.div`
+export const PrimaryGreyContainer = styled.div`
     background: #e8e8e8;
     text-align: left;
     padding: 1% 2%;
@@ -27,8 +27,37 @@ export const HomeChikHomeContainer = styled.div`
     }
 `;
 
-export const HouseFavouriteContainer = styled.div`
+export const SecondaryGreyContainer = styled.div`
     background: #e8e8e8;
+    text-align: left;
+    padding: 1% 2%;
+
+    & > p:nth-child(1) {
+        font-weight: bolder;
+    }
+
+    & > p:nth-child(2) {
+        color: #a8a8a8;
+    }
+
+    & > div {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+
+        @media (max-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+            padding: 2% 20%;
+        }
+        @media (max-width: 600px) {
+            grid-template-columns: repeat(2, 1fr);
+            padding: 2% 15%;
+        }
+    }
+`;
+
+export const PrimaryWhiteContainer = styled.div`
+    background: white;
     text-align: left;
     padding: 1% 2%;
 

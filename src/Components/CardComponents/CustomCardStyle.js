@@ -65,6 +65,7 @@ export const SecondaryCustomCard = styled.div`
     padding-bottom: 5%;
     background: white;
     cursor: pointer;
+    /* cursor: none; */
 
     :hover {
         border-color: grey;
