@@ -45,9 +45,9 @@ export const Home = () => {
                 <p>Give Your Place A Makeover</p>
                 <div>
                     {dataListLoading
-                        ? [1, 2, 3, 4, 5, 6].map((i) => (
+                        ? homeChikHome.map((data, i) => (
                               <CustomCard key={i} type="primary">
-                                  <Spinner />
+                                  <Spinner data={data} />
                               </CustomCard>
                           ))
                         : dataListOne.map((item, index) => (
@@ -86,13 +86,22 @@ export const Home = () => {
                 <p>HOUSE FAVOURITES</p>
                 <p>Loved By All</p>
                 <div>
-                    {houseFavourite.map((item, index) => (
-                        <CustomCard key={index} type="secondary">
-                            <img src={item.image_url} alt="ProductImage" />
-                            <label>{item.heading}</label>
-                            <label>{item.description}</label>
-                        </CustomCard>
-                    ))}
+                    {dataListLoading
+                        ? houseFavourite.map((data, i) => (
+                              <CustomCard key={i} type="secondary">
+                                  <Spinner data={data} />
+                              </CustomCard>
+                          ))
+                        : dataListTwo.map((item, index) => (
+                              <CustomCard key={index} type="secondary">
+                                  <img
+                                      src={item.image_url}
+                                      alt="ProductImage"
+                                  />
+                                  <label>{item.heading}</label>
+                                  <label>{item.description}</label>
+                              </CustomCard>
+                          ))}
                 </div>
             </HouseFavouriteContainer>
         </div>
