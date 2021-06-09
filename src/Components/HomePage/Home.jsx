@@ -3,6 +3,8 @@ import { CustomCard } from "../CardComponents/CustomCard";
 import homeChikHomeList from "../../StaticData/homeChikHomeList.json";
 import houseFavouriteList from "../../StaticData/houseFavouriteList.json";
 import { HomeChikHomeContainer, HouseFavouriteContainer } from "./HomeStyle";
+import { Ads } from "../AdsModel/Ads";
+import { Footer } from "../Footer/Footer";
 
 export const Home = () => {
     const homeChikHome = homeChikHomeList;
@@ -10,6 +12,7 @@ export const Home = () => {
 
     return (
         <div>
+            {/* <Ads /> */}
             <HomeChikHomeContainer>
                 <p>HOME CHIC HOME</p>
                 <p>Give Your Place A Makeover</p>

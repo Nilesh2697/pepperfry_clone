@@ -1,14 +1,11 @@
-import { Home } from "./Components/HomePage/Home";
-import './App.css';
-import { Footer } from './Components/Footer/Footer';
+import Routes from "./Routes/Routes";
 
 function App() {
-  return (
-    <div>
-      <Home />
-      <Footer/>
-    </div>
-  );
+    return (
+        <div>
+            <Routes />
+        </div>
+    );
 }
 
 export default App;
