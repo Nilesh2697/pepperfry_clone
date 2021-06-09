@@ -1,0 +1,35 @@
+{
+    "card":[
+        "https://media-eng.dhakatribune.com/uploads/2021/02/visa-credit-card-logo-512-1613502609560.png",
+        "https://upload.wikimedia.org/wikipedia/commons/4/4d/Maestro_logo.png",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/1200px-MasterCard_Logo.svg.png","https://logodix.com/logo/61140.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/0/0f/RuPay-Logo.png",
+        "https://icons.iconarchive.com/icons/designbolts/credit-card-payment/256/Diners-Club-International-icon.png",
+        "https://previews.123rf.com/images/marsono/marsono2003/marsono200300323/141979262-wallet-logo-icon-vector-template.jpg",
+        "https://www.pikpng.com/pngl/m/192-1926690_online-banking-presentation-internet-bank-internet-banking-icon.png"
+    ],
+
+    "appstore" :[
+        "https://en.logodownload.org/wp-content/uploads/2019/06/get-it-on-google-play-badge.png",
+        "https://1000logos.net/wp-content/uploads/2020/08/apple-app-store-logo.jpg"
+    ],
+
+    "social" : [
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAclBMVEU7WZj///8pTZI9W5nGzN0lS5Hh5O02VZYtUJNkeKmvuM/U2OU4V5ckSpEsT5MgSJB1h7K9xdmbqMZFYZ1PaaHv8fbN0+Knss2Wo8O2v9SGlbprgK7o6/L09fnY3eiqtM5WbqSPnb9ccqYXQ45+jrZLZZ9jUvjXAAAF8ElEQVR4nO3dbWOCKhQHcNAMNATTaj3Xuuv7f8WLre4qHyvUc7j8X2/N38ATCiKhbbKbrNL1Zpb5BEL8bLZZp6vJrtWxk8af2EZJFgSSM0HE0LZr9JEwLoM4S6Ltp8L9MlO5DWYEkypLxx8Io1nMoepuETw+rt4T7pbSY0Mff6swydPqc7JSmHrgm+8uUn69KJwSicinI6Q/ekG4DWNcvjwi2MzbClcBjvPvOcybthNuEDbgb0SctBCOfT70gX4Qfi4MAZ6FixhnD71FyH29cKSGPsRPI+JFnXCqsJ6Cd1GjauHIBiARalElnKAtoo8R8b5cOA6GPjRTEXJeJtz5uKvofdisTBjaA9Tfi0lReLCmj16ips/CrSVV5pa/U/EmPNrUR/OwzaMwsquP5olH98KdbS2oI7J74Tfm64mqyMOfcB7YVWauYX9CK5tQN+LXTbizswn1qXgTHuTQh9JRgulVmFnahISFv8JJPPSRdJZgexFaWmfy5LVGCy38tr8lv4oidG9vJ9WXGHMtTIfspFU1zlTtkystHObK9zKHqxRn5RGGiGythf3P8Aoek006HZdOpFwvVw1d64gzJeO+T0MW+Mvn+9KFGLsr5u3IyDP0We3CVDJp4pkUBnvy1WehYfFPTdfsQiinZN1foRFx2LBuwryQf5FNb4WmfAKzYyH7JkdDH9UYeWrXQQ0LE9LXQq74u73PoFCEhj6oMerwCtDgHMrM1Ac1RNUuW+pSmJn6oPq8CkQ3D+ZVLliyRMhL1oBYJWTnl4HIhKrtQAarUKavA1EJbxMk9gqD9oNRnEJ2fAeISehVrGu1RvjeWYhJWL382hahan7iA7dQnN4D4hHyNzspHmHQeGMUuVDwN4F4hLNmS3lM3dXvOmzdJNlPyjNFsrSAN1xWrFVQESTAfPauLqd+p0y6SP2g1IbVgvXCkwWLXOqFMB6b/iz1wqGPzkT+723ohBjihPjjhPjjhPjjhNhSXEOpaoWiYuXlJUNjysJO4XNOizph4cfvfxMiMXjz9nZpJhAv/4M3JrMrA/IhF6PCH5C91KQQ5B0Oo0KQOziZFG5BPgNiUriAWEqNCr8gllKjwh4Xn78Qk8KZ9UKYOzUaFMIspSaFMEupSSHIUalRIchRqVEhyKtDo0Kg+26aEwItpQaFQEupQSHMUalJIcxRqUkh1D2rzAmBAs0Jwa5pMybs+eny9jEmBDoqNSiEWkrN3dWHWkoJT6PnHGqbtfDj10AFamIh/9TOrnGv+Bt5hna8EttmSItxQvxxQvxxQvxxQvxxQvxxQvxxQvxxQvxxQvxxQvxxQvxxQvxxQvxxQvxxQvxxQvxxQvxxQvxxQvxxQvxxQvxxQvxxQvxxQvxxQvxxQvxxQvxxQvxxQvxxQvxxQvxxwn7S5d+BIPRJ1uFeMACEIuv0jcAAhNoXdvjoNAAhC0mXu05BEP6Qpd1CviRRh7tQQBBGpMtNmQAIgwWZd7ixFgBhPCdd/iGvdsfyPoTCp4Qm3ZUaUbexfC+7zrFECw8dbrUx+N55MtLCsRr6MDqM2moh9Qf/T3eW/HXEWrhEtSPMS8lfwKiFe6AbMRpIPL4Ige68bCAif+15LoygbpD2abzVVQh1R9SPw+hNaGmt+X3R60W482xsRCF3/wlpamMjXt9c/ysEu6HmB9GD7nuhheU0nj4IoW6h/X5YSB+F28CuYiO8+ZPQijcs3+XWR++EdGNTP+UJLQppZg+RnWmZ0J5LYSG3pUK6UJZUG7Wn5UI6taIVhXq4xfcg1EQLWvER+CSkI/StKIKnm7RPQn0u4q6oTO5pvZCOfcxEfi7suV0Q6q9+vKMblRQ5JUJ6QFpvmJyWaMqEdDxDeDEl4nBehikV6nE4A/kWyZp4/qqcUiGkNPUwGfn1lsUrQrpbekjuMgqPpbtKR7VQG6NZDL4hBY+PFf2zWaizX/qKw/2CZFKd04b3ajQIdcaHDYs9nk/aQmlPfSSMyyAmSdT8Uo1mYZ7tIlom4SyDsWDSz2ZhslwtSr8cCvkX3sJVBXKxApIAAAAASUVORK5CYII=",
+        "https://image.similarpng.com/very-thumbnail/2020/05/Instagram-logo-in-square-shape-PNG.png",
+        "https://www.freeiconspng.com/uploads/download-logo-twitter-icon-9.png",
+        "https://cdn4.iconfinder.com/data/icons/miu-square-flat-social/60/pinterest-square-social-media-512.png",
+        "https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-youtube-square1-512.png"
+    ],
+
+    "applink": [
+        "play.google.com/store/apps/details?id=com.app.pepperfry",
+        "apps.apple.com/in/app/pepperfry/id972047429"
+    ],
+
+    "sociallink": ["www.facebook.com/Pepperfry",
+        "www.instagram.com/pepperfry_official/",
+        "twitter.com/pepperfry",
+        "www.pinterest.com/pepperfry/",
+        "www.youtube.com/user/Pepperfrytv"]
+}

@@ -14,6 +14,7 @@ import { Spinner } from "../Loading/Spinner";
 
 import { Ads } from "../AdsModel/Ads";
 
+
 export const Home = () => {
     const homeChikHome = homeChikHomeList;
     const houseFavourite = houseFavouriteList;
@@ -38,7 +39,7 @@ export const Home = () => {
 
     return (
         <div>
-            <Ads />
+            {/* <Ads /> */}
             <HomeChikHomeContainer>
                 <p>HOME CHIC HOME</p>
                 <p>Give Your Place A Makeover</p>
