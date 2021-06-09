@@ -44,3 +44,11 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
+.card{
+  width: 500px;
+  height: 300px;
+}
+
+.card>img{
+  width: 100px;
+}

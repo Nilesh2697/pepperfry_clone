@@ -1,5 +1,6 @@
 import React from 'react';
 import style from './Footer.module.css';
+import { FooterSocial } from './FooterSocial';
 
 const main_footer =   [
     "https://cdn.freelogovectors.net/wp-content/uploads/2019/02/pepperfry-logo.png",
@@ -48,6 +49,7 @@ function Footer(){
                     </div>
                     })}
             </div>
+            <FooterSocial/>
         </div>
     )
 }
