@@ -20,6 +20,7 @@ import { NightEssentials } from "./NightEssentials";
 import { DecorationList } from "./DecorationList";
 import { ModernStyleBannerList } from "./ModernStyleBannerList";
 
+
 export const Home = () => {
     const dispatch = useDispatch();
 
