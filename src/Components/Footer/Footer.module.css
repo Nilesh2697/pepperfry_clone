@@ -50,6 +50,7 @@
   width: 100%;
   height: 140px;
   margin-top: -10px;
+  margin-left: -1%;
 }
 
 .cardapp{
@@ -57,12 +58,13 @@
   height: 60px;
   margin: 2%;
 }
+
 .cardsocial{
   max-width: 40px;
   max-height: 40px;
   background-size: contain;
   border-radius: 5px;
-  margin: 2% 2%;
+  margin: 2% 1%;
 
 }
 .cardimg{
@@ -73,18 +75,93 @@
 .footercard{
   width: 89%;
   height: 200px;
-  margin: 2% 0;
-  margin-left: 5%;
+  margin: 3% 0;
+  margin-left: 3%;
 }
 .footermaincard{
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  max-width: 92%;
+  max-width: 100%;
   padding-left: 8%;
+  border-bottom: 1px solid rgb(213, 211, 211);
+  border-width: 100%;
+  height: 21%;
 }
-
+.footermaincard>:nth-child(2){
+  margin-left:-3%;
+}
+.footermaincard>:nth-child(3){
+  margin-left: -10%;
+}
 .foothead{
   margin-left:9px;
   font-size:13px;
   margin-bottom:3%
+}
+
+/* third footer */
+
+.thirdfoot{
+  margin-top:2%;
+  display:grid;
+  width: 80%;
+  grid-template-columns:repeat(2,1fr);
+  margin-left: 8%;
+
+}
+.detail{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  margin-left: 5%;
+  height: 1%;
+  width: 35%;
+  
+}
+.detail>h4,.details>h4{
+  color: rgb(147, 146, 146);
+  font-size: 13px;
+  font-weight: 400;
+}
+.detail>:nth-child(2){
+  margin-left: -15%;
+}
+.innerfoot{
+  width: 74%;
+  border-right:1px solid rgb(111, 108, 108);
+}
+.details{
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  margin-left: 10%;
+  height: 2%;
+  width: 100%;
+}
+.details>:nth-child(1){
+  width: 60%;
+  border-right:1px solid rgb(111, 108, 108);
+}
+.details>:nth-child(2){
+  width:60%;
+  margin-left:-36%;
+  border-right:1px solid rgb(111, 108, 108);
+}
+.details>:nth-child(3){
+  width:80%;
+  margin-left:-74%;
+  border-right:1px solid rgb(111, 108, 108);
+}
+.details>:nth-child(4){
+  width:80%;
+  margin-left:-91%;
+  border-right:1px solid rgb(111, 108, 108);
+}
+.details>:nth-child(5){
+  width:120%;
+  margin-left:-109%;
+  border-right:1px solid rgb(111, 108, 108);
+}
+
+.details>:nth-child(6){
+  width:120%;
+  margin-left:-85%;
 }
