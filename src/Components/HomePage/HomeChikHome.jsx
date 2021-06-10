@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { PrimaryGreyContainer } from "./HomeStyle";
-import homeChikHomeList from "../../StaticData/homeChikHomeList.json";
+import homeChikHomeList from "../../StaticData/Home/homeChikHomeList.json";
 import { CustomCard } from "../CardComponents/CustomCard";
 import { Spinner } from "../Loading/Spinner";
 
