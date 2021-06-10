@@ -8,23 +8,22 @@ import InputBase from "@material-ui/core/InputBase";
 import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
-import AccountCircle from "@material-ui/icons/AccountCircle";
-import MailIcon from "@material-ui/icons/Mail";
-import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import { Login } from "../Login/Login";
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
+import LocalShippingOutlinedIcon from '@material-ui/icons/LocalShippingOutlined';
+import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
+import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1
   },
-  menuButton: {
-    marginRight: theme.spacing(2)
-  },
+  
   title: {
     display: "none",
+    marginLeft:160,
     [theme.breakpoints.up("sm")]: {
       display: "block"
     }
@@ -32,45 +31,50 @@ const useStyles = makeStyles((theme) => ({
   search: {
     position: "relative",
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
+    backgroundColor: fade(theme.palette.common.black, 0.05),
     "&:hover": {
-      backgroundColor: fade(theme.palette.common.white, 0.25)
+      backgroundColor: fade(theme.palette.common.black, 0.10)
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
-    width: "100%",
+    width: "40vw",
     [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(3),
+      marginLeft: theme.spacing(5),
       width: "auto"
-    }
+    },
+    height:42
   },
   searchIcon: {
-    padding: theme.spacing(0, 2),
-    height: "100%",
+    // padding: theme.spacing(0, 2),
+    // height: "100%",
     position: "absolute",
-    pointerEvents: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center"
+    // pointerEvents: "none",
+    // display: "flex",
+    // alignItems: "center",
+    // justifyContent: "center",
+    marginTop:-28,
+    marginRight:-40,
+    right:50,
   },
   inputRoot: {
     color: "inherit"
   },
   inputInput: {
-    padding: theme.spacing(1, 50, 1, 0),
+    padding: theme.spacing(1.5, 4, 1, 0),
     // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+    paddingLeft: `calc(1em + ${theme.spacing(0)}px)`,
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("md")]: {
-      width: "20ch"
+      width: "70ch"
     }
   },
   sectionDesktop: {
     display: "none",
     [theme.breakpoints.up("md")]: {
       display: "flex"
-    }
+    },
+    marginRight:140,
   },
   sectionMobile: {
     display: "flex",
@@ -115,9 +119,10 @@ export function NavBar() {
       transformOrigin={{ vertical: "top", horizontal: "right" }}
       open={isMenuOpen}
       onClose={handleMenuClose}
+      style={{top:45,left:30}}
     >
-      <MenuItem onClick={handleMenuClose}><Login/></MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem style={{background:"#ef6630"}} onClick={handleMenuClose}><Login /></MenuItem>
+      <MenuItem onClick={handleMenuClose}><span style={{fontSize:11}}>To access your <br/>account & manage<br/> orders</span></MenuItem>
     </Menu>
   );
 
@@ -135,18 +140,18 @@ export function NavBar() {
       <MenuItem>
         <IconButton aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="secondary">
-            <MailIcon />
+           <LocalShippingOutlinedIcon />
           </Badge>
         </IconButton>
-        <p>Messages</p>
+        <p>Track</p>
       </MenuItem>
       <MenuItem>
         <IconButton aria-label="show 11 new notifications" color="inherit">
           <Badge badgeContent={11} color="secondary">
-            <NotificationsIcon />
+           <FavoriteBorderOutlinedIcon/>
           </Badge>
         </IconButton>
-        <p>Notifications</p>
+        <p>Wishlist</p>
       </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
@@ -155,52 +160,67 @@ export function NavBar() {
           aria-haspopup="true"
           color="inherit"
         >
-          <AccountCircle />
+         <PermIdentityOutlinedIcon/>
         </IconButton>
-        <p><Login/></p>
+        <p>Login</p>
       </MenuItem>
     </Menu>
   );
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static">
+      <AppBar  color="transparent"  position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            pepperfry
-          </Typography>
+            <Typography className={classes.title} variant="h6" noWrap>
+               <img style={{width:170,marginTop:5}} src="https://www.pngkit.com/png/detail/366-3664559_product-image-pepperfry-logo-png.png" alt="pepperfry"/>
+            </Typography>
+         
           <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
+           
             <InputBase
-              placeholder="Search…"
+              placeholder="Search"
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput
               }}
               inputProps={{ "aria-label": "search" }}
             />
+             <div className={classes.searchIcon}>
+            <SearchIcon/>
+            </div>
+          
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 4 new mails" color="inherit">
+            <div>
               <Badge badgeContent={4} color="secondary">
-                <MailIcon />
+               
+               <LocalShippingOutlinedIcon style={{ fontSize: 28 }}/>               
+               
               </Badge>
+             <div style={{fontSize:12}}>Track</div> 
+            </div>
+            </IconButton>
+            <IconButton aria-label="show 4 new mails" color="inherit">
+              <div>
+              <Badge badgeContent={4} color="secondary">
+              <FavoriteBorderOutlinedIcon style={{ fontSize: 28,marginLeft:15 }}/>
+              </Badge>
+              <div style={{fontSize:12,marginLeft:15}}>
+                Wishlist
+              </div>
+              </div>
             </IconButton>
             <IconButton aria-label="show 17 new notifications" color="inherit">
+              <div>
               <Badge badgeContent={17} color="secondary">
-                <NotificationsIcon />
+               <ShoppingCartOutlinedIcon style={{ fontSize: 28,marginLeft:15 }}/>
               </Badge>
+              <div style={{fontSize:12,marginLeft:15}}>
+                Cart
+              </div>
+              </div>
             </IconButton>
             <IconButton
               edge="end"
@@ -209,8 +229,13 @@ export function NavBar() {
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
               color="inherit"
-            >
-              <AccountCircle />
+            >  
+                 <div>
+                 <PermIdentityOutlinedIcon style={{ fontSize: 28 ,marginLeft:15}}/>
+                 <div style={{fontSize:12,marginLeft:15}}>
+                  Profile
+                </div>
+                 </div>
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>
