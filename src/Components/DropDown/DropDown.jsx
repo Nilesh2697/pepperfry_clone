@@ -6,6 +6,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { makeStyles } from "@material-ui/core/styles";
 import Divider from "@material-ui/core/Divider";
 import imageModule from "../../Images/bookCons.png";
+import { useHistory } from "react-router";
 
 const MenuBar = styles.div`
   width: 100%;
@@ -40,9 +41,15 @@ const DropDown = () => {
     const [anchorEl10, setAnchorEl10] = React.useState(null);
 
     const classes = useStyles();
+    const history = useHistory();
+
+    function handleClick(path) {
+        alert("Hii");
+        history.push(path);
+    }
 
     //button 1
-    function handleClick(event) {
+    function handleHover(event) {
         if (anchorEl !== event.currentTarget) {
             setAnchorEl(event.currentTarget);
         }
@@ -52,7 +59,7 @@ const DropDown = () => {
         setAnchorEl(null);
     }
     //button 2
-    function handleClick2(event) {
+    function handleHover2(event) {
         if (anchorEl !== event.currentTarget) {
             setAnchorEl2(event.currentTarget);
         }
@@ -62,7 +69,7 @@ const DropDown = () => {
         setAnchorEl2(null);
     }
     //button 3
-    function handleClick3(event) {
+    function handleHover3(event) {
         if (anchorEl !== event.currentTarget) {
             setAnchorEl3(event.currentTarget);
         }
@@ -72,7 +79,7 @@ const DropDown = () => {
         setAnchorEl3(null);
     }
     //button 4
-    function handleClick4(event) {
+    function handleHover4(event) {
         if (anchorEl !== event.currentTarget) {
             setAnchorEl4(event.currentTarget);
         }
@@ -82,7 +89,7 @@ const DropDown = () => {
         setAnchorEl4(null);
     }
     //button 5
-    function handleClick5(event) {
+    function handleHover5(event) {
         if (anchorEl !== event.currentTarget) {
             setAnchorEl5(event.currentTarget);
         }
@@ -92,7 +99,7 @@ const DropDown = () => {
         setAnchorEl5(null);
     }
     //button 6
-    function handleClick6(event) {
+    function handleHover6(event) {
         if (anchorEl !== event.currentTarget) {
             setAnchorEl6(event.currentTarget);
         }
@@ -102,7 +109,7 @@ const DropDown = () => {
         setAnchorEl6(null);
     }
     //button 7
-    function handleClick7(event) {
+    function handleHover7(event) {
         if (anchorEl !== event.currentTarget) {
             setAnchorEl7(event.currentTarget);
         }
@@ -112,7 +119,7 @@ const DropDown = () => {
         setAnchorEl7(null);
     }
     //button 8
-    function handleClick8(event) {
+    function handleHover8(event) {
         if (anchorEl !== event.currentTarget) {
             setAnchorEl8(event.currentTarget);
         }
@@ -122,7 +129,7 @@ const DropDown = () => {
         setAnchorEl8(null);
     }
     //button 9
-    function handleClick9(event) {
+    function handleHover9(event) {
         if (anchorEl !== event.currentTarget) {
             setAnchorEl9(event.currentTarget);
         }
@@ -132,7 +139,7 @@ const DropDown = () => {
         setAnchorEl9(null);
     }
     //button 10
-    function handleClick10(event) {
+    function handleHover10(event) {
         if (anchorEl !== event.currentTarget) {
             setAnchorEl10(event.currentTarget);
         }
@@ -149,8 +156,8 @@ const DropDown = () => {
                 className={classes.button}
                 aria-owns={anchorEl ? "simple-menu" : undefined}
                 aria-haspopup="true"
-                onClick={handleClick}
-                onMouseOver={handleClick}
+                onMouseOver={handleHover}
+                onClick={() => handleClick("/furniture")}
             >
                 Furniture
             </Button>
@@ -714,8 +721,8 @@ const DropDown = () => {
                 className={classes.button2}
                 aria-owns={anchorEl ? "simple-menu2" : undefined}
                 aria-haspopup="true"
-                onClick={handleClick2}
-                onMouseOver={handleClick2}
+                onClick={() => handleClick("/type/living")}
+                onMouseOver={handleHover2}
             >
                 Living
             </Button>
@@ -1249,8 +1256,8 @@ const DropDown = () => {
                 className={classes.button2}
                 aria-owns={anchorEl ? "simple-menu3" : undefined}
                 aria-haspopup="true"
-                onClick={handleClick3}
-                onMouseOver={handleClick3}
+                onClick={() => handleClick("/type/bedroom")}
+                onMouseOver={handleHover3}
             >
                 Bedroom
             </Button>
@@ -1736,10 +1743,10 @@ const DropDown = () => {
                 className={classes.button2}
                 aria-owns={anchorEl ? "simple-menu4" : undefined}
                 aria-haspopup="true"
-                onClick={handleClick4}
-                onMouseOver={handleClick4}
+                onClick={() => handleClick("/type/wfh")}
+                onMouseOver={handleHover4}
             >
-                #WFM
+                #WFH
             </Button>
             <Menu
                 anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
@@ -2142,8 +2149,8 @@ const DropDown = () => {
                 className={classes.button2}
                 aria-owns={anchorEl ? "simple-menu5" : undefined}
                 aria-haspopup="true"
-                onClick={handleClick5}
-                onMouseOver={handleClick5}
+                onClick={() => handleClick("/type/kids_room")}
+                onMouseOver={handleHover5}
             >
                 Kids Room
             </Button>
@@ -2560,8 +2567,8 @@ const DropDown = () => {
                 className={classes.button2}
                 aria-owns={anchorEl ? "simple-menu6" : undefined}
                 aria-haspopup="true"
-                onClick={handleClick6}
-                onMouseOver={handleClick6}
+                onClick={() => handleClick("/type/mattresses")}
+                onMouseOver={handleHover6}
             >
                 Mattresses
             </Button>
@@ -2856,8 +2863,8 @@ const DropDown = () => {
                 className={classes.button2}
                 aria-owns={anchorEl ? "simple-menu7" : undefined}
                 aria-haspopup="true"
-                onClick={handleClick7}
-                onMouseOver={handleClick7}
+                onClick={() => handleClick("/type/furnishings")}
+                onMouseOver={handleHover7}
             >
                 Furnishings
             </Button>
@@ -3176,8 +3183,8 @@ const DropDown = () => {
                 className={classes.button2}
                 aria-owns={anchorEl ? "simple-menu8" : undefined}
                 aria-haspopup="true"
-                onClick={handleClick8}
-                onMouseOver={handleClick8}
+                onClick={() => handleClick("/type/decor")}
+                onMouseOver={handleHover8}
             >
                 Decor
             </Button>
@@ -3735,8 +3742,8 @@ const DropDown = () => {
                 className={classes.button2}
                 aria-owns={anchorEl ? "simple-menu9" : undefined}
                 aria-haspopup="true"
-                onClick={handleClick9}
-                onMouseOver={handleClick9}
+                onClick={() => handleClick("/type/lighting")}
+                onMouseOver={handleHover9}
             >
                 Lighting
             </Button>
@@ -4054,8 +4061,8 @@ const DropDown = () => {
                 className={classes.button2}
                 aria-owns={anchorEl ? "simple-menu10" : undefined}
                 aria-haspopup="true"
-                onClick={handleClick10}
-                onMouseOver={handleClick10}
+                onClick={() => handleClick("/type/modular_furniture")}
+                onMouseOver={handleHover10}
             >
                 Modular Furniture
             </Button>
