@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { SecondaryGreyContainer } from "./HomeStyle";
-import houseFavouriteList from "../../StaticData/houseFavouriteList.json";
+import houseFavouriteList from "../../StaticData/Home/houseFavouriteList.json";
 import { CustomCard } from "../CardComponents/CustomCard";
 import { Spinner } from "../Loading/Spinner";
 

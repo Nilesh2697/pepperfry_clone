@@ -36,6 +36,9 @@ export const SecondaryGreyContainer = styled.div`
         font-weight: bolder;
     }
 
+    /* & img:hover {
+        transform: scale(1.02);
+    } */
     & > p:nth-child(2) {
         color: #a8a8a8;
     }
@@ -67,6 +70,11 @@ export const PrimaryWhiteContainer = styled.div`
 
     & > p:nth-child(2) {
         color: #a8a8a8;
+    }
+
+    & img:hover {
+        transform: scale(1.02);
+        transition: transform 1s ease;
     }
 
     & > div {

@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { PrimaryWhiteContainer } from "./HomeStyle";
-import nightEssential from "../../StaticData/nightEssential.json";
+import nightEssential from "../../StaticData/Home/nightEssential.json";
 import { CustomCard } from "../CardComponents/CustomCard";
 import { Spinner } from "../Loading/Spinner";
 
