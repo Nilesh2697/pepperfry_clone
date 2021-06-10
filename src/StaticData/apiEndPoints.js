@@ -1,16 +1,12 @@
-export const homeChikHomeEndPoint =
-    "https://pepperfy.herokuapp.com/homeChickHome";
-export const houseFavouriteListEndPoint =
-    "https://pepperfy.herokuapp.com/houseFavList";
+export const homeChikHomeEndPoint = "http://localhost:3001/homeChick";
+export const houseFavouriteListEndPoint = "http://localhost:3001/houseFavList";
 
 export const happyHomeEssentialsEndPoint =
-    "https://pepperfy.herokuapp.com/happyHomeEssentials";
+    "http://localhost:3001/happyHomeEssentials";
 
-export const nightEssentialEndPoint =
-    "https://pepperfy.herokuapp.com/nightEssential";
+export const nightEssentialEndPoint = "http://localhost:3001/nightEssential";
 
-export const decorationListEndPoint =
-    "https://pepperfy.herokuapp.com/decorationList";
+export const decorationListEndPoint = "http://localhost:3001/decorationList";
 
 export const modernStyleBannersEndPoint =
-    "https://pepperfy.herokuapp.com/modernStyleBanners";
+    "http://localhost:3001/modernStyleBanners";
