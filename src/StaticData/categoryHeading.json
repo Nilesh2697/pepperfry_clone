@@ -1,0 +1,106 @@
+[
+    {
+        "Sofas": [
+            "Sofas",
+            "Sofa Sets",
+            "1 Seater Sofas",
+            "2 Seater Sofas",
+            "3 Seater Sofas",
+            "Sofa Cum Beds",
+            "Sofa Spa",
+            "Recliners"
+        ]
+    },
+    {
+        "Seating": [
+            "Settees",
+            "Benches",
+            "Chaise Loungers",
+            "Recamiers",
+            "Ottomans",
+            "Pouffes",
+            "Foot Stools",
+            "Seating Stools",
+            "Bean Bags",
+            "Swings",
+            "Hammocks"
+        ]
+    },
+    {
+        "Chairs": [
+            "Arm Chairs",
+            "Rocking Chairs",
+            "Lounge Chairs",
+            "Cafe Chairs",
+            "Iconic Chairs",
+            "Slipper Chairs",
+            "Barrel Chairs",
+            "Cantilever Chairs",
+            "Folding Chairs",
+            "Plastic Chairs",
+            "Wing Chairs",
+            "Office Chairs",
+            "Patio Chairs"
+        ]
+    },
+    {
+        "Tables": [
+            "Coffee Tables",
+            "Coffee Table Sets",
+            "End Tables",
+            "Nest of Tables",
+            "Console Tables",
+            "Portable Tables",
+            "Study Tables",
+            "Dressing Tables",
+            "Bedside Tables",
+            "Office Tables",
+            "Patio Tables & Sets"
+        ]
+    },
+    {
+        "Cabinetry": [
+            "Shoe Racks",
+            "Entertainment Units",
+            "Cabinets",
+            "Sideboards",
+            "Hutch Cabinets",
+            "Chest of Drawers",
+            "Book Shelves",
+            "Book Cases",
+            "Trunks",
+            "Wardrobes",
+            "Modular Wardrobes",
+            "Plastic Cabinets",
+            "Office Cabinets"
+        ]
+    },
+    {
+        "Dining and Bar": [
+            "Dining Sets",
+            "Dining Chairs",
+            "Dining Tables",
+            "Bar Cabinets",
+            "Bar Units",
+            "Bar Trolleys",
+            "Wine Racks",
+            "Bar Stools",
+            "Bar Table Sets",
+            "Modular Kitchens"
+        ]
+    },
+    {
+        "Beds": [
+            "Beds",
+            "Single Beds",
+            "Queen Size Beds",
+            "King Size Beds",
+            "Upholstered Beds",
+            "Poster Beds",
+            "Bunk Beds",
+            "Trundle Beds",
+            "Folding Beds",
+            "Mattresses"
+        ]
+    }
+]

@@ -86,3 +86,12 @@ export const SecondaryCustomCard = styled.div`
         }
     }
 `;
+
+export const VerticalCustomCard = styled.div`
+    @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap");
+    font-family: "Fira Sans", sans-serif;
+    font-size: 2.3vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+`;
