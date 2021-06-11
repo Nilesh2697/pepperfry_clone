@@ -1,0 +1,120 @@
+[
+    {
+        "image_url": "https://ii1.pepperfry.com/media/wysiwyg/banners/Furniture_clp_nav_2x_01.jpg",
+        "type": "Sofas",
+        "category": [
+            "Sofas",
+            "Sofa Sets",
+            "1 Seater Sofas",
+            "2 Seater Sofas",
+            "3 Seater Sofas",
+            "Sofa Cum Beds",
+            "Sofa Spa",
+            "Recliners"
+        ]
+    },
+    {
+        "image_url": "https://ii3.pepperfry.com/media/wysiwyg/banners/Furniture_clp_nav_2x_02.jpg",
+        "type": "Seating",
+        "category": [
+            "Settees",
+            "Benches",
+            "Chaise Loungers",
+            "Recamiers",
+            "Ottomans",
+            "Pouffes",
+            "Foot Stools",
+            "Seating Stools",
+            "Bean Bags",
+            "Swings",
+            "Hammocks"
+        ]
+    },
+    {
+        "image_url": "https://ii2.pepperfry.com/media/wysiwyg/banners/Furniture_clp_nav_2x_03.jpg",
+        "type": "Chairs",
+        "category": [
+            "Arm Chairs",
+            "Rocking Chairs",
+            "Lounge Chairs",
+            "Cafe Chairs",
+            "Iconic Chairs",
+            "Slipper Chairs",
+            "Barrel Chairs",
+            "Cantilever Chairs",
+            "Folding Chairs",
+            "Plastic Chairs",
+            "Wing Chairs",
+            "Office Chairs",
+            "Patio Chairs"
+        ]
+    },
+    {
+        "image_url": "https://ii1.pepperfry.com/media/wysiwyg/banners/Furniture_clp_nav_2x_04.jpg",
+        "type": "Tables",
+        "category": [
+            "Coffee Tables",
+            "Coffee Table Sets",
+            "End Tables",
+            "Nest of Tables",
+            "Console Tables",
+            "Portable Tables",
+            "Study Tables",
+            "Dressing Tables",
+            "Bedside Tables",
+            "Office Tables",
+            "Patio Tables & Sets"
+        ]
+    },
+    {
+        "image_url": "https://ii3.pepperfry.com/media/wysiwyg/banners/Furniture_clp_nav_2x_05.jpg",
+        "type": "Cabinetry",
+        "category": [
+            "Shoe Racks",
+            "Entertainment Units",
+            "Cabinets",
+            "Sideboards",
+            "Hutch Cabinets",
+            "Chest of Drawers",
+            "Book Shelves",
+            "Book Cases",
+            "Trunks",
+            "Wardrobes",
+            "Modular Wardrobes",
+            "Plastic Cabinets",
+            "Office Cabinets"
+        ]
+    },
+    {
+        "image_url": "https://ii2.pepperfry.com/media/wysiwyg/banners/Furniture_clp_nav_2x_06.jpg",
+        "type": "Dining and Bar",
+        "category": [
+            "Dining Sets",
+            "Dining Chairs",
+            "Dining Tables",
+            "Bar Cabinets",
+            "Bar Units",
+            "Bar Trolleys",
+            "Wine Racks",
+            "Bar Stools",
+            "Bar Table Sets",
+            "Modular Kitchens"
+        ]
+    },
+    {
+        "image_url": "https://ii1.pepperfry.com/media/wysiwyg/banners/Furniture_clp_nav_2x_07.jpg",
+        "type": "Beds",
+        "category": [
+            "Beds",
+            "Single Beds",
+            "Queen Size Beds",
+            "King Size Beds",
+            "Upholstered Beds",
+            "Poster Beds",
+            "Bunk Beds",
+            "Trundle Beds",
+            "Folding Beds",
+            "Mattresses"
+        ]
+    }
+]

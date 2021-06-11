@@ -7,6 +7,7 @@ import {
     GET_DATA_SUCCESS_FOUR,
     GET_DATA_SUCCESS_FIVE,
     GET_DATA_REQUEST_COMPLETE,
+    GET_DATA_SUCCESS_SIX,
 } from "./actionTypes";
 
 const initState = {
@@ -17,6 +18,7 @@ const initState = {
     dataListThree: [],
     dataListFour: [],
     dataListFive: [],
+    dataListSix: [],
 };
 
 export const DataListReducer = (state = initState, action) => {
@@ -71,6 +73,15 @@ export const DataListReducer = (state = initState, action) => {
                 dataListFive: payload,
             };
         }
+
+        case GET_DATA_SUCCESS_SIX: {
+            return {
+                ...state,
+                dataListError: false,
+                dataListSix: payload,
+            };
+        }
+
         case GET_DATA_REQUEST_COMPLETE: {
             return {
                 ...state,
