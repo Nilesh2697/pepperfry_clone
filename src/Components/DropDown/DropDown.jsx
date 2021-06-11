@@ -150,7 +150,7 @@ const DropDown = () => {
     }
 
     return (
-        <MenuBar>
+        <MenuBar style={{borderBottom: "2px solid #F1F1F1",  height: 40}}>
             {/* button 1 */}
             <Button
                 className={classes.button}
@@ -4109,7 +4109,7 @@ const DropDown = () => {
                                 style={{
                                     width: 280,
                                     height: 150,
-                                    lineHeight: "1%",
+                                    // lineHeight: "1%",
                                     cursor: "pointer",
                                 }}
                             >
@@ -4129,7 +4129,7 @@ const DropDown = () => {
                                 style={{
                                     width: 280,
                                     height: 150,
-                                    lineHeight: "1%",
+                                    // lineHeight: "1%",
                                     cursor: "pointer",
                                 }}
                             >
