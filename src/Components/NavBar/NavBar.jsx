@@ -46,7 +46,8 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: theme.spacing(5),
       width: "auto"
     },
-    height:42
+    height:42,
+  
   },
   searchIcon: {
     // padding: theme.spacing(0, 2),
@@ -198,9 +199,9 @@ export function NavBar() {
                <img style={{width:170,marginTop:5}} src="https://www.pngkit.com/png/detail/366-3664559_product-image-pepperfry-logo-png.png" alt="pepperfry"/>
             </Typography> */}
             <div onClick={() => handleClick()} style={{cursor: "pointer"}}>
-              <img style={{width:170, height: 50,marginTop:"1%", marginLeft: "15%"}} src={logo} alt="pepperfry"/>
+              <img style={{width:170, height: 50,marginTop:"1%", marginLeft: "95%"}} src={logo} alt="pepperfry"/>
             </div>
-          <div style={{marginLeft: "5%"}} className={classes.search}>
+          <div style={{marginLeft: "13.5%"}} className={classes.search}>
            
             <InputBase
               placeholder="Search"
@@ -217,23 +218,23 @@ export function NavBar() {
           
           </div>
           <div className={classes.grow} />
-          <div style={{marginLeft: "5%"}} className={classes.sectionDesktop}>
+          <div  className={classes.sectionDesktop}>
             <IconButton aria-label="show 4 new mails" color="inherit">
             <div>
               <Badge badgeContent={0} color="secondary">
                
-               <LocalShippingOutlinedIcon style={{ fontSize: 28 }}/>               
+               <LocalShippingOutlinedIcon style={{ fontSize: 28,marginLeft:"-65%"}}/>               
                
               </Badge>
-             <div style={{fontSize:12}}>Track</div> 
+             <div style={{fontSize:12 ,marginLeft:-35}}>Track</div> 
             </div>
             </IconButton>
             <IconButton aria-label="show 4 new mails" color="inherit">
               <div>
               <Badge badgeContent={0} color="secondary">
-              <FavoriteBorderOutlinedIcon style={{ fontSize: 28,marginLeft:15 }}/>
+              <FavoriteBorderOutlinedIcon style={{ fontSize: 28,marginLeft:0}}/>
               </Badge>
-              <div style={{fontSize:12,marginLeft:15}}>
+              <div style={{fontSize:12,marginLeft:0}}>
                 Wishlist
               </div>
               </div>
@@ -241,9 +242,9 @@ export function NavBar() {
             <IconButton aria-label="show 17 new notifications" color="inherit">
               <div>
               <Badge badgeContent={0} color="secondary">
-               <ShoppingCartOutlinedIcon style={{ fontSize: 28,marginLeft:15 }}/>
+               <ShoppingCartOutlinedIcon style={{ fontSize: 28,marginLeft:10 }}/>
               </Badge>
-              <div style={{fontSize:12,marginLeft:15}}>
+              <div style={{fontSize:12,marginLeft:10}}>
                 Cart
               </div>
               </div>
@@ -257,8 +258,8 @@ export function NavBar() {
               color="inherit"
             >  
                  <div>
-                 <PermIdentityOutlinedIcon style={{ fontSize: 28 ,marginLeft:15}}/>
-                 <div style={{fontSize:12,marginLeft:15}}>
+                 <PermIdentityOutlinedIcon style={{ fontSize: 28 ,marginLeft:25}}/>
+                 <div style={{fontSize:12,marginLeft:25}}>
                   Profile
                 </div>
                  </div>
