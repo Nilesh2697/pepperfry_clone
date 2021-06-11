@@ -28,7 +28,7 @@ export const ShopByStyle = () => {
                               <Spinner data={data} />
                           </CustomCard>
                       ))
-                    : shopByStyleList.map((item, index) => (
+                    : dataListFive.map((item, index) => (
                           <img
                               style={{
                                   width: "100%",

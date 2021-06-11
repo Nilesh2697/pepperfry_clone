@@ -14,11 +14,12 @@ export const modernStyleBannersEndPoint =
 
 //DYNAMIC PAGE REQUEST END POINTS
 
-export const brandListEndPoint = "http://localhost:3001/";
-export const categoryHeadingListEndPoint = "http://localhost:3001/";
-export const facilitiesListEndPoint = "http://localhost:3001/";
-export const faqListEndPoint = "http://localhost:3001/";
-export const firstSaleLogoEndPoint = "http://localhost:3001/";
-export const newArrivalListEndPoint = "http://localhost:3001/";
-export const shopByStyleListEndPoint = "http://localhost:3001/";
-export const spotLightListEndPoint = "http://localhost:3001/";
+export const brandListEndPoint = "http://localhost:3001/brandList";
+export const categoryHeadingListEndPoint =
+    "http://localhost:3001/categoryHeadingList";
+export const facilitiesListEndPoint = "http://localhost:3001/facilitiesList";
+export const faqListEndPoint = "http://localhost:3001/faqList";
+export const firstSaleLogoEndPoint = "http://localhost:3001/firstSaleLogo";
+export const newArivalListEndPoint = "http://localhost:3001/newArivalList";
+export const shopByStyleListEndPoint = "http://localhost:3001/shopByStyleList";
+export const spotLightListEndPoint = "http://localhost:3001/spotLightList";
