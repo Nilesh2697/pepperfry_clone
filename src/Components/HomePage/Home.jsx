@@ -12,7 +12,6 @@ import {
 import { useDispatch } from "react-redux";
 import { getData } from "../../Redux/DataList/action";
 
-import { Ads } from "../AdsModel/Ads";
 import { HomeChikHome } from "./HomeChikHome";
 import { HouseFavourite } from "./HouseFavourite";
 import { HomeEssentials } from "./HomeEssentials";

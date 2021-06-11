@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: "bold",
         marginTop: "0.2%",
         position: "relative",
-        zIndex: 0
+        zIndex: 0,
     },
     button2: {
         marginLeft: "2%",
@@ -151,7 +151,7 @@ const DropDown = () => {
     }
 
     return (
-        <MenuBar style={{borderBottom: "2px solid #F1F1F1",  height: 40}}>
+        <MenuBar style={{ borderBottom: "2px solid #F1F1F1", height: 40 }}>
             {/* button 1 */}
             <Button
                 className={classes.button}
@@ -724,7 +724,7 @@ const DropDown = () => {
                 onClick={() => handleClick("/type/living")}
                 onMouseOver={handleHover2}
             >
-                Living
+                <span onClick={() => handleClick("/living")}>Living</span>
             </Button>
             <Menu
                 anchorOrigin={{ vertical: "bottom", horizontal: "left" }}

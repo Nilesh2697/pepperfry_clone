@@ -14,12 +14,17 @@ export const modernStyleBannersEndPoint =
 
 //DYNAMIC PAGE REQUEST END POINTS
 
-export const brandListEndPoint = "http://localhost:3001/brandList";
-export const categoryHeadingListEndPoint =
+export const furnitureBrandListEndPoint = "http://localhost:3001/brandList";
+export const furnitureCategoryHeadingListEndPoint =
     "http://localhost:3001/categoryHeadingList";
-export const facilitiesListEndPoint = "http://localhost:3001/facilitiesList";
-export const faqListEndPoint = "http://localhost:3001/faqList";
-export const firstSaleLogoEndPoint = "http://localhost:3001/firstSaleLogo";
-export const newArivalListEndPoint = "http://localhost:3001/newArivalList";
-export const shopByStyleListEndPoint = "http://localhost:3001/shopByStyleList";
-export const spotLightListEndPoint = "http://localhost:3001/spotLightList";
+export const furnitureFacilitiesListEndPoint =
+    "http://localhost:3001/facilitiesList";
+export const furnitureFaqListEndPoint = "http://localhost:3001/faqList";
+export const furnitureFirstSaleLogoEndPoint =
+    "http://localhost:3001/firstSaleLogo";
+export const furnitureNewArivalListEndPoint =
+    "http://localhost:3001/newArivalList";
+export const furnitureShopByStyleListEndPoint =
+    "http://localhost:3001/shopByStyleList";
+export const furnitureSpotLightListEndPoint =
+    "http://localhost:3001/spotLightList";

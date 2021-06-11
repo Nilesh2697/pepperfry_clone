@@ -10,33 +10,57 @@ import { Facilities } from "./Facilities";
 import { Faq } from "./Faq";
 
 import {
-    brandListEndPoint,
-    categoryHeadingListEndPoint,
-    facilitiesListEndPoint,
-    faqListEndPoint,
-    firstSaleLogoEndPoint,
-    newArivalListEndPoint,
-    shopByStyleListEndPoint,
-    spotLightListEndPoint,
+    furnitureBrandListEndPoint,
+    furnitureCategoryHeadingListEndPoint,
+    furnitureFacilitiesListEndPoint,
+    furnitureFaqListEndPoint,
+    furnitureFirstSaleLogoEndPoint,
+    furnitureNewArivalListEndPoint,
+    furnitureShopByStyleListEndPoint,
+    furnitureSpotLightListEndPoint,
 } from "../../StaticData/apiEndPoints";
 import { useDispatch } from "react-redux";
 import { getData } from "../../Redux/DataList/action";
 import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 export const CustomDynamicPage = () => {
     const dispatch = useDispatch();
+    const { product } = useParams();
+    let endPointList = [];
+    switch (product) {
+        case "furniture": {
+            endPointList.push(furnitureCategoryHeadingListEndPoint);
+            endPointList.push(furnitureFirstSaleLogoEndPoint);
+            endPointList.push(furnitureSpotLightListEndPoint);
+            endPointList.push(furnitureNewArivalListEndPoint);
+            endPointList.push(furnitureShopByStyleListEndPoint);
+            endPointList.push(furnitureBrandListEndPoint);
+            endPointList.push(furnitureFacilitiesListEndPoint);
+            endPointList.push(furnitureFaqListEndPoint);
+            break;
+        }
+
+        case "bedroom": {
+            console.log(product);
+            break;
+        }
+        default: {
+            break;
+        }
+    }
 
     const handleGetData = () => {
         dispatch(
             getData(
-                categoryHeadingListEndPoint,
-                firstSaleLogoEndPoint,
-                spotLightListEndPoint,
-                newArivalListEndPoint,
-                shopByStyleListEndPoint,
-                brandListEndPoint,
-                facilitiesListEndPoint,
-                faqListEndPoint,
+                endPointList[0],
+                endPointList[1],
+                endPointList[2],
+                endPointList[3],
+                endPointList[4],
+                endPointList[5],
+                endPointList[6],
+                endPointList[7],
             ),
         );
     };

@@ -5,7 +5,7 @@ import { DropDown } from "../Components/DropDown/DropDown";
 import { Footer } from "../Components/Footer/Footer";
 import { Home } from "../Components/HomePage/Home";
 import { NavBar } from "../Components/NavBar/NavBar";
-import { Ads } from "../Components/AdsModel/Ads"
+import { Ads } from "../Components/AdsModel/Ads";
 const Routes = () => {
     return (
         <div>
@@ -16,7 +16,7 @@ const Routes = () => {
                 <Route path="/" exact>
                     <Home />
                 </Route>
-                <Route path="/furniture">
+                <Route path="/:product">
                     <CustomDynamicPage />
                 </Route>
             </Switch>
