@@ -19,12 +19,12 @@ export const DynamicPageCategory = () => {
                               <Spinner data={data} />
                           </CustomCard>
                       ))
-                    : categoryHeadingList.map((item, index) => (
+                    : dataListOne.map((item, index) => (
                           <CustomCard key={index} type="vertical">
                               <img src={item.image_url} alt="HeadingImage" />
                               <p>{item.type}</p>
                               <div>
-                                  {item.category.map((el) => (
+                                  {item.category?.map((el) => (
                                       <div>{el}</div>
                                   ))}
                               </div>

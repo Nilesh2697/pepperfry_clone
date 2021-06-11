@@ -23,7 +23,7 @@ export const BrandLists = () => {
                               <Spinner data={data} />
                           </CustomCard>
                       ))
-                    : brandList.map((item, index) => (
+                    : dataListSix.map((item, index) => (
                           <CustomCard key={index} type="vertical">
                               <img src={item.image_url} alt="HeadingImage" />
                           </CustomCard>

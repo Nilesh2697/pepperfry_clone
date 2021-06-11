@@ -9,6 +9,8 @@ import {
     GET_DATA_SUCCESS_FIVE,
     GET_DATA_REQUEST_COMPLETE,
     GET_DATA_SUCCESS_SIX,
+    GET_DATA_SUCCESS_SEVEN,
+    GET_DATA_SUCCESS_EIGHT,
 } from "./actionTypes";
 
 const getDataRequest = () => {
@@ -63,6 +65,18 @@ const getDataSuccessSix = (payload) => {
         payload: payload,
     };
 };
+const getDataSuccessSeven = (payload) => {
+    return {
+        type: GET_DATA_SUCCESS_SEVEN,
+        payload: payload,
+    };
+};
+const getDataSuccessEight = (payload) => {
+    return {
+        type: GET_DATA_SUCCESS_EIGHT,
+        payload: payload,
+    };
+};
 
 const getDataSuccessAll = () => {
     return {
@@ -78,6 +92,8 @@ export const getData =
         four = null,
         five = null,
         six = null,
+        seven = null,
+        eight = null,
     ) =>
     async (dispatch) => {
         dispatch(getDataRequest());
@@ -104,9 +120,18 @@ export const getData =
                     : await axios.get(five).then((res) => res.data);
 
             const requestSix =
-                five === null
+                six === null
                     ? []
                     : await axios.get(six).then((res) => res.data);
+            const requestSeven =
+                seven === null
+                    ? []
+                    : await axios.get(seven).then((res) => res.data);
+
+            const requestEight =
+                eight === null
+                    ? []
+                    : await axios.get(eight).then((res) => res.data);
 
             //You can console here to see all the requests like requestOne, requestTwo, requestThree, etc...
 
@@ -116,7 +141,10 @@ export const getData =
             dispatch(getDataSuccessFour(requestFour));
             dispatch(getDataSuccessFive(requestFive));
             dispatch(getDataSuccessSix(requestSix));
+            dispatch(getDataSuccessSeven(requestSeven));
+            dispatch(getDataSuccessEight(requestEight));
         } catch (err) {
+            console.log(err);
             dispatch(getDataFailure());
         } finally {
             dispatch(getDataSuccessAll());
