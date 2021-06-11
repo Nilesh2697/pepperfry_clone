@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { PrimaryWhiteContainer } from "./HomeStyle";
-import modernStyleBanners from "../../StaticData/modernStyleBanners.json";
+import modernStyleBanners from "../../StaticData/Home/modernStyleBanners.json";
 import { CustomCard } from "../CardComponents/CustomCard";
 import { Spinner } from "../Loading/Spinner";
 

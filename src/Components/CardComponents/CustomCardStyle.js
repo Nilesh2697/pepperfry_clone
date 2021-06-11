@@ -93,5 +93,29 @@ export const VerticalCustomCard = styled.div`
     font-size: 2.3vh;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    background: white;
+    /* border: solid red 5px; */
+    /* padding-bottom: 5%; */
+
+    & p {
+        /* margin-top: 5%; */
+        font-weight: bold;
+        padding: 2% 8%;
+    }
+    & > div {
+        /* border: solid black 1px; */
+        padding: 2% 8%;
+        padding-bottom: 25%;
+    }
+    & > div > div {
+        cursor: pointer;
+    }
+
+    & div > div:hover {
+        background: #f5f5f0;
+    }
+
+    & img {
+        width: 100%;
+    }
 `;

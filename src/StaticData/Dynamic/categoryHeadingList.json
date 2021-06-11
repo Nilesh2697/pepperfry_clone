@@ -1,6 +1,8 @@
 [
     {
-        "Sofas": [
+        "image_url": "https://ii1.pepperfry.com/media/wysiwyg/banners/Furniture_clp_nav_2x_01.jpg",
+        "type": "Sofas",
+        "category": [
             "Sofas",
             "Sofa Sets",
             "1 Seater Sofas",
@@ -12,7 +14,9 @@
         ]
     },
     {
-        "Seating": [
+        "image_url": "https://ii3.pepperfry.com/media/wysiwyg/banners/Furniture_clp_nav_2x_02.jpg",
+        "type": "Seating",
+        "category": [
             "Settees",
             "Benches",
             "Chaise Loungers",
@@ -27,7 +31,9 @@
         ]
     },
     {
-        "Chairs": [
+        "image_url": "https://ii2.pepperfry.com/media/wysiwyg/banners/Furniture_clp_nav_2x_03.jpg",
+        "type": "Chairs",
+        "category": [
             "Arm Chairs",
             "Rocking Chairs",
             "Lounge Chairs",
@@ -44,7 +50,9 @@
         ]
     },
     {
-        "Tables": [
+        "image_url": "https://ii1.pepperfry.com/media/wysiwyg/banners/Furniture_clp_nav_2x_04.jpg",
+        "type": "Tables",
+        "category": [
             "Coffee Tables",
             "Coffee Table Sets",
             "End Tables",
@@ -59,7 +67,9 @@
         ]
     },
     {
-        "Cabinetry": [
+        "image_url": "https://ii3.pepperfry.com/media/wysiwyg/banners/Furniture_clp_nav_2x_05.jpg",
+        "type": "Cabinetry",
+        "category": [
             "Shoe Racks",
             "Entertainment Units",
             "Cabinets",
@@ -76,7 +86,9 @@
         ]
     },
     {
-        "Dining and Bar": [
+        "image_url": "https://ii2.pepperfry.com/media/wysiwyg/banners/Furniture_clp_nav_2x_06.jpg",
+        "type": "Dining and Bar",
+        "category": [
             "Dining Sets",
             "Dining Chairs",
             "Dining Tables",
@@ -90,7 +102,9 @@
         ]
     },
     {
-        "Beds": [
+        "image_url": "https://ii1.pepperfry.com/media/wysiwyg/banners/Furniture_clp_nav_2x_07.jpg",
+        "type": "Beds",
+        "category": [
             "Beds",
             "Single Beds",
             "Queen Size Beds",
