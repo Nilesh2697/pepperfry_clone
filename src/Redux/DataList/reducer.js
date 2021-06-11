@@ -8,6 +8,8 @@ import {
     GET_DATA_SUCCESS_FIVE,
     GET_DATA_REQUEST_COMPLETE,
     GET_DATA_SUCCESS_SIX,
+    GET_DATA_SUCCESS_SEVEN,
+    GET_DATA_SUCCESS_EIGHT,
 } from "./actionTypes";
 
 const initState = {
@@ -19,6 +21,8 @@ const initState = {
     dataListFour: [],
     dataListFive: [],
     dataListSix: [],
+    dataListSeven: [],
+    dataListEight: [],
 };
 
 export const DataListReducer = (state = initState, action) => {
@@ -79,6 +83,20 @@ export const DataListReducer = (state = initState, action) => {
                 ...state,
                 dataListError: false,
                 dataListSix: payload,
+            };
+        }
+        case GET_DATA_SUCCESS_SEVEN: {
+            return {
+                ...state,
+                dataListError: false,
+                dataListSeven: payload,
+            };
+        }
+        case GET_DATA_SUCCESS_EIGHT: {
+            return {
+                ...state,
+                dataListError: false,
+                dataListEight: payload,
             };
         }
 

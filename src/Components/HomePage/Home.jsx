@@ -25,23 +25,14 @@ export const Home = () => {
     const dispatch = useDispatch();
 
     const handleGetData = () => {
-        const endPointList = {
-            homeChikHomeEndPoint,
-            houseFavouriteListEndPoint,
-            happyHomeEssentialsEndPoint,
-            nightEssentialEndPoint,
-            decorationListEndPoint,
-            modernStyleBannersEndPoint,
-        };
-
         dispatch(
             getData(
-                endPointList.homeChikHomeEndPoint,
-                endPointList.houseFavouriteListEndPoint,
-                endPointList.happyHomeEssentialsEndPoint,
-                endPointList.nightEssentialEndPoint,
-                endPointList.decorationListEndPoint,
-                endPointList.modernStyleBannersEndPoint,
+                homeChikHomeEndPoint,
+                houseFavouriteListEndPoint,
+                happyHomeEssentialsEndPoint,
+                nightEssentialEndPoint,
+                decorationListEndPoint,
+                modernStyleBannersEndPoint,
             ),
         );
     };

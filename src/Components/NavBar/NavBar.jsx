@@ -16,6 +16,7 @@ import LocalShippingOutlinedIcon from '@material-ui/icons/LocalShippingOutlined'
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
 import logo from "../../Images/logo.png"
+import { useHistory } from "react-router";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -89,9 +90,14 @@ export function NavBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const history = useHistory();
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+  const handleClick = () => {
+    history.push("/");
+  }
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -175,7 +181,7 @@ export function NavBar() {
             {/* <Typography className={classes.title} variant="h6" noWrap>
                <img style={{width:170,marginTop:5}} src="https://www.pngkit.com/png/detail/366-3664559_product-image-pepperfry-logo-png.png" alt="pepperfry"/>
             </Typography> */}
-            <div>
+            <div onClick={() => handleClick()} style={{cursor: "pointer"}}>
               <img style={{width:170, height: 50,marginTop:"1%", marginLeft: "15%"}} src={logo} alt="pepperfry"/>
             </div>
           <div style={{marginLeft: "5%"}} className={classes.search}>

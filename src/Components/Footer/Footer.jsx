@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './Footer.module.css';
+import styles from './Footer.module.css';
 import { FooterSocial } from './FooterSocial';
 import {Link} from 'react-router-dom';
 import { FooterLink } from './Footerlink';
@@ -34,20 +34,20 @@ const footer_list = [
 ];
 function Footer(){
     return (
-        <div className={style.footercont}>
-            <div className={style.subfooter}>
-                <div className={style.secfooter}>
-                    <Link to='/'><img src={main_footer[0]} style={{width:'100px',marginBottom:'10px'}} alt='pepperfry logo'/></Link>
+        <div className={styles.footercont}>
+            <div className={styles.subfooter}>
+                <div className={styles.secfooter}>
+                    <Link to='/'><img src={main_footer[0]} styles={{width:'100px',marginBottom:'10px'}} alt='pepperfry logo'/></Link>
                     {main_footer[1].map((item) => {
-                        return <div className={style.logocont}>{item}</div>
+                        return <div className={styles.logocont}>{item}</div>
                     })}
                 </div>
                 
                     {footer_list.map((item) => {
-                    return <div className={style.secfooter}>
-                    <div className={style.heads}>{item[0]}</div>
+                    return <div className={styles.secfooter}>
+                    <div className={styles.heads}>{item[0]}</div>
                     {item[1].map((item)=>{
-                        return <div className={style.headcont} style={item === 'Important: ' ? {color:'red',float:'left'} :item === 'GST and You' ? {color:'rgb(147, 146, 146)'}:console.log('')}>{item}</div>})}
+                        return <div className={styles.headcont} styles={item === 'Important: ' ? {color:'red',float:'left'} :item === 'GST and You' ? {color:'rgb(147, 146, 146)'}:console.log('')}>{item}</div>})}
                     </div>
                     })}
             </div>

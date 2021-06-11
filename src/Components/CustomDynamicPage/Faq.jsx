@@ -5,7 +5,9 @@ import faqList from "../../StaticData/Dynamic/faqList.json";
 import { Spinner } from "../Loading/Spinner";
 
 export const Faq = () => {
-    const { dataListLoading } = useSelector((state) => state.dataList);
+    const { dataListLoading, dataListEight } = useSelector(
+        (state) => state.dataList,
+    );
 
     return (
         <AdditionalInfoDiv>
@@ -18,7 +20,7 @@ export const Faq = () => {
                           <Spinner data={data} />
                       </div>
                   ))
-                : faqList.map((item) => (
+                : dataListEight.map((item) => (
                       <div>
                           <h2>{item.q}</h2>
                           <p>{item.a}</p>

@@ -9,7 +9,39 @@ import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import { Facilities } from "./Facilities";
 import { Faq } from "./Faq";
 
+import {
+    brandListEndPoint,
+    categoryHeadingListEndPoint,
+    facilitiesListEndPoint,
+    faqListEndPoint,
+    firstSaleLogoEndPoint,
+    newArivalListEndPoint,
+    shopByStyleListEndPoint,
+    spotLightListEndPoint,
+} from "../../StaticData/apiEndPoints";
+import { useDispatch } from "react-redux";
+import { getData } from "../../Redux/DataList/action";
+import { useEffect } from "react";
+
 export const CustomDynamicPage = () => {
+    const dispatch = useDispatch();
+
+    const handleGetData = () => {
+        dispatch(
+            getData(
+                categoryHeadingListEndPoint,
+                firstSaleLogoEndPoint,
+                spotLightListEndPoint,
+                newArivalListEndPoint,
+                shopByStyleListEndPoint,
+                brandListEndPoint,
+                facilitiesListEndPoint,
+                faqListEndPoint,
+            ),
+        );
+    };
+
+    useEffect(handleGetData, [dispatch]);
     return (
         <div>
             <br />
