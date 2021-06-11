@@ -24,7 +24,7 @@ export const DynamicPageCategory = () => {
                               <img src={item.image_url} alt="HeadingImage" />
                               <p>{item.type}</p>
                               <div>
-                                  {item.category.map((el) => (
+                                  {item.category?.map((el) => (
                                       <div>{el}</div>
                                   ))}
                               </div>
