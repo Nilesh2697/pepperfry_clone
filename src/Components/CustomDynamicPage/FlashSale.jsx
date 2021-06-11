@@ -13,7 +13,7 @@ export const FlashSale = () => {
             <div style={{ padding: "1% 6%" }}>
                 {dataListLoading
                     ? firstSaleLogo.map((data, i) => <Spinner data={data} />)
-                    : firstSaleLogo.map((item, index) => (
+                    : dataListTwo.map((item, index) => (
                           <img
                               key={index}
                               src={item.image_url}

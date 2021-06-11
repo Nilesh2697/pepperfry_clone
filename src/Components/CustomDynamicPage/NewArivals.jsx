@@ -28,7 +28,7 @@ export const NewArivals = () => {
                               <Spinner data={data} />
                           </CustomCard>
                       ))
-                    : newArivalList.map((item, index) => (
+                    : dataListFour.map((item, index) => (
                           <CustomCard key={index} type="secondary">
                               <img
                                   style={{

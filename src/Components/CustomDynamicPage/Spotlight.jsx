@@ -27,7 +27,7 @@ export const Spotlight = () => {
                               <Spinner data={data} />
                           </CustomCard>
                       ))
-                    : spotLightList.map((item, index) => (
+                    : dataListThree.map((item, index) => (
                           <img
                               style={{
                                   width: "100%",
