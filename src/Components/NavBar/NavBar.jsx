@@ -17,6 +17,8 @@ import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutline
 import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
 import logo from "../../Images/logo.png"
 import { useHistory } from "react-router";
+import { getSearch } from "../../Redux/Search/action";
+import { useDispatch, useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -90,10 +92,24 @@ export function NavBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [searchData, setSearchData] = React.useState({})
   const history = useHistory();
+  const dispatch = useDispatch()
+  const searchResult = useSelector((state) => state.search.data)
+
+  console.log(searchResult)
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+  const handleSearch = (e) => {
+    let payload = e.target.value
+    setSearchData({...searchData, payload})
+  }
+
+  React.useEffect(()=>{
+    dispatch(getSearch(searchData.payload))
+  }, [searchData])
 
   const handleClick = () => {
     history.push("/");
@@ -193,6 +209,7 @@ export function NavBar() {
                 input: classes.inputInput
               }}
               inputProps={{ "aria-label": "search" }}
+              onChange={(e)=>handleSearch(e)}
             />
              <div className={classes.searchIcon}>
             <SearchIcon/>
