@@ -15,19 +15,20 @@ import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import LocalShippingOutlinedIcon from '@material-ui/icons/LocalShippingOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
+import logo from "../../Images/logo.png"
 
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1
   },
   
-  title: {
-    display: "none",
-    marginLeft:160,
-    [theme.breakpoints.up("sm")]: {
-      display: "block"
-    }
-  },
+  // title: {
+  //   display: "none",
+  //   marginLeft:160,
+  //   [theme.breakpoints.up("xs")]: {
+  //     display: "block"
+  //   }
+  // },
   search: {
     position: "relative",
     borderRadius: theme.shape.borderRadius,
@@ -169,13 +170,15 @@ export function NavBar() {
 
   return (
     <div className={classes.grow}>
-      <AppBar  color="transparent"  position="static">
+      <AppBar style={{borderBottom: "2px solid #E7E7E7", height: 70, boxShadow: "none"}} color="transparent"  position="static">
         <Toolbar>
-            <Typography className={classes.title} variant="h6" noWrap>
+            {/* <Typography className={classes.title} variant="h6" noWrap>
                <img style={{width:170,marginTop:5}} src="https://www.pngkit.com/png/detail/366-3664559_product-image-pepperfry-logo-png.png" alt="pepperfry"/>
-            </Typography>
-         
-          <div className={classes.search}>
+            </Typography> */}
+            <div>
+              <img style={{width:170, height: 50,marginTop:"1%", marginLeft: "15%"}} src={logo} alt="pepperfry"/>
+            </div>
+          <div style={{marginLeft: "5%"}} className={classes.search}>
            
             <InputBase
               placeholder="Search"
@@ -191,10 +194,10 @@ export function NavBar() {
           
           </div>
           <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
+          <div style={{marginLeft: "5%"}} className={classes.sectionDesktop}>
             <IconButton aria-label="show 4 new mails" color="inherit">
             <div>
-              <Badge badgeContent={4} color="secondary">
+              <Badge badgeContent={0} color="secondary">
                
                <LocalShippingOutlinedIcon style={{ fontSize: 28 }}/>               
                
@@ -204,7 +207,7 @@ export function NavBar() {
             </IconButton>
             <IconButton aria-label="show 4 new mails" color="inherit">
               <div>
-              <Badge badgeContent={4} color="secondary">
+              <Badge badgeContent={0} color="secondary">
               <FavoriteBorderOutlinedIcon style={{ fontSize: 28,marginLeft:15 }}/>
               </Badge>
               <div style={{fontSize:12,marginLeft:15}}>
@@ -214,7 +217,7 @@ export function NavBar() {
             </IconButton>
             <IconButton aria-label="show 17 new notifications" color="inherit">
               <div>
-              <Badge badgeContent={17} color="secondary">
+              <Badge badgeContent={0} color="secondary">
                <ShoppingCartOutlinedIcon style={{ fontSize: 28,marginLeft:15 }}/>
               </Badge>
               <div style={{fontSize:12,marginLeft:15}}>
