@@ -27,6 +27,7 @@ import { useParams } from "react-router-dom";
 export const CustomDynamicPage = () => {
     const dispatch = useDispatch();
     const { product } = useParams();
+    console.log(product);
     let endPointList = [];
     switch (product) {
         case "furniture": {
@@ -65,7 +66,7 @@ export const CustomDynamicPage = () => {
         );
     };
 
-    useEffect(handleGetData, [dispatch]);
+    useEffect(handleGetData, [product]);
     return (
         <div>
             <br />

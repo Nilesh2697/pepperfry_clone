@@ -46,6 +46,7 @@ const DropDown = () => {
     const history = useHistory();
 
     function handleClick(path) {
+        // console.log("Pushed");
         history.push(path);
     }
 
@@ -721,8 +722,7 @@ const DropDown = () => {
                 className={classes.button2}
                 aria-owns={anchorEl ? "simple-menu2" : undefined}
                 aria-haspopup="true"
-                onClick={() => handleClick("/type/living")}
-                onMouseOver={handleHover2}
+                onMouseOut={handleHover2}
             >
                 <span onClick={() => handleClick("/living")}>Living</span>
             </Button>
@@ -1256,10 +1256,9 @@ const DropDown = () => {
                 className={classes.button2}
                 aria-owns={anchorEl ? "simple-menu3" : undefined}
                 aria-haspopup="true"
-                onClick={() => handleClick("/type/bedroom")}
-                onMouseOver={handleHover3}
+                onMouseOut={handleHover3}
             >
-                Bedroom
+                <span onClick={() => handleClick("/bedroom")}>Bedroom</span>
             </Button>
             <Menu
                 anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
@@ -1743,10 +1742,9 @@ const DropDown = () => {
                 className={classes.button2}
                 aria-owns={anchorEl ? "simple-menu4" : undefined}
                 aria-haspopup="true"
-                onClick={() => handleClick("/type/wfh")}
-                onMouseOver={handleHover4}
+                onMouseOut={handleHover4}
             >
-                #WFH
+                <span onClick={() => handleClick("/wfh")}>#wfh</span>
             </Button>
             <Menu
                 anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
@@ -2149,10 +2147,9 @@ const DropDown = () => {
                 className={classes.button2}
                 aria-owns={anchorEl ? "simple-menu5" : undefined}
                 aria-haspopup="true"
-                onClick={() => handleClick("/type/kids_room")}
-                onMouseOver={handleHover5}
+                onMouseOut={handleHover5}
             >
-                Kids Room
+                <span onClick={() => handleClick("/kids_room")}>Kids Room</span>
             </Button>
             <Menu
                 anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
@@ -2567,10 +2564,11 @@ const DropDown = () => {
                 className={classes.button2}
                 aria-owns={anchorEl ? "simple-menu6" : undefined}
                 aria-haspopup="true"
-                onClick={() => handleClick("/type/mattresses")}
-                onMouseOver={handleHover6}
+                onMouseOut={handleHover6}
             >
-                Mattresses
+                <span onClick={() => handleClick("/mattresses")}>
+                    Mattresses
+                </span>
             </Button>
             <Menu
                 anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
@@ -2863,10 +2861,11 @@ const DropDown = () => {
                 className={classes.button2}
                 aria-owns={anchorEl ? "simple-menu7" : undefined}
                 aria-haspopup="true"
-                onClick={() => handleClick("/type/furnishings")}
-                onMouseOver={handleHover7}
+                onMouseOut={handleHover7}
             >
-                Furnishings
+                <span onClick={() => handleClick("/furnishings")}>
+                    Furnishings
+                </span>
             </Button>
             <Menu
                 anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
@@ -3183,10 +3182,9 @@ const DropDown = () => {
                 className={classes.button2}
                 aria-owns={anchorEl ? "simple-menu8" : undefined}
                 aria-haspopup="true"
-                onClick={() => handleClick("/type/decor")}
-                onMouseOver={handleHover8}
+                onMouseOut={handleHover8}
             >
-                Decor
+                <span onClick={() => handleClick("/decor")}>Decor</span>
             </Button>
             <Menu
                 anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
@@ -3742,10 +3740,9 @@ const DropDown = () => {
                 className={classes.button2}
                 aria-owns={anchorEl ? "simple-menu9" : undefined}
                 aria-haspopup="true"
-                onClick={() => handleClick("/type/lighting")}
-                onMouseOver={handleHover9}
+                onMouseOut={handleHover9}
             >
-                Lighting
+                <span onClick={() => handleClick("/lighting")}>Lighting</span>
             </Button>
             <Menu
                 anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
@@ -4061,10 +4058,11 @@ const DropDown = () => {
                 className={classes.button2}
                 aria-owns={anchorEl ? "simple-menu10" : undefined}
                 aria-haspopup="true"
-                onClick={() => handleClick("/type/modular_furniture")}
-                onMouseOver={handleHover10}
+                onMouseOut={handleHover10}
             >
-                Modular Furniture
+                <span onClick={() => handleClick("/modular_furniture")}>
+                    Modular Furniture
+                </span>
             </Button>
             <Menu
                 anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
