@@ -112,6 +112,8 @@ export function NavBar() {
     dispatch(getSearch(searchData.payload))
   }, [searchData])
 
+  // console.log(searchResult.length, searchData.payload.length)
+
   const handleClick = () => {
     history.push("/");
   }
@@ -199,9 +201,9 @@ export function NavBar() {
                <img style={{width:170,marginTop:5}} src="https://www.pngkit.com/png/detail/366-3664559_product-image-pepperfry-logo-png.png" alt="pepperfry"/>
             </Typography> */}
             <div onClick={() => handleClick()} style={{cursor: "pointer"}}>
-              <img style={{width:170, height: 50,marginTop:"1%", marginLeft: "95%"}} src={logo} alt="pepperfry"/>
+              <img style={{width:170, height: 50,marginTop:"1%", marginLeft: "40%"}} src={logo} alt="pepperfry"/>
             </div>
-          <div style={{marginLeft: "13.5%"}} className={classes.search}>
+          <div style={{marginLeft: "8%"}} className={classes.search}>
            
             <InputBase
               placeholder="Search"
@@ -215,11 +217,28 @@ export function NavBar() {
              <div className={classes.searchIcon}>
             <SearchIcon/>
             </div>
-          
+            {searchData.payload?.length > 0 ? 
+                        <div style={{
+                          position: "absolute", 
+                          // border: "1px solid", 
+                          backgroundColor: "white",
+                          width: "100%",
+                          height: "auto",
+                          zIndex: 1,
+                          borderRadius: 0,
+                          background: "#f2f6f7",
+                          boxShadow:  "-7px 7px 14px #d5d8d9, 7px -7px 14px #ffffff;",
+                        }}>
+                          {searchResult.length > 0 && searchResult.map(el => (
+                            <p style={{marginLeft: "2%", paddingTop: 5}}>{el.name}</p>
+                          ))}
+                      </div>
+                      : <div style={{display: "none"}}></div>  
+          }  
           </div>
           <div className={classes.grow} />
-          <div  className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
+          <div style={{marginLeft: "2%"}} className={classes.sectionDesktop}>
+            <IconButton aria-label="show 4 new mails" color="inherit" style={{ backgroundColor: 'transparent' }}>
             <div>
               <Badge badgeContent={0} color="secondary">
                
@@ -229,7 +248,7 @@ export function NavBar() {
              <div style={{fontSize:12 ,marginLeft:-35}}>Track</div> 
             </div>
             </IconButton>
-            <IconButton aria-label="show 4 new mails" color="inherit">
+            <IconButton aria-label="show 4 new mails" color="inherit" style={{ backgroundColor: 'transparent' }}>
               <div>
               <Badge badgeContent={0} color="secondary">
               <FavoriteBorderOutlinedIcon style={{ fontSize: 28,marginLeft:0}}/>
@@ -239,7 +258,7 @@ export function NavBar() {
               </div>
               </div>
             </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
+            <IconButton aria-label="show 17 new notifications" color="inherit" style={{ backgroundColor: 'transparent' }}>
               <div>
               <Badge badgeContent={0} color="secondary">
                <ShoppingCartOutlinedIcon style={{ fontSize: 28,marginLeft:10 }}/>
@@ -256,13 +275,14 @@ export function NavBar() {
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
               color="inherit"
+              style={{ backgroundColor: 'transparent' }}
             >  
-                 <div>
-                 <PermIdentityOutlinedIcon style={{ fontSize: 28 ,marginLeft:25}}/>
-                 <div style={{fontSize:12,marginLeft:25}}>
-                  Profile
+                <div style={{lineHeight: "80%", marginTop: "10%"}}>
+                  <PermIdentityOutlinedIcon style={{ fontSize: 35 ,marginLeft:15}}/>
+                  <div style={{fontSize:12, marginLeft:15}}>
+                    Profile
+                  </div>
                 </div>
-                 </div>
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>

@@ -19,6 +19,8 @@ const useStyles = makeStyles((theme) => ({
         fontSize: 12,
         fontWeight: "bold",
         marginTop: "0.2%",
+        position: "relative",
+        zIndex: 0
     },
     button2: {
         marginLeft: "2%",
