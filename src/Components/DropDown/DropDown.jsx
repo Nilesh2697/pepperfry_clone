@@ -44,7 +44,6 @@ const DropDown = () => {
     const history = useHistory();
 
     function handleClick(path) {
-        alert("Hii");
         history.push(path);
     }
 
@@ -156,10 +155,9 @@ const DropDown = () => {
                 className={classes.button}
                 aria-owns={anchorEl ? "simple-menu" : undefined}
                 aria-haspopup="true"
-                onMouseOver={handleHover}
-                onClick={() => handleClick("/furniture")}
+                onMouseOut={handleHover}
             >
-                Furniture
+                <span onClick={() => handleClick("/furniture")}>Furniture</span>
             </Button>
             <Menu
                 anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
