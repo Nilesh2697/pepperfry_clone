@@ -150,7 +150,7 @@ const DropDown = () => {
     }
 
     return (
-        <MenuBar>
+        <MenuBar style={{borderBottom: "2px solid #F1F1F1",  height: 40}}>
             {/* button 1 */}
             <Button
                 className={classes.button}

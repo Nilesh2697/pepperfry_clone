@@ -20,6 +20,7 @@ import { NightEssentials } from "./NightEssentials";
 import { DecorationList } from "./DecorationList";
 import { ModernStyleBannerList } from "./ModernStyleBannerList";
 
+
 export const Home = () => {
     const dispatch = useDispatch();
 
@@ -49,8 +50,11 @@ export const Home = () => {
 
     return (
         <div>
-            <Ads />
+            {/* <Ads /> */}
             <br />
+            
+            <br/>
+            <br/>
             <HomeChikHome />
             <br />
             <br />
