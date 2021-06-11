@@ -4109,7 +4109,7 @@ const DropDown = () => {
                                 style={{
                                     width: 280,
                                     height: 150,
-                                    lineHeight: "1%",
+                                    // lineHeight: "1%",
                                     cursor: "pointer",
                                 }}
                             >
@@ -4129,7 +4129,7 @@ const DropDown = () => {
                                 style={{
                                     width: 280,
                                     height: 150,
-                                    lineHeight: "1%",
+                                    // lineHeight: "1%",
                                     cursor: "pointer",
                                 }}
                             >
