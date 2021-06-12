@@ -18,11 +18,11 @@ const Routes = () => {
                 <Route path="/" exact>
                     <Home />
                 </Route>
-                <Route path="/item" exact>
-                    <ProductPage />
-                </Route>
                 <Route path="/product/:product">
                     <CustomDynamicPage />
+                </Route>
+                <Route path="/item">
+                    <ProductPage />
                 </Route>
             </Switch>
             <Footer />
