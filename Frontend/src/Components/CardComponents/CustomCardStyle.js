@@ -67,6 +67,10 @@ export const SecondaryCustomCard = styled.div`
     cursor: pointer;
     /* cursor: none; */
 
+    & img {
+        height: 40vh;
+    }
+
     :hover {
         border-color: grey;
         box-shadow: 0 0 10px grey;
