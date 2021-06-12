@@ -4,7 +4,7 @@ import { CustomDynamicPage } from "../Components/CustomDynamicPage/CustomDynamic
 import { DropDown } from "../Components/DropDown/DropDown";
 import { Footer } from "../Components/Footer/Footer";
 import { Home } from "../Components/HomePage/Home";
-import { NavBar } from "../Components/NavBar/NavBar";
+import  NavBar  from "../Components/NavBar/NavBar";
 const Routes = () => {
     return (
         <div>
