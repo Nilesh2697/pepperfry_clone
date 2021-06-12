@@ -19,7 +19,7 @@ import { HomeEssentials } from "./HomeEssentials";
 import { NightEssentials } from "./NightEssentials";
 import { DecorationList } from "./DecorationList";
 import { ModernStyleBannerList } from "./ModernStyleBannerList";
-
+import CardCarousel from "./Carousel/CardCarousal";
 
 export const Home = () => {
     const dispatch = useDispatch();
@@ -43,7 +43,13 @@ export const Home = () => {
         <div>
             {/* <Ads /> */}
             <br />
-            
+            <div style={{
+                minWidth: "70%",
+                marginLeft:'20%'
+            }}
+            >
+            <CardCarousel/> 
+            </div>
             <br/>
             <br/>
             <HomeChikHome />
