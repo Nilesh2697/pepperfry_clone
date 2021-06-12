@@ -3,20 +3,21 @@ import { fade, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
+// import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
 import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import MoreIcon from "@material-ui/icons/MoreVert";
-import { Login } from "../Login/Login";
+import { Register } from "../Login/Register";
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import LocalShippingOutlinedIcon from '@material-ui/icons/LocalShippingOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
 import logo from "../../Images/logo.png"
 import { useHistory } from "react-router";
+import {connect} from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -87,7 +88,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export function NavBar() {
+ function NavBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -129,7 +130,7 @@ export function NavBar() {
       onClose={handleMenuClose}
       style={{top:45,left:30}}
     >
-      <MenuItem style={{background:"#ef6630"}} onClick={handleMenuClose}><Login /></MenuItem>
+      <MenuItem style={{background:"#ef6630"}} onClick={handleMenuClose}><Register /></MenuItem>
       <MenuItem onClick={handleMenuClose}><span style={{fontSize:11}}>To access your <br/>account & manage<br/> orders</span></MenuItem>
     </Menu>
   );
@@ -266,3 +267,13 @@ export function NavBar() {
     </div>
   );
 }
+
+const mapStateToProps =(state)=>{
+  console.log(state)
+  return{
+
+  }
+}
+
+
+export default connect(mapStateToProps)(NavBar)
