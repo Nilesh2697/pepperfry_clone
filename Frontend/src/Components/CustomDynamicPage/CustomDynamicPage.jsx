@@ -56,7 +56,6 @@ export const CustomDynamicPage = () => {
             endPointList.push(BEDROOM_BRAND_LIST_END_POINT);
             endPointList.push(FACILITIES_LIST_END_POINT);
             endPointList.push(FAQ_LIST_END_POINT);
-
             break;
         }
         default: {
