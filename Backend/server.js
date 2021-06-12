@@ -1,7 +1,9 @@
 const express = require("express");
+const cors = require("cors")
 const server = express();
 // const body_parser = require("body-parser");
 server.use(express.json())
+server.use(cors())
 
 const db = require("./db");
 const { ObjectId } = require("bson");
@@ -175,7 +177,7 @@ db.initialize(dbName, tablesCollection, function(dbCollection){
 function(err){
     throw(err)
 })
-//beds data
+//diningbar data
 db.initialize(dbName, diningbarCollection, function(dbCollection){
     // to get all the beds
     server.get("/diningbar", (req, res) => {
