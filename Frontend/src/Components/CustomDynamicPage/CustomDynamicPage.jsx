@@ -32,7 +32,6 @@ import { useParams } from "react-router-dom";
 export const CustomDynamicPage = () => {
     const dispatch = useDispatch();
     const { product } = useParams();
-    console.log(product);
     let endPointList = [];
     switch (product) {
         case "furniture": {
@@ -56,7 +55,6 @@ export const CustomDynamicPage = () => {
             endPointList.push(BEDROOM_BRAND_LIST_END_POINT);
             endPointList.push(FACILITIES_LIST_END_POINT);
             endPointList.push(FAQ_LIST_END_POINT);
-
             break;
         }
         default: {
@@ -105,12 +103,11 @@ export const CustomDynamicPage = () => {
                     fontWeight: "bold",
                     display: "flex",
                     justifyContent: "center",
-                    cursor: "pointer",
                 }}
             >
-                <p>BROWSE ALL BRANDS</p>
+                <label style={{ cursor: "pointer" }}>BROWSE ALL BRANDS</label>
 
-                <ArrowForwardIosIcon />
+                <ArrowForwardIosIcon style={{ cursor: "pointer" }} />
             </div>
 
             <br />
