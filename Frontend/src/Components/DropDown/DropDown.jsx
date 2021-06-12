@@ -46,10 +46,10 @@ const DropDown = () => {
     const classes = useStyles();
     const history = useHistory();
 
-    function handleClick(path) {
+    // function handleClick(path) {
         // console.log("Pushed");
-        history.push(`/product/:${path}`);
-    }
+        // history.push(`/product/:${path}`);
+    // }
 
     //button 1
     function handleHover(event) {
