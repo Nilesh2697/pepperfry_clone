@@ -10,14 +10,19 @@ import { Facilities } from "./Facilities";
 import { Faq } from "./Faq";
 
 import {
-    furnitureBrandListEndPoint,
-    furnitureCategoryHeadingListEndPoint,
-    furnitureFacilitiesListEndPoint,
-    furnitureFaqListEndPoint,
-    furnitureFirstSaleLogoEndPoint,
-    furnitureNewArivalListEndPoint,
-    furnitureShopByStyleListEndPoint,
-    furnitureSpotLightListEndPoint,
+    FACILITIES_LIST_END_POINT,
+    FAQ_LIST_END_POINT,
+    FIRST_SALE_LOGO_END_POINT,
+    FURNITURE_BRAND_LIST_END_POINT,
+    FURNITURE_CATEGORY_LIST_END_POINT,
+    FURNITURE_NEWARIVAL_LIST_END_POINT,
+    FURNITURE_SHOP_BY_STYLE_LIST_END_POINT,
+    FURNITURE_SPOTLIGHT_LIST_END_POINT,
+    BEDROOM_CATEGORY_LIST_END_POINT,
+    BEDROOM_SPOTLIGHT_LIST_END_POINT,
+    BEDROOM_NEWARIVAL_LIST_END_POINT,
+    BEDROOM_SHOP_BY_STYLE_LIST_END_POINT,
+    BEDROOM_BRAND_LIST_END_POINT,
 } from "../../StaticData/apiEndPoints";
 import { useDispatch } from "react-redux";
 import { getData } from "../../Redux/DataList/action";
@@ -31,19 +36,27 @@ export const CustomDynamicPage = () => {
     let endPointList = [];
     switch (product) {
         case "furniture": {
-            endPointList.push(furnitureCategoryHeadingListEndPoint);
-            endPointList.push(furnitureFirstSaleLogoEndPoint);
-            endPointList.push(furnitureSpotLightListEndPoint);
-            endPointList.push(furnitureNewArivalListEndPoint);
-            endPointList.push(furnitureShopByStyleListEndPoint);
-            endPointList.push(furnitureBrandListEndPoint);
-            endPointList.push(furnitureFacilitiesListEndPoint);
-            endPointList.push(furnitureFaqListEndPoint);
+            endPointList.push(FURNITURE_CATEGORY_LIST_END_POINT);
+            endPointList.push(FIRST_SALE_LOGO_END_POINT);
+            endPointList.push(FURNITURE_SPOTLIGHT_LIST_END_POINT);
+            endPointList.push(FURNITURE_NEWARIVAL_LIST_END_POINT);
+            endPointList.push(FURNITURE_SHOP_BY_STYLE_LIST_END_POINT);
+            endPointList.push(FURNITURE_BRAND_LIST_END_POINT);
+            endPointList.push(FACILITIES_LIST_END_POINT);
+            endPointList.push(FAQ_LIST_END_POINT);
             break;
         }
 
         case "bedroom": {
-            console.log(product);
+            endPointList.push(BEDROOM_CATEGORY_LIST_END_POINT);
+            endPointList.push(FIRST_SALE_LOGO_END_POINT);
+            endPointList.push(BEDROOM_SPOTLIGHT_LIST_END_POINT);
+            endPointList.push(BEDROOM_NEWARIVAL_LIST_END_POINT);
+            endPointList.push(BEDROOM_SHOP_BY_STYLE_LIST_END_POINT);
+            endPointList.push(BEDROOM_BRAND_LIST_END_POINT);
+            endPointList.push(FACILITIES_LIST_END_POINT);
+            endPointList.push(FAQ_LIST_END_POINT);
+
             break;
         }
         default: {
