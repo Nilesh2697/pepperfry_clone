@@ -17,7 +17,12 @@ import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutline
 import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
 import logo from "../../Images/logo.png"
 import { useHistory } from "react-router";
+<<<<<<< HEAD:src/Components/NavBar/NavBar.jsx
 import {connect} from "react-redux";
+=======
+import { getSearch } from "../../Redux/Search/action";
+import { useDispatch, useSelector } from "react-redux";
+>>>>>>> 48bec79aacb4dc07078157791381d3d775679fb1:Frontend/src/Components/NavBar/NavBar.jsx
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -92,10 +97,26 @@ const useStyles = makeStyles((theme) => ({
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [searchData, setSearchData] = React.useState({})
   const history = useHistory();
+  const dispatch = useDispatch()
+  const searchResult = useSelector((state) => state.search.data)
+
+  console.log(searchResult)
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+  const handleSearch = (e) => {
+    let payload = e.target.value
+    setSearchData({...searchData, payload})
+  }
+
+  React.useEffect(()=>{
+    dispatch(getSearch(searchData.payload))
+  }, [searchData])
+
+  // console.log(searchResult.length, searchData.payload.length)
 
   const handleClick = () => {
     history.push("/");
@@ -184,9 +205,9 @@ const useStyles = makeStyles((theme) => ({
                <img style={{width:170,marginTop:5}} src="https://www.pngkit.com/png/detail/366-3664559_product-image-pepperfry-logo-png.png" alt="pepperfry"/>
             </Typography> */}
             <div onClick={() => handleClick()} style={{cursor: "pointer"}}>
-              <img style={{width:170, height: 50,marginTop:"1%", marginLeft: "95%"}} src={logo} alt="pepperfry"/>
+              <img style={{width:170, height: 50,marginTop:"1%", marginLeft: "40%"}} src={logo} alt="pepperfry"/>
             </div>
-          <div style={{marginLeft: "13.5%"}} className={classes.search}>
+          <div style={{marginLeft: "8%"}} className={classes.search}>
            
             <InputBase
               placeholder="Search"
@@ -195,15 +216,33 @@ const useStyles = makeStyles((theme) => ({
                 input: classes.inputInput
               }}
               inputProps={{ "aria-label": "search" }}
+              onChange={(e)=>handleSearch(e)}
             />
              <div className={classes.searchIcon}>
             <SearchIcon/>
             </div>
-          
+            {searchData.payload?.length > 0 ? 
+                        <div style={{
+                          position: "absolute", 
+                          // border: "1px solid", 
+                          backgroundColor: "white",
+                          width: "100%",
+                          height: "auto",
+                          zIndex: 1,
+                          borderRadius: 0,
+                          background: "#f2f6f7",
+                          boxShadow:  "-7px 7px 14px #d5d8d9, 7px -7px 14px #ffffff;",
+                        }}>
+                          {searchResult.length > 0 && searchResult.map(el => (
+                            <p style={{marginLeft: "2%", paddingTop: 5}}>{el.name}</p>
+                          ))}
+                      </div>
+                      : <div style={{display: "none"}}></div>  
+          }  
           </div>
           <div className={classes.grow} />
-          <div  className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
+          <div style={{marginLeft: "2%"}} className={classes.sectionDesktop}>
+            <IconButton aria-label="show 4 new mails" color="inherit" style={{ backgroundColor: 'transparent' }}>
             <div>
               <Badge badgeContent={0} color="secondary">
                
@@ -213,7 +252,7 @@ const useStyles = makeStyles((theme) => ({
              <div style={{fontSize:12 ,marginLeft:-35}}>Track</div> 
             </div>
             </IconButton>
-            <IconButton aria-label="show 4 new mails" color="inherit">
+            <IconButton aria-label="show 4 new mails" color="inherit" style={{ backgroundColor: 'transparent' }}>
               <div>
               <Badge badgeContent={0} color="secondary">
               <FavoriteBorderOutlinedIcon style={{ fontSize: 28,marginLeft:0}}/>
@@ -223,7 +262,7 @@ const useStyles = makeStyles((theme) => ({
               </div>
               </div>
             </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
+            <IconButton aria-label="show 17 new notifications" color="inherit" style={{ backgroundColor: 'transparent' }}>
               <div>
               <Badge badgeContent={0} color="secondary">
                <ShoppingCartOutlinedIcon style={{ fontSize: 28,marginLeft:10 }}/>
@@ -240,13 +279,14 @@ const useStyles = makeStyles((theme) => ({
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
               color="inherit"
+              style={{ backgroundColor: 'transparent' }}
             >  
-                 <div>
-                 <PermIdentityOutlinedIcon style={{ fontSize: 28 ,marginLeft:25}}/>
-                 <div style={{fontSize:12,marginLeft:25}}>
-                  Profile
+                <div style={{lineHeight: "80%", marginTop: "10%"}}>
+                  <PermIdentityOutlinedIcon style={{ fontSize: 35 ,marginLeft:15}}/>
+                  <div style={{fontSize:12, marginLeft:15}}>
+                    Profile
+                  </div>
                 </div>
-                 </div>
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>
