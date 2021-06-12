@@ -105,12 +105,20 @@ export const CustomDynamicPage = () => {
                     fontWeight: "bold",
                     display: "flex",
                     justifyContent: "center",
-                    cursor: "pointer",
                 }}
             >
-                <p>BROWSE ALL BRANDS</p>
-
-                <ArrowForwardIosIcon />
+                <p
+                    style={{
+                        cursor: "pointer",
+                    }}
+                >
+                    BROWSE ALL BRANDS
+                </p>
+                <ArrowForwardIosIcon
+                    style={{
+                        cursor: "pointer",
+                    }}
+                />
             </div>
 
             <br />
