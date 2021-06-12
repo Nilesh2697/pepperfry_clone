@@ -47,7 +47,7 @@ const DropDown = () => {
 
     function handleClick(path) {
         // console.log("Pushed");
-        history.push(path);
+        history.push(`/product/:${path}`);
     }
 
     //button 1
