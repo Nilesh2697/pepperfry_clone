@@ -1,5 +1,6 @@
-import { LOG_IN_FAILURE, LOG_IN_REQUEST, LOG_IN_SUCCESS, REGISTER_USER_FAILURE, REGISTER_USER_REQUEST, REGISTER_USER_SUCCESS, TOGGLE_BETWEEN_REGISTER_LOGIN } from "./fireActionType";
+import { LOGIN_WITH_FACEBOOK, LOGIN_WITH_GOOGLE, LOG_IN_FAILURE, LOG_IN_REQUEST, LOG_IN_SUCCESS, LOG_OUT, REGISTER_USER_FAILURE, REGISTER_USER_REQUEST, REGISTER_USER_SUCCESS, TOGGLE_BETWEEN_REGISTER_LOGIN } from "./fireActionType";
 import axios from "axios";
+import { auth,google,facebook } from "./firebaseConfig";
 
 const registerUserRequest = () => {
     return {
@@ -49,21 +50,55 @@ export const registerUser = (payload)=>(dispatch)=>{
     .catch(err=>dispatch(registerUserFailure(err)))
 }
 
-export const login =(payload)=>(dispatch,getState,{getFirebase})=>{
-      const firebase = getFirebase();
-     // console.log(firebase)
+export const login =(payload)=>(dispatch)=>{
+    console.log(payload)
       dispatch(loginRequest())
-      firebase.auth().signInWithEmailAndPassword(payload.email,payload.password)
+      axios.get(`http://localhost:3001/users/${payload.email}/${payload.password}}`)
       .then((res)=>{
           dispatch(loginSuccess(res.data))
       })
       .catch(err=>dispatch(loginFailure(err)))
 }
 
+const loginWithGoogleSuccess=(payload)=>{
+    return {
+        type:LOGIN_WITH_GOOGLE,
+        payload
+    };
+}
+const loginWithFacebookSuccess=(payload)=>{
+    return {
+        type:LOGIN_WITH_FACEBOOK,
+        payload
+    };
+}
+
+export const loginWithGoogle=(payload)=>(dispatch)=>{
+    dispatch(loginRequest())
+    auth.signInWithPopup(google)
+        .then(res => dispatch(loginWithGoogleSuccess(res.user)) )
+        .catch((err) =>dispatch(loginFailure(err)));
+}
+
+export const loginWithFacebook=(payload)=>(dispatch)=>{
+    dispatch(loginRequest())
+    auth.signInWithPopup(facebook)
+        .then(res => dispatch(loginWithFacebookSuccess(res.user)) )
+        .catch((err) =>dispatch(loginFailure(err)));
+}
+
+
 export const toggle=(payload)=>{
     return{
         type:TOGGLE_BETWEEN_REGISTER_LOGIN,
         payload
     }
+}
+
+export const logOut =(payload)=>{
+    return {
+        type:LOG_OUT,
+        payload
+    };
 }
 

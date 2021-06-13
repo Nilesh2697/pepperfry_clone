@@ -5,8 +5,10 @@ import TextField from '@material-ui/core/TextField';
 import CloseIcon from '@material-ui/icons/Close';
 import Button from "@material-ui/core/Button"
 import {useDispatch,useSelector} from "react-redux";
-import { registerUser, toggle } from './fireAction';
+import { registerUser, toggle, loginWithGoogle, loginWithFacebook } from './fireAction';
 import { Login } from './Login';
+import {Redirect} from "react-router-dom";
+
 
 // function rand() {
 //   return Math.round(Math.random() * 20) - 10;
@@ -29,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     width: 670,
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
+    padding: theme.spacing(2,4,0,0),
   },
 }));
 
@@ -61,16 +63,33 @@ export function Register() {
       setState({...state,[name]:value})
   }
   const loginToggle= useSelector(state=>state.fireReducer.login_page)
+
+  const isAuth= useSelector(state=>state.fireReducer.isAuth)
+
+
+  const {email,password,first_name,phone}=state;
+
   const handleSubmit=(e)=>{
     e.preventDefault();
-    dispatch(registerUser(state))
+    if(email!==""||password!==""||first_name!==""||phone!==""){
+      dispatch(registerUser(state))
+    }
+    else{
+       alert("Please input all the fields")
+    }
   }
 
  const handleToggleLogin=()=>{
    dispatch(toggle())
  }
 
+ const handleLoginWithGoogle=()=>{
+    dispatch(loginWithGoogle())
+ }
 
+ const handleLoginWithFacebook=()=>{
+  dispatch(loginWithFacebook())
+}
   const handleOpen = () => {
     setOpen(true);
   };
@@ -79,21 +98,24 @@ export function Register() {
     setOpen(false);
   };
 
+  
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <div style={{ display: "flex" }}>
         <div>
           <img
-            style={{ width: 300, marginLeft: -32, marginTop: -14 }}
+            style={{ width: 300 ,marginTop:-14,height:520}}
             src="https://ii1.pepperfry.com/media/wysiwyg/banners/2021-reg-popup-banner_2x-31-may.jpg"
             alt="logo"
           />
         </div>
         <div>
           <CloseIcon
-            style={{ marginLeft: 310, cursor: "pointer" }}
+            style={{ marginLeft: 330, cursor: "pointer" }}
             onClick={handleClose}
           />
+         
+
           <form onSubmit={handleSubmit}>
             <div style={{ marginLeft: 30, width: 300 }}>
               <TextField
@@ -177,7 +199,7 @@ export function Register() {
                 <p
                   style={{
                     fontSize: 12,
-                    marginLeft: 50,
+                    marginLeft: 80,
                     fontWeight: "bold",
                     color: "silver",
                     marginTop: 10,
@@ -191,7 +213,9 @@ export function Register() {
                     height: 30,
                     marginTop: 6,
                     marginLeft: 20,
+                    cursor: "pointer",
                   }}
+                  onClick={handleLoginWithFacebook}
                   src="https://ii1.pepperfry.com/images/social_login_fb_2x.png"
                   alt="facebook"
                 />
@@ -201,7 +225,9 @@ export function Register() {
                     height: 30,
                     marginTop: 6,
                     marginLeft: 20,
-                  }}
+                    cursor:"pointer"
+                  }}                  
+                  onClick={handleLoginWithGoogle}
                   src="https://ii1.pepperfry.com/images/social_login_google_2x.png"
                   alt="google"
                 />
@@ -210,6 +236,11 @@ export function Register() {
       </div>
     </div>
   );
+  
+  if(isAuth){
+    return <Redirect to={"/"} push/>
+   }
+
 
   return !loginToggle? (
     <div>

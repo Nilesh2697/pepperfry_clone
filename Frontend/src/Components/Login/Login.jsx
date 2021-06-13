@@ -6,10 +6,8 @@ import CloseIcon from '@material-ui/icons/Close';
 import Button from "@material-ui/core/Button";
 import {Register} from "./Register";
 import {useDispatch,useSelector} from "react-redux";
-import { login, toggle } from './fireAction';
-// function rand() {
-//   return Math.round(Math.random() * 20) - 10;
-// }
+import { login, loginWithFacebook, loginWithGoogle, toggle } from './fireAction';
+import {Redirect} from "react-router-dom";
 
 function getModalStyle() {
   const top = 50 
@@ -28,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     width: 670,
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
+    padding: theme.spacing(2,4,0,0),
   },
 }));
 
@@ -45,12 +43,22 @@ export function Login() {
 
   const [state,setState]=  React.useState(inState);
   const dispatch =useDispatch();
-  
+  const isAuth= useSelector(state=>state.fireReducer.isAuth)
+  const isError= useSelector(state=>state.fireReducer.isError)
+  const isMessage = useSelector(state=>state.fireReducer.isMessage)
+
   const handleChange=(e)=>{
       const {value,name} = e.target;
       setState({...state,[name]:value})
   }
   const registerToggle = useSelector(state=>state.fireReducer.register_page);
+  const userData = useSelector(state=>state.fireReducer.userData);
+   console.log(userData)
+  
+  // React.useEffect(()=>{
+      
+  // },[isMessage,isError])
+
 
   const handleSubmit=(e)=>{
     e.preventDefault();
@@ -61,8 +69,13 @@ export function Login() {
     dispatch(toggle())
   }
 
+ const handleLoginWithGoogle=()=>{
+     dispatch(loginWithGoogle())
+ }
 
-
+const handleLoginWithFacebook=()=>{
+    dispatch(loginWithFacebook())
+}
   const handleOpen = () => {
     setOpen(true);
   };
@@ -70,22 +83,24 @@ export function Login() {
   const handleClose = () => {
     setOpen(false);
   };
+ 
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <div style={{ display: "flex" }}>
         <div>
           <img
-            style={{ width: 300, marginLeft: -32, marginTop: -14 }}
+            style={{ width: 300,marginTop:-14,height:520 }}
             src="https://ii1.pepperfry.com/images/new_login_modal_bg_2020.jpg"
             alt="logo"
           />
         </div>
         <div>
           <CloseIcon
-            style={{ marginLeft: 310, cursor: "pointer" }}
+            style={{ marginLeft: 330, cursor: "pointer" }}
             onClick={handleClose}
           />
+          {isError?<p>{isMessage}</p>:null}
           <form onSubmit={handleSubmit}>
             <div style={{ marginLeft: 30, width: 300 }}>
               <div style={{ display: "flex" }}>
@@ -125,7 +140,7 @@ export function Login() {
                 color="secondary"
                 type="submit"
               >
-                Register
+                LOGIN
               </Button>           
             </div>
           </form>
@@ -151,21 +166,23 @@ export function Login() {
                 <p
                   style={{
                     fontSize: 12,
-                    marginLeft: 50,
+                    marginLeft: 70,
                     fontWeight: "bold",
                     color: "silver",
                     marginTop: 10,
                   }}
                 >
                   OR continue with{" "}
-                </p>
-                <img
+                </p>              
+                <img 
                   style={{
                     width: 30,
                     height: 30,
                     marginTop: 6,
                     marginLeft: 20,
+                    cursor:"pointer"
                   }}
+                  onClick={handleLoginWithFacebook}
                   src="https://ii1.pepperfry.com/images/social_login_fb_2x.png"
                   alt="facebook"
                 />
@@ -175,7 +192,9 @@ export function Login() {
                     height: 30,
                     marginTop: 6,
                     marginLeft: 20,
+                    cursor:"pointer"
                   }}
+                  onClick={handleLoginWithGoogle}
                   src="https://ii1.pepperfry.com/images/social_login_google_2x.png"
                   alt="google"
                 />
@@ -184,7 +203,11 @@ export function Login() {
       </div>
     </div>
   );
-
+ 
+  if(isAuth){
+   return <Redirect to={"/"} push/>
+  }
+  console.log(isAuth)
   return !registerToggle?(
     <div>
       <p type="p" style={{margin:0}} onClick={handleOpen}>

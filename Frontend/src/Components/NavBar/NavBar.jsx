@@ -17,12 +17,10 @@ import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutline
 import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
 import logo from "../../Images/logo.png"
 import { useHistory } from "react-router";
-<<<<<<< HEAD:src/Components/NavBar/NavBar.jsx
 import {connect} from "react-redux";
-=======
 import { getSearch } from "../../Redux/Search/action";
 import { useDispatch, useSelector } from "react-redux";
->>>>>>> 48bec79aacb4dc07078157791381d3d775679fb1:Frontend/src/Components/NavBar/NavBar.jsx
+import { logOut } from "../Login/fireAction";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -102,8 +100,10 @@ const useStyles = makeStyles((theme) => ({
   const dispatch = useDispatch()
   const searchResult = useSelector((state) => state.search.data)
 
-  console.log(searchResult)
+  const isAuth =useSelector(state=>state.fireReducer.isAuth)
+  const displayName =useSelector(state=>state.fireReducer.displayName)
 
+  
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -120,6 +120,10 @@ const useStyles = makeStyles((theme) => ({
 
   const handleClick = () => {
     history.push("/");
+  }
+  
+  const handleLogout=()=>{
+      dispatch(logOut())
   }
 
   const handleProfileMenuOpen = (event) => {
@@ -151,8 +155,20 @@ const useStyles = makeStyles((theme) => ({
       onClose={handleMenuClose}
       style={{top:45,left:30}}
     >
+    { isAuth? 
+    <span>
+      <MenuItem style={{fontSize:12,fontWeight:"bold"}}>{displayName!==""?displayName:"User"}</MenuItem >
+      <MenuItem style={{fontSize:12,fontWeight:"bold"}}>My Account</MenuItem >
+      <MenuItem style={{fontSize:12,fontWeight:"bold"}}>My Orders</MenuItem >
+      <MenuItem style={{fontSize:12,fontWeight:"bold"}}>My Wishlist</MenuItem>
+      <MenuItem style={{fontSize:12,fontWeight:"bold"}}>My Wallet</MenuItem >
+      <MenuItem style={{fontSize:12,fontWeight:"bold"}}>My Profile</MenuItem >
+      <MenuItem style={{fontSize:12,fontWeight:"bold"}} onClick={handleLogout}>Logout</MenuItem>
+    </span>
+    :<span>
       <MenuItem style={{background:"#ef6630"}} onClick={handleMenuClose}><Register /></MenuItem>
       <MenuItem onClick={handleMenuClose}><span style={{fontSize:11}}>To access your <br/>account & manage<br/> orders</span></MenuItem>
+      </span>}
     </Menu>
   );
 
@@ -201,13 +217,11 @@ const useStyles = makeStyles((theme) => ({
     <div className={classes.grow}>
       <AppBar style={{borderBottom: "2px solid #E7E7E7", height: 70, boxShadow: "none"}} color="transparent"  position="static">
         <Toolbar>
-            {/* <Typography className={classes.title} variant="h6" noWrap>
-               <img style={{width:170,marginTop:5}} src="https://www.pngkit.com/png/detail/366-3664559_product-image-pepperfry-logo-png.png" alt="pepperfry"/>
-            </Typography> */}
+         
             <div onClick={() => handleClick()} style={{cursor: "pointer"}}>
-              <img style={{width:170, height: 50,marginTop:"1%", marginLeft: "40%"}} src={logo} alt="pepperfry"/>
+              <img style={{width:170, height: 50,marginTop:"1%", marginLeft: "90%"}} src={logo} alt="pepperfry"/>
             </div>
-          <div style={{marginLeft: "8%"}} className={classes.search}>
+          <div style={{marginLeft: "13%"}} className={classes.search}>
            
             <InputBase
               placeholder="Search"
@@ -282,9 +296,9 @@ const useStyles = makeStyles((theme) => ({
               style={{ backgroundColor: 'transparent' }}
             >  
                 <div style={{lineHeight: "80%", marginTop: "10%"}}>
-                  <PermIdentityOutlinedIcon style={{ fontSize: 35 ,marginLeft:15}}/>
+                  <PermIdentityOutlinedIcon style={{ fontSize: 28 ,marginLeft:15,marginTop:5}}/>
                   <div style={{fontSize:12, marginLeft:15}}>
-                    Profile
+                   Profile
                   </div>
                 </div>
             </IconButton>
