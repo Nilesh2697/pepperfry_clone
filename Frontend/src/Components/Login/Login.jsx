@@ -10,14 +10,14 @@ import { login, loginWithFacebook, loginWithGoogle, toggle } from './fireAction'
 import {Redirect} from "react-router-dom";
 
 function getModalStyle() {
-  const top = 50 
-  const left = 50
+    const top = 50;
+    const left = 50;
 
-  return {
-    top: `${top}%`,
-    left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`,
-  };
+    return {
+        top: `${top}%`,
+        left: `${left}%`,
+        transform: `translate(-${top}%, -${left}%)`,
+    };
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -36,10 +36,10 @@ const inState = {
 };
 
 export function Login() {
-  const classes = useStyles();
-  // getModalStyle is not a pure function, we roll the style only on the first render
-  const [modalStyle] = React.useState(getModalStyle);
-  const [open, setOpen] = React.useState(false);
+    const classes = useStyles();
+    // getModalStyle is not a pure function, we roll the style only on the first render
+    const [modalStyle] = React.useState(getModalStyle);
+    const [open, setOpen] = React.useState(false);
 
   const [state,setState]=  React.useState(inState);
   const dispatch =useDispatch();
@@ -95,6 +95,9 @@ const handleLoginWithFacebook=()=>{
             alt="logo"
           />
         </div>
+    );
+
+    return (
         <div>
           <CloseIcon
             style={{ marginLeft: 330, cursor: "pointer" }}

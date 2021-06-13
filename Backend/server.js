@@ -53,7 +53,7 @@ db.initialize(dbName, collectionName, function(dbCollection) { // successCallbac
         dbCollection.find({$and: [{"email": {$eq: email}}, {"password": {$eq: password}}]}).toArray((error, result)=>{
             if(error) throw error
             if(result.length == 0){
-                res.status(200).json("Invalid Email or Password") 
+                res.status(401).json("Invalid Email or Password") 
             }
             else{
                 res.status(200).json(result) 
