@@ -35,6 +35,9 @@ const inState = {
   password: "",
 };
 
+
+const imageUrl="https://ii1.pepperfry.com/images/new_login_modal_bg_2020.jpg";
+
 export function Login() {
     const classes = useStyles();
     // getModalStyle is not a pure function, we roll the style only on the first render
@@ -52,8 +55,7 @@ export function Login() {
       setState({...state,[name]:value})
   }
   const registerToggle = useSelector(state=>state.fireReducer.register_page);
-  const userData = useSelector(state=>state.fireReducer.userData);
-   console.log(userData)
+  
   
   // React.useEffect(()=>{
       
@@ -88,16 +90,10 @@ const handleLoginWithFacebook=()=>{
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <div style={{ display: "flex" }}>
-        <div>
-          <img
-            style={{ width: 300,marginTop:-14,height:520 }}
-            src="https://ii1.pepperfry.com/images/new_login_modal_bg_2020.jpg"
-            alt="logo"
-          />
+        <div  style={{ width: 300,marginTop:-14,height:520 ,backgroundImage:`url(${imageUrl})`}}>
+          <h4>Log In</h4>
+          <p>You Will Be Able To Track <br/>Your Order, Use Wishlist & More.</p>
         </div>
-    );
-
-    return (
         <div>
           <CloseIcon
             style={{ marginLeft: 330, cursor: "pointer" }}
@@ -210,7 +206,7 @@ const handleLoginWithFacebook=()=>{
   if(isAuth){
    return <Redirect to={"/"} push/>
   }
-  console.log(isAuth)
+ 
   return !registerToggle?(
     <div>
       <p type="p" style={{margin:0}} onClick={handleOpen}>

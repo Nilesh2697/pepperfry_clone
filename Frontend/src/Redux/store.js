@@ -9,7 +9,7 @@ const rootReducer = combineReducers({
     fireReducer:fireReducer,
     search:SearchReducer,
 });
-
+ 
 export const store = createStore(
     rootReducer,
     compose(

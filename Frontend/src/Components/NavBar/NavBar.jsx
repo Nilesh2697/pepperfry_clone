@@ -20,7 +20,7 @@ import { useHistory } from "react-router";
 import {connect} from "react-redux";
 import { getSearch } from "../../Redux/Search/action";
 import { useDispatch, useSelector } from "react-redux";
-import { logOut } from "../Login/fireAction";
+import { logOut, registerUser } from "../Login/fireAction";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -91,6 +91,22 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+const inState = {
+  first_name: "",
+  last_name: "",
+  gender: "",
+  age: 0,
+  dob: "",
+  phone: "",
+  email: "",
+  password: "",
+  address: {},
+  cards: [],
+  wishlist: [],
+  cart: [],
+  orders: [],
+};
+
  function NavBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -101,9 +117,11 @@ const useStyles = makeStyles((theme) => ({
   const searchResult = useSelector((state) => state.search.data)
 
   const isAuth =useSelector(state=>state.fireReducer.isAuth)
-  const displayName =useSelector(state=>state.fireReducer.displayName)
 
+  const [state] = React.useState(inState)
   
+  const regRef = React.useRef(state)
+
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -117,6 +135,10 @@ const useStyles = makeStyles((theme) => ({
   }, [searchData])
 
   // console.log(searchResult.length, searchData.payload.length)
+  
+
+  const {isRegisterAuthFB,isRegisterAuthG,googleEmail,googlePassword,facebook,facebookPassword,phone,displayName} = useSelector(state=>state.fireReducer)
+ 
 
   const handleClick = () => {
     history.push("/");
@@ -142,6 +164,22 @@ const useStyles = makeStyles((theme) => ({
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
+
+  
+  React.useEffect(()=>{
+
+    if(isRegisterAuthG){
+     regRef.current={...state,email:googleEmail,password:googlePassword,phone:phone,first_name:displayName}
+      console.log(regRef.current)
+      dispatch(registerUser(regRef.current))        
+     }
+    else  if(isRegisterAuthFB){
+      regRef.current={...state,email:facebook,password:facebookPassword,phone:phone,first_name:displayName}
+      dispatch(registerUser( regRef.current))
+  }
+},[isRegisterAuthG,isRegisterAuthFB])
+
+
 
   const menuId = "primary-search-account-menu";
   const renderMenu = (
@@ -323,7 +361,6 @@ const useStyles = makeStyles((theme) => ({
 }
 
 const mapStateToProps =(state)=>{
-  console.log(state)
   return{
 
   }
