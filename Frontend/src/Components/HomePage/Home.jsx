@@ -18,6 +18,7 @@ import { HomeEssentials } from "./HomeEssentials";
 import { NightEssentials } from "./NightEssentials";
 import { DecorationList } from "./DecorationList";
 import { ModernStyleBannerList } from "./ModernStyleBannerList";
+import { Carousalone } from "./Carousel/Carousalone";
 
 export const Home = () => {
     const dispatch = useDispatch();
@@ -40,7 +41,9 @@ export const Home = () => {
     return (
         <div>
             {/* <Ads /> */}
+            <Carousalone/>
             <br />
+            <br/>
             <HomeChikHome />
             <br />
             <br />
