@@ -7,7 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Divider from "@material-ui/core/Divider";
 import imageModule from "../../Images/bookCons.png";
 import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const MenuBar = styles.div`
   width: 100%;
@@ -155,20 +155,27 @@ const DropDown = () => {
     return (
         <MenuBar style={{ borderBottom: "2px solid #F1F1F1", height: 40 }}>
             {/* button 1 */}
-            <Link to="/product/furniture">
-                <Button
-                    className={classes.button}
-                    aria-owns={anchorEl ? "simple-menu" : undefined}
-                    aria-haspopup="true"
-                    onMouseOut={handleHover}
-                >
-                    {/* <span onClick={() => handleClick("/product/furniture")}>
+
+            <Button
+                className={classes.button}
+                aria-owns={anchorEl ? "simple-menu" : undefined}
+                aria-haspopup="true"
+                onMouseOut={handleHover}
+            >
+                {/* <span onClick={() => handleClick("/product/furniture")}>
                     Furniture
                 </span> */}
-
+                <NavLink
+                    to="/product/furniture"
+                    style={{ color: "black" }}
+                    activeStyle={{
+                        fontWeight: "bold",
+                        color: "red",
+                    }}
+                >
                     <span>Furniture</span>
-                </Button>
-            </Link>
+                </NavLink>
+            </Button>
 
             <Menu
                 anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
@@ -726,16 +733,23 @@ const DropDown = () => {
             </Menu>
             {/* button 1 end*/}
             {/* button 2 */}
-            <Link to="/product/living">
-                <Button
-                    className={classes.button2}
-                    aria-owns={anchorEl ? "simple-menu2" : undefined}
-                    aria-haspopup="true"
-                    onMouseOut={handleHover2}
+            <Button
+                className={classes.button2}
+                aria-owns={anchorEl ? "simple-menu2" : undefined}
+                aria-haspopup="true"
+                onMouseOut={handleHover2}
+            >
+                <NavLink
+                    to="/product/living"
+                    style={{ color: "black" }}
+                    activeStyle={{
+                        fontWeight: "bold",
+                        color: "red",
+                    }}
                 >
                     <span>Living</span>
-                </Button>
-            </Link>
+                </NavLink>
+            </Button>
             <Menu
                 anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
                 transformOrigin={{ vertical: "top", horizontal: "left" }}
@@ -1262,16 +1276,25 @@ const DropDown = () => {
             </Menu>
             {/* button 2 end*/}
             {/* button 3 */}
-            <Link to="/product/bedroom">
-                <Button
-                    className={classes.button2}
-                    aria-owns={anchorEl ? "simple-menu3" : undefined}
-                    aria-haspopup="true"
-                    onMouseOut={handleHover3}
+
+            <Button
+                className={classes.button2}
+                aria-owns={anchorEl ? "simple-menu3" : undefined}
+                aria-haspopup="true"
+                onMouseOut={handleHover3}
+            >
+                <NavLink
+                    to="/product/bedroom"
+                    style={{ color: "black" }}
+                    activeStyle={{
+                        fontWeight: "bold",
+                        color: "red",
+                    }}
                 >
                     <span>Bedroom</span>
-                </Button>
-            </Link>
+                </NavLink>
+            </Button>
+
             <Menu
                 anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
                 transformOrigin={{ vertical: "top", horizontal: "left" }}
@@ -1750,16 +1773,25 @@ const DropDown = () => {
             </Menu>
             {/* button 3 end*/}
             {/* button 4*/}
-            <Link to="/product/wfh">
-                <Button
-                    className={classes.button2}
-                    aria-owns={anchorEl ? "simple-menu4" : undefined}
-                    aria-haspopup="true"
-                    onMouseOut={handleHover4}
+
+            <Button
+                className={classes.button2}
+                aria-owns={anchorEl ? "simple-menu4" : undefined}
+                aria-haspopup="true"
+                onMouseOut={handleHover4}
+            >
+                <NavLink
+                    to="/product/wfh"
+                    style={{ color: "black" }}
+                    activeStyle={{
+                        fontWeight: "bold",
+                        color: "red",
+                    }}
                 >
                     <span>#wfh</span>
-                </Button>
-            </Link>
+                </NavLink>
+            </Button>
+
             <Menu
                 anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
                 transformOrigin={{ vertical: "top", horizontal: "left" }}
@@ -2157,16 +2189,25 @@ const DropDown = () => {
             </Menu>
             {/* button 4 end*/}
             {/* button 5*/}
-            <Link to="/product/kids_room">
-                <Button
-                    className={classes.button2}
-                    aria-owns={anchorEl ? "simple-menu5" : undefined}
-                    aria-haspopup="true"
-                    onMouseOut={handleHover5}
+
+            <Button
+                className={classes.button2}
+                aria-owns={anchorEl ? "simple-menu5" : undefined}
+                aria-haspopup="true"
+                onMouseOut={handleHover5}
+            >
+                <NavLink
+                    to="/product/kids_room"
+                    style={{ color: "black" }}
+                    activeStyle={{
+                        fontWeight: "bold",
+                        color: "red",
+                    }}
                 >
                     <span>Kids Room</span>
-                </Button>
-            </Link>
+                </NavLink>
+            </Button>
+
             <Menu
                 anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
                 transformOrigin={{ vertical: "top", horizontal: "left" }}
@@ -2576,16 +2617,25 @@ const DropDown = () => {
             </Menu>
             {/* button 5 end*/}
             {/* button 5*/}
-            <Link to="/product/mattresses">
-                <Button
-                    className={classes.button2}
-                    aria-owns={anchorEl ? "simple-menu6" : undefined}
-                    aria-haspopup="true"
-                    onMouseOut={handleHover6}
+
+            <Button
+                className={classes.button2}
+                aria-owns={anchorEl ? "simple-menu6" : undefined}
+                aria-haspopup="true"
+                onMouseOut={handleHover6}
+            >
+                <NavLink
+                    to="/product/matresses"
+                    style={{ color: "black" }}
+                    activeStyle={{
+                        fontWeight: "bold",
+                        color: "red",
+                    }}
                 >
-                    <span>Mattresses</span>
-                </Button>
-            </Link>
+                    <span>Matresses</span>
+                </NavLink>
+            </Button>
+
             <Menu
                 anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
                 transformOrigin={{ vertical: "top", horizontal: "left" }}
@@ -2873,16 +2923,25 @@ const DropDown = () => {
             </Menu>
             {/* button 6 end*/}
             {/* button 7*/}
-            <Link to="/product/furnishings">
-                <Button
-                    className={classes.button2}
-                    aria-owns={anchorEl ? "simple-menu7" : undefined}
-                    aria-haspopup="true"
-                    onMouseOut={handleHover7}
+
+            <Button
+                className={classes.button2}
+                aria-owns={anchorEl ? "simple-menu7" : undefined}
+                aria-haspopup="true"
+                onMouseOut={handleHover7}
+            >
+                <NavLink
+                    to="/product/furnishings"
+                    style={{ color: "black" }}
+                    activeStyle={{
+                        fontWeight: "bold",
+                        color: "red",
+                    }}
                 >
                     <span>Furnishings</span>
-                </Button>
-            </Link>
+                </NavLink>
+            </Button>
+
             <Menu
                 anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
                 transformOrigin={{ vertical: "top", horizontal: "left" }}
@@ -3194,16 +3253,25 @@ const DropDown = () => {
             </Menu>
             {/* button 7 end*/}
             {/* button 8*/}
-            <Link to="/product/decor">
-                <Button
-                    className={classes.button2}
-                    aria-owns={anchorEl ? "simple-menu8" : undefined}
-                    aria-haspopup="true"
-                    onMouseOut={handleHover8}
+
+            <Button
+                className={classes.button2}
+                aria-owns={anchorEl ? "simple-menu8" : undefined}
+                aria-haspopup="true"
+                onMouseOut={handleHover8}
+            >
+                <NavLink
+                    to="/product/decor"
+                    style={{ color: "black" }}
+                    activeStyle={{
+                        fontWeight: "bold",
+                        color: "red",
+                    }}
                 >
                     <span>Decor</span>
-                </Button>
-            </Link>
+                </NavLink>
+            </Button>
+
             <Menu
                 anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
                 transformOrigin={{ vertical: "top", horizontal: "left" }}
@@ -3754,16 +3822,25 @@ const DropDown = () => {
             </Menu>
             {/* button 8 end*/}
             {/* button 9*/}
-            <Link to="/product/lighting">
-                <Button
-                    className={classes.button2}
-                    aria-owns={anchorEl ? "simple-menu9" : undefined}
-                    aria-haspopup="true"
-                    onMouseOut={handleHover9}
+
+            <Button
+                className={classes.button2}
+                aria-owns={anchorEl ? "simple-menu9" : undefined}
+                aria-haspopup="true"
+                onMouseOut={handleHover9}
+            >
+                <NavLink
+                    to="/product/lighting"
+                    style={{ color: "black" }}
+                    activeStyle={{
+                        fontWeight: "bold",
+                        color: "red",
+                    }}
                 >
                     <span>Lighting</span>
-                </Button>
-            </Link>
+                </NavLink>
+            </Button>
+
             <Menu
                 anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
                 transformOrigin={{ vertical: "top", horizontal: "left" }}
@@ -4074,16 +4151,23 @@ const DropDown = () => {
             </Menu>
             {/* button 9 end*/}
             {/* button 10*/}
-            <Link to="/product/modular_furniture">
-                <Button
-                    className={classes.button2}
-                    aria-owns={anchorEl ? "simple-menu10" : undefined}
-                    aria-haspopup="true"
-                    onMouseOut={handleHover10}
+            <Button
+                className={classes.button2}
+                aria-owns={anchorEl ? "simple-menu10" : undefined}
+                aria-haspopup="true"
+                onMouseOut={handleHover10}
+            >
+                <NavLink
+                    to="/product/modular_furniture"
+                    style={{ color: "black" }}
+                    activeStyle={{
+                        fontWeight: "bold",
+                        color: "red",
+                    }}
                 >
                     <span>Modular Furniture</span>
-                </Button>
-            </Link>
+                </NavLink>
+            </Button>
             <Menu
                 anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
                 transformOrigin={{ vertical: "top", horizontal: "left" }}

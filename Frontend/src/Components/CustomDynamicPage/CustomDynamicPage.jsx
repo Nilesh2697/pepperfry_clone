@@ -23,6 +23,11 @@ import {
     BEDROOM_NEWARIVAL_LIST_END_POINT,
     BEDROOM_SHOP_BY_STYLE_LIST_END_POINT,
     BEDROOM_BRAND_LIST_END_POINT,
+    LIVING_CATEGORY_LIST_END_POINT,
+    LIVING_SPOTLIGHT_LIST_END_POINT,
+    LIVING_NEWARIVAL_LIST_END_POINT,
+    LIVING_SHOP_BY_STYLE_LIST_END_POINT,
+    LIVING_BRAND_LIST_END_POINT,
 } from "../../StaticData/apiEndPoints";
 import { useDispatch } from "react-redux";
 import { getData } from "../../Redux/DataList/action";
@@ -56,9 +61,20 @@ export const CustomDynamicPage = () => {
             endPointList.push(BEDROOM_BRAND_LIST_END_POINT);
             endPointList.push(FACILITIES_LIST_END_POINT);
             endPointList.push(FAQ_LIST_END_POINT);
-
             break;
         }
+        case "living": {
+            endPointList.push(LIVING_CATEGORY_LIST_END_POINT);
+            endPointList.push(FIRST_SALE_LOGO_END_POINT);
+            endPointList.push(LIVING_SPOTLIGHT_LIST_END_POINT);
+            endPointList.push(LIVING_NEWARIVAL_LIST_END_POINT);
+            endPointList.push(LIVING_SHOP_BY_STYLE_LIST_END_POINT);
+            endPointList.push(LIVING_BRAND_LIST_END_POINT);
+            endPointList.push(FACILITIES_LIST_END_POINT);
+            endPointList.push(FAQ_LIST_END_POINT);
+            break;
+        }
+
         default: {
             break;
         }

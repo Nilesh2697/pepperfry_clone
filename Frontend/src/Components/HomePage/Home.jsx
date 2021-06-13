@@ -11,7 +11,7 @@ import {
 
 import { useDispatch } from "react-redux";
 import { getData } from "../../Redux/DataList/action";
-
+import { BankOffer } from "./BankOffer";
 import { HomeChikHome } from "./HomeChikHome";
 import { HouseFavourite } from "./HouseFavourite";
 import { HomeEssentials } from "./HomeEssentials";
@@ -43,6 +43,9 @@ export const Home = () => {
             {/* <Ads /> */}
             <Carousalone/>
             <br />
+            <br/>
+            <BankOffer/>
+            <br/>
             <br/>
             <HomeChikHome />
             <br />
