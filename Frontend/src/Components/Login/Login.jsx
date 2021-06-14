@@ -6,8 +6,10 @@ import CloseIcon from '@material-ui/icons/Close';
 import Button from "@material-ui/core/Button";
 import {Register} from "./Register";
 import {useDispatch,useSelector} from "react-redux";
-import { login, loginWithFacebook, loginWithGoogle, toggle } from '../../Redux/FireAuth/fireAction';
+import { login, loginWithFacebook, loginWithGoogle, toggle, toggleToForget, toggleToRegister } from '../../Redux/FireAuth/fireAction';
 import {Redirect} from "react-router-dom";
+import {ForgetPassword} from "./ForgetPassword"
+
 
 function getModalStyle() {
     const top = 50;
@@ -55,7 +57,8 @@ export function Login() {
       setState({...state,[name]:value})
   }
   const registerToggle = useSelector(state=>state.fireReducer.register_page);
-  
+  const forgetToggle = useSelector(state=>state.fireReducer.forget_page);
+
   
   // React.useEffect(()=>{
       
@@ -68,13 +71,15 @@ export function Login() {
   }
 
   const handleToggleRegister=()=>{
-    dispatch(toggle())
+    dispatch(toggleToRegister())
   }
 
  const handleLoginWithGoogle=()=>{
      dispatch(loginWithGoogle())
  }
-
+ const handleToggleToForget=()=>{
+    dispatch(toggleToForget())
+ }
 const handleLoginWithFacebook=()=>{
     dispatch(loginWithFacebook())
 }
@@ -108,6 +113,7 @@ const handleLoginWithFacebook=()=>{
                   label="email"
                   color="secondary"
                   name="email"
+                  type="email"
                   onChange={handleChange}
                 />
                 <p
@@ -116,7 +122,7 @@ const handleLoginWithFacebook=()=>{
                     fontSize: 10,
                     fontWeight: "bold",
                     marginTop: 20,
-                    marginLeft: 3,
+                    marginLeft: 7,
                     color: "#ef6630",
                     cursor: "pointer",
                   }}
@@ -127,6 +133,7 @@ const handleLoginWithFacebook=()=>{
               <TextField
                 id="standard-basic"
                 fullWidth
+                type="password"
                 label="Password"
                 color="secondary"
                 name="password"
@@ -144,7 +151,7 @@ const handleLoginWithFacebook=()=>{
             </div>
           </form>
           <div style={{ marginLeft: 30, width: 300 }}>
-          <p style={{ fontSize: 12,  marginTop: 6 }}>
+          <p onClick={handleToggleToForget} style={{ fontSize: 14,  marginTop: 6,cursor:"pointer" }}>
              <u>Forgot Password</u>
               </p>
               <Button
@@ -206,8 +213,12 @@ const handleLoginWithFacebook=()=>{
   if(isAuth){
    return <Redirect to={"/"} push/>
   }
- 
-  return !registerToggle?(
+//   return(
+//     <>
+//     </>
+// )
+
+  return registerToggle?<Register/>:forgetToggle?<ForgetPassword/>:(
     <div>
       <p type="p" style={{margin:0}} onClick={handleOpen}>
         Login/Register
@@ -221,5 +232,5 @@ const handleLoginWithFacebook=()=>{
         {body}
       </Modal>
     </div>
-  ):<Register/>
+  )
 }
