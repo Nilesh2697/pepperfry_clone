@@ -47,7 +47,7 @@ function Footer(){
                     return <div className={style.secfooter}>
                     <div className={style.heads}>{item[0]}</div>
                     {item[1].map((item)=>{
-                        return <div className={style.headcont} style={item === 'Important: ' ? {color:'red',float:'left'} :item === 'GST and You' ? {color:'rgb(147, 146, 146)'}:null}>{item}</div>})}
+                        return <div className={style.headcont} style={item === 'Important: ' ? {color:'red',float:'left'} :item === 'GST and You' ? {color:'rgb(147, 146, 146)'}:console.log('')}>{item}</div>})}
                     </div>
                     })}
             </div>
