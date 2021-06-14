@@ -2231,7 +2231,7 @@ const DropDown = () => {
                         marginTop: "-1%",
                         width: "10%",
                         height: "5px",
-                        marginLeft: "8.5%",
+                        marginLeft: "6.8%",
                     }}
                 ></div>
                 <table>
@@ -2964,7 +2964,7 @@ const DropDown = () => {
                         width: "10%",
                         height: "5px",
                         marginTop: "-0.8%",
-                        marginLeft: "44.5%",
+                        marginLeft: "42.5%",
                         backgroundColor: "orange",
                     }}
                 ></div>
@@ -3294,7 +3294,7 @@ const DropDown = () => {
                         width: "5%",
                         height: "5px",
                         marginTop: "-0.6%",
-                        marginLeft: "65.5%",
+                        marginLeft: "64%",
                         backgroundColor: "orange",
                     }}
                 ></div>
@@ -3863,7 +3863,7 @@ const DropDown = () => {
                         width: "6%",
                         height: "5px",
                         marginTop: "-0.6%",
-                        marginLeft: "72%",
+                        marginLeft: "70.5%",
                         backgroundColor: "orange",
                     }}
                 ></div>
@@ -4190,7 +4190,7 @@ const DropDown = () => {
                         width: "20%",
                         height: "5px",
                         marginTop: "-1.2%",
-                        marginLeft: "64%",
+                        marginLeft: "60%",
                         backgroundColor: "orange",
                     }}
                 ></div>
