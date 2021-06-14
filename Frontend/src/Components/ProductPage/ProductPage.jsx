@@ -3,7 +3,7 @@ import React from 'react'
 const ProductPage = () => {
     return (
         <div>
-            po
+            post
         </div>
     )
 }
