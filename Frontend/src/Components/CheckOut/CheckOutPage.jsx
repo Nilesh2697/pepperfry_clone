@@ -1,7 +1,7 @@
 import React from 'react';
 import { CheckOutNavbar } from './CheckOutNavbar';
 
-function CheckOut(){
+function CheckOutPage(){
     return (
         <div>
             <CheckOutNavbar/>
@@ -9,4 +9,4 @@ function CheckOut(){
     )
 }
 
-export {CheckOut}
+export {CheckOutPage}

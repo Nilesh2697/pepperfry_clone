@@ -1,12 +1,12 @@
 import React from 'react';
-import {CheckOutNavbar} from './CheckOutStyle';
+import {CheckOutNav} from './CheckOutStyle';
 
 function CheckOutNavbar(){
 
     return (
-        <CheckOutNavbar>
+        <CheckOutNav>
            
-        </CheckOutNavbar>
+        </CheckOutNav>
     )           
 }
 
