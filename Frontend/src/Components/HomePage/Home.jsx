@@ -19,7 +19,6 @@ import { NightEssentials } from "./NightEssentials";
 import { DecorationList } from "./DecorationList";
 import { ModernStyleBannerList } from "./ModernStyleBannerList";
 import { Carousalone } from "./Carousel/Carousalone";
-import { CollectionCelebration} from "./Carousel/CollectionCelebration";
 
 export const Home = () => {
     const dispatch = useDispatch();
@@ -43,7 +42,6 @@ export const Home = () => {
         <div>
             {/* <Ads /> */}
             <Carousalone/>
-            {/* <CarouselMain/> */}
             <br />
             <br/>
             <BankOffer/>

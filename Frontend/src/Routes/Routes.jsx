@@ -7,6 +7,7 @@ import { Home } from "../Components/HomePage/Home";
 import NavBar from "../Components/NavBar/NavBar";
 import { Ads } from "../Components/AdsModel/Ads";
 import { ProductPage } from "../Components/ProductPage/ProductPage";
+import { CheckOut } from "../Components/CheckOut/CheckOut";
 
 const Routes = () => {
     return (
@@ -23,6 +24,9 @@ const Routes = () => {
                 </Route>
                 <Route path="/item">
                     <ProductPage />
+                </Route>
+                <Route path="/checkout">
+                    <CheckOut/>
                 </Route>
             </Switch>
             <Footer />
