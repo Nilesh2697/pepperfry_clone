@@ -16,7 +16,7 @@ const MenuBar = styles.div`
 
 const useStyles = makeStyles((theme) => ({
     button: {
-        marginLeft: "8%",
+        marginLeft: "3%",
         fontSize: 12,
         fontWeight: "bold",
         marginTop: "0.2%",
