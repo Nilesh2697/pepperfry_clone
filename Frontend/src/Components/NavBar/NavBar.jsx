@@ -256,10 +256,11 @@ const inState = {
       <AppBar style={{borderBottom: "2px solid #E7E7E7", height: 70, boxShadow: "none"}} color="transparent"  position="static">
         <Toolbar>
          
-            <div onClick={() => handleClick()} style={{cursor: "pointer"}}>
-              <img style={{width:170, height: 50,marginTop:"1%", marginLeft: "90%"}} src={logo} alt="pepperfry"/>
-            </div>
-          <div style={{marginLeft: "13%"}} className={classes.search}>
+          <div onClick={() => handleClick()} style={{cursor: "pointer"}}>
+            <img style={{width:170, height: 50,marginTop:"1%", marginLeft: "40%"}} src={logo} alt="pepperfry"/>
+          </div>
+
+          <div style={{marginLeft: "8%"}} className={classes.search}>
            
             <InputBase
               placeholder="Search"

@@ -16,7 +16,7 @@ const MenuBar = styles.div`
 
 const useStyles = makeStyles((theme) => ({
     button: {
-        marginLeft: "8%",
+        marginLeft: "3%",
         fontSize: 12,
         fontWeight: "bold",
         marginTop: "0.2%",
@@ -153,7 +153,14 @@ const DropDown = () => {
     }
 
     return (
-        <MenuBar style={{ borderBottom: "2px solid #F1F1F1", height: 40 }}>
+        <MenuBar
+            style={{
+                borderBottom: "2px solid #F1F1F1",
+                height: 40,
+                margin: "auto",
+                padding: "0.05% 6.5%",
+            }}
+        >
             {/* button 1 */}
 
             <Button
@@ -167,7 +174,7 @@ const DropDown = () => {
                 </span> */}
                 <NavLink
                     to="/product/furniture"
-                    style={{ color: "black" }}
+                    style={{ color: "black", textDecoration: "none" }}
                     activeStyle={{
                         fontWeight: "bold",
                         color: "red",
@@ -741,7 +748,7 @@ const DropDown = () => {
             >
                 <NavLink
                     to="/product/living"
-                    style={{ color: "black" }}
+                    style={{ color: "black", textDecoration: "none" }}
                     activeStyle={{
                         fontWeight: "bold",
                         color: "red",
@@ -1285,7 +1292,7 @@ const DropDown = () => {
             >
                 <NavLink
                     to="/product/bedroom"
-                    style={{ color: "black" }}
+                    style={{ color: "black", textDecoration: "none" }}
                     activeStyle={{
                         fontWeight: "bold",
                         color: "red",
@@ -1782,7 +1789,7 @@ const DropDown = () => {
             >
                 <NavLink
                     to="/product/wfh"
-                    style={{ color: "black" }}
+                    style={{ color: "black", textDecoration: "none" }}
                     activeStyle={{
                         fontWeight: "bold",
                         color: "red",
@@ -2198,7 +2205,7 @@ const DropDown = () => {
             >
                 <NavLink
                     to="/product/kids_room"
-                    style={{ color: "black" }}
+                    style={{ color: "black", textDecoration: "none" }}
                     activeStyle={{
                         fontWeight: "bold",
                         color: "red",
@@ -2224,7 +2231,7 @@ const DropDown = () => {
                         marginTop: "-1%",
                         width: "10%",
                         height: "5px",
-                        marginLeft: "8.5%",
+                        marginLeft: "6.8%",
                     }}
                 ></div>
                 <table>
@@ -2626,7 +2633,7 @@ const DropDown = () => {
             >
                 <NavLink
                     to="/product/matresses"
-                    style={{ color: "black" }}
+                    style={{ color: "black", textDecoration: "none" }}
                     activeStyle={{
                         fontWeight: "bold",
                         color: "red",
@@ -2932,7 +2939,7 @@ const DropDown = () => {
             >
                 <NavLink
                     to="/product/furnishings"
-                    style={{ color: "black" }}
+                    style={{ color: "black", textDecoration: "none" }}
                     activeStyle={{
                         fontWeight: "bold",
                         color: "red",
@@ -2957,7 +2964,7 @@ const DropDown = () => {
                         width: "10%",
                         height: "5px",
                         marginTop: "-0.8%",
-                        marginLeft: "44.5%",
+                        marginLeft: "42.5%",
                         backgroundColor: "orange",
                     }}
                 ></div>
@@ -3262,7 +3269,7 @@ const DropDown = () => {
             >
                 <NavLink
                     to="/product/decor"
-                    style={{ color: "black" }}
+                    style={{ color: "black", textDecoration: "none" }}
                     activeStyle={{
                         fontWeight: "bold",
                         color: "red",
@@ -3287,7 +3294,7 @@ const DropDown = () => {
                         width: "5%",
                         height: "5px",
                         marginTop: "-0.6%",
-                        marginLeft: "65.5%",
+                        marginLeft: "64%",
                         backgroundColor: "orange",
                     }}
                 ></div>
@@ -3831,7 +3838,7 @@ const DropDown = () => {
             >
                 <NavLink
                     to="/product/lighting"
-                    style={{ color: "black" }}
+                    style={{ color: "black", textDecoration: "none" }}
                     activeStyle={{
                         fontWeight: "bold",
                         color: "red",
@@ -3856,7 +3863,7 @@ const DropDown = () => {
                         width: "6%",
                         height: "5px",
                         marginTop: "-0.6%",
-                        marginLeft: "72%",
+                        marginLeft: "70.5%",
                         backgroundColor: "orange",
                     }}
                 ></div>
@@ -4159,7 +4166,7 @@ const DropDown = () => {
             >
                 <NavLink
                     to="/product/modular_furniture"
-                    style={{ color: "black" }}
+                    style={{ color: "black", textDecoration: "none" }}
                     activeStyle={{
                         fontWeight: "bold",
                         color: "red",
@@ -4183,7 +4190,7 @@ const DropDown = () => {
                         width: "20%",
                         height: "5px",
                         marginTop: "-1.2%",
-                        marginLeft: "64%",
+                        marginLeft: "60%",
                         backgroundColor: "orange",
                     }}
                 ></div>

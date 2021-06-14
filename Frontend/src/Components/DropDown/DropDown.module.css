@@ -2,7 +2,7 @@
     border: 1px solid;
 } */
 
-.buttonBorder:hover{
+.buttonBorder:hover {
     border-bottom: 1px solid;
     width: 8%;
     margin-left: 2%;
