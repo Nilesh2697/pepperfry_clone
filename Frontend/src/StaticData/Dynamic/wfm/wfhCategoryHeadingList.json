@@ -1,0 +1,106 @@
+[
+    {
+        "image_url": "https://ii2.pepperfry.com/media/wysiwyg/banners/wfh_01_18042021.jpg",
+        "type": "Chairs",
+        "category": [
+            "Ergonomic Chairs",
+            "High Back Ergonomic",
+            "Mid Back Ergonomic",
+            "Low Back Ergonomic",
+            "Executive Chairs",
+            "High Back Executive",
+            "Mid Back Executive",
+            "Guest Chairs",
+            "Folding Chairs",
+            "Arm Chairs",
+            "Plastic Chairs",
+            "Iconic Chairs",
+            "Cantilever Chairs"
+        ]
+    },
+    {
+        "image_url": "https://ii2.pepperfry.com/media/wysiwyg/banners/wfh_02_18042021.jpg",
+        "type": "Seating",
+        "category": [
+            "Bean Bags",
+            "Foot Stools",
+            "Seating Stools",
+            "Pouffes",
+            "Chair Pads"
+        ]
+    },
+    {
+        "image_url": "https://ii2.pepperfry.com/media/wysiwyg/banners/wfh_03_18042021.jpg",
+        "type": "Tables",
+        "category": [
+            "Study Tables",
+            "Computer Tables",
+            "Writing Tables",
+            "Hutch Desks",
+            "Portable Tables",
+            "Office Tables",
+            "Work Stations",
+            "Executive Desks",
+            "Kids Study Table"
+        ]
+    },
+    {
+        "image_url": "https://ii2.pepperfry.com/media/wysiwyg/banners/wfh_04_18042021.jpg",
+        "type": "Cabinetry",
+        "category": [
+            "Office Cabinets",
+            "File Cabinets",
+            "Pedestals",
+            "Plastic Cabinets",
+            "Book Shelves",
+            "Book Cases",
+            "Cabinets"
+        ]
+    },
+    {
+        "image_url": "https://ii2.pepperfry.com/media/wysiwyg/banners/wfh_05_18042021.jpg",
+        "type": "Lighting",
+        "category": [
+            "Table Lamps",
+            "Study Lamps",
+            "Floor Lamps",
+            "Table Lanterns",
+            "Filament Bulbs"
+        ]
+    },
+    {
+        "image_url": "https://ii2.pepperfry.com/media/wysiwyg/banners/wfh_06_18042021.jpg",
+        "type": "Decor",
+        "category": [
+            "Wall Shelves",
+            "Wall Cabinets",
+            "Table Clocks",
+            "Photo Frames",
+            "Magazine Holders",
+            "Figurines",
+            "Transport Décor",
+            "Pots & Planters",
+            "Natural Plants",
+            "Artificial Plants",
+            "Artificial Flowers",
+            "Feng Shui",
+            "Metal Wall Art"
+        ]
+    },
+    {
+        "image_url": "https://ii1.pepperfry.com/media/wysiwyg/banners/clp_2019_09_showcase_img_living_01.jpg",
+        "type": "Sofas",
+        "category": [
+            "Sofas",
+            "1 Seater Sofas",
+            "2 Seater Sofas",
+            "3 Seater Sofas",
+            "Sofa Sets",
+            "Sectional Sofas",
+            "Sofa Cum Beds",
+            "Recliners",
+            "Futons",
+            "Sofa Spa"
+        ]
+    }
+]
