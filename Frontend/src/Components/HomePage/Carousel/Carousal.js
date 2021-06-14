@@ -30,8 +30,6 @@ export const SmallBan = styled.div`
     margin-left:5%;
 
     @media (max-width: 768px) {
-            /* grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(1,1fr); */
             margin-top: 3%;
             width: 100%;
             margin-left:0%;
@@ -48,8 +46,6 @@ export const ImageSize = styled.img`
     height:42%;
 
     @media (max-width: 768px) {
-            /* grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(1,1fr); */
             width: 48%;
             height: 95%;
             
