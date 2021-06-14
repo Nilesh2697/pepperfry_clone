@@ -28,6 +28,11 @@ import {
     LIVING_NEWARIVAL_LIST_END_POINT,
     LIVING_SHOP_BY_STYLE_LIST_END_POINT,
     LIVING_BRAND_LIST_END_POINT,
+    WFH_CATEGORY_LIST_END_POINT,
+    WFH_SPOTLIGHT_LIST_END_POINT,
+    WFH_NEWARIVAL_LIST_END_POINT,
+    WFH_SHOP_BY_STYLE_LIST_END_POINT,
+    WFH_BRAND_LIST_END_POINT,
 } from "../../StaticData/apiEndPoints";
 import { useDispatch } from "react-redux";
 import { getData } from "../../Redux/DataList/action";
@@ -37,7 +42,7 @@ import { useParams } from "react-router-dom";
 export const CustomDynamicPage = () => {
     const dispatch = useDispatch();
     const { product } = useParams();
-    console.log(product);
+    // console.log(product);
     let endPointList = [];
     switch (product) {
         case "furniture": {
@@ -70,6 +75,17 @@ export const CustomDynamicPage = () => {
             endPointList.push(LIVING_NEWARIVAL_LIST_END_POINT);
             endPointList.push(LIVING_SHOP_BY_STYLE_LIST_END_POINT);
             endPointList.push(LIVING_BRAND_LIST_END_POINT);
+            endPointList.push(FACILITIES_LIST_END_POINT);
+            endPointList.push(FAQ_LIST_END_POINT);
+            break;
+        }
+        case "wfh": {
+            endPointList.push(WFH_CATEGORY_LIST_END_POINT);
+            endPointList.push(FIRST_SALE_LOGO_END_POINT);
+            endPointList.push(WFH_SPOTLIGHT_LIST_END_POINT);
+            endPointList.push(WFH_NEWARIVAL_LIST_END_POINT);
+            endPointList.push(WFH_SHOP_BY_STYLE_LIST_END_POINT);
+            endPointList.push(WFH_BRAND_LIST_END_POINT);
             endPointList.push(FACILITIES_LIST_END_POINT);
             endPointList.push(FAQ_LIST_END_POINT);
             break;
