@@ -11,6 +11,7 @@ export const MainCar = styled.div`
             margin-left: 7%;
         }
 `;
+
 export const InnerCar = styled.div`
     display:grid;
     grid-template-columns:repeat(2,1fr);
@@ -24,6 +25,7 @@ export const InnerCar = styled.div`
             margin-top: 3%;
         }
 `;
+
 export const SmallBan = styled.div`
     width:58%;
     max-height:100%;
