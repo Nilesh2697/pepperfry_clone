@@ -9,7 +9,7 @@ const app = firebase.initializeApp({
     messagingSenderId:  process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
     appId:  process.env.REACT_APP_FIREBASE_APP_ID
 })
-
+console.log()
 export const auth =app.auth()
 export const google = new firebase.auth.GoogleAuthProvider();
 export const facebook = new firebase.auth.FacebookAuthProvider();
