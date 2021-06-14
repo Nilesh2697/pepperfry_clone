@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     width: 670,
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(2,4,0,0),
+    padding: theme.spacing(2,3,0,0),
   },
 }));
 
@@ -90,9 +90,9 @@ const handleLoginWithFacebook=()=>{
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <div style={{ display: "flex" }}>
-        <div  style={{ width: 300,marginTop:-14,height:520 ,backgroundImage:`url(${imageUrl})`}}>
-          <h4>Log In</h4>
-          <p>You Will Be Able To Track <br/>Your Order, Use Wishlist & More.</p>
+        <div  style={{ width: 300,marginTop:-14,height:520,marginBottom:0 ,backgroundImage:`url(${imageUrl})`}}>
+          <h4 style ={{textAlign:"center",marginTop:"10%"}}>Log In</h4>
+          <p style ={{textAlign:"center",color:"#ef6630"}}>You Will Be Able To Track <br/>Your Order, Use Wishlist & More.</p>
         </div>
         <div>
           <CloseIcon
