@@ -1,7 +1,9 @@
 const express = require("express");
+const cors = require("cors")
 const server = express();
 // const body_parser = require("body-parser");
 server.use(express.json())
+server.use(cors())
 
 const db = require("./db");
 const { ObjectId } = require("bson");
@@ -34,6 +36,11 @@ const bedroomCategoryHeadingListCollections = "bedroomCategoryHeadingList"
 const bedroomNewArivalListCollections = "bedroomNewArivalList"
 const bedroomShopByStyleCollections = "bedroomShopByStyle"
 const bedroomSpotlightListCollections = "bedroomSpotlightList"
+const livingBrandListCollections = "livingBrandList"
+const livingCategoryHeadingListCollections = "livingCategoryHeadingList"
+const livingNewArivalListCollections = "livingNewArivalList"
+const livingShopByStyleCollections = "livingShopByStyle"
+const livingSpotlightListCollections = "livingSpotlightList"
 
 //user data
 db.initialize(dbName, collectionName, function(dbCollection) { // successCallback
@@ -51,7 +58,7 @@ db.initialize(dbName, collectionName, function(dbCollection) { // successCallbac
         dbCollection.find({$and: [{"email": {$eq: email}}, {"password": {$eq: password}}]}).toArray((error, result)=>{
             if(error) throw error
             if(result.length == 0){
-                res.status(200).json("Invalid Email or Password") 
+                res.status(401).json("Invalid Email or Password") 
             }
             else{
                 res.status(200).json(result) 
@@ -175,7 +182,7 @@ db.initialize(dbName, tablesCollection, function(dbCollection){
 function(err){
     throw(err)
 })
-//beds data
+//diningbar data
 db.initialize(dbName, diningbarCollection, function(dbCollection){
     // to get all the beds
     server.get("/diningbar", (req, res) => {
@@ -650,6 +657,111 @@ db.initialize(dbName, bedroomSpotlightListCollections, function(dbCollection){
     });
     // to get a single bedroomSpotlightList
     server.get("/bedroomSpotlightList/:id", (req, res) => {
+        dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+            if(error) throw error
+            res.status(200).json(result)
+        })
+    })
+},
+function(err){
+    throw(err)
+})
+// livingBrandList data
+db.initialize(dbName, livingBrandListCollections, function(dbCollection){
+    // to get all the livingBrandList
+    server.get("/livingBrandList", (req, res) => {
+        const data = req.params.item
+        dbCollection.find({}).toArray((error, result) => {
+            if (error) throw error;
+            res.status(200).json(result);
+        });
+    });
+    // to get a single livingBrandList
+    server.get("/livingBrandList/:id", (req, res) => {
+        dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+            if(error) throw error
+            res.status(200).json(result)
+        })
+    })
+},
+function(err){
+    throw(err)
+})
+// livingCategoryHeadingList data
+db.initialize(dbName, livingCategoryHeadingListCollections, function(dbCollection){
+    // to get all the livingCategoryHeadingList
+    server.get("/livingCategoryHeadingList", (req, res) => {
+        const data = req.params.item
+        dbCollection.find({}).toArray((error, result) => {
+            if (error) throw error;
+            res.status(200).json(result);
+        });
+    });
+    // to get a single livingCategoryHeadingList
+    server.get("/livingCategoryHeadingList/:id", (req, res) => {
+        dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+            if(error) throw error
+            res.status(200).json(result)
+        })
+    })
+},
+function(err){
+    throw(err)
+})
+// livingNewArivalList data
+db.initialize(dbName, livingNewArivalListCollections, function(dbCollection){
+    // to get all the livingNewArivalList
+    server.get("/livingNewArivalList", (req, res) => {
+        const data = req.params.item
+        dbCollection.find({}).toArray((error, result) => {
+            if (error) throw error;
+            res.status(200).json(result);
+        });
+    });
+    // to get a single livingNewArivalList
+    server.get("/livingNewArivalList/:id", (req, res) => {
+        dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+            if(error) throw error
+            res.status(200).json(result)
+        })
+    })
+},
+function(err){
+    throw(err)
+})
+// livingShopByStyle data
+db.initialize(dbName, livingShopByStyleCollections, function(dbCollection){
+    // to get all the livingShopByStyle
+    server.get("/livingShopByStyle", (req, res) => {
+        const data = req.params.item
+        dbCollection.find({}).toArray((error, result) => {
+            if (error) throw error;
+            res.status(200).json(result);
+        });
+    });
+    // to get a single livingShopByStyle
+    server.get("/livingShopByStyle/:id", (req, res) => {
+        dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+            if(error) throw error
+            res.status(200).json(result)
+        })
+    })
+},
+function(err){
+    throw(err)
+})
+// livingSpotlightList data
+db.initialize(dbName, livingSpotlightListCollections, function(dbCollection){
+    // to get all the livingSpotlightList
+    server.get("/livingSpotlightList", (req, res) => {
+        const data = req.params.item
+        dbCollection.find({}).toArray((error, result) => {
+            if (error) throw error;
+            res.status(200).json(result);
+        });
+    });
+    // to get a single livingSpotlightList
+    server.get("/livingSpotlightList/:id", (req, res) => {
         dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
             if(error) throw error
             res.status(200).json(result)

@@ -38,6 +38,20 @@ export const FURNITURE_SPOTLIGHT_LIST_END_POINT =
     "http://localhost:3001/spotLightList";
 
 //******************DYNAMIC PAGE REQUEST END POINTS (LIVING)****************
+export const LIVING_CATEGORY_LIST_END_POINT =
+    "http://localhost:3001/livingCategoryHeadingList";
+
+export const LIVING_SPOTLIGHT_LIST_END_POINT =
+    "http://localhost:3001/livingSpotlightList";
+
+export const LIVING_NEWARIVAL_LIST_END_POINT =
+    "http://localhost:3001/livingNewArivalList";
+
+export const LIVING_SHOP_BY_STYLE_LIST_END_POINT =
+    "http://localhost:3001/livingShopByStyle";
+
+export const LIVING_BRAND_LIST_END_POINT =
+    "http://localhost:3001/livingBrandList";
 
 //******************DYNAMIC PAGE REQUEST END POINTS (BEDROOM)****************
 export const BEDROOM_CATEGORY_LIST_END_POINT =

@@ -1,0 +1,76 @@
+[
+    {
+        "first_name": "test",
+        "last_name": "data",
+        "gender": "robot",
+        "age": 25,
+        "dob": "15/10/1995",
+        "phone": "01125134708",
+        "email": "test@test.com",
+        "password": "test@1234",
+        "address":{
+            "street": "Shop No 2, Arya Samaj Market, Subhash Nagar",
+            "city": " Delhi",
+            "state": " Delhi",
+            "zipcode": 110027
+        },
+        "cards":[
+            {
+                "id": 1,
+                "name": "test data",
+                "card_type": "VISA",
+                "card_number": "4485390195450623",
+                "CVV": "013",
+                "Expire": "01/2023"
+            },
+            {
+                "id": 2,
+                "name": "test",
+                "card_type": "Mastercard",
+                "card_number": "5121266934119942",
+                "CVV": "653",
+                "Expire": "02/2026"
+            }
+        ],
+        "wishlist":[],
+        "cart": [],
+        "orders": []
+    },
+    {
+        "first_name": "Rani",
+        "last_name": "Pal",
+        "gender": "female",
+        "age": 46,
+        "dob": "12/10/1975",
+        "phone": "041233994",
+        "email": "rani@gmail.com",
+        "password": "rani@1234",
+        "address":{
+            "street": "127 , House Of Lords,  Floor, St Marks Road",
+            "city": "Bangalore",
+            "state": "Karnataka",
+            "zipcode": 560001
+        },
+        "cards":[
+            {
+                "id": 1,
+                "name": "Rani Pal",
+                "card_type": "VISA",
+                "card_number": "4929342990324051",
+                "CVV": "541",
+                "Expire": "04/2023"
+            },
+            {
+                "id": 2,
+                "name": "Rani Pal",
+                "card_type": "Visa",
+                "card_number": "4506236629599557",
+                "CVV": "727",
+                "Expire": "03/2023"
+            }
+        ],
+        "wishlist":[],
+        "cart": [],
+        "orders": []
+    }
+]

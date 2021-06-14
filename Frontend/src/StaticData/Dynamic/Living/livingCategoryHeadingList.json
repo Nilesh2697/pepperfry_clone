@@ -1,0 +1,116 @@
+[
+    {
+        "image_url": "https://ii1.pepperfry.com/media/wysiwyg/banners/clp_2019_09_showcase_img_living_01.jpg",
+        "type": "Sofas",
+        "category": [
+            "Sofas",
+            "1 Seater Sofas",
+            "2 Seater Sofas",
+            "3 Seater Sofas",
+            "Sofa Sets",
+            "Sectional Sofas",
+            "Sofa Cum Beds",
+            "Recliners",
+            "Futons",
+            "Sofa Spa"
+        ]
+    },
+    {
+        "image_url": "https://ii1.pepperfry.com/media/wysiwyg/banners/clp_2019_09_showcase_img_living_02.jpg",
+        "type": "Seating",
+        "category": [
+            "Settees",
+            "Benches",
+            "Chaise Loungers",
+            "Recamiers",
+            "Ottomans",
+            "Pouffes",
+            "Foot Stools",
+            "Seating Stools",
+            "Bean Bags",
+            "Bar Stools"
+        ]
+    },
+    {
+        "image_url": "https://ii1.pepperfry.com/media/wysiwyg/banners/clp_2019_09_showcase_img_living_03.jpg",
+        "type": "Chairs",
+        "category": [
+            "Arm Chairs",
+            "Rocking Chairs",
+            "Lounge Chairs",
+            "Cafe Chairs",
+            "Iconic Chairs",
+            "Slipper Chairs",
+            "Barrel Chairs",
+            "Cantilever Chairs",
+            "Folding Chairs",
+            "Plastic Chairs",
+            "Wing Chairs",
+            "Chair Spa"
+        ]
+    },
+    {
+        "image_url": "https://ii1.pepperfry.com/media/wysiwyg/banners/clp_2019_09_showcase_img_living_04.jpg",
+        "type": "Tables",
+        "category": [
+            "Coffee Tables",
+            "Coffee Table Sets",
+            "End Tables",
+            "Nest of Tables",
+            "Console Tables",
+            "Study Tables",
+            "Portable Tables",
+            "Bar Table Sets"
+        ]
+    },
+    {
+        "image_url": "https://ii1.pepperfry.com/media/wysiwyg/banners/clp_2019_09_showcase_img_living_05.jpg",
+        "type": "Cabinetry",
+        "category": [
+            "Shoe Racks",
+            "Entertainment Units",
+            "Cabinets",
+            "Sideboards",
+            "Hutch Cabinets",
+            "Book Shelves",
+            "Book Cases",
+            "Trunks",
+            "Plastic Cabinets",
+            "Bar Cabinets",
+            "Bar Units",
+            "Bar Trolleys"
+        ]
+    },
+    {
+        "image_url": "https://ii1.pepperfry.com/media/wysiwyg/banners/clp_2019_09_showcase_img_living_06.jpg",
+        "type": "Decor",
+        "category": [
+            "Wall Shelves",
+            "Wall Art",
+            "Clocks",
+            "Mandirs",
+            "Table Decor",
+            "Vases",
+            "Figurines",
+            "Photo Frames",
+            "Key Holders"
+        ]
+    },
+    {
+        "image_url": "https://ii1.pepperfry.com/media/wysiwyg/banners/clp_2019_09_showcase_img_living_07.jpg",
+        "type": "Lighting",
+        "category": [
+            "Chandeliers",
+            "Wall Lights",
+            "Floor Lamps",
+            "Hanging Lights",
+            "Table Lamps",
+            "Flush Mounts",
+            "Panel Lights",
+            "Tea Light Holders",
+            "String Lights",
+            "Picture Light",
+            "Candle Holders"
+        ]
+    }
+]
