@@ -57,7 +57,6 @@ const CardCarousel = React.memo(props => {
   const slides = items.map(item => {
     return (
       <CarouselItem
-        
         onExiting={() => onExiting()}
         onExited={() => onExited()}
         key={item.src}
