@@ -10,11 +10,12 @@ export const FlashSale = () => {
     );
     return (
         <CustomDynamicPageWhiteDiv>
-            <div style={{ padding: "1% 6%" }}>
+            <div>
                 {dataListLoading
                     ? firstSaleLogo.map((data, i) => <Spinner data={data} />)
                     : dataListTwo.map((item, index) => (
                           <img
+                              style={{ marginLeft: "2.5%" }}
                               key={index}
                               src={item.image_url}
                               alt="HeadingImage"
