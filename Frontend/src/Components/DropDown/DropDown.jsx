@@ -153,7 +153,14 @@ const DropDown = () => {
     }
 
     return (
-        <MenuBar style={{ borderBottom: "2px solid #F1F1F1", height: 40 }}>
+        <MenuBar
+            style={{
+                borderBottom: "2px solid #F1F1F1",
+                height: 40,
+                margin: "auto",
+                padding: "0.05% 6%",
+            }}
+        >
             {/* button 1 */}
 
             <Button
