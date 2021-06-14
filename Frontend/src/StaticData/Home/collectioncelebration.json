@@ -1,0 +1,37 @@
+[
+    {
+        "player": {
+            "title": "CARLESON",
+            "desc": "Traditional Angled Louvres",
+            "image": "https://ii3.pepperfry.com/media/wysiwyg/banners/C_web_03062021_3.jpg"
+        }
+    },
+    {
+        "player": {
+            "title": "MEGUMI",
+            "desc": "Classic Metier Of Crafts",
+            "image": "https://ii1.pepperfry.com/media/wysiwyg/banners/C_web_03062021_4.jpg"
+        }
+    },
+    {
+        "player": {
+            "title": "SIRAMIKA",
+            "desc": "Painted Majolica Tiles",
+            "image": "https://ii2.pepperfry.com/media/wysiwyg/banners/C_web_03062021_5.jpg"
+        }
+    },
+    {
+        "player": {
+            "title": "Mike Sigel",
+            "desc": "Mike Sigel or "Captain Hook" as many like to call him is an American professional pool player with over 108 tournament wins.",
+            "image": "https://i.postimg.cc/C12h7nZn/ms-1.jpg",
+        }
+    },
+    {
+        "player": {
+            "title": "Willie Mosconi",
+            "desc": "Nicknamed "Mr. Pocket Billiards," Willie Mosconi was among the first Billiard Congress of America Hall of Fame inductees.",
+            "image": "https://i.postimg.cc/NfzMDVHP/willie-mosconi-slider.jpg",
+        }
+    }
+]
