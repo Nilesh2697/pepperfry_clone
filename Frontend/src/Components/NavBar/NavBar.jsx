@@ -20,7 +20,7 @@ import { useHistory } from "react-router";
 import {connect} from "react-redux";
 import { getSearch } from "../../Redux/Search/action";
 import { useDispatch, useSelector } from "react-redux";
-import { logOut, registerUser, registerUserWithSM } from "../Login/fireAction";
+import { logOut, registerUser, registerUserWithSM } from "../../Redux/FireAuth/fireAction";
 
 const useStyles = makeStyles((theme) => ({
   grow: {

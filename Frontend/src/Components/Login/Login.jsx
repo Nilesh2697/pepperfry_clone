@@ -6,7 +6,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import Button from "@material-ui/core/Button";
 import {Register} from "./Register";
 import {useDispatch,useSelector} from "react-redux";
-import { login, loginWithFacebook, loginWithGoogle, toggle } from './fireAction';
+import { login, loginWithFacebook, loginWithGoogle, toggle } from '../../Redux/FireAuth/fireAction';
 import {Redirect} from "react-router-dom";
 
 function getModalStyle() {
