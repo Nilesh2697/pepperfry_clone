@@ -13,7 +13,12 @@ import {
   REGISTER_USER_SUCCESS,
   REGISTER_WITH_FACEBOOK_SUCCESS,
   REGISTER_WITH_GOOGLE_SUCCESS,
-  TOGGLE_BETWEEN_REGISTER_LOGIN,
+  RESET_PASSWORD_FAILURE,
+  RESET_PASSWORD_REQUEST,
+  RESET_PASSWORD_SUCCESS,
+  TOGGLE_TO_FORGET,
+  TOGGLE_TO_LOGIN,
+  TOGGLE_TO_REGISTER,
 } from "./fireActionType";
 
 const auth = getData("isAuth");
@@ -24,6 +29,8 @@ const inState = {
   isError: false,
   registerSuccess: false,
   register_page: true,
+  login_page: false,
+  forget_page: false,
   googleEmail: "",
   googlePassword: "",
   facebook: "",
@@ -34,6 +41,7 @@ const inState = {
   phone: "",
   isRegisterAuthFB: false,
   isRegisterAuthG: false,
+  isResetLoading:false,
 };
 
 export const fireReducer = (state = inState, action) => {
@@ -86,10 +94,28 @@ export const fireReducer = (state = inState, action) => {
         isRegisterAuth: false,
       };
     }
-    case TOGGLE_BETWEEN_REGISTER_LOGIN: {
+    case TOGGLE_TO_REGISTER: {
       return {
         ...state,
-        register_page: !state.register_page,  
+        register_page:true, 
+        login_page:false,
+        forget_page:false
+      };
+    }
+    case TOGGLE_TO_FORGET: {
+      return {
+        ...state,
+        register_page:false, 
+        login_page:false,
+        forget_page:true 
+      };
+    }
+    case TOGGLE_TO_LOGIN: {
+      return {
+        ...state,
+        register_page:false, 
+        login_page:true,
+        forget_page:false  
       };
     }
     case LOGIN_WITH_GOOGLE: {
@@ -152,6 +178,26 @@ export const fireReducer = (state = inState, action) => {
         isRegisterAuthFB: false,
         isRegisterAuthG: false,
       };
+    }
+    case RESET_PASSWORD_REQUEST:{
+      return{
+        ...state,
+        isResetLoading:true,
+      }
+    }
+    case RESET_PASSWORD_SUCCESS:{
+      return{
+        ...state,       
+        isMessage:"Reset link send to your register Email address",
+        isResetLoading:false,
+      }
+    }
+    case RESET_PASSWORD_FAILURE:{
+      return{
+        ...state,
+       isError:true,
+       isMessage:"Failed to reset password"
+      }
     }
     default:
       return state;

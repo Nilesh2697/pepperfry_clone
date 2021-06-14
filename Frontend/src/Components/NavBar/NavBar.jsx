@@ -175,7 +175,7 @@ const inState = {
      }
     else  if(isRegisterAuthFB){
       regRef.current={...state,email:facebook,password:facebookPassword,phone:phone,first_name:displayName}
-      dispatch(registerUserWithSM( regRef.current))
+      dispatch(registerUserWithSM(regRef.current))
   }
 },[isRegisterAuthG,isRegisterAuthFB])
 
