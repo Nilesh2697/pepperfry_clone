@@ -65,6 +65,13 @@ export const registerUser = (payload) => (dispatch) => {
     .catch((err) => dispatch(registerUserFailure(err)));
 };
 
+export const registerUserWithSM =(payload)=>(dispatch)=>{
+  axios
+  .get(`http://localhost:3001/users/${payload.email}/${payload.password}`)
+  .then((res) => res)
+  .catch((err) => dispatch(registerUser(payload)));
+}
+
 export const login = (payload) => (dispatch) => {
   dispatch(loginRequest());
   axios

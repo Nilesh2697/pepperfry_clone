@@ -20,7 +20,7 @@ import { useHistory } from "react-router";
 import {connect} from "react-redux";
 import { getSearch } from "../../Redux/Search/action";
 import { useDispatch, useSelector } from "react-redux";
-import { logOut, registerUser } from "../Login/fireAction";
+import { logOut, registerUser, registerUserWithSM } from "../../Redux/FireAuth/fireAction";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -170,12 +170,12 @@ const inState = {
 
     if(isRegisterAuthG){
      regRef.current={...state,email:googleEmail,password:googlePassword,phone:phone,first_name:displayName}
-      console.log(regRef.current)
-      dispatch(registerUser(regRef.current))        
+     // console.log(regRef.current)
+      dispatch(registerUserWithSM(regRef.current))        
      }
     else  if(isRegisterAuthFB){
       regRef.current={...state,email:facebook,password:facebookPassword,phone:phone,first_name:displayName}
-      dispatch(registerUser( regRef.current))
+      dispatch(registerUserWithSM( regRef.current))
   }
 },[isRegisterAuthG,isRegisterAuthFB])
 

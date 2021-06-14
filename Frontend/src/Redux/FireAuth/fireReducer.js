@@ -1,3 +1,4 @@
+import { clearData, getData, saveData } from "../../Redux/localStorage";
 import {
   LOGIN_WITH_FACEBOOK,
   LOGIN_WITH_GOOGLE,
@@ -15,9 +16,11 @@ import {
   TOGGLE_BETWEEN_REGISTER_LOGIN,
 } from "./fireActionType";
 
+const auth = getData("isAuth");
+
 const inState = {
   isLoading: false,
-  isAuth: false,
+  isAuth:auth||false,
   isError: false,
   registerSuccess: false,
   register_page: true,
@@ -44,6 +47,7 @@ export const fireReducer = (state = inState, action) => {
       };
     }
     case REGISTER_USER_SUCCESS: {
+      saveData("isAuth",true)
       return {
         ...state,
         isLoading: false,
@@ -53,6 +57,7 @@ export const fireReducer = (state = inState, action) => {
       };
     }
     case REGISTER_USER_FAILURE: {
+      saveData("isAuth",false)
       return {
         ...state,
         isError: true,
@@ -65,6 +70,7 @@ export const fireReducer = (state = inState, action) => {
       };
     }
     case LOG_IN_SUCCESS: {
+      saveData("isAuth",true)
       return {
         ...state,
         isAuth: true,
@@ -72,6 +78,7 @@ export const fireReducer = (state = inState, action) => {
       };
     }
     case LOG_IN_FAILURE: {
+      saveData("isAuth",false)
       return {
         ...state,
         isAuth: false,
@@ -86,6 +93,7 @@ export const fireReducer = (state = inState, action) => {
       };
     }
     case LOGIN_WITH_GOOGLE: {
+      saveData("isAuth",true)
       return {
         ...state,
         isAuth: true,
@@ -93,6 +101,7 @@ export const fireReducer = (state = inState, action) => {
       };
     }
     case LOGIN_WITH_FACEBOOK: {
+      saveData("isAuth",true)
       return {
         ...state,
         isAuth: true,
@@ -105,7 +114,7 @@ export const fireReducer = (state = inState, action) => {
       };
     }
     case REGISTER_WITH_GOOGLE_SUCCESS: {
-        console.log(payload.uid)
+      saveData("isAuth",true)
       return {
         ...state,
         googleEmail: payload.email,
@@ -122,6 +131,7 @@ export const fireReducer = (state = inState, action) => {
       };
     }
     case REGISTER_WITH_FACEBOOK_SUCCESS: {
+      saveData("isAuth",true)
       return {
         ...state,
         facebook: payload.email,
@@ -133,6 +143,7 @@ export const fireReducer = (state = inState, action) => {
       };
     }
     case LOG_OUT: {
+      clearData("isAuth")
       return {
         ...state,
         isAuth: false,

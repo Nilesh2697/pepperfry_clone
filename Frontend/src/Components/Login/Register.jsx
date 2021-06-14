@@ -10,7 +10,7 @@ import {
   toggle,
   registerWithGoogle,
   registerWithFacebook,
-} from "./fireAction";
+} from "../../Redux/FireAuth/fireAction";
 import { Login } from "./Login";
 import { Redirect } from "react-router-dom";
 
