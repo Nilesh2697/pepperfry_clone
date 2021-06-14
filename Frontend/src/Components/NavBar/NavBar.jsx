@@ -3,22 +3,24 @@ import { fade, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
+// import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
 import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import MoreIcon from "@material-ui/icons/MoreVert";
-import { Login } from "../Login/Login";
+import { Register } from "../Login/Register";
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import LocalShippingOutlinedIcon from '@material-ui/icons/LocalShippingOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
 import logo from "../../Images/logo.png"
 import { useHistory } from "react-router";
+import {connect} from "react-redux";
 import { getSearch } from "../../Redux/Search/action";
 import { useDispatch, useSelector } from "react-redux";
+import { logOut, registerUser, registerUserWithSM } from "../../Redux/FireAuth/fireAction";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -89,7 +91,23 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export function NavBar() {
+const inState = {
+  first_name: "",
+  last_name: "",
+  gender: "",
+  age: 0,
+  dob: "",
+  phone: "",
+  email: "",
+  password: "",
+  address: {},
+  cards: [],
+  wishlist: [],
+  cart: [],
+  orders: [],
+};
+
+ function NavBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -98,7 +116,11 @@ export function NavBar() {
   const dispatch = useDispatch()
   const searchResult = useSelector((state) => state.search.data)
 
-  console.log(searchResult)
+  const isAuth =useSelector(state=>state.fireReducer.isAuth)
+
+  const [state] = React.useState(inState)
+  
+  const regRef = React.useRef(state)
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -113,9 +135,17 @@ export function NavBar() {
   }, [searchData])
 
   // console.log(searchResult.length, searchData.payload.length)
+  
+
+  const {isRegisterAuthFB,isRegisterAuthG,googleEmail,googlePassword,facebook,facebookPassword,phone,displayName} = useSelector(state=>state.fireReducer)
+ 
 
   const handleClick = () => {
     history.push("/");
+  }
+  
+  const handleLogout=()=>{
+      dispatch(logOut())
   }
 
   const handleProfileMenuOpen = (event) => {
@@ -135,6 +165,22 @@ export function NavBar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+  
+  React.useEffect(()=>{
+
+    if(isRegisterAuthG){
+     regRef.current={...state,email:googleEmail,password:googlePassword,phone:phone,first_name:displayName}
+     // console.log(regRef.current)
+      dispatch(registerUserWithSM(regRef.current))        
+     }
+    else  if(isRegisterAuthFB){
+      regRef.current={...state,email:facebook,password:facebookPassword,phone:phone,first_name:displayName}
+      dispatch(registerUserWithSM( regRef.current))
+  }
+},[isRegisterAuthG,isRegisterAuthFB])
+
+
+
   const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
@@ -147,8 +193,20 @@ export function NavBar() {
       onClose={handleMenuClose}
       style={{top:45,left:30}}
     >
-      <MenuItem style={{background:"#ef6630"}} onClick={handleMenuClose}><Login /></MenuItem>
+    { isAuth? 
+    <span>
+      <MenuItem style={{fontSize:12,fontWeight:"bold"}}>{displayName!==""?displayName:"User"}</MenuItem >
+      <MenuItem style={{fontSize:12,fontWeight:"bold"}}>My Account</MenuItem >
+      <MenuItem style={{fontSize:12,fontWeight:"bold"}}>My Orders</MenuItem >
+      <MenuItem style={{fontSize:12,fontWeight:"bold"}}>My Wishlist</MenuItem>
+      <MenuItem style={{fontSize:12,fontWeight:"bold"}}>My Wallet</MenuItem >
+      <MenuItem style={{fontSize:12,fontWeight:"bold"}}>My Profile</MenuItem >
+      <MenuItem style={{fontSize:12,fontWeight:"bold"}} onClick={handleLogout}>Logout</MenuItem>
+    </span>
+    :<span>
+      <MenuItem style={{background:"#ef6630"}} onClick={handleMenuClose}><Register /></MenuItem>
       <MenuItem onClick={handleMenuClose}><span style={{fontSize:11}}>To access your <br/>account & manage<br/> orders</span></MenuItem>
+      </span>}
     </Menu>
   );
 
@@ -197,13 +255,11 @@ export function NavBar() {
     <div className={classes.grow}>
       <AppBar style={{borderBottom: "2px solid #E7E7E7", height: 70, boxShadow: "none"}} color="transparent"  position="static">
         <Toolbar>
-            {/* <Typography className={classes.title} variant="h6" noWrap>
-               <img style={{width:170,marginTop:5}} src="https://www.pngkit.com/png/detail/366-3664559_product-image-pepperfry-logo-png.png" alt="pepperfry"/>
-            </Typography> */}
+         
             <div onClick={() => handleClick()} style={{cursor: "pointer"}}>
-              <img style={{width:170, height: 50,marginTop:"1%", marginLeft: "40%"}} src={logo} alt="pepperfry"/>
+              <img style={{width:170, height: 50,marginTop:"1%", marginLeft: "90%"}} src={logo} alt="pepperfry"/>
             </div>
-          <div style={{marginLeft: "8%"}} className={classes.search}>
+          <div style={{marginLeft: "13%"}} className={classes.search}>
            
             <InputBase
               placeholder="Search"
@@ -278,9 +334,9 @@ export function NavBar() {
               style={{ backgroundColor: 'transparent' }}
             >  
                 <div style={{lineHeight: "80%", marginTop: "10%"}}>
-                  <PermIdentityOutlinedIcon style={{ fontSize: 35 ,marginLeft:15}}/>
+                  <PermIdentityOutlinedIcon style={{ fontSize: 28 ,marginLeft:15,marginTop:5}}/>
                   <div style={{fontSize:12, marginLeft:15}}>
-                    Profile
+                   Profile
                   </div>
                 </div>
             </IconButton>
@@ -303,3 +359,12 @@ export function NavBar() {
     </div>
   );
 }
+
+const mapStateToProps =(state)=>{
+  return{
+
+  }
+}
+
+
+export default connect(mapStateToProps)(NavBar)
