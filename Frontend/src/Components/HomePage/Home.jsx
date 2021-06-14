@@ -42,6 +42,7 @@ export const Home = () => {
         <div>
             {/* <Ads /> */}
             <Carousalone/>
+            {/* <CarouselMain/> */}
             <br />
             <br/>
             <BankOffer/>
