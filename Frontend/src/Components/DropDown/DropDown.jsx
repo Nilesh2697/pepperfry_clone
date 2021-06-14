@@ -167,7 +167,7 @@ const DropDown = () => {
                 </span> */}
                 <NavLink
                     to="/product/furniture"
-                    style={{ color: "black" }}
+                    style={{ color: "black", textDecoration: "none" }}
                     activeStyle={{
                         fontWeight: "bold",
                         color: "red",
@@ -741,7 +741,7 @@ const DropDown = () => {
             >
                 <NavLink
                     to="/product/living"
-                    style={{ color: "black" }}
+                    style={{ color: "black", textDecoration: "none" }}
                     activeStyle={{
                         fontWeight: "bold",
                         color: "red",
@@ -1285,7 +1285,7 @@ const DropDown = () => {
             >
                 <NavLink
                     to="/product/bedroom"
-                    style={{ color: "black" }}
+                    style={{ color: "black", textDecoration: "none" }}
                     activeStyle={{
                         fontWeight: "bold",
                         color: "red",
@@ -1782,7 +1782,7 @@ const DropDown = () => {
             >
                 <NavLink
                     to="/product/wfh"
-                    style={{ color: "black" }}
+                    style={{ color: "black", textDecoration: "none" }}
                     activeStyle={{
                         fontWeight: "bold",
                         color: "red",
@@ -2198,7 +2198,7 @@ const DropDown = () => {
             >
                 <NavLink
                     to="/product/kids_room"
-                    style={{ color: "black" }}
+                    style={{ color: "black", textDecoration: "none" }}
                     activeStyle={{
                         fontWeight: "bold",
                         color: "red",
@@ -2626,7 +2626,7 @@ const DropDown = () => {
             >
                 <NavLink
                     to="/product/matresses"
-                    style={{ color: "black" }}
+                    style={{ color: "black", textDecoration: "none" }}
                     activeStyle={{
                         fontWeight: "bold",
                         color: "red",
@@ -2932,7 +2932,7 @@ const DropDown = () => {
             >
                 <NavLink
                     to="/product/furnishings"
-                    style={{ color: "black" }}
+                    style={{ color: "black", textDecoration: "none" }}
                     activeStyle={{
                         fontWeight: "bold",
                         color: "red",
@@ -3262,7 +3262,7 @@ const DropDown = () => {
             >
                 <NavLink
                     to="/product/decor"
-                    style={{ color: "black" }}
+                    style={{ color: "black", textDecoration: "none" }}
                     activeStyle={{
                         fontWeight: "bold",
                         color: "red",
@@ -3831,7 +3831,7 @@ const DropDown = () => {
             >
                 <NavLink
                     to="/product/lighting"
-                    style={{ color: "black" }}
+                    style={{ color: "black", textDecoration: "none" }}
                     activeStyle={{
                         fontWeight: "bold",
                         color: "red",
@@ -4159,7 +4159,7 @@ const DropDown = () => {
             >
                 <NavLink
                     to="/product/modular_furniture"
-                    style={{ color: "black" }}
+                    style={{ color: "black", textDecoration: "none" }}
                     activeStyle={{
                         fontWeight: "bold",
                         color: "red",
