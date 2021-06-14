@@ -17,7 +17,7 @@ export const PrimaryGreyContainer = styled.div`
     & > div {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
+        gap: 10px;
 
         @media (max-width: 768px) {
             grid-template-columns: repeat(2, 1fr);
