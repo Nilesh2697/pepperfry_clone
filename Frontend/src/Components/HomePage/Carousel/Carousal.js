@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const MainCar = styled.div`
-    max-width:86%;
+    max-width:89%;
     margin:auto;
     margin-top: 3.5%;
+    padding-left: 5.5%;
 
     @media (max-width: 768px) {
             margin-top: 6%;
@@ -15,9 +16,9 @@ export const MainCar = styled.div`
 export const InnerCar = styled.div`
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    width:100%;
-    margin-left:8%;
-    max-height:360px;
+    max-width:100%;
+    max-height:500px;
+    
 
     @media (max-width: 768px) {
             grid-template-columns: repeat(1, 1fr);
@@ -27,7 +28,7 @@ export const InnerCar = styled.div`
 `;
 
 export const SmallBan = styled.div`
-    width:58%;
+    width:80%;
     max-height:100%;
     margin-left:5%;
 
@@ -45,7 +46,7 @@ export const SmallBan = styled.div`
 
 export const ImageSize = styled.img`
     width:100%;
-    height:42%;
+    height:45%;
 
     @media (max-width: 768px) {
             width: 48%;
@@ -55,13 +56,12 @@ export const ImageSize = styled.img`
 ` ;
 
 export const BannerTwo = styled.img`
-    width:81.5%;
-    margin-top:4%;
-    margin-left:8%;
+    width:94.5%;
+    margin-top:2%;
     max-height:5%;
 
     @media (max-width: 768px) {
-            margin-top: 24%;
+            margin-top:7%;
             width: 100%;
         }
 `;
