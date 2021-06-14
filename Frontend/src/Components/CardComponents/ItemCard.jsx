@@ -1,5 +1,5 @@
 import React from "react";
-import { ItemCustomCard } from "../CardComponents/CustomCardStyle";
+import { ItemCustomCard } from "./CustomCardStyle";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 
 export const ItemCard = () => {

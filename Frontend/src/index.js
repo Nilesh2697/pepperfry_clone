@@ -6,14 +6,13 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./Redux/store";
-import { ItemCard } from "./Components/DEMO PAGE/ItemCard";
+// import { ItemCard } from "./Components/CardComponents/ItemCard";
 
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
             <BrowserRouter>
-                {/* <App /> */}
-                <ItemCard />
+                <App />
             </BrowserRouter>
         </Provider>
     </React.StrictMode>,
