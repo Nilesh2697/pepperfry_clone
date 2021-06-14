@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const PrimaryGreyContainer = styled.div`
     background: #e8e8e8;
     text-align: left;
-    padding: 1% 6%;
+    padding: 2% 10%;
+    padding-left: 11%;
 
     & > p:nth-child(1) {
         font-weight: 900;
@@ -30,7 +31,8 @@ export const PrimaryGreyContainer = styled.div`
 export const SecondaryGreyContainer = styled.div`
     background: #e8e8e8;
     text-align: left;
-    padding: 1% 6%;
+    padding: 2% 10.8%;
+    padding-right: 11.5%;
 
     & > p:nth-child(1) {
         font-weight: bolder;
@@ -62,7 +64,8 @@ export const SecondaryGreyContainer = styled.div`
 export const PrimaryWhiteContainer = styled.div`
     background: white;
     text-align: left;
-    padding: 1% 6%;
+    padding: 1% 10.7%;
+    padding-right: 11%;
 
     & > p:nth-child(1) {
         font-weight: bolder;

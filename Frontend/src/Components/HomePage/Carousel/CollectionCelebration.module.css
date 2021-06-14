@@ -1,0 +1,54 @@
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: inherit;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.carouselwrap {
+    margin-top: 10%;
+    align-items: center;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    position: relative;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+
+.carouselcontainer {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+
+
+.carouselslideitem {
+    display: inline-block;
+    height: 30rem;
+    margin: 0;
+    padding: 1rem;
+    position: absolute;
+    transition: all 0.3s;
+    width: 30rem;
+}
+
+
+
+

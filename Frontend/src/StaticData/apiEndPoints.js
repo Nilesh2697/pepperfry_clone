@@ -68,3 +68,18 @@ export const BEDROOM_SHOP_BY_STYLE_LIST_END_POINT =
 
 export const BEDROOM_BRAND_LIST_END_POINT =
     "http://localhost:3001/bedroomBrandList";
+
+//******************DYNAMIC PAGE REQUEST END POINTS (WFH)****************
+export const WFH_CATEGORY_LIST_END_POINT =
+    "http://localhost:3001/wfhCategoryHeadingList";
+
+export const WFH_SPOTLIGHT_LIST_END_POINT =
+    "http://localhost:3001/wfhSpotlightList";
+
+export const WFH_NEWARIVAL_LIST_END_POINT =
+    "http://localhost:3001/wfhNewArivalList";
+
+export const WFH_SHOP_BY_STYLE_LIST_END_POINT =
+    "http://localhost:3001/wfhShopByStyle";
+
+export const WFH_BRAND_LIST_END_POINT = "http://localhost:3001/wfhBrandList";

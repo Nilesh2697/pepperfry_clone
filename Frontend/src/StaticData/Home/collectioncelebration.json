@@ -22,16 +22,24 @@
     },
     {
         "player": {
-            "title": "Mike Sigel",
-            "desc": "Mike Sigel or "Captain Hook" as many like to call him is an American professional pool player with over 108 tournament wins.",
-            "image": "https://i.postimg.cc/C12h7nZn/ms-1.jpg",
+            "title": "MONET",
+            "desc": "Multiple Graded Polish Look",
+            "image": "https://ii3.pepperfry.com/media/wysiwyg/banners/C_web_03062021_6.jpg"
         }
     },
     {
         "player": {
-            "title": "Willie Mosconi",
-            "desc": "Nicknamed "Mr. Pocket Billiards," Willie Mosconi was among the first Billiard Congress of America Hall of Fame inductees.",
-            "image": "https://i.postimg.cc/NfzMDVHP/willie-mosconi-slider.jpg",
+            "title": "METALICO",
+            "desc": "Minimal Design",
+            "image": "https://ii2.pepperfry.com/media/wysiwyg/banners/C_web_03062021_2.jpg"
+        }
+    },
+    {
+        "player": {
+            "title": "AMANDA",
+            "desc": "Sleek & Stylish",
+            "image": "https://ii1.pepperfry.com/media/wysiwyg/banners/C_web_03062021_1.jpg"
         }
     }
+
 ]
