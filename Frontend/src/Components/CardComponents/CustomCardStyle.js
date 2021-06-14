@@ -3,11 +3,11 @@ import styled from "styled-components";
 export const PrimaryCustomCard = styled.div`
     @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap");
     font-family: "Fira Sans", sans-serif;
-    font-size: 2.3vh;
+    font-size: 2vh;
     max-width: 95%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     text-align: left;
     padding: 5% 3%;
     padding-bottom: 10%;
@@ -20,8 +20,8 @@ export const PrimaryCustomCard = styled.div`
     }
 
     & img:nth-child(1) {
-        width: 200px;
-        height: 50px;
+        width: 150px;
+        height: 40px;
     }
 
     & span {
