@@ -2,7 +2,11 @@ import {GET_ITEM_REQUEST, GET_ITEM_SUCCESS, GET_ITEM_FAILURE} from "./actionType
 import axios from "axios"
 
 const getItem = (payload) => (dispatch) => {
-    
+    const item_req = get_item_request()
+    dispatch(item_req)
+    axios.get(``)
+    .then()
+    .catch()
 }
 
 

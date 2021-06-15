@@ -11,100 +11,103 @@ import Menu from "@material-ui/core/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import { Register } from "../Login/Register";
-import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
-import LocalShippingOutlinedIcon from '@material-ui/icons/LocalShippingOutlined';
-import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
-import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
-import logo from "../../Images/logo.png"
+import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
+import LocalShippingOutlinedIcon from "@material-ui/icons/LocalShippingOutlined";
+import FavoriteBorderOutlinedIcon from "@material-ui/icons/FavoriteBorderOutlined";
+import PermIdentityOutlinedIcon from "@material-ui/icons/PermIdentityOutlined";
+import logo from "../../Images/logo.png";
 import { useHistory } from "react-router";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import { getSearch } from "../../Redux/Search/action";
 import { useDispatch, useSelector } from "react-redux";
-import { logOut, registerUser, registerUserWithSM } from "../../Redux/FireAuth/fireAction";
+import {
+    logOut,
+    registerUser,
+    registerUserWithSM,
+} from "../../Redux/FireAuth/fireAction";
 
 const useStyles = makeStyles((theme) => ({
-  grow: {
-    flexGrow: 1
-  },
-  
-  // title: {
-  //   display: "none",
-  //   marginLeft:160,
-  //   [theme.breakpoints.up("xs")]: {
-  //     display: "block"
-  //   }
-  // },
-  search: {
-    position: "relative",
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.black, 0.05),
-    "&:hover": {
-      backgroundColor: fade(theme.palette.common.black, 0.10)
+    grow: {
+        flexGrow: 1,
     },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: "40vw",
-    [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(5),
-      width: "auto"
+
+    // title: {
+    //   display: "none",
+    //   marginLeft:160,
+    //   [theme.breakpoints.up("xs")]: {
+    //     display: "block"
+    //   }
+    // },
+    search: {
+        position: "relative",
+        borderRadius: theme.shape.borderRadius,
+        backgroundColor: fade(theme.palette.common.black, 0.05),
+        "&:hover": {
+            backgroundColor: fade(theme.palette.common.black, 0.1),
+        },
+        marginRight: theme.spacing(2),
+        marginLeft: 0,
+        width: "40vw",
+        [theme.breakpoints.up("sm")]: {
+            marginLeft: theme.spacing(5),
+            width: "auto",
+        },
+        height: 42,
     },
-    height:42,
-  
-  },
-  searchIcon: {
-    // padding: theme.spacing(0, 2),
-    // height: "100%",
-    position: "absolute",
-    // pointerEvents: "none",
-    // display: "flex",
-    // alignItems: "center",
-    // justifyContent: "center",
-    marginTop:-28,
-    marginRight:-40,
-    right:50,
-  },
-  inputRoot: {
-    color: "inherit"
-  },
-  inputInput: {
-    padding: theme.spacing(1.5, 4, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(0)}px)`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("md")]: {
-      width: "70ch"
-    }
-  },
-  sectionDesktop: {
-    display: "none",
-    [theme.breakpoints.up("md")]: {
-      display: "flex"
+    searchIcon: {
+        // padding: theme.spacing(0, 2),
+        // height: "100%",
+        position: "absolute",
+        // pointerEvents: "none",
+        // display: "flex",
+        // alignItems: "center",
+        // justifyContent: "center",
+        marginTop: -28,
+        marginRight: -40,
+        right: 50,
     },
-    marginRight:140,
-  },
-  sectionMobile: {
-    display: "flex",
-    [theme.breakpoints.up("md")]: {
-      display: "none"
-    }
-  }
+    inputRoot: {
+        color: "inherit",
+    },
+    inputInput: {
+        padding: theme.spacing(1.5, 4, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(1em + ${theme.spacing(0)}px)`,
+        transition: theme.transitions.create("width"),
+        width: "100%",
+        [theme.breakpoints.up("md")]: {
+            width: "70ch",
+        },
+    },
+    sectionDesktop: {
+        display: "none",
+        [theme.breakpoints.up("md")]: {
+            display: "flex",
+        },
+        marginRight: 140,
+    },
+    sectionMobile: {
+        display: "flex",
+        [theme.breakpoints.up("md")]: {
+            display: "none",
+        },
+    },
 }));
 
 const inState = {
-  first_name: "",
-  last_name: "",
-  gender: "",
-  age: 0,
-  dob: "",
-  phone: "",
-  email: "",
-  password: "",
-  address: {},
-  cards: [],
-  wishlist: [],
-  cart: [],
-  orders: [],
+    first_name: "",
+    last_name: "",
+    gender: "",
+    age: 0,
+    dob: "",
+    phone: "",
+    email: "",
+    password: "",
+    address: {},
+    cards: [],
+    wishlist: [],
+    cart: [],
+    orders: [],
 };
 
  function NavBar() {
@@ -117,140 +120,183 @@ const inState = {
   const dispatch = useDispatch()
   const searchResult = useSelector((state) => state.search.data)
 
-  const isAuth =useSelector(state=>state.fireReducer.isAuth)
+    const isAuth = useSelector((state) => state.fireReducer.isAuth);
 
-  const [state] = React.useState(inState)
-  
-  const regRef = React.useRef(state)
+    const [state] = React.useState(inState);
 
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+    const regRef = React.useRef(state);
 
-  const handleSearch = (e) => {
-    let payload = e.target.value
-    setSearchData({...searchData, payload})
-  }
+    const isMenuOpen = Boolean(anchorEl);
+    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  React.useEffect(()=>{
-    dispatch(getSearch(searchData.payload))
-  }, [searchData])
+    const handleSearch = (e) => {
+        let payload = e.target.value;
+        setSearchData({ ...searchData, payload });
+        console.log(searchData.payload);
+        dispatch(getSearch(searchData.payload));
+    };
 
-  // console.log(searchResult.length, searchData.payload.length)
-  
+    const {
+        isRegisterAuthFB,
+        isRegisterAuthG,
+        googleEmail,
+        googlePassword,
+        facebook,
+        facebookPassword,
+        phone,
+        displayName,
+    } = useSelector((state) => state.fireReducer);
 
-  const {isRegisterAuthFB,isRegisterAuthG,googleEmail,googlePassword,facebook,facebookPassword,phone,displayName} = useSelector(state=>state.fireReducer)
- 
+    const handleClick = () => {
+        history.push("/");
+    };
 
-  const handleClick = () => {
-    history.push("/");
-  }
-  
-  const handleLogout=()=>{
-      dispatch(logOut())
-  }
+    const handleLogout = () => {
+        dispatch(logOut());
+    };
 
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+    const handleProfileMenuOpen = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
 
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
+    const handleMobileMenuClose = () => {
+        setMobileMoreAnchorEl(null);
+    };
 
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
-  };
+    const handleMenuClose = () => {
+        setAnchorEl(null);
+        handleMobileMenuClose();
+    };
 
-  const handleMobileMenuOpen = (event) => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
+    const handleMobileMenuOpen = (event) => {
+        setMobileMoreAnchorEl(event.currentTarget);
+    };
 
-  
-  React.useEffect(()=>{
+    React.useEffect(() => {
+        if (isRegisterAuthG) {
+            regRef.current = {
+                ...state,
+                email: googleEmail,
+                password: googlePassword,
+                phone: phone,
+                first_name: displayName,
+            };
+            // console.log(regRef.current)
+            dispatch(registerUserWithSM(regRef.current));
+        } else if (isRegisterAuthFB) {
+            regRef.current = {
+                ...state,
+                email: facebook,
+                password: facebookPassword,
+                phone: phone,
+                first_name: displayName,
+            };
+            dispatch(registerUserWithSM(regRef.current));
+        }
+    }, [isRegisterAuthG, isRegisterAuthFB]);
 
-    if(isRegisterAuthG){
-     regRef.current={...state,email:googleEmail,password:googlePassword,phone:phone,first_name:displayName}
-     // console.log(regRef.current)
-      dispatch(registerUserWithSM(regRef.current))        
-     }
-    else  if(isRegisterAuthFB){
-      regRef.current={...state,email:facebook,password:facebookPassword,phone:phone,first_name:displayName}
-      dispatch(registerUserWithSM(regRef.current))
-  }
-},[isRegisterAuthG,isRegisterAuthFB])
-
-
-
-  const menuId = "primary-search-account-menu";
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{ vertical: "top", horizontal: "right" }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{ vertical: "top", horizontal: "right" }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-      style={{top:45,left:30}}
-    >
-    { isAuth? 
-    <span>
-      <MenuItem style={{fontSize:12,fontWeight:"bold"}}>{displayName!==""?displayName:"User"}</MenuItem >
-      <MenuItem style={{fontSize:12,fontWeight:"bold"}}>My Account</MenuItem >
-      <MenuItem style={{fontSize:12,fontWeight:"bold"}}>My Orders</MenuItem >
-      <MenuItem style={{fontSize:12,fontWeight:"bold"}}>My Wishlist</MenuItem>
-      <MenuItem style={{fontSize:12,fontWeight:"bold"}}>My Wallet</MenuItem >
-      <MenuItem style={{fontSize:12,fontWeight:"bold"}}>My Profile</MenuItem >
-      <MenuItem style={{fontSize:12,fontWeight:"bold"}} onClick={handleLogout}>Logout</MenuItem>
-    </span>
-    :<span>
-      <MenuItem style={{background:"#ef6630"}} onClick={handleMenuClose}><Register /></MenuItem>
-      <MenuItem onClick={handleMenuClose}><span style={{fontSize:11}}>To access your <br/>account & manage<br/> orders</span></MenuItem>
-      </span>}
-    </Menu>
-  );
-
-  const mobileMenuId = "primary-search-account-menu-mobile";
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: "top", horizontal: "right" }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{ vertical: "top", horizontal: "right" }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
-           <LocalShippingOutlinedIcon />
-          </Badge>
-        </IconButton>
-        <p>Track</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
-           <FavoriteBorderOutlinedIcon/>
-          </Badge>
-        </IconButton>
-        <p>Wishlist</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
+    const menuId = "primary-search-account-menu";
+    const renderMenu = (
+        <Menu
+            anchorEl={anchorEl}
+            anchorOrigin={{ vertical: "top", horizontal: "right" }}
+            id={menuId}
+            keepMounted
+            transformOrigin={{ vertical: "top", horizontal: "right" }}
+            open={isMenuOpen}
+            onClose={handleMenuClose}
+            style={{ top: 45, left: 30 }}
         >
-         <PermIdentityOutlinedIcon/>
-        </IconButton>
-        <p>Login</p>
-      </MenuItem>
-    </Menu>
-  );
+            {isAuth ? (
+                <span>
+                    <MenuItem style={{ fontSize: 12, fontWeight: "bold" }}>
+                        {displayName !== "" ? displayName : "User"}
+                    </MenuItem>
+                    <MenuItem style={{ fontSize: 12, fontWeight: "bold" }}>
+                        My Account
+                    </MenuItem>
+                    <MenuItem style={{ fontSize: 12, fontWeight: "bold" }}>
+                        My Orders
+                    </MenuItem>
+                    <MenuItem style={{ fontSize: 12, fontWeight: "bold" }}>
+                        My Wishlist
+                    </MenuItem>
+                    <MenuItem style={{ fontSize: 12, fontWeight: "bold" }}>
+                        My Wallet
+                    </MenuItem>
+                    <MenuItem style={{ fontSize: 12, fontWeight: "bold" }}>
+                        My Profile
+                    </MenuItem>
+                    <MenuItem
+                        style={{ fontSize: 12, fontWeight: "bold" }}
+                        onClick={handleLogout}
+                    >
+                        Logout
+                    </MenuItem>
+                </span>
+            ) : (
+                <span>
+                    <MenuItem
+                        style={{ background: "#ef6630" }}
+                        onClick={handleMenuClose}
+                    >
+                        <Register />
+                    </MenuItem>
+                    <MenuItem onClick={handleMenuClose}>
+                        <span style={{ fontSize: 11 }}>
+                            To access your <br />
+                            account & manage
+                            <br /> orders
+                        </span>
+                    </MenuItem>
+                </span>
+            )}
+        </Menu>
+    );
+
+    const mobileMenuId = "primary-search-account-menu-mobile";
+    const renderMobileMenu = (
+        <Menu
+            anchorEl={mobileMoreAnchorEl}
+            anchorOrigin={{ vertical: "top", horizontal: "right" }}
+            id={mobileMenuId}
+            keepMounted
+            transformOrigin={{ vertical: "top", horizontal: "right" }}
+            open={isMobileMenuOpen}
+            onClose={handleMobileMenuClose}
+        >
+            <MenuItem>
+                <IconButton aria-label="show 4 new mails" color="inherit">
+                    <Badge badgeContent={4} color="secondary">
+                        <LocalShippingOutlinedIcon />
+                    </Badge>
+                </IconButton>
+                <p>Track</p>
+            </MenuItem>
+            <MenuItem>
+                <IconButton
+                    aria-label="show 11 new notifications"
+                    color="inherit"
+                >
+                    <Badge badgeContent={11} color="secondary">
+                        <FavoriteBorderOutlinedIcon />
+                    </Badge>
+                </IconButton>
+                <p>Wishlist</p>
+            </MenuItem>
+            <MenuItem onClick={handleProfileMenuOpen}>
+                <IconButton
+                    aria-label="account of current user"
+                    aria-controls="primary-search-account-menu"
+                    aria-haspopup="true"
+                    color="inherit"
+                >
+                    <PermIdentityOutlinedIcon />
+                </IconButton>
+                <p>Login</p>
+            </MenuItem>
+        </Menu>
+    );
 
   const handleSearchClick = (id) => {
     setDisplayDrop("none")
@@ -360,22 +406,17 @@ const inState = {
               onClick={handleMobileMenuOpen}
               color="inherit"
             >
-              <MoreIcon />
+                <MoreIcon />
             </IconButton>
           </div>
         </Toolbar>
-      </AppBar>
-      {renderMobileMenu}
-      {renderMenu}
-    </div>
-  );
-}
+    </AppBar>
+    {renderMobileMenu}
+    {renderMenu}
+</div>);}
 
-const mapStateToProps =(state)=>{
-  return{
+const mapStateToProps = (state) => {
+    return {};
+};
 
-  }
-}
-
-
-export default connect(mapStateToProps)(NavBar)
+export default connect(mapStateToProps)(NavBar);
