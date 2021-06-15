@@ -41,6 +41,11 @@ const livingCategoryHeadingListCollections = "livingCategoryHeadingList"
 const livingNewArivalListCollections = "livingNewArivalList"
 const livingShopByStyleCollections = "livingShopByStyle"
 const livingSpotlightListCollections = "livingSpotlightList"
+const wfhBrandListCollections = "wfhBrandList"
+const wfhCategoryHeadingListCollections = "wfhCategoryHeadingList"
+const wfhNewArivalListCollections = "wfhNewArivalList"
+const wfhShopByStyleCollections = "wfhShopByStyle"
+const wfhSpotlightListCollections = "wfhSpotlightList"
 
 //user data
 db.initialize(dbName, collectionName, function(dbCollection) { // successCallback
@@ -762,6 +767,111 @@ db.initialize(dbName, livingSpotlightListCollections, function(dbCollection){
     });
     // to get a single livingSpotlightList
     server.get("/livingSpotlightList/:id", (req, res) => {
+        dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+            if(error) throw error
+            res.status(200).json(result)
+        })
+    })
+},
+function(err){
+    throw(err)
+})
+// wfhBrandList data
+db.initialize(dbName, wfhBrandListCollections, function(dbCollection){
+    // to get all the wfhBrandList
+    server.get("/wfhBrandList", (req, res) => {
+        const data = req.params.item
+        dbCollection.find({}).toArray((error, result) => {
+            if (error) throw error;
+            res.status(200).json(result);
+        });
+    });
+    // to get a single wfhBrandList
+    server.get("/wfhBrandList/:id", (req, res) => {
+        dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+            if(error) throw error
+            res.status(200).json(result)
+        })
+    })
+},
+function(err){
+    throw(err)
+})
+// wfhCategoryHeadingList data
+db.initialize(dbName, wfhCategoryHeadingListCollections, function(dbCollection){
+    // to get all the wfhCategoryHeadingList
+    server.get("/wfhCategoryHeadingList", (req, res) => {
+        const data = req.params.item
+        dbCollection.find({}).toArray((error, result) => {
+            if (error) throw error;
+            res.status(200).json(result);
+        });
+    });
+    // to get a single wfhCategoryHeadingList
+    server.get("/wfhCategoryHeadingList/:id", (req, res) => {
+        dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+            if(error) throw error
+            res.status(200).json(result)
+        })
+    })
+},
+function(err){
+    throw(err)
+})
+// wfhNewArivalList data
+db.initialize(dbName, wfhNewArivalListCollections, function(dbCollection){
+    // to get all the wfhNewArivalList
+    server.get("/wfhNewArivalList", (req, res) => {
+        const data = req.params.item
+        dbCollection.find({}).toArray((error, result) => {
+            if (error) throw error;
+            res.status(200).json(result);
+        });
+    });
+    // to get a single wfhNewArivalList
+    server.get("/wfhNewArivalList/:id", (req, res) => {
+        dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+            if(error) throw error
+            res.status(200).json(result)
+        })
+    })
+},
+function(err){
+    throw(err)
+})
+// wfhShopByStyle data
+db.initialize(dbName, wfhShopByStyleCollections, function(dbCollection){
+    // to get all the wfhShopByStyle
+    server.get("/wfhShopByStyle", (req, res) => {
+        const data = req.params.item
+        dbCollection.find({}).toArray((error, result) => {
+            if (error) throw error;
+            res.status(200).json(result);
+        });
+    });
+    // to get a single wfhShopByStyle
+    server.get("/wfhShopByStyle/:id", (req, res) => {
+        dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+            if(error) throw error
+            res.status(200).json(result)
+        })
+    })
+},
+function(err){
+    throw(err)
+})
+// wfhSpotlightList data
+db.initialize(dbName, wfhSpotlightListCollections, function(dbCollection){
+    // to get all the wfhSpotlightList
+    server.get("/wfhSpotlightList", (req, res) => {
+        const data = req.params.item
+        dbCollection.find({}).toArray((error, result) => {
+            if (error) throw error;
+            res.status(200).json(result);
+        });
+    });
+    // to get a single wfhSpotlightList
+    server.get("/wfhSpotlightList/:id", (req, res) => {
         dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
             if(error) throw error
             res.status(200).json(result)

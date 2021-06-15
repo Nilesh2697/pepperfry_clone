@@ -1,0 +1,22 @@
+.bankmain{
+    width: 86.5%;
+    margin: auto;
+    padding-left: 4%;
+}
+.decor{
+    width: 15%;
+    margin: 0 .5%;
+}
+.bankhead{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 1%;
+    margin-left: 1%;
+}
+
+@media (max-width: 768px) {
+   .bankmain{
+       width: 82%;
+       margin-left: 11%;
+   }
+}

@@ -11,13 +11,14 @@ import {
 
 import { useDispatch } from "react-redux";
 import { getData } from "../../Redux/DataList/action";
-
+import { BankOffer } from "./BankOffer";
 import { HomeChikHome } from "./HomeChikHome";
 import { HouseFavourite } from "./HouseFavourite";
 import { HomeEssentials } from "./HomeEssentials";
 import { NightEssentials } from "./NightEssentials";
 import { DecorationList } from "./DecorationList";
 import { ModernStyleBannerList } from "./ModernStyleBannerList";
+import { Carousalone } from "./Carousel/Carousalone";
 
 export const Home = () => {
     const dispatch = useDispatch();
@@ -40,7 +41,13 @@ export const Home = () => {
     return (
         <div>
             {/* <Ads /> */}
+            <Carousalone/>
+            {/* <CarouselMain/> */}
             <br />
+            <br/>
+            <BankOffer/>
+            <br/>
+            <br/>
             <HomeChikHome />
             <br />
             <br />

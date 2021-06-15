@@ -10,7 +10,8 @@ import {
   toggle,
   registerWithGoogle,
   registerWithFacebook,
-} from "./fireAction";
+  toggleToLogin,
+} from "../../Redux/FireAuth/fireAction";
 import { Login } from "./Login";
 import { Redirect } from "react-router-dom";
 
@@ -82,7 +83,7 @@ export function Register() {
   };
 
   const handleToggleLogin = () => {
-    dispatch(toggle());
+    dispatch(toggleToLogin());
   };
 
   const handleRegisterWithGoogle = () => {
@@ -158,12 +159,14 @@ export function Register() {
                 style={{ fontSize: 12 }}
                 color="secondary"
                 name="email"
+                type="email"
                 onChange={handleChange}
               />
               <TextField
                 id="standard-basic"
                 fullWidth
                 label="Password"
+                type="password"
                 color="secondary"
                 name="password"
                 onChange={handleChange}
@@ -242,10 +245,11 @@ export function Register() {
   if (isAuth) {
     return <Redirect to={"/"} push />;
   }
-
+ console.log(loginToggle)
   return  (
     <>
-    { loginToggle ?
+    { 
+    loginToggle ?
     <div>
       <p type="p" style={{ margin: 0 }} onClick={handleOpen}>
         Login/Register
@@ -258,8 +262,7 @@ export function Register() {
       >
         {body}
       </Modal>
-    </div>: 
-    <Login />
+    </div> : <Login />
     }
     </>
   )
