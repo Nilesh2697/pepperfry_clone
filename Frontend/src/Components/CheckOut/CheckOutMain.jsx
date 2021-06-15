@@ -1,7 +1,7 @@
 import React from 'react';
 import { PaymentDisplay, Pincode, PinInput, ProductDisplay, ProductMain } from './CheckOutStyle';
 import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
-import styles from './Checkout.module.css';
+import CardGiftcardOutlinedIcon from '@material-ui/icons/CardGiftcardOutlined';
 
 
 const db = [ {
@@ -104,9 +104,11 @@ function CheckOutMain(){
               </div>
              </ProductDisplay>
              <PaymentDisplay>
-                 <div>Have A Coupon Code?</div>
-                 <input type='text' />
-                 <button>APPLY</button>
+                 <strong style={{fontSize:'16px',fontFamily:'Fira Sans, sans-serif'}}>Have A Coupon Code?</strong>
+                 <br/>
+                 <i><CardGiftcardOutlinedIcon style={{position:"absolute",bottom:"2px",right:"5px",width:"24px",height:"24px"}}/></i>
+                 <input type='text' placeholder="Enter Coupon Code"/>
+                 <button style={{backgroundColor:'#e96a19'}}>APPLY</button>
              </PaymentDisplay>
         </ProductMain>
     )

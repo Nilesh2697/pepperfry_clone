@@ -213,7 +213,7 @@ export const PaymentDisplay = styled.div `
   border: 1px solid black;
   margin-right: 10%;
   min-height: 30%;
-  width:'80%';
-  margin-left: 25%;
+  width:'60%';
+  margin-left: 26%;
 `
 

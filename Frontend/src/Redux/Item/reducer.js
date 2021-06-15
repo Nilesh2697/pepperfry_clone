@@ -1,4 +1,6 @@
-import { GET_ITEM_FAILURE, GET_ITEM_REQUEST, GET_ITEM_SUCCESS } from "./actionType"
+import { GET_ITEM_FAILURE, GET_ITEM_REQUEST, GET_ITEM_SUCCESS } from "./actionType";
+
+
 
 const initState = {
     data: [],
@@ -6,7 +8,7 @@ const initState = {
     isError: false
 }
 
-export const SearchReducer = (state=initState, action) => {
+export const ItemReducer = (state=initState, action) => {
     switch(action.type){
         case GET_ITEM_REQUEST:{
             return{
@@ -31,7 +33,6 @@ export const SearchReducer = (state=initState, action) => {
                 isError: true
             }
         }
-
         default: return state
     }
 }

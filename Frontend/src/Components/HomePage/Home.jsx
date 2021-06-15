@@ -40,17 +40,14 @@ export const Home = () => {
 
     return (
         <div>
-            {/* <Ads /> */}
-            <Carousalone/>
+            <Carousalone />
             <br />
-            <br/>
-            <BankOffer/>
-            <br/>
-            <br/>
+            <br />
+            <BankOffer />
+            <br />
+            <br />
             <HomeChikHome />
             <br />
-            <br />
-            {/* <CollectionCelebration/> */}
             <br/>
             <HouseFavourite />
             <br />

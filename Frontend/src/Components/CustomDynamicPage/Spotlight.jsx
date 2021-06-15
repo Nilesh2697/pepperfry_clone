@@ -6,7 +6,7 @@ import { CustomCard } from "../CardComponents/CustomCard";
 import { Spinner } from "../Loading/Spinner";
 
 export const Spotlight = () => {
-    const { dataListLoading, dataListThree } = useSelector(
+    const { dataListLoadingThree, dataListThree } = useSelector(
         (state) => state.dataList,
     );
     return (
@@ -14,14 +14,14 @@ export const Spotlight = () => {
             <p
                 style={{
                     textAlign: "center",
-                    fontWeight: "bold",
+                    fontWeight: "900",
                     fontSize: "20px",
                 }}
             >
-                IN THE SPOTLIGHT
+                {!dataListLoadingThree && "IN THE SPOTLIGHT"}
             </p>
             <div>
-                {dataListLoading
+                {dataListLoadingThree
                     ? spotLightList.map((data, i) => (
                           <CustomCard key={i} type="secondary">
                               <Spinner data={data} />
