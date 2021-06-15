@@ -112,6 +112,7 @@ const inState = {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [searchData, setSearchData] = React.useState({})
+  const [displayDrop, setDisplayDrop] = React.useState("block")
   const history = useHistory();
   const dispatch = useDispatch()
   const searchResult = useSelector((state) => state.search.data)
@@ -251,6 +252,13 @@ const inState = {
     </Menu>
   );
 
+  const handleSearchClick = (id) => {
+    setDisplayDrop("none")
+    history.push(`/item/${id}`)
+    setSearchData("")
+    setDisplayDrop("block")
+  }
+
   return (
     <div className={classes.grow}>
       <AppBar style={{borderBottom: "2px solid #E7E7E7", height: 70, boxShadow: "none"}} color="transparent"  position="static">
@@ -276,18 +284,20 @@ const inState = {
             </div>
             {searchData.payload?.length > 0 ? 
                         <div style={{
-                          position: "absolute", 
-                          // border: "1px solid", 
+                          position: "absolute",
                           backgroundColor: "white",
                           width: "100%",
                           height: "auto",
                           zIndex: 1,
                           borderRadius: 0,
                           background: "#f2f6f7",
-                          boxShadow:  "-7px 7px 14px #d5d8d9, 7px -7px 14px #ffffff;",
-                        }}>
+                          boxShadow:  "-7px 7px 14px #d5d8d9, 7px -7px 14px #ffffff",
+                          display: displayDrop,
+                        }}
+                        // onClick={}
+                        >
                           {searchResult.length > 0 && searchResult.map(el => (
-                            <p style={{marginLeft: "2%", paddingTop: 5}}>{el.name}</p>
+                            <p onClick={()=> handleSearchClick(el._id)} style={{zIndex: 1, marginLeft: "2%", paddingTop: 5, cursor: "pointer"}}>{el.name}</p>
                           ))}
                       </div>
                       : <div style={{display: "none"}}></div>  
