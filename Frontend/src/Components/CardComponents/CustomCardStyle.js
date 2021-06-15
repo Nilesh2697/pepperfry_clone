@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const PrimaryCustomCard = styled.div`
     @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap");
     font-family: "Fira Sans", sans-serif;
+    letter-spacing: 0.26px;
+    line-height: 17px;
     font-size: 2vh;
     max-width: 95%;
     display: flex;
@@ -25,7 +27,7 @@ export const PrimaryCustomCard = styled.div`
     }
 
     & span {
-        font-weight: bolder;
+        font-weight: 600;
         cursor: pointer;
     }
 
@@ -59,6 +61,8 @@ export const SecondaryCustomCard = styled.div`
     font-family: "Fira Sans", sans-serif;
     font-size: 2.3vh;
     display: flex;
+    letter-spacing: 0.26px;
+    line-height: 17px;
     flex-direction: column;
     gap: 10px;
     padding: 1.5% 1.5%;
@@ -94,22 +98,24 @@ export const SecondaryCustomCard = styled.div`
 export const VerticalCustomCard = styled.div`
     @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap");
     font-family: "Fira Sans", sans-serif;
-    font-size: 2.3vh;
+    font-size: 2vh;
     display: flex;
     flex-direction: column;
     background: white;
-    /* border: solid red 5px; */
-    /* padding-bottom: 5%; */
+    /* letter-spacing: 0.26px;
+    line-height: 17px; */
 
     & p {
         /* margin-top: 5%; */
-        font-weight: bold;
+        font-weight: 600;
+        color: black;
         padding: 2% 8%;
     }
     & > div {
         /* border: solid black 1px; */
         padding: 2% 8%;
         padding-bottom: 25%;
+        color: black;
     }
     & > div > div {
         cursor: pointer;

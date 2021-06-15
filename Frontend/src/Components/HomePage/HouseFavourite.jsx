@@ -6,16 +6,16 @@ import { CustomCard } from "../CardComponents/CustomCard";
 import { Spinner } from "../Loading/Spinner";
 
 export const HouseFavourite = () => {
-    const { dataListLoading, dataListTwo } = useSelector(
+    const { dataListLoadingTwo, dataListTwo } = useSelector(
         (state) => state.dataList,
     );
 
     return (
         <SecondaryGreyContainer>
-            <p>HOUSE FAVOURITES</p>
-            <p>Loved By All</p>
+            <p>{!dataListLoadingTwo && "HOUSE FAVOURITES"}</p>
+            <p>{!dataListLoadingTwo && "Loved By All"}</p>
             <div>
-                {dataListLoading
+                {dataListLoadingTwo
                     ? houseFavouriteList.map((data, i) => (
                           <CustomCard key={i} type="secondary">
                               <Spinner data={data} />

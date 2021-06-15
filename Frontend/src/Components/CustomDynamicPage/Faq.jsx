@@ -5,16 +5,16 @@ import faqList from "../../StaticData/Dynamic/faqList.json";
 import { Spinner } from "../Loading/Spinner";
 
 export const Faq = () => {
-    const { dataListLoading, dataListEight } = useSelector(
+    const { dataListLoadingEight, dataListEight } = useSelector(
         (state) => state.dataList,
     );
 
     return (
         <AdditionalInfoDiv>
             <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-                Frequently Asked Questions
+                {!dataListLoadingEight && "Frequently Asked Questions"}
             </h2>
-            {dataListLoading
+            {dataListLoadingEight
                 ? faqList.map((data, i) => (
                       <div key={i}>
                           <Spinner data={data} />
