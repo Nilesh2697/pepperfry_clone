@@ -41,13 +41,13 @@ export const Home = () => {
     return (
         <div>
             {/* <Ads /> */}
-            <Carousalone/>
+            <Carousalone />
             {/* <CarouselMain/> */}
             <br />
-            <br/>
-            <BankOffer/>
-            <br/>
-            <br/>
+            <br />
+            <BankOffer />
+            <br />
+            <br />
             <HomeChikHome />
             <br />
             <br />

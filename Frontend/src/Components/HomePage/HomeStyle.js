@@ -33,9 +33,11 @@ export const SecondaryGreyContainer = styled.div`
     text-align: left;
     padding: 2% 10.8%;
     padding-right: 11.5%;
+    @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap");
+    font-family: "Fira Sans", sans-serif;
 
     & > p:nth-child(1) {
-        font-weight: bolder;
+        font-weight: bold;
     }
 
     /* & img:hover {

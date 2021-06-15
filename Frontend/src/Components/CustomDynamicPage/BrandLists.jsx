@@ -6,7 +6,7 @@ import { Spinner } from "../Loading/Spinner";
 import { useSelector } from "react-redux";
 
 export const BrandLists = () => {
-    const { dataListLoading, dataListSix } = useSelector(
+    const { dataListLoadingSix, dataListSix } = useSelector(
         (state) => state.dataList,
     );
 
@@ -17,7 +17,7 @@ export const BrandLists = () => {
             }}
         >
             <div>
-                {dataListLoading
+                {dataListLoadingSix
                     ? brandList.map((data, i) => (
                           <CustomCard key={i} type="primary">
                               <Spinner data={data} />

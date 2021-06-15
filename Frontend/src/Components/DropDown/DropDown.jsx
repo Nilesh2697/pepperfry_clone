@@ -16,26 +16,26 @@ const MenuBar = styles.div`
 
 const useStyles = makeStyles((theme) => ({
     button: {
-        marginLeft: "6.5%",
+        marginLeft: "10.5%",
         fontSize: 14,
         marginTop: "0.2%",
         position: "relative",
         zIndex: 0,
         textTransform: "none",
-        '&:hover':{
+        "&:hover": {
             fontWeight: "bold",
             fontSize: 13,
-        }
+        },
     },
     button2: {
         marginLeft: "2%",
         fontSize: 14,
         marginTop: "0.2%",
         textTransform: "none",
-        '&:hover':{
+        "&:hover": {
             fontWeight: "bold",
             fontSize: 13,
-        }
+        },
     },
 }));
 
@@ -1326,7 +1326,7 @@ const DropDown = () => {
                         marginTop: "-1%",
                         width: "8%",
                         height: "5px",
-                        marginLeft: "1.5%",
+                        marginLeft: "0%",
                     }}
                 ></div>
                 <table>
@@ -2240,7 +2240,7 @@ const DropDown = () => {
                         marginTop: "-1%",
                         width: "10%",
                         height: "5px",
-                        marginLeft: "9%",
+                        marginLeft: "0%",
                     }}
                 ></div>
                 <table>
@@ -2973,7 +2973,7 @@ const DropDown = () => {
                         width: "10%",
                         height: "5px",
                         marginTop: "-0.8%",
-                        marginLeft: "43%",
+                        marginLeft: "36%",
                         backgroundColor: "orange",
                     }}
                 ></div>
@@ -3303,7 +3303,7 @@ const DropDown = () => {
                         width: "5%",
                         height: "5px",
                         marginTop: "-0.6%",
-                        marginLeft: "64%",
+                        marginLeft: "63%",
                         backgroundColor: "orange",
                     }}
                 ></div>
@@ -3872,7 +3872,7 @@ const DropDown = () => {
                         width: "6%",
                         height: "5px",
                         marginTop: "-0.6%",
-                        marginLeft: "70.5%",
+                        marginLeft: "68.5%",
                         backgroundColor: "orange",
                     }}
                 ></div>
@@ -4199,7 +4199,7 @@ const DropDown = () => {
                         width: "20%",
                         height: "5px",
                         marginTop: "-1.2%",
-                        marginLeft: "58%",
+                        marginLeft: "49.2%",
                         backgroundColor: "orange",
                     }}
                 ></div>
@@ -4208,11 +4208,13 @@ const DropDown = () => {
                         <strong>
                             Modular Furniture Tailor-made for Your Home
                         </strong>
+
                         <p
                             style={{
                                 fontSize: 12,
                                 color: "#9B9B9B",
                                 lineHeight: "1%",
+                                marginTop: "2%",
                             }}
                         >
                             Widest Variety of Materials & Finishes, Chooose From
@@ -4220,7 +4222,7 @@ const DropDown = () => {
                         </p>
                     </div>
                 </div>
-                <table style={{ height: 220, marginTop: "-5%" }}>
+                <table style={{ height: 220, marginTop: "-2%" }}>
                     <tr>
                         <td>
                             <div
@@ -4229,6 +4231,8 @@ const DropDown = () => {
                                     height: 150,
                                     // lineHeight: "1%",
                                     cursor: "pointer",
+                                    padding: "0% 2%",
+                                    paddingLeft: "4%",
                                 }}
                             >
                                 <img
@@ -4236,7 +4240,12 @@ const DropDown = () => {
                                     src="https://ii1.pepperfry.com/media/wysiwyg/banners/modular-hover20-wardrobe.jpg"
                                     alt="SampleImage"
                                 />
-                                <p style={{ color: "#F27335" }}>
+                                <p
+                                    style={{
+                                        color: "#F27335",
+                                        textAlign: "center",
+                                    }}
+                                >
                                     Modular Wardrobes
                                 </p>
                             </div>
@@ -4249,6 +4258,7 @@ const DropDown = () => {
                                     height: 150,
                                     // lineHeight: "1%",
                                     cursor: "pointer",
+                                    padding: "0% 2%",
                                 }}
                             >
                                 <img
@@ -4256,7 +4266,12 @@ const DropDown = () => {
                                     src="https://ii2.pepperfry.com/media/wysiwyg/banners/modular-hover20-kitchen.jpg"
                                     alt="SampleImage"
                                 />
-                                <p style={{ color: "#F27335" }}>
+                                <p
+                                    style={{
+                                        color: "#F27335",
+                                        textAlign: "center",
+                                    }}
+                                >
                                     Moduler Kitchens
                                 </p>
                             </div>
@@ -4268,6 +4283,7 @@ const DropDown = () => {
                                     width: 150,
                                     height: 150,
                                     cursor: "pointer",
+                                    paddingRight: "4%",
                                 }}
                             >
                                 <img
