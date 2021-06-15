@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 const Ads = () => {
     const [op, setOp] = React.useState(false);
 
-    const { dataListLoading } = useSelector((state) => state.dataList);
+    const { dataListLoadingSix } = useSelector((state) => state.dataList);
 
     const handleClose = () => {
         setOp(false);
@@ -23,7 +23,7 @@ const Ads = () => {
     }, []);
 
     return (
-        !dataListLoading && (
+        !dataListLoadingSix && (
             <PopupState variant="popover" popupId="demo-popup-popover">
                 {(popupState) => (
                     <div>
