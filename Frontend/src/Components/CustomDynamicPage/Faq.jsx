@@ -12,7 +12,7 @@ export const Faq = () => {
     return (
         <AdditionalInfoDiv>
             <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-                Frequently Asked Questions
+                {!dataListLoadingEight && "Frequently Asked Questions"}
             </h2>
             {dataListLoadingEight
                 ? faqList.map((data, i) => (

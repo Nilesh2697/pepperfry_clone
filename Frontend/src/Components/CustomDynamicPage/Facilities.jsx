@@ -18,7 +18,7 @@ export const Facilities = () => {
                       </div>
                   ))
                 : dataListSeven.map((item) => (
-                      <div>
+                      <div style={{ fontSize: 14, color: "black" }}>
                           <h2>{item.heading}</h2>
                           <p>{item.description}</p>
                           {item.lists &&

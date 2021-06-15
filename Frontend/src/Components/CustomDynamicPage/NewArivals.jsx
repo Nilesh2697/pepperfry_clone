@@ -19,7 +19,7 @@ export const NewArivals = () => {
                     fontSize: "20px",
                 }}
             >
-                NEW ARRIVALS
+                {!dataListLoadingFour && "NEW ARRIVALS"}
             </p>
             <div>
                 {dataListLoadingFour

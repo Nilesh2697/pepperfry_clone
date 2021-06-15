@@ -14,11 +14,11 @@ export const Spotlight = () => {
             <p
                 style={{
                     textAlign: "center",
-                    fontWeight: "bold",
+                    fontWeight: "900",
                     fontSize: "20px",
                 }}
             >
-                IN THE SPOTLIGHT
+                {!dataListLoadingThree && "IN THE SPOTLIGHT"}
             </p>
             <div>
                 {dataListLoadingThree

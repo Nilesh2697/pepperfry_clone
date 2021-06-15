@@ -12,8 +12,8 @@ export const ModernStyleBannerList = () => {
 
     return (
         <PrimaryWhiteContainer>
-            <p>STYLE 101</p>
-            <p>Whispered Words Of Wisdom</p>
+            <p>{!dataListLoadingSix && "STYLE 101"}</p>
+            <p>{!dataListLoadingSix && "Whispered Words Of Wisdom"}</p>
             <div>
                 {dataListLoadingSix
                     ? modernStyleBanners.map((data, i) => (

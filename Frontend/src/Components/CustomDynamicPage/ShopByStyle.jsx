@@ -19,7 +19,7 @@ export const ShopByStyle = () => {
                     fontSize: "20px",
                 }}
             >
-                SHOP BY STYLE
+                {!dataListLoadingFive && "SHOP BY STYLE"}
             </p>
             <div>
                 {dataListLoadingFive
