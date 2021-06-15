@@ -4,20 +4,25 @@ import logo from '../../Images/logo.png';
 import {useDispatch, useSelector} from 'react-redux';
 import axios from 'axios';
 import {StepperPepper} from './StepperPepper';
+import NotificationsNoneOutlined from '@material-ui/icons/NotificationsNoneOutlined';
 
 function CheckOutNavbar(){
 
 //   const dispatch =useDispatch();
 //   const isAuth= useSelector(state=>state.fireReducer.isAuth)
-//   const userdata = useSelector((state) => state.register_page);
-//   console.log(isAuth,userdata)
+//   const userdata = useSelector((state) => state.payload);
+//   //console.log(isAuth,userdata)
 
 //   const getuserdata = () => {
-     
+//      axios.get('')
+//      .then((res) => {
+//          return res
+//      })
 //   }
 
 //   React.useEffect(() => {
 //     getuserdata();
+   
 //   })
 
 
@@ -29,7 +34,7 @@ function CheckOutNavbar(){
             </PaymentProcess>
         
             <Welcome>
-
+                  <h3>WELCOME {}<span><NotificationsNoneOutlined style={{marginTop:'3%'}}/></span></h3>
             </Welcome>
         </CheckOutNav>
     )           

@@ -18,6 +18,7 @@ const Routes = () => {
             <DropDown />
             <Ads />
             <Switch>
+
             <Route path="/" exact>
                 <Home />
             </Route>
@@ -29,6 +30,9 @@ const Routes = () => {
             </Route>
             <Route>
                 <h1>404 Page not found</h1>
+            </Route>
+            <Route path="/item/:id">
+                <ProductPage />
             </Route>
             </Switch>
             <Footer /></>:
