@@ -4,11 +4,16 @@ import axios from "axios"
 const getItem = (payload) => (dispatch) => {
     const item_req = get_item_request()
     dispatch(item_req)
-    axios.get(``)
-    .then()
-    .catch()
+    axios.get(`http://localhost:3001/searchbyID/${payload}`)
+    .then(resp => {
+        const item_success = get_item_success(resp.data)
+        dispatch(item_success)
+    })
+    .catch(err => {
+        const item_error = get_item_failure()
+        dispatch(item_error)
+    })
 }
-
 
 const get_item_request = () => {
     return{
@@ -28,3 +33,5 @@ const get_item_failure = () => {
         type: GET_ITEM_FAILURE
     }
 }
+
+export {getItem}
