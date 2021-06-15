@@ -16,7 +16,7 @@ const MenuBar = styles.div`
 
 const useStyles = makeStyles((theme) => ({
     button: {
-        marginLeft: "6.5%",
+        marginLeft: "10.5%",
         fontSize: 14,
         marginTop: "0.2%",
         position: "relative",
@@ -781,6 +781,7 @@ const DropDown = () => {
                         marginTop: "-1%",
                         width: "8%",
                         height: "5px",
+                       
                     }}
                 ></div>
                 <table>
@@ -1326,7 +1327,7 @@ const DropDown = () => {
                         marginTop: "-1%",
                         width: "8%",
                         height: "5px",
-                        marginLeft: "1.5%",
+                        marginLeft: "0%",
                     }}
                 ></div>
                 <table>
@@ -2240,7 +2241,7 @@ const DropDown = () => {
                         marginTop: "-1%",
                         width: "10%",
                         height: "5px",
-                        marginLeft: "9%",
+                        marginLeft: "0%",
                     }}
                 ></div>
                 <table>
@@ -2973,7 +2974,7 @@ const DropDown = () => {
                         width: "10%",
                         height: "5px",
                         marginTop: "-0.8%",
-                        marginLeft: "43%",
+                        marginLeft: "36%",
                         backgroundColor: "orange",
                     }}
                 ></div>
@@ -3303,7 +3304,7 @@ const DropDown = () => {
                         width: "5%",
                         height: "5px",
                         marginTop: "-0.6%",
-                        marginLeft: "64%",
+                        marginLeft: "63%",
                         backgroundColor: "orange",
                     }}
                 ></div>
@@ -3872,7 +3873,7 @@ const DropDown = () => {
                         width: "6%",
                         height: "5px",
                         marginTop: "-0.6%",
-                        marginLeft: "70.5%",
+                        marginLeft: "68.5%",
                         backgroundColor: "orange",
                     }}
                 ></div>
@@ -4199,7 +4200,7 @@ const DropDown = () => {
                         width: "20%",
                         height: "5px",
                         marginTop: "-1.2%",
-                        marginLeft: "58%",
+                        marginLeft: "49.2%",
                         backgroundColor: "orange",
                     }}
                 ></div>

@@ -11,7 +11,6 @@ import Menu from "@material-ui/core/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import { Register } from "../Login/Register";
-import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import LocalShippingOutlinedIcon from "@material-ui/icons/LocalShippingOutlined";
 import FavoriteBorderOutlinedIcon from "@material-ui/icons/FavoriteBorderOutlined";
 import PermIdentityOutlinedIcon from "@material-ui/icons/PermIdentityOutlined";
@@ -20,78 +19,78 @@ import { useHistory } from "react-router";
 import { connect } from "react-redux";
 import { getSearch } from "../../Redux/Search/action";
 import { useDispatch, useSelector } from "react-redux";
+import {Cart} from "../Cart/Cart"
 import {
-    logOut,
-    registerUser,
-    registerUserWithSM,
+  logOut,
+  registerUserWithSM,
 } from "../../Redux/FireAuth/fireAction";
 
 const useStyles = makeStyles((theme) => ({
-    grow: {
-        flexGrow: 1,
-    },
+  grow: {
+    flexGrow: 1,
+  },
 
-    // title: {
-    //   display: "none",
-    //   marginLeft:160,
-    //   [theme.breakpoints.up("xs")]: {
-    //     display: "block"
-    //   }
-    // },
-    search: {
-        position: "relative",
-        borderRadius: theme.shape.borderRadius,
-        backgroundColor: fade(theme.palette.common.black, 0.05),
-        "&:hover": {
-            backgroundColor: fade(theme.palette.common.black, 0.1),
-        },
-        marginRight: theme.spacing(2),
-        marginLeft: 0,
-        width: "40vw",
-        [theme.breakpoints.up("sm")]: {
-            marginLeft: theme.spacing(5),
-            width: "auto",
-        },
-        height: 42,
+  // title: {
+  //   display: "none",
+  //   marginLeft:160,
+  //   [theme.breakpoints.up("xs")]: {
+  //     display: "block"
+  //   }
+  // },
+  search: {
+    position: "relative",
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: fade(theme.palette.common.black, 0.05),
+    "&:hover": {
+      backgroundColor: fade(theme.palette.common.black, 0.1),
     },
-    searchIcon: {
-        // padding: theme.spacing(0, 2),
-        // height: "100%",
-        position: "absolute",
-        // pointerEvents: "none",
-        // display: "flex",
-        // alignItems: "center",
-        // justifyContent: "center",
-        marginTop: -28,
-        marginRight: -40,
-        right: 50,
+    marginRight: theme.spacing(2),
+    marginLeft: 0,
+    width: "40vw",
+    [theme.breakpoints.up("sm")]: {
+      marginLeft: theme.spacing(5),
+      width: "auto",
     },
-    inputRoot: {
-        color: "inherit",
+    height: 42,
+  },
+  searchIcon: {
+    // padding: theme.spacing(0, 2),
+    // height: "100%",
+    position: "absolute",
+    // pointerEvents: "none",
+    // display: "flex",
+    // alignItems: "center",
+    // justifyContent: "center",
+    marginTop: -28,
+    marginRight: -40,
+    right: 50,
+  },
+  inputRoot: {
+    color: "inherit",
+  },
+  inputInput: {
+    padding: theme.spacing(1.5, 4, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(0)}px)`,
+    transition: theme.transitions.create("width"),
+    width: "100%",
+    [theme.breakpoints.up("md")]: {
+      width: "70ch",
     },
-    inputInput: {
-        padding: theme.spacing(1.5, 4, 1, 0),
-        // vertical padding + font size from searchIcon
-        paddingLeft: `calc(1em + ${theme.spacing(0)}px)`,
-        transition: theme.transitions.create("width"),
-        width: "100%",
-        [theme.breakpoints.up("md")]: {
-            width: "70ch",
-        },
+  },
+  sectionDesktop: {
+    display: "none",
+    [theme.breakpoints.up("md")]: {
+      display: "flex",
     },
-    sectionDesktop: {
-        display: "none",
-        [theme.breakpoints.up("md")]: {
-            display: "flex",
-        },
-        marginRight: 140,
+    marginRight: 140,
+  },
+  sectionMobile: {
+    display: "flex",
+    [theme.breakpoints.up("md")]: {
+      display: "none",
     },
-    sectionMobile: {
-        display: "flex",
-        [theme.breakpoints.up("md")]: {
-            display: "none",
-        },
-    },
+  },
 }));
 
 const inState = {
@@ -110,63 +109,78 @@ const inState = {
     orders: [],
 };
 
- function NavBar() {
+function NavBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorE2, setAnchorE2] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [searchData, setSearchData] = React.useState({})
   const [displayDrop, setDisplayDrop] = React.useState("block")
   const history = useHistory();
-  const dispatch = useDispatch()
-  const searchResult = useSelector((state) => state.search.data)
+  const dispatch = useDispatch();
+  const searchResult = useSelector((state) => state.search.data);
 
-    const isAuth = useSelector((state) => state.fireReducer.isAuth);
+  const isAuth = useSelector((state) => state.fireReducer.isAuth);
 
-    const [state] = React.useState(inState);
+  const [state] = React.useState(inState);
 
-    const regRef = React.useRef(state);
+  const regRef = React.useRef(state);
 
-    const isMenuOpen = Boolean(anchorEl);
-    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const isMenuOpen = Boolean(anchorEl);
+  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-    const handleSearch = (e) => {
-        let payload = e.target.value;
-        setSearchData({ ...searchData, payload });
-        console.log(searchData.payload);
-        dispatch(getSearch(searchData.payload));
-    };
+  const handleSearch = (e) => {
+    let payload = e.target.value;
+    setSearchData({ ...searchData, payload });
+  };
+  
+  
 
-    const {
-        isRegisterAuthFB,
-        isRegisterAuthG,
-        googleEmail,
-        googlePassword,
-        facebook,
-        facebookPassword,
-        phone,
-        displayName,
-    } = useSelector((state) => state.fireReducer);
 
-    const handleClick = () => {
-        history.push("/");
-    };
 
-    const handleLogout = () => {
-        dispatch(logOut());
-    };
+  React.useEffect(() => {
+    dispatch(getSearch(searchData.payload));
+  }, [searchData]);
 
-    const handleProfileMenuOpen = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
+  // console.log(searchResult.length, searchData.payload.length)
 
-    const handleMobileMenuClose = () => {
-        setMobileMoreAnchorEl(null);
-    };
+  const {
+    isRegisterAuthFB,
+    isRegisterAuthG,
+    googleEmail,
+    googlePassword,
+    facebook,
+    facebookPassword,
+    phone,
+    displayName,
+  } = useSelector((state) => state.fireReducer);
 
-    const handleMenuClose = () => {
-        setAnchorEl(null);
-        handleMobileMenuClose();
-    };
+  const handleClick = () => {
+    history.push("/");
+  };
+
+  const handleLogout = () => {
+    dispatch(logOut());
+  };
+
+  const handleProfileMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  
+  const handleDrawerOpen=()=>{
+    setAnchorE2(!anchorE2);
+  }
+
+  const handleMobileMenuClose = () => {
+    setMobileMoreAnchorEl(null);
+  };
+  
+ 
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+    handleMobileMenuClose();
+  };
+
 
     const handleMobileMenuOpen = (event) => {
         setMobileMoreAnchorEl(event.currentTarget);
@@ -307,26 +321,42 @@ const inState = {
 
   return (
     <div className={classes.grow}>
-      <AppBar style={{borderBottom: "2px solid #E7E7E7", height: 70, boxShadow: "none"}} color="transparent"  position="static">
+
+      <AppBar
+        style={{
+          borderBottom: "2px solid #E7E7E7",
+          height: 70,
+          boxShadow: "none",
+        }}
+        color="transparent"
+        position="static"
+      >
         <Toolbar>
-         
-          <div onClick={() => handleClick()} style={{cursor: "pointer"}}>
-            <img style={{width:170, height: 50,marginTop:"1%", marginLeft: "40%"}} src={logo} alt="pepperfry"/>
+          <div onClick={() => handleClick()} style={{ cursor: "pointer" }}>
+            <img
+              style={{
+                width: 170,
+                height: 50,
+                marginTop: "1%",
+                marginLeft: "92%",
+              }}
+              src={logo}
+              alt="pepperfry"
+            />
           </div>
 
-          <div style={{marginLeft: "8%"}} className={classes.search}>
-           
+          <div style={{ marginLeft: "13%" }} className={classes.search}>
             <InputBase
               placeholder="Search"
               classes={{
                 root: classes.inputRoot,
-                input: classes.inputInput
+                input: classes.inputInput,
               }}
               inputProps={{ "aria-label": "search" }}
-              onChange={(e)=>handleSearch(e)}
+              onChange={(e) => handleSearch(e)}
             />
-             <div className={classes.searchIcon}>
-            <SearchIcon/>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
             </div>
             {searchData.payload?.length > 0 ? 
                         <div style={{
@@ -350,37 +380,27 @@ const inState = {
           }  
           </div>
           <div className={classes.grow} />
-          <div style={{marginLeft: "2%"}} className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit" style={{ backgroundColor: 'transparent' }}>
-            <div>
-              <Badge badgeContent={0} color="secondary">
-               
-               <LocalShippingOutlinedIcon style={{ fontSize: 28,marginLeft:"-65%"}}/>               
-               
-              </Badge>
-             <div style={{fontSize:12 ,marginLeft:-35}}>Track</div> 
-            </div>
-            </IconButton>
-            <IconButton aria-label="show 4 new mails" color="inherit" style={{ backgroundColor: 'transparent' }}>
+          <div style={{ marginLeft: "2%" }} className={classes.sectionDesktop}>
+            <IconButton
+              aria-label="show 4 new mails"
+              color="inherit"
+              style={{ backgroundColor: "transparent" }}
+            >
               <div>
-              <Badge badgeContent={0} color="secondary">
-              <FavoriteBorderOutlinedIcon style={{ fontSize: 28,marginLeft:0}}/>
-              </Badge>
-              <div style={{fontSize:12,marginLeft:0}}>
-                Wishlist
-              </div>
-              </div>
-            </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit" style={{ backgroundColor: 'transparent' }}>
-              <div>
-              <Badge badgeContent={0} color="secondary">
-               <ShoppingCartOutlinedIcon style={{ fontSize: 28,marginLeft:10 }}/>
-              </Badge>
-              <div style={{fontSize:12,marginLeft:10}}>
-                Cart
-              </div>
+                <Badge badgeContent={0} color="secondary">
+                  <LocalShippingOutlinedIcon
+                    style={{ fontSize: 28, marginLeft: "-65%" }}
+                  />
+                </Badge>
+                <div style={{ fontSize: 12, marginLeft: -35 }}>Track</div>
               </div>
             </IconButton>
+         
+          
+
+            <Cart/>
+
+
             <IconButton
               edge="end"
               aria-label="account of current user"
@@ -388,14 +408,14 @@ const inState = {
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
               color="inherit"
-              style={{ backgroundColor: 'transparent' }}
-            >  
-                <div style={{lineHeight: "80%", marginTop: "10%"}}>
-                  <PermIdentityOutlinedIcon style={{ fontSize: 28 ,marginLeft:15,marginTop:5}}/>
-                  <div style={{fontSize:12, marginLeft:15}}>
-                   Profile
-                  </div>
-                </div>
+              style={{ backgroundColor: "transparent" }}
+            >
+              <div style={{ lineHeight: "80%", marginTop: "10%" }}>
+                <PermIdentityOutlinedIcon
+                  style={{ fontSize: 28, marginLeft: 15, marginTop: 5 }}
+                />
+                <div style={{ fontSize: 12, marginLeft: 15 }}>Profile</div>
+              </div>
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>
