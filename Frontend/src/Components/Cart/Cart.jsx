@@ -5,7 +5,7 @@ import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import Badge from "@material-ui/core/Badge";
 import IconButton from "@material-ui/core/IconButton";
-import {CardSectionTab} from "./CartSectionTab"
+import {CardSectionTab} from "./CartSectionTab";
 import CloseIcon from "@material-ui/icons/Close";
 import FavoriteBorderOutlinedIcon from "@material-ui/icons/FavoriteBorderOutlined";
 

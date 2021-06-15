@@ -94,19 +94,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const inState = {
-  first_name: "",
-  last_name: "",
-  gender: "",
-  age: 0,
-  dob: "",
-  phone: "",
-  email: "",
-  password: "",
-  address: {},
-  cards: [],
-  wishlist: [],
-  cart: [],
-  orders: [],
+    first_name: "",
+    last_name: "",
+    gender: "",
+    age: 0,
+    dob: "",
+    phone: "",
+    email: "",
+    password: "",
+    address: {},
+    cards: [],
+    wishlist: [],
+    cart: [],
+    orders: [],
 };
 
 function NavBar() {
@@ -114,7 +114,8 @@ function NavBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [anchorE2, setAnchorE2] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-  const [searchData, setSearchData] = React.useState({});
+  const [searchData, setSearchData] = React.useState({})
+  const [displayDrop, setDisplayDrop] = React.useState("block")
   const history = useHistory();
   const dispatch = useDispatch();
   const searchResult = useSelector((state) => state.search.data);
@@ -180,130 +181,143 @@ function NavBar() {
     handleMobileMenuClose();
   };
 
-  const handleMobileMenuOpen = (event) => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
 
-  React.useEffect(() => {
-    if (isRegisterAuthG) {
-      regRef.current = {
-        ...state,
-        email: googleEmail,
-        password: googlePassword,
-        phone: phone,
-        first_name: displayName,
-      };
-      // console.log(regRef.current)
-      dispatch(registerUserWithSM(regRef.current));
-    } else if (isRegisterAuthFB) {
-      regRef.current = {
-        ...state,
-        email: facebook,
-        password: facebookPassword,
-        phone: phone,
-        first_name: displayName,
-      };
-      dispatch(registerUserWithSM(regRef.current));
-    }
-  }, [isRegisterAuthG, isRegisterAuthFB]);
+    const handleMobileMenuOpen = (event) => {
+        setMobileMoreAnchorEl(event.currentTarget);
+    };
 
-  const menuId = "primary-search-account-menu";
+    React.useEffect(() => {
+        if (isRegisterAuthG) {
+            regRef.current = {
+                ...state,
+                email: googleEmail,
+                password: googlePassword,
+                phone: phone,
+                first_name: displayName,
+            };
+            // console.log(regRef.current)
+            dispatch(registerUserWithSM(regRef.current));
+        } else if (isRegisterAuthFB) {
+            regRef.current = {
+                ...state,
+                email: facebook,
+                password: facebookPassword,
+                phone: phone,
+                first_name: displayName,
+            };
+            dispatch(registerUserWithSM(regRef.current));
+        }
+    }, [isRegisterAuthG, isRegisterAuthFB]);
 
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{ vertical: "top", horizontal: "right" }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{ vertical: "top", horizontal: "right" }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-      style={{ top: 45, left: 30 }}
-    >
-      {isAuth ? (
-        <span>
-          <MenuItem style={{ fontSize: 12, fontWeight: "bold" }}>
-            {displayName !== "" ? displayName : "User"}
-          </MenuItem>
-          <MenuItem style={{ fontSize: 12, fontWeight: "bold" }}>
-            My Account
-          </MenuItem>
-          <MenuItem style={{ fontSize: 12, fontWeight: "bold" }}>
-            My Orders
-          </MenuItem>
-          <MenuItem style={{ fontSize: 12, fontWeight: "bold" }}>
-            My Wishlist
-          </MenuItem>
-          <MenuItem style={{ fontSize: 12, fontWeight: "bold" }}>
-            My Wallet
-          </MenuItem>
-          <MenuItem style={{ fontSize: 12, fontWeight: "bold" }}>
-            My Profile
-          </MenuItem>
-          <MenuItem
-            style={{ fontSize: 12, fontWeight: "bold" }}
-            onClick={handleLogout}
-          >
-            Logout
-          </MenuItem>
-        </span>
-      ) : (
-        <span>
-          <MenuItem style={{ background: "#ef6630" }} onClick={handleMenuClose}>
-            <Register />
-          </MenuItem>
-          <MenuItem onClick={handleMenuClose}>
-            <span style={{ fontSize: 11 }}>
-              To access your <br />
-              account & manage
-              <br /> orders
-            </span>
-          </MenuItem>
-        </span>
-      )}
-    </Menu>
-  );
-
-  const mobileMenuId = "primary-search-account-menu-mobile";
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: "top", horizontal: "right" }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{ vertical: "top", horizontal: "right" }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <LocalShippingOutlinedIcon />
-          </Badge>
-        </IconButton>
-        <p>Track</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
-            <FavoriteBorderOutlinedIcon />
-          </Badge>
-        </IconButton>
-        <p>Wishlist</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
+    const menuId = "primary-search-account-menu";
+    const renderMenu = (
+        <Menu
+            anchorEl={anchorEl}
+            anchorOrigin={{ vertical: "top", horizontal: "right" }}
+            id={menuId}
+            keepMounted
+            transformOrigin={{ vertical: "top", horizontal: "right" }}
+            open={isMenuOpen}
+            onClose={handleMenuClose}
+            style={{ top: 45, left: 30 }}
         >
-          <PermIdentityOutlinedIcon />
-        </IconButton>
-        <p>Login</p>
-      </MenuItem>
-    </Menu>
-  );
+            {isAuth ? (
+                <span>
+                    <MenuItem style={{ fontSize: 12, fontWeight: "bold" }}>
+                        {displayName !== "" ? displayName : "User"}
+                    </MenuItem>
+                    <MenuItem style={{ fontSize: 12, fontWeight: "bold" }}>
+                        My Account
+                    </MenuItem>
+                    <MenuItem style={{ fontSize: 12, fontWeight: "bold" }}>
+                        My Orders
+                    </MenuItem>
+                    <MenuItem style={{ fontSize: 12, fontWeight: "bold" }}>
+                        My Wishlist
+                    </MenuItem>
+                    <MenuItem style={{ fontSize: 12, fontWeight: "bold" }}>
+                        My Wallet
+                    </MenuItem>
+                    <MenuItem style={{ fontSize: 12, fontWeight: "bold" }}>
+                        My Profile
+                    </MenuItem>
+                    <MenuItem
+                        style={{ fontSize: 12, fontWeight: "bold" }}
+                        onClick={handleLogout}
+                    >
+                        Logout
+                    </MenuItem>
+                </span>
+            ) : (
+                <span>
+                    <MenuItem
+                        style={{ background: "#ef6630" }}
+                        onClick={handleMenuClose}
+                    >
+                        <Register />
+                    </MenuItem>
+                    <MenuItem onClick={handleMenuClose}>
+                        <span style={{ fontSize: 11 }}>
+                            To access your <br />
+                            account & manage
+                            <br /> orders
+                        </span>
+                    </MenuItem>
+                </span>
+            )}
+        </Menu>
+    );
+
+    const mobileMenuId = "primary-search-account-menu-mobile";
+    const renderMobileMenu = (
+        <Menu
+            anchorEl={mobileMoreAnchorEl}
+            anchorOrigin={{ vertical: "top", horizontal: "right" }}
+            id={mobileMenuId}
+            keepMounted
+            transformOrigin={{ vertical: "top", horizontal: "right" }}
+            open={isMobileMenuOpen}
+            onClose={handleMobileMenuClose}
+        >
+            <MenuItem>
+                <IconButton aria-label="show 4 new mails" color="inherit">
+                    <Badge badgeContent={4} color="secondary">
+                        <LocalShippingOutlinedIcon />
+                    </Badge>
+                </IconButton>
+                <p>Track</p>
+            </MenuItem>
+            <MenuItem>
+                <IconButton
+                    aria-label="show 11 new notifications"
+                    color="inherit"
+                >
+                    <Badge badgeContent={11} color="secondary">
+                        <FavoriteBorderOutlinedIcon />
+                    </Badge>
+                </IconButton>
+                <p>Wishlist</p>
+            </MenuItem>
+            <MenuItem onClick={handleProfileMenuOpen}>
+                <IconButton
+                    aria-label="account of current user"
+                    aria-controls="primary-search-account-menu"
+                    aria-haspopup="true"
+                    color="inherit"
+                >
+                    <PermIdentityOutlinedIcon />
+                </IconButton>
+                <p>Login</p>
+            </MenuItem>
+        </Menu>
+    );
+
+  const handleSearchClick = (id) => {
+    setDisplayDrop("none")
+    history.push(`/item/${id}`)
+    setSearchData("")
+    setDisplayDrop("block")
+  }
 
   return (
     <div className={classes.grow}>
@@ -344,28 +358,26 @@ function NavBar() {
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
-            {searchData.payload?.length > 0 ? (
-              <div
-                style={{
-                  position: "absolute",
-                  // border: "1px solid",
-                  backgroundColor: "white",
-                  width: "100%",
-                  height: "auto",
-                  zIndex: 1,
-                  borderRadius: 0,
-                  background: "#f2f6f7",
-                  boxShadow: "-7px 7px 14px #d5d8d9, 7px -7px 14px #ffffff;",
-                }}
-              >
-                {searchResult.length > 0 &&
-                  searchResult.map((el) => (
-                    <p style={{ marginLeft: "2%", paddingTop: 5 }}>{el.name}</p>
-                  ))}
-              </div>
-            ) : (
-              <div style={{ display: "none" }}></div>
-            )}
+            {searchData.payload?.length > 0 ? 
+                        <div style={{
+                          position: "absolute",
+                          backgroundColor: "white",
+                          width: "100%",
+                          height: "auto",
+                          zIndex: 1,
+                          borderRadius: 0,
+                          background: "#f2f6f7",
+                          boxShadow:  "-7px 7px 14px #d5d8d9, 7px -7px 14px #ffffff",
+                          display: displayDrop,
+                        }}
+                        // onClick={}
+                        >
+                          {searchResult.length > 0 && searchResult.map(el => (
+                            <p onClick={()=> handleSearchClick(el._id)} style={{zIndex: 1, marginLeft: "2%", paddingTop: 5, cursor: "pointer"}}>{el.name}</p>
+                          ))}
+                      </div>
+                      : <div style={{display: "none"}}></div>  
+          }  
           </div>
           <div className={classes.grow} />
           <div style={{ marginLeft: "2%" }} className={classes.sectionDesktop}>
@@ -414,20 +426,17 @@ function NavBar() {
               onClick={handleMobileMenuOpen}
               color="inherit"
             >
-              <MoreIcon />
+                <MoreIcon />
             </IconButton>
           </div>
         </Toolbar>
-      </AppBar>
-      {renderMobileMenu}
-      {renderMenu}
-     
-    </div>
-  );
-}
+    </AppBar>
+    {renderMobileMenu}
+    {renderMenu}
+</div>);}
 
 const mapStateToProps = (state) => {
-  return {};
+    return {};
 };
 
 export default connect(mapStateToProps)(NavBar);
