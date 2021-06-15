@@ -6,7 +6,7 @@ import { CustomCard } from "../CardComponents/CustomCard";
 import { Spinner } from "../Loading/Spinner";
 
 export const NightEssentials = () => {
-    const { dataListLoading, dataListFour } = useSelector(
+    const { dataListLoadingFour, dataListFour } = useSelector(
         (state) => state.dataList,
     );
 
@@ -15,7 +15,7 @@ export const NightEssentials = () => {
             <p>SLEEP RIGHT. SLEEP TIGHT</p>
             <p>Mattresses That Work Like A Dream</p>
             <div>
-                {dataListLoading
+                {dataListLoadingFour
                     ? nightEssential.map((data, i) => (
                           <CustomCard key={i} type="secondary">
                               <Spinner data={data} />

@@ -6,7 +6,7 @@ import { CustomCard } from "../CardComponents/CustomCard";
 import { Spinner } from "../Loading/Spinner";
 
 export const HomeChikHome = () => {
-    const { dataListLoading, dataListOne } = useSelector(
+    const { dataListLoadingOne, dataListOne } = useSelector(
         (state) => state.dataList,
     );
 
@@ -15,7 +15,7 @@ export const HomeChikHome = () => {
             <p>HOME CHIC HOME</p>
             <p>Give Your Place A Makeover</p>
             <div>
-                {dataListLoading
+                {dataListLoadingOne
                     ? homeChikHomeList.map((data, i) => (
                           <CustomCard key={i} type="primary">
                               <Spinner data={data} />
