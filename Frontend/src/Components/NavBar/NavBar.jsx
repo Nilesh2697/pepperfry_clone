@@ -110,14 +110,15 @@ const inState = {
     orders: [],
 };
 
-function NavBar() {
-    const classes = useStyles();
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-    const [searchData, setSearchData] = React.useState({});
-    const history = useHistory();
-    const dispatch = useDispatch();
-    const searchResult = useSelector((state) => state.search.data);
+ function NavBar() {
+  const classes = useStyles();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [searchData, setSearchData] = React.useState({})
+  const [displayDrop, setDisplayDrop] = React.useState("block")
+  const history = useHistory();
+  const dispatch = useDispatch()
+  const searchResult = useSelector((state) => state.search.data)
 
     const isAuth = useSelector((state) => state.fireReducer.isAuth);
 
@@ -134,13 +135,6 @@ function NavBar() {
         console.log(searchData.payload);
         dispatch(getSearch(searchData.payload));
     };
-
-    // React.useEffect(() => {
-    //     console.log("Called");
-    //     dispatch(getSearch(searchData?.payload));
-    // }, [searchData]);
-
-    // console.log(searchResult.length, searchData.payload.length)
 
     const {
         isRegisterAuthFB,
@@ -304,180 +298,122 @@ function NavBar() {
         </Menu>
     );
 
-    return (
-        <div className={classes.grow}>
-            <AppBar
-                style={{
-                    borderBottom: "2px solid #E7E7E7",
-                    height: 70,
-                    boxShadow: "none",
-                }}
-                color="transparent"
-                position="static"
-            >
-                <Toolbar>
-                    <div
-                        onClick={() => handleClick()}
-                        style={{ cursor: "pointer" }}
-                    >
-                        <img
-                            style={{
-                                width: 170,
-                                height: 50,
-                                marginTop: "1%",
-                                marginLeft: "40%",
-                            }}
-                            src={logo}
-                            alt="pepperfry"
-                        />
-                    </div>
+  const handleSearchClick = (id) => {
+    setDisplayDrop("none")
+    history.push(`/item/${id}`)
+    setSearchData("")
+    setDisplayDrop("block")
+  }
 
-                    <div
-                        style={{ marginLeft: "8%" }}
-                        className={classes.search}
-                    >
-                        <InputBase
-                            placeholder="Search"
-                            classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
-                            }}
-                            inputProps={{ "aria-label": "search" }}
-                            onChange={(e) => handleSearch(e)}
-                        />
-                        <div className={classes.searchIcon}>
-                            <SearchIcon />
-                        </div>
-                        {searchData.payload?.length > 0 ? (
-                            <div
-                                style={{
-                                    position: "absolute",
-                                    // border: "1px solid",
-                                    backgroundColor: "white",
-                                    width: "100%",
-                                    height: "auto",
-                                    zIndex: 1,
-                                    borderRadius: 0,
-                                    background: "#f2f6f7",
-                                    boxShadow:
-                                        "-7px 7px 14px #d5d8d9, 7px -7px 14px #ffffff;",
-                                }}
-                            >
-                                {searchResult.length > 0 &&
-                                    searchResult.map((el) => (
-                                        <p
-                                            style={{
-                                                marginLeft: "2%",
-                                                paddingTop: 5,
-                                            }}
-                                        >
-                                            {el.name}
-                                        </p>
-                                    ))}
-                            </div>
-                        ) : (
-                            <div style={{ display: "none" }}></div>
-                        )}
-                    </div>
-                    <div className={classes.grow} />
-                    <div
-                        style={{ marginLeft: "2%" }}
-                        className={classes.sectionDesktop}
-                    >
-                        <IconButton
-                            aria-label="show 4 new mails"
-                            color="inherit"
-                            style={{ backgroundColor: "transparent" }}
+  return (
+    <div className={classes.grow}>
+      <AppBar style={{borderBottom: "2px solid #E7E7E7", height: 70, boxShadow: "none"}} color="transparent"  position="static">
+        <Toolbar>
+         
+          <div onClick={() => handleClick()} style={{cursor: "pointer"}}>
+            <img style={{width:170, height: 50,marginTop:"1%", marginLeft: "40%"}} src={logo} alt="pepperfry"/>
+          </div>
+
+          <div style={{marginLeft: "8%"}} className={classes.search}>
+           
+            <InputBase
+              placeholder="Search"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput
+              }}
+              inputProps={{ "aria-label": "search" }}
+              onChange={(e)=>handleSearch(e)}
+            />
+             <div className={classes.searchIcon}>
+            <SearchIcon/>
+            </div>
+            {searchData.payload?.length > 0 ? 
+                        <div style={{
+                          position: "absolute",
+                          backgroundColor: "white",
+                          width: "100%",
+                          height: "auto",
+                          zIndex: 1,
+                          borderRadius: 0,
+                          background: "#f2f6f7",
+                          boxShadow:  "-7px 7px 14px #d5d8d9, 7px -7px 14px #ffffff",
+                          display: displayDrop,
+                        }}
+                        // onClick={}
                         >
-                            <div>
-                                <Badge badgeContent={0} color="secondary">
-                                    <LocalShippingOutlinedIcon
-                                        style={{
-                                            fontSize: 28,
-                                            marginLeft: "-65%",
-                                        }}
-                                    />
-                                </Badge>
-                                <div style={{ fontSize: 12, marginLeft: -35 }}>
-                                    Track
-                                </div>
-                            </div>
-                        </IconButton>
-                        <IconButton
-                            aria-label="show 4 new mails"
-                            color="inherit"
-                            style={{ backgroundColor: "transparent" }}
-                        >
-                            <div>
-                                <Badge badgeContent={0} color="secondary">
-                                    <FavoriteBorderOutlinedIcon
-                                        style={{ fontSize: 28, marginLeft: 0 }}
-                                    />
-                                </Badge>
-                                <div style={{ fontSize: 12, marginLeft: 0 }}>
-                                    Wishlist
-                                </div>
-                            </div>
-                        </IconButton>
-                        <IconButton
-                            aria-label="show 17 new notifications"
-                            color="inherit"
-                            style={{ backgroundColor: "transparent" }}
-                        >
-                            <div>
-                                <Badge badgeContent={0} color="secondary">
-                                    <ShoppingCartOutlinedIcon
-                                        style={{ fontSize: 28, marginLeft: 10 }}
-                                    />
-                                </Badge>
-                                <div style={{ fontSize: 12, marginLeft: 10 }}>
-                                    Cart
-                                </div>
-                            </div>
-                        </IconButton>
-                        <IconButton
-                            edge="end"
-                            aria-label="account of current user"
-                            aria-controls={menuId}
-                            aria-haspopup="true"
-                            onClick={handleProfileMenuOpen}
-                            color="inherit"
-                            style={{ backgroundColor: "transparent" }}
-                        >
-                            <div
-                                style={{ lineHeight: "80%", marginTop: "10%" }}
-                            >
-                                <PermIdentityOutlinedIcon
-                                    style={{
-                                        fontSize: 28,
-                                        marginLeft: 15,
-                                        marginTop: 5,
-                                    }}
-                                />
-                                <div style={{ fontSize: 12, marginLeft: 15 }}>
-                                    Profile
-                                </div>
-                            </div>
-                        </IconButton>
-                    </div>
-                    <div className={classes.sectionMobile}>
-                        <IconButton
-                            aria-label="show more"
-                            aria-controls={mobileMenuId}
-                            aria-haspopup="true"
-                            onClick={handleMobileMenuOpen}
-                            color="inherit"
-                        >
-                            <MoreIcon />
-                        </IconButton>
-                    </div>
-                </Toolbar>
-            </AppBar>
-            {renderMobileMenu}
-            {renderMenu}
-        </div>
-    );
-}
+                          {searchResult.length > 0 && searchResult.map(el => (
+                            <p onClick={()=> handleSearchClick(el._id)} style={{zIndex: 1, marginLeft: "2%", paddingTop: 5, cursor: "pointer"}}>{el.name}</p>
+                          ))}
+                      </div>
+                      : <div style={{display: "none"}}></div>  
+          }  
+          </div>
+          <div className={classes.grow} />
+          <div style={{marginLeft: "2%"}} className={classes.sectionDesktop}>
+            <IconButton aria-label="show 4 new mails" color="inherit" style={{ backgroundColor: 'transparent' }}>
+            <div>
+              <Badge badgeContent={0} color="secondary">
+               
+               <LocalShippingOutlinedIcon style={{ fontSize: 28,marginLeft:"-65%"}}/>               
+               
+              </Badge>
+             <div style={{fontSize:12 ,marginLeft:-35}}>Track</div> 
+            </div>
+            </IconButton>
+            <IconButton aria-label="show 4 new mails" color="inherit" style={{ backgroundColor: 'transparent' }}>
+              <div>
+              <Badge badgeContent={0} color="secondary">
+              <FavoriteBorderOutlinedIcon style={{ fontSize: 28,marginLeft:0}}/>
+              </Badge>
+              <div style={{fontSize:12,marginLeft:0}}>
+                Wishlist
+              </div>
+              </div>
+            </IconButton>
+            <IconButton aria-label="show 17 new notifications" color="inherit" style={{ backgroundColor: 'transparent' }}>
+              <div>
+              <Badge badgeContent={0} color="secondary">
+               <ShoppingCartOutlinedIcon style={{ fontSize: 28,marginLeft:10 }}/>
+              </Badge>
+              <div style={{fontSize:12,marginLeft:10}}>
+                Cart
+              </div>
+              </div>
+            </IconButton>
+            <IconButton
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+              color="inherit"
+              style={{ backgroundColor: 'transparent' }}
+            >  
+                <div style={{lineHeight: "80%", marginTop: "10%"}}>
+                  <PermIdentityOutlinedIcon style={{ fontSize: 28 ,marginLeft:15,marginTop:5}}/>
+                  <div style={{fontSize:12, marginLeft:15}}>
+                   Profile
+                  </div>
+                </div>
+            </IconButton>
+          </div>
+          <div className={classes.sectionMobile}>
+            <IconButton
+              aria-label="show more"
+              aria-controls={mobileMenuId}
+              aria-haspopup="true"
+              onClick={handleMobileMenuOpen}
+              color="inherit"
+            >
+                <MoreIcon />
+            </IconButton>
+          </div>
+        </Toolbar>
+    </AppBar>
+    {renderMobileMenu}
+    {renderMenu}
+</div>);}
 
 const mapStateToProps = (state) => {
     return {};

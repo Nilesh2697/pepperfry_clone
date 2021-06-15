@@ -1,4 +1,5 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 import styled from "styled-components"
 
 const Prodinfo = styled.div`
@@ -61,6 +62,10 @@ const Image = styled.image`
 `
 
 const ProductPage = () => {
+
+    const params = useParams()
+    const prodId = params.id
+
     return (
         <Prodinfo>
             <Prodimage>

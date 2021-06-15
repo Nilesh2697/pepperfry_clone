@@ -56,6 +56,14 @@ db.initialize(dbName, collectionName, function(dbCollection) { // successCallbac
             res.status(200).json(result);
         });
     });
+    // to get a user by ID search
+    server.get("/userbyID/:id", (req, res) => {
+            console.log(req.params.id)
+            dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+                if(error) throw error
+                res.status(200).json(result)
+            })
+     })
     //to get a single user
     server.get("/users/:email/:pass", (req, res)=>{
         const email = req.params.email
@@ -554,13 +562,14 @@ db.initialize(dbName, searchCollections, function(dbCollection){
             res.status(200).json(result);
         });
     });
-    //to get a single search
-    // server.get("/search/:id", (req, res) => {
-    //     dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
-    //         if(error) throw error
-    //         res.status(200).json(result)
-    //     })
-    // })
+    // to get a single search
+    server.get("/searchbyID/:id", (req, res) => {
+        console.log(req.params.id)
+        dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+            if(error) throw error
+            res.status(200).json(result)
+        })
+    })
 },
 
 function(err){

@@ -245,7 +245,7 @@ export function Register() {
   if (isAuth) {
     return <Redirect to={"/"} push />;
   }
- console.log(loginToggle)
+//  console.log(loginToggle)
   return  (
     <>
     { 

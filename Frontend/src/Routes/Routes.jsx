@@ -21,7 +21,7 @@ const Routes = () => {
                 <Route path="/product/:product">
                     <CustomDynamicPage />
                 </Route>
-                <Route path="/item">
+                <Route path="/item/:id">
                     <ProductPage />
                 </Route>
             </Switch>
