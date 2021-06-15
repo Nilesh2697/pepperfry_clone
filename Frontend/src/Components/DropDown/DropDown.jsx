@@ -158,7 +158,7 @@ const DropDown = () => {
                 borderBottom: "2px solid #F1F1F1",
                 height: 40,
                 margin: "auto",
-                padding: "0.05% 6.5%",
+                padding: "0.05% 12%",
             }}
         >
             {/* button 1 */}

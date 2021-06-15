@@ -12,7 +12,13 @@ import {
   REGISTER_USER_SUCCESS,
   REGISTER_WITH_FACEBOOK_SUCCESS,
   REGISTER_WITH_GOOGLE_SUCCESS,
+  RESET_PASSWORD_FAILURE,
+  RESET_PASSWORD_REQUEST,
+  RESET_PASSWORD_SUCCESS,
   TOGGLE_BETWEEN_REGISTER_LOGIN,
+  TOGGLE_TO_FORGET,
+  TOGGLE_TO_LOGIN,
+  TOGGLE_TO_REGISTER,
 } from "./fireActionType";
 import axios from "axios";
 import { auth, google, facebook } from "./firebaseConfig";
@@ -153,9 +159,22 @@ export const registerWithFacebook = (payload) => (dispatch) => {
     .catch((err) => dispatch(loginFailure(err)));
 };
 
-export const toggle = (payload) => {
+export const toggleToRegister = (payload) => {
   return {
-    type: TOGGLE_BETWEEN_REGISTER_LOGIN,
+    type:TOGGLE_TO_REGISTER,
+    payload,
+  };
+};
+
+export const toggleToLogin = (payload) => {
+  return {
+    type:TOGGLE_TO_LOGIN,
+    payload,
+  };
+};
+export const toggleToForget = (payload) => {
+  return {
+    type: TOGGLE_TO_FORGET,
     payload,
   };
 };
@@ -166,3 +185,29 @@ export const logOut = (payload) => {
     payload,
   };
 };
+
+export const resetPasswordRequest = () => {
+  return {
+    type: RESET_PASSWORD_REQUEST,
+  };
+};
+
+export const resetPasswordSuccess = (payload) => {
+  return {
+    type: RESET_PASSWORD_SUCCESS,
+    payload
+  };
+};
+export const resetPasswordFailure = (payload) => {
+  return {
+    type: RESET_PASSWORD_FAILURE,
+    payload
+  };
+};
+
+export const resetPassword =(payload)=>(dispatch)=>{
+    dispatch(resetPasswordRequest())
+    auth.sendPasswordResetEmail(payload)
+    .then(res=>dispatch(resetPasswordSuccess(res)))
+    .catch(err=>dispatch(resetPasswordFailure(err)))
+}
