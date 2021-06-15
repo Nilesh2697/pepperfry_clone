@@ -12,8 +12,8 @@ export const HomeEssentials = () => {
 
     return (
         <SecondaryGreyContainer>
-            <p>HAPPY HOME ESSENTIALS</p>
-            <p>Wait No More</p>
+            <p>{!dataListLoadingThree && "HAPPY HOME ESSENTIALS"}</p>
+            <p>{!dataListLoadingThree && "Wait No More"}</p>
             <div>
                 {dataListLoadingThree
                     ? happyHomeEssentials.map((data, i) => (

@@ -12,8 +12,8 @@ export const HouseFavourite = () => {
 
     return (
         <SecondaryGreyContainer>
-            <p>HOUSE FAVOURITES</p>
-            <p>Loved By All</p>
+            <p>{!dataListLoadingTwo && "HOUSE FAVOURITES"}</p>
+            <p>{!dataListLoadingTwo && "Loved By All"}</p>
             <div>
                 {dataListLoadingTwo
                     ? houseFavouriteList.map((data, i) => (

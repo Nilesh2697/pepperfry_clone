@@ -12,8 +12,8 @@ export const DecorationList = () => {
 
     return (
         <SecondaryGreyContainer>
-            <p>ADORN YOUR ADOBES</p>
-            <p>Shop Home Decor</p>
+            <p>{!dataListLoadingFive && "ADORN YOUR ADOBES"}</p>
+            <p>{!dataListLoadingFive && "Shop Home Decor"}</p>
             <div>
                 {dataListLoadingFive
                     ? decorationList.map((data, i) => (

@@ -5,13 +5,13 @@ import { useSelector } from "react-redux";
 import { Spinner } from "../Loading/Spinner";
 
 export const Facilities = () => {
-    const { dataListLoading, dataListSeven } = useSelector(
+    const { dataListLoadingSeven, dataListSeven } = useSelector(
         (state) => state.dataList,
     );
     console.log(facilitiesList);
     return (
         <AdditionalInfoDiv>
-            {dataListLoading
+            {dataListLoadingSeven
                 ? facilitiesList.map((data, i) => (
                       <div key={i}>
                           <Spinner data={data} />

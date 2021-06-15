@@ -1,12 +1,9 @@
 import {
-    // GET_DATA_REQUEST,
-    // GET_DATA_FAILURE,
     GET_DATA_SUCCESS_ONE,
     GET_DATA_SUCCESS_TWO,
     GET_DATA_SUCCESS_THREE,
     GET_DATA_SUCCESS_FOUR,
     GET_DATA_SUCCESS_FIVE,
-    // GET_DATA_REQUEST_COMPLETE,
     GET_DATA_SUCCESS_SIX,
     GET_DATA_SUCCESS_SEVEN,
     GET_DATA_SUCCESS_EIGHT,
@@ -29,8 +26,6 @@ import {
 } from "./actionTypes";
 
 const initState = {
-    dataListLoading: false,
-    dataListError: false,
     dataListLoadingOne: false,
     dataListErrorOne: false,
     dataListLoadingTwo: false,
@@ -244,13 +239,6 @@ export const DataListReducer = (state = initState, action) => {
                 dataListEight: payload,
             };
         }
-
-        // case GET_DATA_REQUEST_COMPLETE: {
-        //     return {
-        //         ...state,
-        //         dataListLoading: false,
-        //     };
-        // }
 
         default:
             return state;

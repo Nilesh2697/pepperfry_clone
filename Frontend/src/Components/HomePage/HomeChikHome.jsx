@@ -12,8 +12,8 @@ export const HomeChikHome = () => {
 
     return (
         <PrimaryGreyContainer>
-            <p>HOME CHIC HOME</p>
-            <p>Give Your Place A Makeover</p>
+            <p> {!dataListLoadingOne && "HOME CHIC HOME"}</p>
+            <p>{!dataListLoadingOne && "Give Your Place A Makeover"}</p>
             <div>
                 {dataListLoadingOne
                     ? homeChikHomeList.map((data, i) => (
@@ -33,8 +33,7 @@ export const HomeChikHome = () => {
                                   {item.description}
                               </label>
                               <label>
-                                  <span>Price : </span>
-                                  {item.price}
+                                  <span>{item.display_price} </span>
                               </label>
                               <img
                                   src={item.product_image}

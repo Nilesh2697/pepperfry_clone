@@ -12,8 +12,8 @@ export const NightEssentials = () => {
 
     return (
         <PrimaryWhiteContainer>
-            <p>SLEEP RIGHT. SLEEP TIGHT</p>
-            <p>Mattresses That Work Like A Dream</p>
+            <p>{!dataListLoadingFour && "SLEEP RIGHT. SLEEP TIGHT"}</p>
+            <p>{!dataListLoadingFour && "Mattresses That Work Like A Dream"}</p>
             <div>
                 {dataListLoadingFour
                     ? nightEssential.map((data, i) => (

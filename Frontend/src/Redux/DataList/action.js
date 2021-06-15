@@ -24,22 +24,7 @@ import {
     GET_DATA_SUCCESS_SIX,
     GET_DATA_SUCCESS_SEVEN,
     GET_DATA_SUCCESS_EIGHT,
-    GET_DATA_REQUEST_COMPLETE,
-    GET_DATA_REQUEST,
-    GET_DATA_FAILURE,
 } from "./actionTypes";
-
-const getDataRequest = () => {
-    return {
-        type: GET_DATA_REQUEST,
-    };
-};
-
-const getDataFailure = () => {
-    return {
-        type: GET_DATA_FAILURE,
-    };
-};
 
 const getDataRequestOne = () => {
     return {
@@ -190,12 +175,6 @@ const getDataSuccessEight = (payload) => {
     };
 };
 
-const getDataSuccessAll = () => {
-    return {
-        type: GET_DATA_REQUEST_COMPLETE,
-    };
-};
-
 export const getData =
     (
         one = null,
@@ -208,11 +187,10 @@ export const getData =
         eight = null,
     ) =>
     async (dispatch) => {
-        // dispatch(getDataRequest());
         try {
-            // const requestOne =
             one === null
-                ? dispatch(getDataSuccessOne([]))
+                ? dispatch(getDataRequestOne()) &&
+                  dispatch(getDataSuccessOne([]))
                 : dispatch(getDataRequestOne()) &&
                   (await axios
                       .get(one)
@@ -220,7 +198,8 @@ export const getData =
                       .catch(() => dispatch(getDataFailureOne())));
 
             two === null
-                ? dispatch(getDataSuccessTwo([]))
+                ? dispatch(getDataRequestTwo()) &&
+                  dispatch(getDataSuccessTwo([]))
                 : dispatch(getDataRequestTwo()) &&
                   (await axios
                       .get(two)
@@ -228,7 +207,8 @@ export const getData =
                       .catch(() => dispatch(getDataFailureTwo())));
 
             three === null
-                ? dispatch(getDataSuccessThree([]))
+                ? dispatch(getDataRequestThree()) &&
+                  dispatch(getDataSuccessThree([]))
                 : dispatch(getDataRequestThree()) &&
                   (await axios
                       .get(three)
@@ -236,7 +216,8 @@ export const getData =
                       .catch(() => dispatch(getDataFailureThree())));
 
             four === null
-                ? dispatch(getDataSuccessFour([]))
+                ? dispatch(getDataRequestFour()) &&
+                  dispatch(getDataSuccessFour([]))
                 : dispatch(getDataRequestFour()) &&
                   (await axios
                       .get(four)
@@ -244,7 +225,8 @@ export const getData =
                       .catch(() => dispatch(getDataFailureFour())));
 
             five === null
-                ? dispatch(getDataSuccessFive([]))
+                ? dispatch(getDataRequestFive()) &&
+                  dispatch(getDataSuccessFive([]))
                 : dispatch(getDataRequestFive()) &&
                   (await axios
                       .get(five)
@@ -252,7 +234,8 @@ export const getData =
                       .catch(() => dispatch(getDataFailureFive())));
 
             six === null
-                ? dispatch(getDataSuccessSix([]))
+                ? dispatch(getDataRequestSix()) &&
+                  dispatch(getDataSuccessSix([]))
                 : dispatch(getDataRequestSix()) &&
                   (await axios
                       .get(six)
@@ -260,7 +243,8 @@ export const getData =
                       .catch(() => dispatch(getDataFailureSix())));
 
             seven === null
-                ? dispatch(getDataSuccessSeven([]))
+                ? dispatch(getDataRequestSeven()) &&
+                  dispatch(getDataSuccessSeven([]))
                 : dispatch(getDataRequestSeven()) &&
                   (await axios
                       .get(seven)
@@ -268,56 +252,14 @@ export const getData =
                       .catch(() => dispatch(getDataFailureSeven())));
 
             eight === null
-                ? dispatch(getDataSuccessEight([]))
+                ? dispatch(getDataRequestEight()) &&
+                  dispatch(getDataSuccessEight([]))
                 : dispatch(getDataRequestEight()) &&
                   (await axios
                       .get(eight)
                       .then((res) => dispatch(getDataSuccessEight(res.data)))
                       .catch(() => dispatch(getDataFailureEight())));
-
-            // const requestTwo =
-            //     two === null
-            //         ? []
-            //         : await axios.get(two).then((res) => res.data);
-            // const requestThree =
-            //     three === null
-            //         ? []
-            //         : await axios.get(three).then((res) => res.data);
-            // const requestFour =
-            //     four === null
-            //         ? []
-            //         : await axios.get(four).then((res) => res.data);
-            // const requestFive =
-            //     five === null
-            //         ? []
-            //         : await axios.get(five).then((res) => res.data);
-
-            // const requestSix =
-            //     six === null
-            //         ? []
-            //         : await axios.get(six).then((res) => res.data);
-            // const requestSeven =
-            //     seven === null
-            //         ? []
-            //         : await axios.get(seven).then((res) => res.data);
-
-            // const requestEight =
-            //     eight === null
-            //         ? []
-            //         : await axios.get(eight).then((res) => res.data);
-
-            //You can console here to see all the requests like requestOne, requestTwo, requestThree, etc...
-
-            // dispatch(getDataSuccessOne(requestOne));
-            // dispatch(getDataSuccessTwo(requestTwo));
-            // dispatch(getDataSuccessThree(requestThree));
-            // dispatch(getDataSuccessFour(requestFour));
-            // dispatch(getDataSuccessFive(requestFive));
-            // dispatch(getDataSuccessSix(requestSix));
-            // dispatch(getDataSuccessSeven(requestSeven));
-            // dispatch(getDataSuccessEight(requestEight));
         } catch (err) {
-            console.log(err);
-            // dispatch(getDataFailure());
+            dispatch(getDataFailureEight());
         }
     };
