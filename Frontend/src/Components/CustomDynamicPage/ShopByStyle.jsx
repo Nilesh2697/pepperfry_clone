@@ -6,7 +6,7 @@ import { CustomCard } from "../CardComponents/CustomCard";
 import { Spinner } from "../Loading/Spinner";
 
 export const ShopByStyle = () => {
-    const { dataListLoading, dataListFive } = useSelector(
+    const { dataListLoadingFive, dataListFive } = useSelector(
         (state) => state.dataList,
     );
 
@@ -19,10 +19,10 @@ export const ShopByStyle = () => {
                     fontSize: "20px",
                 }}
             >
-                SHOP BY STYLE
+                {!dataListLoadingFive && "SHOP BY STYLE"}
             </p>
             <div>
-                {dataListLoading
+                {dataListLoadingFive
                     ? shopByStyleList.map((data, i) => (
                           <CustomCard key={i} type="secondary">
                               <Spinner data={data} />

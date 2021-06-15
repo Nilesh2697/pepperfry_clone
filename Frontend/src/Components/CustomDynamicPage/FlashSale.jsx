@@ -5,13 +5,13 @@ import firstSaleLogo from "../../StaticData/Dynamic/firstSaleLogo.json";
 import { Spinner } from "../Loading/Spinner";
 
 export const FlashSale = () => {
-    const { dataListLoading, dataListTwo } = useSelector(
+    const { dataListLoadingTwo, dataListTwo } = useSelector(
         (state) => state.dataList,
     );
     return (
         <CustomDynamicPageWhiteDiv>
             <div>
-                {dataListLoading
+                {dataListLoadingTwo
                     ? firstSaleLogo.map((data, i) => <Spinner data={data} />)
                     : dataListTwo.map((item, index) => (
                           <img

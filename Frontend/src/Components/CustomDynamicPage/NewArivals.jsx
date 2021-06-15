@@ -6,7 +6,7 @@ import { CustomCard } from "../CardComponents/CustomCard";
 import { Spinner } from "../Loading/Spinner";
 
 export const NewArivals = () => {
-    const { dataListLoading, dataListFour } = useSelector(
+    const { dataListLoadingFour, dataListFour } = useSelector(
         (state) => state.dataList,
     );
 
@@ -19,10 +19,10 @@ export const NewArivals = () => {
                     fontSize: "20px",
                 }}
             >
-                NEW ARRIVALS
+                {!dataListLoadingFour && "NEW ARRIVALS"}
             </p>
             <div>
-                {dataListLoading
+                {dataListLoadingFour
                     ? newArivalList.map((data, i) => (
                           <CustomCard key={i} type="secondary">
                               <Spinner data={data} />

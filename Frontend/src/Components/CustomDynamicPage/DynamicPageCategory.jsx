@@ -6,14 +6,14 @@ import { CustomCard } from "../CardComponents/CustomCard";
 import { Spinner } from "../Loading/Spinner";
 
 export const DynamicPageCategory = () => {
-    const { dataListLoading, dataListOne } = useSelector(
+    const { dataListLoadingOne, dataListOne } = useSelector(
         (state) => state.dataList,
     );
 
     return (
         <CustomDynamicPageGreyDiv>
             <div>
-                {dataListLoading
+                {dataListLoadingOne
                     ? categoryHeadingList.map((data, i) => (
                           <CustomCard key={i} type="primary">
                               <Spinner data={data} />

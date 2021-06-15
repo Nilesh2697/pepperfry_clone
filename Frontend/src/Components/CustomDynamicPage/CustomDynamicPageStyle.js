@@ -29,7 +29,7 @@ export const CustomDynamicPageWhiteDiv = styled.div`
     font-family: "Fira Sans", sans-serif;
 
     & > p:nth-child(1) {
-        font-weight: bolder;
+        font-weight: bold;
     }
     & img:hover {
         transform: scale(1.02);

@@ -6,16 +6,16 @@ import { CustomCard } from "../CardComponents/CustomCard";
 import { Spinner } from "../Loading/Spinner";
 
 export const ModernStyleBannerList = () => {
-    const { dataListLoading, dataListSix } = useSelector(
+    const { dataListLoadingSix, dataListSix } = useSelector(
         (state) => state.dataList,
     );
 
     return (
         <PrimaryWhiteContainer>
-            <p>STYLE 101</p>
-            <p>Whispered Words Of Wisdom</p>
+            <p>{!dataListLoadingSix && "STYLE 101"}</p>
+            <p>{!dataListLoadingSix && "Whispered Words Of Wisdom"}</p>
             <div>
-                {dataListLoading
+                {dataListLoadingSix
                     ? modernStyleBanners.map((data, i) => (
                           <CustomCard key={i} type="secondary">
                               <Spinner data={data} />
