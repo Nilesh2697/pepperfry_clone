@@ -70,7 +70,7 @@ const ProductPage = () => {
                 </Prodimagebox>
                 <Prodimagebtnnext>next</Prodimagebtnnext>
             </Prodimage>
-            <Proddetails>D</Proddetails>
+            <Proddetails>Dm</Proddetails>
         </Prodinfo>
     )
 }
