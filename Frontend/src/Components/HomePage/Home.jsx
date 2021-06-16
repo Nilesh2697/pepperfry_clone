@@ -22,7 +22,6 @@ import { Carousalone } from "./Carousel/Carousalone";
 
 export const Home = () => {
     const dispatch = useDispatch();
-
     const handleGetData = () => {
         dispatch(
             getData(
