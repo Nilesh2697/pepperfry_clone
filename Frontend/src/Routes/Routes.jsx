@@ -25,7 +25,7 @@ const Routes = () => {
                 <Route path="/product/:product/:category">
                     <IndividualProductPage/>
                 </Route>
-                <Route exact path="/item/:id">
+                <Route exact path="/item/:id/:endpoint">
                     <ProductPage />
                 </Route>
             </Switch>

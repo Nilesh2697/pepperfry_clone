@@ -19,7 +19,7 @@ const Prodmoreinfoback = styled.div`
 `
 
 const Prodinfo = styled.div`
-    width: 65%;
+    width: 70%;
     height: 1000px;
     // border: 1px solid;
     margin: auto;
@@ -28,16 +28,16 @@ const Prodinfo = styled.div`
 `
 
 const Prodimage = styled.div`
-    width: 45%;
+    width: 48%;
     height: 350px;
     // border: 1px solid;
     // display: flex;
 `
 
 const Proddetails = styled.div`
-    width: 50%;
+    width: 52%;
     height: 1000px;
-    margin-left: 5%;
+    margin-left: 3.25%;
     // border: 1px solid;
 `
 
@@ -110,15 +110,6 @@ const Prodsaving = styled.div`
     font-size: 12px;
     font-weight: bold;
 `
-
-const ProdInfo = styled.div`
-    width: 22%;
-    height: 40px;
-    // border: 1px solid;
-    margin-left: 2%;
-    margin-top: 2%;
-    display: flex;
-` 
 
 const Prodseater = styled.div`
     width: 12%;
@@ -193,9 +184,15 @@ const ProductPage = () => {
 
     const params = useParams()
     const prodId = params.id
+    const prodEndpoint = params.endpoint
+    console.log(prodEndpoint, prodId)
 
-    React.useEffect(()=>{
-        dispatch(getItem(prodId))
+    React.useEffect(()=>{   
+        const payload = {
+            prodId,
+            prodEndpoint
+        }
+        dispatch(getItem(payload))
     },[])
 
     const itemData = useSelector((state) => state.item.data)
@@ -217,7 +214,7 @@ const ProductPage = () => {
                 <Prodimagebox>
                     <Image src={itemData[0]?.img[count]} alt="image" />
                 </Prodimagebox>
-                <IconButton disabled={count === itemData[0]?.img.length-1} style={{border: "1px solid grey", zIndex: 1, position: "absolute", marginLeft: "26.5%", marginTop: "-10.5%"}} onClick={()=>handleIncrement(1)}>
+                <IconButton disabled={count === itemData[0]?.img.length-1} style={{border: "1px solid grey", zIndex: 1, position: "absolute", marginLeft: "29%", marginTop: "-14.9%"}} onClick={()=>handleIncrement(1)}>
                     <NavigateNextIcon />
                 </IconButton>
                 </div>
@@ -250,42 +247,42 @@ const ProductPage = () => {
                 </Prodsaving>   
                 <Divider style={{marginLeft: "2%", marginTop: "1%"}} />
                 <div style={{display: "flex"}}>
-                    <ProdInfo>
+                    <div style={{display: "flex", width: "25%", marginLeft: "2%", marginTop: "1%"}}>
                         <div>
-                            <img src="https://ii1.pepperfry.com/images/svg/w20-calender-icon.svg" alt="emi" />
+                            <img style={{width: 30, height: 30}} src="https://ii1.pepperfry.com/images/svg/w20-calender-icon.svg" alt="emi" />
                         </div>
-                        <div style={{fontSize: 12, lineHeight: "15%", marginLeft: "5%"}}>
+                        <div style={{fontSize: 10, lineHeight: "15%", marginLeft: "5%"}}>
                             <p style={{marginTop: "15%"}}>EMI from ₹ 1,695</p>
                             <Link>No Cost EMI</Link>
                         </div>
-                    </ProdInfo>
-                    <ProdInfo>
+                    </div>
+                    <div style={{display: "flex", width: "20%", marginLeft: "2%", marginTop: "1%"}}>
                         <div>
-                            <img src="https://ii1.pepperfry.com/images/svg/w20-warranty-icon.svg" alt="warrenty" />
+                            <img style={{width: 30, height: 30}} src="https://ii1.pepperfry.com/images/svg/w20-warranty-icon.svg" alt="warrenty" />
                         </div>
-                        <div style={{fontSize: 12, lineHeight: "15%", marginLeft: "5%"}}>
+                        <div style={{fontSize: 10, lineHeight: "15%", marginLeft: "5%"}}>
                             <p style={{marginTop: "20%"}}>36 Months'</p>
                             <p>Warranty</p>
                         </div>
-                    </ProdInfo>
-                    <ProdInfo>
+                    </div>
+                    <div style={{display: "flex", width: "25%", marginLeft: "2%", marginTop: "1%"}}>
                         <div>
-                            <img src="https://ii1.pepperfry.com/images/svg/w20-returns-icon.svg" alt="Returns" />
+                            <img style={{width: 30, height: 30}} src="https://ii1.pepperfry.com/images/svg/w20-returns-icon.svg" alt="Returns" />
                         </div>
-                        <div style={{fontSize: 12, lineHeight: "15%", marginLeft: "5%"}}>
-                            <p style={{marginTop: "15%"}}>No Questions</p>
+                        <div style={{fontSize: 10, lineHeight: "15%", marginLeft: "5%"}}>
+                            <p style={{marginTop: "18%"}}>No Questions</p>
                             <p>Asked Returns</p>
                         </div>
-                    </ProdInfo>
-                    <ProdInfo>
+                    </div>
+                    <div style={{display: "flex", width: "25%", marginLeft: "2%", marginTop: "1%"}}>
                         <div>
-                            <img src="https://ii1.pepperfry.com/images/svg/w21-safe-delivery.svg" alt="Deliver" />
+                            <img style={{width: 30, height: 30}} src="https://ii1.pepperfry.com/images/svg/w21-safe-delivery.svg" alt="Deliver" />
                         </div>
-                        <div style={{fontSize: 12, lineHeight: "20%", marginLeft: "5%"}}>
-                            <p style={{marginTop: "20%"}}>Safe</p>
+                        <div style={{fontSize: 10, lineHeight: "20%", marginLeft: "5%"}}>
+                            <p style={{marginTop: "30%"}}>Safe</p>
                             <p>Delivery</p>
                         </div>
-                    </ProdInfo>
+                    </div>
                 </div>
                 <Divider style={{marginLeft: "2%", marginTop: "1%"}} />
                 {itemData[0]?.seater > 0 && 
@@ -357,7 +354,7 @@ const ProductPage = () => {
                         <div>
                             <img src="https://ii1.pepperfry.com/images/svg/web20-assembly-icon.svg" alt="" />
                         </div>
-                        <div style={{marginLeft: "2%"}}>
+                        <div style={{marginLeft: "2%", fontSize: 12}}>
                             <p>Assembly <strong>Offered By Pepperfry</strong> <strong style={{color: "#F16553"}}>Within 24 Hours</strong> | Assembly - ₹ 449</p>
                         </div>
                     </div>
@@ -365,7 +362,7 @@ const ProductPage = () => {
                         <div>
                             <img src="https://ii1.pepperfry.com//images/svg/web20-map-pin-icon.svg" alt="" />
                         </div>
-                        <div style={{marginLeft: "2%"}}>
+                        <div style={{marginLeft: "2%", fontSize: 12, marginTop: "1%"}}>
                             <p>Nearest Studio Pepperfry</p>
                         </div>
                     </div>
@@ -408,18 +405,18 @@ const ProductPage = () => {
             <Moreinfo>
                 <Moreinfotitle>
                     <div style={{lineHeight: "100%"}}>
-                        <h3>MORE PRODUCT INFORMATION</h3>
-                        <p>{itemData[0]?.name} - {itemData[0]?.madeBy}</p>
+                        <h4>MORE PRODUCT INFORMATION</h4>
+                        <p style={{fontSize: 12}}>{itemData[0]?.name} - {itemData[0]?.madeBy}</p>
                     </div>
-                    <div style={{display: "flex", width: "33%", marginLeft: "26%"}}>
+                    <div style={{display: "flex", width: "35%", marginLeft: "20%"}}>
                         <div>
                             <img src="https://ii1.pepperfry.com/images/svg/home-1.svg" alt="feedback" />
                         </div>
-                        <Link style={{marginLeft: "5%"}}>Did You Find The Information You're Looking For?<br /> We Value Your Feedback</Link>
+                        <Link style={{marginLeft: "5%", fontSize: 13}}>Did You Find The Information You're Looking For?<br /> We Value Your Feedback</Link>
                     </div>
                 </Moreinfotitle>
                 <Moretab>
-            <Tabs>
+            <Tabs style={{fontSize: 13}}>
                 <TabList>
                     <Tab>HIGHLIGHTS</Tab>
                     <Tab>OVERVIEW</Tab>
