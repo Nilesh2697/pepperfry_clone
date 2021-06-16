@@ -63,7 +63,7 @@ const Miniimagebox = styled.div`
 
 const Prodtitle = styled.div`
     width: 90%;
-    height: 30px;
+    height: auto;
     // border: 1px solid;
     font-size: 18px;
     margin-left: 2%;
