@@ -14,8 +14,6 @@ import { useLocation } from 'react-router-dom';
 const Routes = () => {
 
     const pathname = window.location.pathname
-    console.log(pathname)
-
 
     return (
         <div>
@@ -36,7 +34,7 @@ const Routes = () => {
                     <ProductPage />
                 </Route>
             </Switch>
-            {pathname !== "/checlout" && <Footer />}
+            {pathname !== "/checkout" && <Footer />}
         </div>
     );
 };
