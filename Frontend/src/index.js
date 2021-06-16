@@ -13,8 +13,8 @@ ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
             <BrowserRouter>
-                {/* <App /> */}
-                <GeoLocation />
+                <App />
+                {/* <GeoLocation /> */}
             </BrowserRouter>
         </Provider>
     </React.StrictMode>,
