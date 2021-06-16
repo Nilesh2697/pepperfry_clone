@@ -132,11 +132,32 @@ label[for="tooltip"]:hover:not(:focus)::after {
   visibility: visible;
 }
 
-.tool {
+
+.photocont {
+  max-width: 25em;
+  height: auto;
   position: relative;
+  margin: 1.563em auto;
 }
 
-.tool:hover ::after {
-  content: "Info";
+.photocont img {
+  cursor: pointer;
+}
+
+.photocont >  img >  span {
+  visibility: hidden;
   position: absolute;
+  left: 15em;
+  top: -2.3em;
+  background: #ffff6b;
+  width: 17em;
+  border: 1px solid #404040;
+  font-size: 0.8em;
+  padding: 0.3em;
+  cursor: default;
+  line-height: 1.4;
+}
+
+.photocont img:hover span {
+  visibility: visible;
 }

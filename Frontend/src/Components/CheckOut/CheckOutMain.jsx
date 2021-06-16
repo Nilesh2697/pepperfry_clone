@@ -201,23 +201,15 @@ function CheckOutMain() {
                   >
                     Delivery By
                   </h5>
-                  <Tooltip title="Info">
-                    <>
-                      <InfoOutlinedIcon
-                        data-md-tooltip="dff"
-                        style={{
-                          width: "10%",
-                          fontWeight: "400",
-                          marginTop: "-45%",
-                          marginLeft: "50%",
-                          color: "#969696",
-                        }}
-                      />
+                  
+                    <div className={styles.photocont}>
+                     <img style={{width:'8%',marginLeft:'50%',marginTop:'-9.5%'}} src='https://www.materialui.co/materialIcons/action/info_outline_grey_192x192.png' alt='info'/>
+                     <span>Due to the current lockdown across cities, deleiveries may take more longer than usual.</span>
                       <h4 style={{ marginLeft: "17%", marginTop: "-14.5%" }}>
                         Fri, 25 Jun
                       </h4>
-                    </>
-                  </Tooltip>
+                    </div>
+
                 </ProData>
                 <ProPrice></ProPrice>
                 <ProEdit></ProEdit>

@@ -11,35 +11,30 @@ import { CheckOutPage } from "../Components/CheckOut/CheckOutPage";
 import { IndividualProductPage } from "../Components/IndividualPage/IndividualproductPage";
 
 const Routes = () => {
+
   const path = "/checkout";
   return (
     <div>
       {!path === "/checkout" ? (
         <>
           <NavBar />
-          <DropDown />
-          <Ads />
-          <Switch>
-            <Route path="/" exact>
-              <Home />
-            </Route>
-            <Route path="/product/:product">
-              <CustomDynamicPage />
-            </Route>
-            <Route path="/item">
-              <ProductPage />
-            </Route>
-            <Route>
-              <h1>404 Page not found</h1>
-            </Route>
-            <Route path="/item/:id">
-              <ProductPage />
-            </Route>
-            <Route path="/product/:product/:category">
-              <IndividualProductPage />
-            </Route>
-          </Switch>
-          <Footer />
+            <DropDown />
+            <Ads />
+            <Switch>
+                <Route path="/" exact>
+                    <Home />
+                </Route>
+                <Route exact path="/product/:product">
+                    <CustomDynamicPage />
+                </Route>
+                <Route path="/product/:product/:category">
+                    <IndividualProductPage/>
+                </Route>
+                <Route exact path="/item/:id/:endpoint">
+                    <ProductPage />
+                </Route>
+            </Switch>
+            <Footer />
         </>
       ) : (
         <Route path="/checkout">

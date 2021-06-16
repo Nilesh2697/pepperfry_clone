@@ -1,10 +1,15 @@
-import {GET_ITEM_REQUEST, GET_ITEM_SUCCESS, GET_ITEM_FAILURE} from "./actionType"
-import axios from "axios"
+import {
+    GET_ITEM_REQUEST,
+    GET_ITEM_SUCCESS,
+    GET_ITEM_FAILURE,
+} from "./actionType";
+import axios from "axios";
 
 const getItem = (payload) => (dispatch) => {
+    console.log(payload.prodId)
     const item_req = get_item_request()
     dispatch(item_req)
-    axios.get(`http://localhost:3001/searchbyID/${payload}`)
+    axios.get(`http://localhost:3001/${payload.prodEndpoint}/${payload.prodId}`)
     .then(resp => {
         const item_success = get_item_success(resp.data)
         dispatch(item_success)
@@ -16,23 +21,23 @@ const getItem = (payload) => (dispatch) => {
 }
 
 const get_item_request = () => {
-    return{
-        type: GET_ITEM_REQUEST
-    }
-}
+    return {
+        type: GET_ITEM_REQUEST,
+    };
+};
 
 const get_item_success = (payload) => {
-    return{
+    return {
         type: GET_ITEM_SUCCESS,
-        payload
-    }
-}
+        payload,
+    };
+};
 
 const get_item_failure = () => {
-    return{
-        type: GET_ITEM_FAILURE
-    }
-}
+    return {
+        type: GET_ITEM_FAILURE,
+    };
+};
 
-export {getItem}
+export {getItem};
 
