@@ -1,36 +1,48 @@
 import React from "react";
 import { ItemCustomCard } from "./CustomCardStyle";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+import {Link} from "react-router-dom";
 
-export const ItemCard = () => {
+export const ItemCard = ({item,category}) => {
+
+    const handleAdd=()=>{
+        console.log(item._id)
+    }
     return (
-        <ItemCustomCard key={1}>
+        <ItemCustomCard key={item?._id}>        
             <img
-                src="https://ii2.pepperfry.com/media/catalog/product/e/s/568x284/esteban-3-seater-half-leather-sofa-in-grey-colour-by-casacraft-esteban-3-seater-half-leather-sofa-in-8akxht.jpg"
+                src={item?.img[0]}
                 alt="Item_Img"
+                style={{height:220}}
             />
             <br />
-            <h2>Esteban 3 Seater Half Leather Sofa In Grey Colour</h2>
+            <h2>
+            <button onClick={handleAdd}>cart</button>   
+            <Link to={`/item/${item._id}/${category}`} style={{textDecoration:"none",color:"black"}}>{item.name}</Link></h2>
             <div>
-                <p>CasaCraft by Pepperfry</p>
+                <p>{item.madeBy}</p>
                 <FavoriteBorderIcon />
             </div>
             <div>
-                <span>₹ 1,13,999</span>
-                <span> ₹ 1,84,999</span>
+                <span>{item.offer_price}</span>
+                <span>{item.actual_price}</span>
             </div>
             <p>
-                Save ₹ 71,000 <span>(38% Off)</span>, Limited Time Offer
+                Save ₹ <span>{item.total_savings}</span>, Limited Time Offer
             </p>
             <div>
-                <div>Make a Set</div>
+                <div style={{fontWeight:"bold"}}>Make a Set</div>
                 <div>
                     <img
-                        src="https://ii2.pepperfry.com/media/catalog/product/e/s/198x99/esteban-2-seater-half-leather-sofa-in-grey-colour-by-casacraft-esteban-2-seater-half-leather-sofa-in-hcgoea.jpg"
+                        src={item.img[1]}
                         alt="Item_Img"
                     />
                     <img
-                        src="https://ii2.pepperfry.com/media/catalog/product/e/s/90x99/esteban-1-seater-half-leather-sofa-in-grey-colour-by-casacraft-esteban-1-seater-half-leather-sofa-in-v50z6b.jpg"
+                        src={item.img[2]}
+                        alt="Item_Img"
+                    />
+                     <img
+                        src={item.img[3]}
                         alt="Item_Img"
                     />
                 </div>

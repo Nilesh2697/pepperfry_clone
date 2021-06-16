@@ -242,7 +242,16 @@ const DropDown = () => {
                                     style={{ fontSize: 14 }}
                                     onClick={handleClose}
                                 >
-                                    Sofas
+                                    <NavLink
+                                      to="/product/furniture/sofas"
+                                      style={{ color: "black", textDecoration: "none" }}
+                                      activeStyle={{
+                                          fontWeight: "bold",
+                                          color: "red",
+                                      }}
+                                    >
+                                    <span>Sofa</span>
+                                    </NavLink>
                                 </MenuItem>
                                 <MenuItem
                                     style={{ fontSize: 14 }}
