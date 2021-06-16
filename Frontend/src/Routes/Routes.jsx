@@ -8,42 +8,46 @@ import NavBar from "../Components/NavBar/NavBar";
 import { Ads } from "../Components/AdsModel/Ads";
 import { ProductPage } from "../Components/ProductPage/ProductPage";
 import { CheckOutPage } from "../Components/CheckOut/CheckOutPage";
-const Routes = () => {
-     const path= '/checkout'
-    return (
-        <div>
-            {!path === '/checkout' ? <> 
-        
-            <NavBar />
-            <DropDown />
-            <Ads />
-            <Switch>
+import { IndividualProductPage } from "../Components/IndividualPage/IndividualproductPage";
 
+const Routes = () => {
+  const path = "/checkout";
+  return (
+    <div>
+      {!path === "/checkout" ? (
+        <>
+          <NavBar />
+          <DropDown />
+          <Ads />
+          <Switch>
             <Route path="/" exact>
-                <Home />
+              <Home />
             </Route>
             <Route path="/product/:product">
-                <CustomDynamicPage />
+              <CustomDynamicPage />
             </Route>
             <Route path="/item">
-                <ProductPage />
+              <ProductPage />
             </Route>
             <Route>
-                <h1>404 Page not found</h1>
+              <h1>404 Page not found</h1>
             </Route>
             <Route path="/item/:id">
-                <ProductPage />
+              <ProductPage />
             </Route>
-            </Switch>
-            <Footer /></>:
-            <Route path='/checkout'>
-                <CheckOutPage/>
-            </Route>   
-            }
-           
-            
-        </div>
-    );
+            <Route path="/product/:product/:category">
+              <IndividualProductPage />
+            </Route>
+          </Switch>
+          <Footer />
+        </>
+      ) : (
+        <Route path="/checkout">
+          <CheckOutPage />
+        </Route>
+      )}
+    </div>
+  );
 };
 
 export default Routes;

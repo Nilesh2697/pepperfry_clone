@@ -36,14 +36,13 @@ input[type="number"]::-webkit-inner-spin-button {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  color: #969696;
-  margin-top: 6%;
+  color: #737171;
+  margin-top: 3%;
   font-weight: 600;
   text-decoration: underline;
   padding-bottom: 4%;
   border-bottom: 1px solid #969696;
 }
-
 
 /* Hide the browser's default checkbox */
 .container input {
@@ -62,21 +61,20 @@ input[type="number"]::-webkit-inner-spin-button {
   left: 0;
   height: 25px;
   width: 25px;
-  background-color:white;
+  background-color: white;
   border-radius: 2px;
   margin-top: 1.5%;
   border: 1px solid #969696;
-
 }
 
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark{
-  background-color:white;
+.container:hover input ~ .checkmark {
+  background-color: white;
 }
 
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
-  background-color:#e96a19;
+  background-color: #e96a19;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -104,7 +102,6 @@ input[type="number"]::-webkit-inner-spin-button {
   transform: rotate(45deg);
 }
 
-
 #tooltip {
   position: relative;
 }
@@ -122,7 +119,7 @@ label[for="tooltip"]:hover:not(:focus)::after {
   padding: 2%;
 }
 
-.tooltiparrow{
+.tooltiparrow {
   padding-top: -49%;
   margin-left: -44%;
   width: 30%;
@@ -131,6 +128,15 @@ label[for="tooltip"]:hover:not(:focus)::after {
   outline: none;
 }
 
-.container:hover > .tooltiparrow{
-   visibility: visible;
+.container:hover > .tooltiparrow {
+  visibility: visible;
+}
+
+.tool {
+  position: relative;
+}
+
+.tool:hover ::after {
+  content: "Info";
+  position: absolute;
 }
