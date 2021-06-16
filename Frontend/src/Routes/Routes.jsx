@@ -8,12 +8,19 @@ import NavBar from "../Components/NavBar/NavBar";
 import { Ads } from "../Components/AdsModel/Ads";
 import { ProductPage } from "../Components/ProductPage/ProductPage";
 import { IndividualProductPage } from "../Components/IndividualPage/IndividualproductPage";
+import { useLocation } from 'react-router-dom';
+
 
 const Routes = () => {
+
+    const pathname = window.location.pathname
+    console.log(pathname)
+
+
     return (
         <div>
-            <NavBar />
-            <DropDown />
+            {pathname !== "/checkout" && <NavBar />}
+            {pathname !== "/checkout" && <DropDown />}
             <Ads />
             <Switch>
                 <Route path="/" exact>
@@ -29,7 +36,7 @@ const Routes = () => {
                     <ProductPage />
                 </Route>
             </Switch>
-            <Footer />
+            {pathname !== "/checlout" && <Footer />}
         </div>
     );
 };

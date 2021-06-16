@@ -185,7 +185,6 @@ const ProductPage = () => {
     const params = useParams()
     const prodId = params.id
     const prodEndpoint = params.endpoint
-    console.log(prodEndpoint, prodId)
 
     React.useEffect(()=>{   
         const payload = {
