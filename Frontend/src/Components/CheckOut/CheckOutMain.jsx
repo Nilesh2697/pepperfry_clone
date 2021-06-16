@@ -1,7 +1,9 @@
 import React from 'react';
-import { PaymentDisplay, Pincode, PinInput, ProductDisplay, ProductMain } from './CheckOutStyle';
+import { PaymentDisplay, Pincode, ProductDisplay, ProductMain,Invoice } from './CheckOutStyle';
 import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
 import CardGiftcardOutlinedIcon from '@material-ui/icons/CardGiftcardOutlined';
+import styles from './Checkout.module.css';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 
 const db = [ {
@@ -91,11 +93,11 @@ function CheckOutMain(){
                   </h2>
               </div>
               <Pincode style={{backgroundColor:'#f5f5f5'}}>
-                    <LocationOnOutlinedIcon style={{color:'#969696',width:'25%',border:'1px solid black',marginTop:'-1%'}}/>
-                    <h3 style={{marginTop:'-2.5%',marginLeft:'-80.5%',letterSpacing:'-1px',fontSizeAdjust:'15px',fontWeight:'600',color:'#969696',width:'250%',border:'1px solid black'}}>Enter Your Pincode For Delivery & Assembly Information</h3>
-                    <input style={{border:'1px solid black',marginLeft:'40%',height:'115%',marginTop:'-3.5%',width
+                    <LocationOnOutlinedIcon style={{color:'#969696',width:'25%',marginTop:'1%'}}/>
+                    <h3 style={{marginTop:'-.5%',marginLeft:'-80.5%',letterSpacing:'-1px',fontSizeAdjust:'15px',fontWeight:'600',color:'#969696',width:'250%'}}>Enter Your Pincode For Delivery & Assembly Information</h3>
+                    <input style={{marginLeft:'40%',height:'115%',marginTop:'-3.5%',width
                 :'70%'}} type='number' maxLength='6' step='0.01'/>
-                    <button style={{border:'1px solid black',width:'30%',marginTop:'-3.5%',height:'115%',marginLeft:'9%',backgroundColor:'black',color:'white',fontSize:'13px'}}>GO</button>
+                    <button style={{width:'30%',marginTop:'-3.5%',height:'115%',marginLeft:'9%',backgroundColor:'black',color:'white',fontSize:'13px'}}>GO</button>
               </Pincode>
               <div>
                   {db.map((item) => {
@@ -104,11 +106,19 @@ function CheckOutMain(){
               </div>
              </ProductDisplay>
              <PaymentDisplay>
-                 <strong style={{fontSize:'16px',fontFamily:'Fira Sans, sans-serif'}}>Have A Coupon Code?</strong>
+                 <strong style={{fontSize:'15px',fontFamily:'Fira Sans, sans-serif',marginTop:'4%'}}>Have A Coupon Code?</strong>
                  <br/>
-                 <i><CardGiftcardOutlinedIcon style={{position:"absolute",bottom:"2px",right:"5px",width:"24px",height:"24px"}}/></i>
-                 <input type='text' placeholder="Enter Coupon Code"/>
-                 <button style={{backgroundColor:'#e96a19'}}>APPLY</button>
+                 <i style={{position:"absolute"}} className={styles.icon}><CardGiftcardOutlinedIcon style={{color:'#bfbebe'}}/></i>
+                 <input className={styles.field} type='text' placeholder="Enter Coupon Code"/>
+                 <button style={{backgroundColor:'#e96a19',width:'30%',border:'none',minHeight:'39.5%',maxHeight:'39.5%',marginLeft:'-.5%',color:'white',fontWeight:'500'}}>APPLY</button>
+
+                 <Invoice>
+                    <label className={styles.container} for='tooltip'>Contribute Rs.99 For COVID Relief Through GiveIndia.
+                    <ArrowDropDownIcon for='tooltip' className={styles.tooltiparrow}/>
+                        <input id='tooltip' type="checkbox"/>
+                        <span className={styles.checkmark}></span>
+                    </label>
+                 </Invoice>
              </PaymentDisplay>
         </ProductMain>
     )

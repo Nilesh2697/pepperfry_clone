@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("md")]: {
-      width: "70ch",
+      width: "100ch",
     },
   },
   sectionDesktop: {
@@ -83,7 +83,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("md")]: {
       display: "flex",
     },
-    marginRight: 140,
+    marginRight: "12%",
   },
   sectionMobile: {
     display: "flex",
@@ -332,20 +332,18 @@ function NavBar() {
         position="static"
       >
         <Toolbar>
-          <div onClick={() => handleClick()} style={{ cursor: "pointer" }}>
+          <div style={{marginLeft: "10%", width: "9%", height: 50, cursor: "pointer"}} onClick={() => handleClick()}>
             <img
               style={{
-                width: 170,
-                height: 50,
-                marginTop: "1%",
-                marginLeft: "92%",
+                width: "100%",
+                height: "100%",
               }}
               src={logo}
               alt="pepperfry"
             />
           </div>
 
-          <div style={{ marginLeft: "13%" }} className={classes.search}>
+          <div style={{ marginLeft: "2.5%"}} className={classes.search}>
             <InputBase
               placeholder="Search"
               classes={{
@@ -380,7 +378,7 @@ function NavBar() {
           }  
           </div>
           <div className={classes.grow} />
-          <div style={{ marginLeft: "2%" }} className={classes.sectionDesktop}>
+          <div className={classes.sectionDesktop}>
             <IconButton
               aria-label="show 4 new mails"
               color="inherit"
@@ -389,7 +387,7 @@ function NavBar() {
               <div>
                 <Badge badgeContent={0} color="secondary">
                   <LocalShippingOutlinedIcon
-                    style={{ fontSize: 28, marginLeft: "-65%" }}
+                    style={{ fontSize: 28, marginLeft: "-62%" }}
                   />
                 </Badge>
                 <div style={{ fontSize: 12, marginLeft: -35 }}>Track</div>

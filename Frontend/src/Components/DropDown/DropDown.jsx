@@ -16,7 +16,7 @@ const MenuBar = styles.div`
 
 const useStyles = makeStyles((theme) => ({
     button: {
-        marginLeft: "10.5%",
+        marginLeft: "5.5%",
         fontSize: 14,
         marginTop: "0.2%",
         position: "relative",
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     button2: {
-        marginLeft: "2%",
+        marginLeft: "4.3%",
         fontSize: 14,
         marginTop: "0.2%",
         textTransform: "none",
@@ -2973,7 +2973,7 @@ const DropDown = () => {
                         width: "10%",
                         height: "5px",
                         marginTop: "-0.8%",
-                        marginLeft: "36%",
+                        marginLeft: "22.5%",
                         backgroundColor: "orange",
                     }}
                 ></div>
@@ -3302,8 +3302,8 @@ const DropDown = () => {
                     style={{
                         width: "5%",
                         height: "5px",
-                        marginTop: "-0.6%",
-                        marginLeft: "63%",
+                        marginTop: "-0.4%",
+                        marginLeft: "65%",
                         backgroundColor: "orange",
                     }}
                 ></div>
@@ -3871,8 +3871,8 @@ const DropDown = () => {
                     style={{
                         width: "6%",
                         height: "5px",
-                        marginTop: "-0.6%",
-                        marginLeft: "68.5%",
+                        marginTop: "-0.5%",
+                        marginLeft: "71.5%",
                         backgroundColor: "orange",
                     }}
                 ></div>
@@ -3953,7 +3953,7 @@ const DropDown = () => {
                                 width: "16.66%",
                             }}
                         >
-                            <div style={{ marginTop: "-35%" }}>
+                            <div style={{ marginTop: "-28%" }}>
                                 <MenuItem
                                     style={{ fontSize: 14 }}
                                     onClick={handleClose}
@@ -4032,7 +4032,7 @@ const DropDown = () => {
                                 width: "16.66%",
                             }}
                         >
-                            <div style={{ marginTop: "-50%" }}>
+                            <div style={{ marginTop: "-32%" }}>
                                 <MenuItem
                                     style={{ fontSize: 14 }}
                                     onClick={handleClose}
@@ -4199,7 +4199,7 @@ const DropDown = () => {
                         width: "20%",
                         height: "5px",
                         marginTop: "-1.2%",
-                        marginLeft: "49.2%",
+                        marginLeft: "48%",
                         backgroundColor: "orange",
                     }}
                 ></div>

@@ -29,7 +29,7 @@ function CheckOutFooter(){
                     <Ins>No Cost EMIs:
                             <span> Now pay in easy installments at no additional cost</span>
                     </Ins>
-                    <h3 style={{marginTop:'35%',border:'1px solid black',width:'160%',marginLeft:'10%'}}>Copyright 2020 Pepperfry.com.  All rights Reserved.</h3>
+                    <h3 style={{marginTop:'35%',width:'160%',marginLeft:'10%'}}>Copyright 2020 Pepperfry.com.  All rights Reserved.</h3>
                 </div>
            </CopyRight>
            <Instruct>

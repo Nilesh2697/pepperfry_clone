@@ -6,7 +6,6 @@ export const CheckOutNav = styled.div `
     box-shadow: 0 3px 4px -4px rgb(213, 211, 211);
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    border:1px solid black;
     padding-top: 1.5%;
     padding-bottom: .5%;
 `
@@ -16,18 +15,16 @@ export const Logo = styled.img `
     margin-left: 35.5%;
     padding-bottom: 1.5%;
     padding-top: 3%;
-    border:1px solid black;
 `
 
 export const PaymentProcess = styled.div `
-    border:1px solid black;
     padding-bottom: 1.5%;
     padding-top: 1.5%;
     margin-left: 20%;
 `
 
 export const Welcome = styled.div `
-    border: 1px solid black;
+
     padding-bottom: 1.5%;
     padding-top: 3.5%;
     padding-left: 22%;
@@ -36,7 +33,6 @@ export const StepContent = styled.h4 `
   font-size:13px;
   font-family:"Fira Sans", sans-serif;
   font-weight:500;
-  border: 1px solid black;
   margin-top: -1%;
   & + h4 {
       margin-left: 7%;
@@ -68,7 +64,6 @@ export const IconCart = styled.img `
 export const Footer = styled.div ` 
    width: 100%;
    min-height: 40%;
-   border: 1px solid black;
    display: grid;
    background-color: #EFEFEF;
    grid-template-columns: repeat(3,1fr);
@@ -82,16 +77,14 @@ export const FootPayment = styled.div `
   width: 120%;
   padding-left: 8%;
   height: 73%;
-  border: 1px solid black;
   margin-top: 15%;
 `
 
 export const FootCard = styled.div ` 
-   width: 220%;
+   width: 190%;
   height: 200px;
-  margin: 3% 0;
+  margin: -1% 0;
   margin-left: 68%;
-  border: 1px solid black;
 `
 
 export const FootHead = styled.h3 ` 
@@ -116,7 +109,6 @@ export const CardImage = styled.img `
   margin: 2%;
 `
 export const CopyRight = styled.div `
-    border: 1px solid black;
     margin-left: 20%;
     margin-top: 15%;
     
@@ -133,7 +125,6 @@ export const CopyRight = styled.div `
 `
 
 export const Instruct = styled.div ` 
-  border: 1px solid black;
   margin-left: 12%;
   margin-top: 15%;
 
@@ -171,13 +162,11 @@ export const AuthImage = styled.div `
 
 export const ProductMain = styled.div `
    width: 95%;
-   border: 1px solid black;
    display: grid;
    grid-template-columns: repeat(2,1fr);
 
 `
 export const ProductDisplay = styled.div `
-  border: 1px solid black;
   margin-left: 24.7%;
   width: 100%;
   padding-right: -5%;
@@ -185,35 +174,35 @@ export const ProductDisplay = styled.div `
 
 export const Pincode = styled.div ` 
    width: 100%;
-   height: 50%;
-   padding: 1.5% 2.5% 0%;
+   max-height: 50%;
+   padding: 1.5% 2.5% .5%;
    border: 1px solid rgb(213, 211, 211);
    display:grid;
    grid-template-columns: repeat(4,1fr);
    margin-top: 3%;
 `
 
-export const PinInput = styled.input ` 
-input[type = number]::-webkit-outer-spin-button,
-input[type = number]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-`
-
 export const Product = styled.div ` 
   width:95%;
   margin-left :11.5 ;
-  border:1px solid black
 `
 
 export const PaymentDisplay = styled.div ` 
-  
-  border: 1px solid black;
+  margin-top: 3%;
   margin-right: 10%;
-  min-height: 30%;
+  height: 70%;
   width:'60%';
-  margin-left: 26%;
+  margin-left: 27%;
+  padding-top: 4%;
+  border: 1px solid black;
+`
+export const Invoice = styled.div ` 
+   
+ width:'60%';
+ height: 250%;
+ border: 1px solid #bfbebe;
+ border-top-width: 3px;
+ margin-top: 2%;
+ padding-top: -5%;
 `
 

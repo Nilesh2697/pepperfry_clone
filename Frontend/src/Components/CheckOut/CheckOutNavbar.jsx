@@ -34,7 +34,7 @@ function CheckOutNavbar(){
             </PaymentProcess>
         
             <Welcome style={{display:'grid',gridTemplateColumns:'repeat(2,1fr)'}}>
-                  <h3 style={{width:'120%',border:'1px solid black',marginLeft:'-20%'}}>WELCOME {}</h3>
+                  <h3 style={{width:'120%',marginLeft:'-20%'}}>WELCOME {}</h3>
                   <NotificationsNoneOutlined/>
             </Welcome>
         </CheckOutNav>
