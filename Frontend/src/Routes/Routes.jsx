@@ -7,6 +7,7 @@ import { Home } from "../Components/HomePage/Home";
 import NavBar from "../Components/NavBar/NavBar";
 import { Ads } from "../Components/AdsModel/Ads";
 import { ProductPage } from "../Components/ProductPage/ProductPage";
+import { IndividualProductPage } from "../Components/IndividualPage/IndividualproductPage";
 
 const Routes = () => {
     return (
@@ -18,10 +19,13 @@ const Routes = () => {
                 <Route path="/" exact>
                     <Home />
                 </Route>
-                <Route path="/product/:product">
+                <Route exact path="/product/:product">
                     <CustomDynamicPage />
                 </Route>
-                <Route path="/item/:id">
+                <Route path="/product/:product/:category">
+                    <IndividualProductPage/>
+                </Route>
+                <Route exact path="/item/:id">
                     <ProductPage />
                 </Route>
             </Switch>

@@ -138,8 +138,9 @@ export const ItemCustomCard = styled.div`
     flex-direction: column;
     background: white;
     /* border: 1px solid red; */
-    width: 30%;
+    width: 50%;
     padding: 1% 1%;
+
 
     & > h2:nth-child(3) {
         height: 34px;
@@ -158,7 +159,9 @@ export const ItemCustomCard = styled.div`
             cursor: pointer;
         }
     }
-
+    & > div:nth-child(5) {
+        margin-top:-10px;
+    }
     & > div:nth-child(5) {
         & span:nth-child(1) {
             font-weight: 900;
@@ -185,9 +188,9 @@ export const ItemCustomCard = styled.div`
         width: 70%;
         & > div:nth-child(1) {
             margin-top: 5%;
-            /* border: solid pink 2px; */
-            width: 40%;
-            font-size: 14px;
+            /*border: solid pink 2px; */ 
+            width: 50%;
+            font-size: 12px;
         }
 
         & > div:nth-child(2) {
