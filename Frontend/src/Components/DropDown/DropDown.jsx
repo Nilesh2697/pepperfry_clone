@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     button2: {
-        marginLeft: "4.3%",
+        marginLeft: "3.2%",
         fontSize: 14,
         marginTop: "0.2%",
         textTransform: "none",
@@ -2973,7 +2973,7 @@ const DropDown = () => {
                         width: "10%",
                         height: "5px",
                         marginTop: "-0.8%",
-                        marginLeft: "22.5%",
+                        marginLeft: "39%",
                         backgroundColor: "orange",
                     }}
                 ></div>
@@ -3303,7 +3303,7 @@ const DropDown = () => {
                         width: "5%",
                         height: "5px",
                         marginTop: "-0.4%",
-                        marginLeft: "65%",
+                        marginLeft: "66%",
                         backgroundColor: "orange",
                     }}
                 ></div>
@@ -3872,7 +3872,7 @@ const DropDown = () => {
                         width: "6%",
                         height: "5px",
                         marginTop: "-0.5%",
-                        marginLeft: "71.5%",
+                        marginLeft: "72.5%",
                         backgroundColor: "orange",
                     }}
                 ></div>
@@ -4199,7 +4199,7 @@ const DropDown = () => {
                         width: "20%",
                         height: "5px",
                         marginTop: "-1.2%",
-                        marginLeft: "48%",
+                        marginLeft: "58%",
                         backgroundColor: "orange",
                     }}
                 ></div>
