@@ -3,11 +3,13 @@ import thunk from "redux-thunk";
 import { DataListReducer } from "./DataList/reducer";
 import { fireReducer } from "./FireAuth/fireReducer"
 import {SearchReducer} from "./Search/reducer"
+import { ItemReducer } from "./Item/reducer"
 
 const rootReducer = combineReducers({
     dataList: DataListReducer,
-    fireReducer:fireReducer,
-    search:SearchReducer,
+    fireReducer: fireReducer,
+    search: SearchReducer,
+    item: ItemReducer,
 });
  
 export const store = createStore(

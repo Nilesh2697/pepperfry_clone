@@ -564,7 +564,6 @@ db.initialize(dbName, searchCollections, function(dbCollection){
     });
     // to get a single search
     server.get("/searchbyID/:id", (req, res) => {
-        console.log(req.params.id)
         dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
             if(error) throw error
             res.status(200).json(result)

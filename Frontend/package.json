@@ -21,6 +21,7 @@
     "react-redux-firebase": "^3.10.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-tabs": "^3.2.2",
     "reactstrap": "^8.9.0",
     "redux": "^4.1.0",
     "redux-firestore": "^0.15.0",
