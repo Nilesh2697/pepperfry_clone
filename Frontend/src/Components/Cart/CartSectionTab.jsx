@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import {CartView} from "./CartView";
 import{WishListView} from "./WishListView"
+import { RecentlyView } from "./RecentlyView";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -100,7 +101,7 @@ export function CardSectionTab({no=0}) {
        <WishListView/>
       </TabPanel>
       <TabPanel value={value} index={2} dir={theme.direction}>
-        Item Three
+       <RecentlyView/>
       </TabPanel>
     </div>
   );

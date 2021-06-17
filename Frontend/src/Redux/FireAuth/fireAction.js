@@ -1,6 +1,7 @@
 import {
     FETCH_IN_CART_REQUEST,
   FETCH_IN_CART_SUCCESS,
+  FINAL_CART_SET_SUCCESS,
   GET_USER_ID,
   LOGIN_WITH_FACEBOOK,
   LOGIN_WITH_GOOGLE,
@@ -252,4 +253,11 @@ export const fetchInCart =(payload)=>(dispatch)=>{
     axios.get(`http://localhost:3001/userbyID/${payload}`)
     .then(res=>dispatch(fetchInCartSuccess(res.data[0].cart)))
     .catch(err=>dispatch(fetchInCartFailure(err)))
+}
+
+export const finalCartSuccess=(payload)=>{
+    return{
+        type:FINAL_CART_SET_SUCCESS,
+        payload
+    }
 }
