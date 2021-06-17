@@ -1164,7 +1164,8 @@ server.post('/razorpay', async (req, res) => {
 		res.json({
 			id: response.id,
 			currency: response.currency,
-			amount: response.amount
+			amount: response.amount,
+            status: "success"
 		})
 	} catch (error) {
 		console.log(error)
