@@ -37,7 +37,7 @@ export const ItemCard = ({
                 </Link>
             </h2>
             <div>
-                <p>{item.madeBy}</p>
+                <p style={{ background: "transparent" }}>{item.madeBy}</p>
                 <FavoriteRoundedIcon
                     onClick={() => handleAddToWishList(item)}
                 />
