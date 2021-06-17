@@ -138,9 +138,24 @@ export const ItemCustomCard = styled.div`
     flex-direction: column;
     background: white;
     /* border: 1px solid red; */
+    cursor: pointer;
     width: 50%;
     padding: 1% 1%;
 
+    :hover {
+        button {
+            visibility: unset;
+        }
+    }
+
+    & > :nth-child(1) {
+        & img {
+            /* border: 1px solid red; */
+            /* position: relative; */
+            cursor: pointer;
+            height: 2500px;
+        }
+    }
 
     & > h2:nth-child(3) {
         height: 34px;
@@ -152,7 +167,14 @@ export const ItemCustomCard = styled.div`
 
     & > div:nth-child(4) {
         display: flex;
+        width: 85%;
         justify-content: space-between;
+        & > :nth-child(1) {
+            background: white;
+        }
+        & > :nth-child(2) {
+            color: grey;
+        }
 
         & > :nth-child(2):hover {
             color: red;
@@ -160,7 +182,7 @@ export const ItemCustomCard = styled.div`
         }
     }
     & > div:nth-child(5) {
-        margin-top:-10px;
+        margin-top: -10px;
     }
     & > div:nth-child(5) {
         & span:nth-child(1) {
@@ -188,7 +210,7 @@ export const ItemCustomCard = styled.div`
         width: 70%;
         & > div:nth-child(1) {
             margin-top: 5%;
-            /*border: solid pink 2px; */ 
+            /*border: solid pink 2px; */
             width: 50%;
             font-size: 12px;
         }
@@ -205,4 +227,20 @@ export const ItemCustomCard = styled.div`
             }
         }
     }
+`;
+
+export const AddToCartDiv = styled.button`
+    position: absolute;
+    background: transparent;
+    /* margin-top: -5%;
+    margin-left: 1%; */
+    top: 92%;
+    left: 30%;
+    padding: 1% 5%;
+    border: 2px solid black;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    visibility: hidden;
+    cursor: pointer;
 `;

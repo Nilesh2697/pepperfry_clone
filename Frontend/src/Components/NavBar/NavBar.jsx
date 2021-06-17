@@ -353,7 +353,7 @@ function NavBar() {
 
   const handleSearchClick = (id) => {
     setDisplayDrop("none")
-    history.push(`/item/${id}`)
+    history.push(`/item/${id}/searchbyID`)
     setSearchData("")
     setDisplayDrop("block")
   }
@@ -401,10 +401,10 @@ function NavBar() {
                           backgroundColor: "white",
                           width: "100%",
                           height: "auto",
-                          zIndex: 1,
+                          zIndex: 2,
                           borderRadius: 0,
-                          background: "#f2f6f7",
-                          boxShadow:  "-7px 7px 14px #d5d8d9, 7px -7px 14px #ffffff",
+                          background: "white",
+                          boxShadow:  "-3px 3px 2px grey, 5px -5px 2px #ffffff",
                           display: displayDrop,
                         }}
                         // onClick={}

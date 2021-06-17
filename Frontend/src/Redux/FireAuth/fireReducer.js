@@ -48,15 +48,15 @@ const inState = {
 };
 
 export const fireReducer = (state = inState, action) => {
-  const { type, payload } = action;
-  switch (type) {
-    case REGISTER_USER_REQUEST: {
-      return {
-        ...state,
-        isLoading: true,
-        isError: false,
-      };
-    }
+    const { type, payload } = action;
+    switch (type) {
+        case REGISTER_USER_REQUEST: {
+            return {
+                ...state,
+                isLoading: true,
+                isError: false,
+            };
+        }
     case REGISTER_USER_SUCCESS: {
       saveData("isAuth",true)
       saveData("isName",payload.first_name)

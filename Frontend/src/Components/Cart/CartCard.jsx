@@ -7,11 +7,11 @@ export const CartCard=({el,handleRemove})=>{
         <>
         <div style={{width:440,margin:"auto",display:"flex",justifyContent:"flex-start",paddingBottom:20,paddingTop:10,borderBottom:"1px solid silver"}}>
             <div style={{margin:"auto"}}>
-                <img style={{width:100,height:100,marginLeft:-45,marginTop:-20}} src={el.image} alt ="cart img"/>
+                <img style={{width:100,height:100,marginLeft:-65,marginTop:-20}} src={el.image} alt ="cart img"/>
             </div>
             <div style={{marginLeft:-35}}>
                 <Link to={"/"} style={{textDecoration:"none",color:"black"}}>
-                <div style={{fontSize:13,fontWeight:"bold",marginRight:10}}>
+                <div style={{fontSize:13,fontWeight:"bold",marginRight:10,width:290,height:"auto"}}>
                     {el.item}
                 </div>
                 </Link>

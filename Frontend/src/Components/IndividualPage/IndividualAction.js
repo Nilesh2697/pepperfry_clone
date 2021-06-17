@@ -76,9 +76,9 @@ export const addToCart =(userId,payload)=>(dispatch)=>{
      if(userId!==""||userId !== undefined||userId !== null){
         dispatch(addToCartRequest())
         axios.put(`http://localhost:3001/users/${userId}`,{
-            params:{
-                cart:3
-            }
+            
+                cart:payload
+            
            }    
            )
            .then(res=>dispatch(addToCartSuccess(res.data)))
@@ -158,14 +158,14 @@ export const fetchInWishListFailure=(payload)=>{
 
 export const fetchInCart =(payload)=>(dispatch)=>{
     dispatch(fetchInCartRequest());
-    axios.get(`http://localhost:3001/users/${payload}`)
+    axios.get(`http://localhost:3001/userbyID/${payload}`)
     .then(res=>dispatch(fetchInCartSuccess(res.data)))
     .catch(err=>dispatch(fetchInCartFailure(err)))
 }
 
 export const fetchInWishList =(payload)=>(dispatch)=>{
     dispatch(fetchInWishListRequest());
-    axios.get(`http://localhost:3001/users/${payload}`)
+    axios.get(`http://localhost:3001/userbyID/${payload}`)
     .then(res=>dispatch(fetchInWishListSuccess(res.data)))
     .catch(err=>dispatch(fetchInWishListFailure(err)))
 }

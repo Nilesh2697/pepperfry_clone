@@ -1,6 +1,6 @@
 import React from "react";
 import { ItemCard } from "../CardComponents/ItemCard";
-import {useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, finalCartSuccess, getDataByCategory } from "./IndividualAction";
 import { saveData } from "../../Redux/localStorage";
@@ -108,5 +108,5 @@ export const IndividualProductPage=()=>{
         }
         </div>
         </>
-    )
-}
+    );
+};
