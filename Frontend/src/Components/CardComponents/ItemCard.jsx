@@ -39,8 +39,8 @@ export const ItemCard = ({ item, category }) => {
                 <FavoriteRoundedIcon />
             </div>
             <div>
-                <span>{item.offer_price}</span>
-                <span>{item.actual_price}</span>
+                <span> ₹ {item.offer_price}</span>
+                <span> ₹ {item.actual_price}</span>
             </div>
             <p>
                 Save ₹ <span>{item.total_savings}</span>, Limited Time Offer

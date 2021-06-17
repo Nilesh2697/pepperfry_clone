@@ -6,7 +6,10 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./Redux/store";
-import { GeoLocation } from "./Components/DEMO/GeoLocation";
+// import { GeoLocation } from "./Components/DEMO/GeoLocation";
+// import { MyCartEmptyCard } from "./Components/CardComponents/MyCartEmptyCard";
+// import { MyWishListEmptyCard } from "./Components/CardComponents/MyWishListEmptyCard";
+// import { RecentlyViewedEmptyCard } from "./Components/CardComponents/RecentlyViewedEmptyCard";
 // import { ItemCard } from "./Components/CardComponents/ItemCard";
 
 ReactDOM.render(

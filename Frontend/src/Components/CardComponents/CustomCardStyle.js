@@ -244,3 +244,31 @@ export const AddToCartDiv = styled.button`
     visibility: hidden;
     cursor: pointer;
 `;
+
+export const EmptyCardDiv = styled.div`
+    @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap");
+    font-family: "Fira Sans", sans-serif;
+    width: 280px;
+    margin: auto;
+    margin-top: 50px;
+    border: solid black 1px;
+    text-align: center;
+    & img {
+        margin-top: 10px;
+    }
+    & p {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: black;
+    }
+    & > div {
+        border: 1.5px solid rgb(241, 101, 33);
+        padding: 10px 20px;
+        color: rgb(241, 101, 33);
+        cursor: pointer;
+        width: 250px;
+        margin: auto;
+        font-weight: 800;
+    }
+`;
