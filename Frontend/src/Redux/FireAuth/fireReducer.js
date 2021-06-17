@@ -51,7 +51,7 @@ const inState = {
   isRegisterAuthG: false,
   isResetLoading:false,
   userId:isUser||"",
-  inCart:[],
+  inCart:"",
   finalCart:isCart||[],
 };
 
@@ -204,7 +204,7 @@ export const fireReducer = (state = inState, action) => {
         googlePassword: "",
         userId:"",
         userData:[],
-        inCart:[],
+        inCart:"",
         finalCart:[]
       };
     }

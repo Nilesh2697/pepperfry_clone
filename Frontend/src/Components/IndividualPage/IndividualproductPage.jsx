@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart, addToWishList, finalWishListSuccess, getDataByCategory } from "./IndividualAction";
 import { saveData } from "../../Redux/localStorage";
 import { finalCartSuccess } from "../../Redux/FireAuth/fireAction";
+import { SideBar } from "../SideBar/SideBar";
 
 export const IndividualProductPage = () => {
     const dispatch = useDispatch();
@@ -106,13 +107,16 @@ export const IndividualProductPage = () => {
 
    
     return(
-        <>
+        <>  <div style={{display:"flex",width:1350,margin:"auto"}}>
+            <SideBar/>
             <div
                 style={{
                     display: "grid",
-                    width: 800,
+                    width: 880,
                     gridTemplateColumns: "repeat(2, 1fr)",
-                    margin:"auto"
+                    margin: "auto",
+                    marginTop: 12,
+                    marginLeft:105
                 }}
             >
                 {list?.length > 0
@@ -127,6 +131,7 @@ export const IndividualProductPage = () => {
                           );
                       })
                     : null}
+            </div>
             </div>
         </>
     );

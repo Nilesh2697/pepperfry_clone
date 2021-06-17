@@ -154,12 +154,16 @@ function NavBar() {
     setSearchData({ ...searchData, payload });
   };
   React.useEffect(()=>{
-    if(isAuth===true){
-      dispatch(fetchInCart(userId))
+    if (isAuth === true)
+    {
+      if (cartData === undefined || cartData === "" || cartData === null)
+      {
+      dispatch(fetchInCart(userId))       
+      }
     }
-  },[userId]);
+  },[userId,cartData]);
 
-
+  const [f, setF] = React.useState(false);
 
   React.useEffect(()=>{
     if(isAuth===true){
@@ -168,40 +172,36 @@ function NavBar() {
       console.log(isData)
       console.log(item1)
     
-      if(item1!==undefined&&item1!==null&&isData!==undefined&&isData!==null){
+      if(item1!==undefined&&item1!==null&&isData!==undefined&&isData!==null&&item1!==""){
         let cartItem = [];
 
-        if (item1.length >= isData.length) {
-          for (let i = 0; i < item1.length; i++) {
-            let flag2 = 0;
-            for (let j = 0; j < isData.length; j++) {
-              if (item1[i]._id === isData[j].id) {
+       
+          for (let i = 0; i < item1.length; i++)
+          {
+            cartItem.push(item1[i])
+          }
+        let flag2 = 0;
+        
+          for (let i = 0; i < isData.length; i++) {
+            let j = 0
+            for (j = 0; j < cartItem.length; j++) {
+              if ( isData[i].id === cartItem[j]._id) {
                
                 flag2 = 1;
-                item1[i].qty = item1[i].qty + isData[j].qty;
-                cartItem.push(item1[i]);
+                break;
+               
               }
             }
-            if (flag2 === 0) {
-              cartItem.push(item1[i]);
+            if (flag2 === 1) {
+              isData[i].qty = cartItem[j].qty + isData[j].qty;
+              flag2 = 0;
             }
-          }
-        } else if (item1.length < isData.length) {
-          for (let i = 0; i < isData.length; i++) {
-            let flag2 = 0;
-            for (let j = 0; j < item1.length; j++) {
-              if (isData[i].id === item1[j]._id) {
-              
-                flag2 = 1;
-                isData[i].qty = item1[j].qty + isData[i].qty;
-                cartItem.push(isData[i]);
-              }
-            }
-            if (flag2 === 0) {
+            else
+            {
               cartItem.push(isData[i]);
             }
           }
-        }
+        
          dispatch(finalCartSuccess(cartItem));
         if (userId !== undefined || userId !== "") {
           dispatch(addToCart(userId,cartItem));
