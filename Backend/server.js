@@ -1146,9 +1146,9 @@ const razorpay = new Razorpay({
 	key_secret: 'qy72gO1vdP4zTvW6xd0diI6k'
 })
 
-server.post('/razorpay', async (req, res) => {
+server.post('/razorpay/:amount', async (req, res) => {
 	const payment_capture = 1
-	const amount = 499
+	const amount = req.params.amount
 	const currency = 'INR'
 
 	const options = {
@@ -1165,7 +1165,6 @@ server.post('/razorpay', async (req, res) => {
 			id: response.id,
 			currency: response.currency,
 			amount: response.amount,
-            status: "success"
 		})
 	} catch (error) {
 		console.log(error)

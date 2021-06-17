@@ -46,12 +46,30 @@ const calculatecartval = (data, cartpro, handleSetActual,handleSaving,handleOffe
   //   return sum;
   // handleSetActual(actualsum);
 };
+
+////////////////////Razor pay//////////////////////
+function loadScript(src) {
+	return new Promise((resolve) => {
+		const script = document.createElement('script')
+		script.src = src
+		script.onload = () => {
+			resolve(true)
+		}
+		script.onerror = () => {
+			resolve(false)
+		}
+		document.body.appendChild(script)
+	})
+}
+///////////////////////////////////////////////////
+
 function CheckOutMain({ data }) {
-  console.log(data);
+  console.log(data[0]);
   const [actual, setActual] = React.useState(0);
   const [saving, setSaving] = React.useState(0);
   const [offer,setOffer] = React.useState(0);
   const [totalcheckout, setTotalCheckout] = React.useState(0)
+  const [status, setStatus] = React.useState("")
 
   let amountRef = useRef(actual);
   const cartpro = data[0]?.cart;
@@ -102,6 +120,55 @@ function CheckOutMain({ data }) {
     });
   };
 
+  //////////////////////////Razorpay starts////////////////////////////////////////
+  const name = data[0]?.name
+  const email = data[0]?.email
+	async function displayRazorpay() {
+		const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
+
+		if (!res) {
+			alert('Razorpay SDK failed to load. Are you online?')
+			return
+		}
+
+		const data = await fetch(`http://localhost:3001/razorpay/${totalcheckout}`, { method: 'POST' }).then((t) =>
+			t.json()
+		)
+
+		console.log(data)
+
+		const options = {
+			key: 'rzp_test_JCFowIVGRAjSMc',
+			currency: data.currency,
+			amount: data.amount.toString(),
+			order_id: data.id,
+			name: 'Donation',
+			description: 'Thank you for nothing. Please give us some money',
+			image: '',
+			handler: function (response) {
+				setStatus(response.razorpay_payment_id)
+				// alert(response.razorpay_order_id)
+				// alert(response.razorpay_signature
+			},
+			prefill: {
+				name,
+				email,
+				phone_number: '9899999999'
+			}
+		}
+		const paymentObject = new window.Razorpay(options)
+		paymentObject.open()
+	}
+
+  const orderSubmit = () => {
+    alert("k")
+  }
+
+  {
+    status.length > 0 && orderSubmit()
+  }
+
+///////////////////Razorpay ends/////////////////////////
   return (
     <ProductMain>
       <ProductDisplay>
@@ -313,8 +380,7 @@ function CheckOutMain({ data }) {
           <div style={{float:'left',fontWeight:'500',marginLeft:'4%',fontSize:'19px'}}>You Pay</div><div style={{textAlign:'right',marginRight:'5%',fontWeight:'500',fontSize:'19px'}}>₹{totalcheckout === 0 ? 'zero' : totalcheckout}</div>
           <div style={{textAlign:'right',fontWeight:'500',marginRight:'5%',fontSize:'12px',color:'#b3b1b1'}}>(Inclusive of all taxes)</div>
           <div style={{marginTop:'4%',paddingLeft:'3%',color:'#14a9cc',fontWeight:'400',fontSize:'14px'}}>No Cost EMI available. EMI starting ₹ 735/month</div>
-          <button style={{backgroundColor:'#e96a19',width:'100%',border:'none',minHeight:'42px',maxHeight:'42px',color:'white',fontWeight:'500',marginTop:'8%',textAlign:'center'}}>PLACE ORDER</button>
-          
+          <button onClick={displayRazorpay} style={{backgroundColor:'#e96a19',width:'100%',border:'none',minHeight:'42px',maxHeight:'42px',color:'white',fontWeight:'500',marginTop:'8%',textAlign:'center'}} >PLACE ORDER</button>
         </Invoice>
       </PaymentDisplay>
     </ProductMain>
