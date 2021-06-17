@@ -1,7 +1,6 @@
 import React from 'react';
 import { IconCart, StepContainer, StepContent } from './CheckOutStyle';
 
-
 const steps = ["Cart", "------- Delivery & Billing Address  ------- Payment"];
 
 function StepperPepper(){
@@ -16,7 +15,7 @@ function StepperPepper(){
        <div>        
           {steps.map((step) => {
             return <>
-                    <StepContent>{step}</StepContent>
+                    <StepContent style={step === 'Cart' ? {color:'#e9a019'}:step === '------- Delivery & Billing Address  ------- Payment' ? {color:'black'}:null}>{step}</StepContent>
                 </>
           })} 
       </div>     

@@ -18,8 +18,6 @@ const Routes = () => {
     
 
     const pathname = window.location.pathname
-    console.log(pathname)
-
 
     return (
         <div>
@@ -43,17 +41,9 @@ const Routes = () => {
                     <CheckOutPage />
                 </Route>
             </Switch>
-
-            <Footer />
-       
-
-    </div>
-  );
-
-    {pathname !== "/checkout" && <Footer />}
-       
-   
-
+            {pathname !== "/checkout" && <Footer />}
+        </div>
+    );
 };
 
 export default Routes;

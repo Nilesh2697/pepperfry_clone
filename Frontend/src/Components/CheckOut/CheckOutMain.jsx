@@ -110,9 +110,19 @@ const db = [
   },
 ];
 
-function CheckOutMain() {
+function CheckOutMain({data}) {
 
+    const cartpro = data[0]?.cart
+
+    console.log(cartpro)
+
+    // const cartlist = cartitem.map((i) => {
+    //     console.log(i.item)
+    // })
     
+    const handlecartvalue = () => {
+
+    }
   return (
     <ProductMain>
       <ProductDisplay>
@@ -172,7 +182,8 @@ function CheckOutMain() {
           </button>
         </Pincode>
         <Product>
-          {db.map((item) => {
+            {/* {console.log(cartitem)} */}
+          {cartpro?.map((item) => {
             return (
               <div
                 style={{
@@ -185,13 +196,13 @@ function CheckOutMain() {
                 <ProImage>
                   <img
                     style={{ width: "95%", height: "100px" }}
-                    src={item.img[0]}
+                    src={item.image}
                     alt="Sofa"
                   />
                 </ProImage>
                 <ProData>
-                  <h4 style={{ fontWeight: 600 }}>{item.name}</h4>
-                  <h4 style={{ color: "#e96a19" }}>{item.details.warranty}</h4>
+                  <h4 style={{ fontWeight: 600 }}>{item.item}</h4>
+                  {/* <h4 style={{ color: "#e96a19" }}>{item.details.warranty}</h4> */}
                   <DateRangeSharpIcon style={{ width: "10%" }} />
                   <h5
                     style={{
@@ -221,13 +232,13 @@ function CheckOutMain() {
                       marginTop: "-11%",
                       marginLeft: "17%",
                     }}>Assembly</h5>
-                    <h4 style={{marginLeft:'17%',marginTop:'-5%'}}>{item.details.assembly}</h4>
+                    {/* <h4 style={{marginLeft:'17%',marginTop:'-5%'}}>{item.details.assembly}</h4> */}
 
                 </ProData>
                 <ProPrice>
-                    <button>-</button>
+                    <button onClick={() => {handlecartvalue(-1)}}>-</button>
                     <div>{}</div>
-                    <button>+</button>
+                    <button onClick={() => {handlecartvalue(1)}}>+</button>
                 </ProPrice>
                 <ProEdit>
                     <DeleteOutlineOutlinedIcon style={{marginLeft:'60%'}}/>

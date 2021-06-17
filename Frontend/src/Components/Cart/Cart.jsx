@@ -52,9 +52,6 @@ const useStyles = makeStyles({
    const handleModal=()=>{
        setModal(0)
    }
-  const handlecheckout = () => {
-    <Link to='/checkout' target='_blank'></Link>
-  }
   return (
     <div>   
        
