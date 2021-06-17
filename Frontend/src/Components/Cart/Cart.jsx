@@ -108,7 +108,7 @@ const useStyles = makeStyles({
           </div>
             {list("right")}
             <CardSectionTab no={modal}/>
-            <Link to='/checkout' style={{backgroundColor:'#e96a19',width:'93%',border:'none',height:'15.5%',color:'white',fontWeight:'500',marginLeft:'3.5%',marginTop:'10%',textAlign:'center',paddingTop:'2.5%',paddingBottom:'2%',marginBottom:'2%'}} target='_blank'>
+            <Link to='/checkout' style={{backgroundColor:'#e96a19',width:'93%',border:'none',minHeight:'6.5%',maxHeight:'15.5%',color:'white',fontWeight:'500',marginLeft:'3.5%',marginTop:'10%',textAlign:'center',paddingTop:'2.5%',paddingBottom:'2%',marginBottom:'2%'}} target='_blank'>
                 PROCEED TO PAY SECURELY
             </Link>
           </SwipeableDrawer>  

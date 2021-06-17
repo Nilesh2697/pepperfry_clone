@@ -20,7 +20,14 @@ import DateRangeSharpIcon from "@material-ui/icons/DateRangeSharp";
 import DeleteOutlineOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 
-const calculatecartval = (data, cartpro, handleSetActual,handleSaving,handleOffer,handleTotal) => {
+const calculatecartval = (
+  data,
+  cartpro,
+  handleSetActual,
+  handleSaving,
+  handleOffer,
+  handleTotal
+) => {
   //console.log(data);
   var actualsum = 0;
   var Savings = 0;
@@ -30,18 +37,18 @@ const calculatecartval = (data, cartpro, handleSetActual,handleSaving,handleOffe
   const cartac = data[0]?.cart;
   cartac?.map((el) => {
     //console.log(el.ap);
-   // console.log(el.savings)
-    Savings = Savings + el.savings
+    // console.log(el.savings)
+    Savings = Savings + el.savings;
     actualsum = actualsum + el.ap;
-    Offer = Offer+Number(el.price)
+    Offer = Offer + Number(el.price);
   });
-  
-  handleSetActual(actualsum);
-  handleSaving(Savings)
-  handleOffer(Offer)
 
-  Total = Total+ actualsum+Savings+Offer
-  handleTotal(Total)
+  handleSetActual(actualsum);
+  handleSaving(Savings);
+  handleOffer(Offer);
+
+  Total = Total + actualsum + Savings + Offer;
+  handleTotal(Total);
 
   //   return sum;
   // handleSetActual(actualsum);
@@ -50,8 +57,8 @@ function CheckOutMain({ data }) {
   console.log(data);
   const [actual, setActual] = React.useState(0);
   const [saving, setSaving] = React.useState(0);
-  const [offer,setOffer] = React.useState(0);
-  const [totalcheckout, setTotalCheckout] = React.useState(0)
+  const [offer, setOffer] = React.useState(0);
+  const [totalcheckout, setTotalCheckout] = React.useState(0);
 
   let amountRef = useRef(actual);
   const cartpro = data[0]?.cart;
@@ -71,16 +78,22 @@ function CheckOutMain({ data }) {
   };
 
   const handleTotal = (val) => {
-      setTotalCheckout(val)
-  }
+    setTotalCheckout(val);
+  };
 
   useEffect(
     () =>
-      (amountRef.current = calculatecartval(data, cartpro, handleSetActual,handleSaving,handleOffer,handleTotal)),
+      (amountRef.current = calculatecartval(
+        data,
+        cartpro,
+        handleSetActual,
+        handleSaving,
+        handleOffer,
+        handleTotal
+      )),
     [data]
   );
- 
-  
+
   //   calculatecartval(data, cartpro);
 
   const handlecartvalue = (val, id, e, Name) => {
@@ -234,29 +247,12 @@ function CheckOutMain({ data }) {
                   </h5>
                   {/* <h4 style={{marginLeft:'17%',marginTop:'-5%'}}>{item.details.assembly}</h4> */}
                 </ProData>
-                {/* <ProPrice>
-                  <button
-                    style={{}}
-                    value={i}
-                    disabled={count === 0 ? true : false}
-                    onClick={(e) => {
-                      handlecartvalue(-1, item.id, e.target.value, item.item);
-                    }}
-                  >
-                    -
-                  </button>
-                  <div>{count}</div>
-                  <button
-                    value={i}
-                    onClick={(e) => {
-                      handlecartvalue(1, item.id, e.target.value, item.item);
-                    }}
-                  >
-                    +
-                  </button>
-                </ProPrice> */}
+                <ProPrice>
+                  <div style={{color:'#898686',fontWeight:'500',textDecoration:'line-through'}}>₹ {item.actual_price}</div>
+                  <div style={{color:'#e96a19',fontWeight:'500'}}>₹ {item.offer_price}</div>
+                </ProPrice>
                 <ProEdit>
-                  <DeleteOutlineOutlinedIcon style={{ marginLeft: "60%" }} />
+                  <DeleteOutlineOutlinedIcon />
                   <FavoriteIcon style={{ color: "#b8b8b8" }} />
                 </ProEdit>
               </div>
@@ -265,12 +261,27 @@ function CheckOutMain({ data }) {
         </Product>
       </ProductDisplay>
       <PaymentDisplay>
-      <div style={{width:'100%',border:'1px solid #e7e2e2',marginTop:'-2.5%',marginBottom:'4%'}}>
-                <h3 style={{paddingLeft:'3%'}}>Login OR Register</h3>
-                <h4 style={{paddingLeft:'3%',color:'#acabab',fontWeight:'480'}}>For Express Checkout, Exciting Offers & More.</h4>
+        <div
+          style={{
+            width: "100%",
+            border: "1px solid #e7e2e2",
+            marginTop: "-2.5%",
+            marginBottom: "4%",
+          }}
+        >
+          <h3 style={{ paddingLeft: "3%" }}>Login OR Register</h3>
+          <h4
+            style={{ paddingLeft: "3%", color: "#acabab", fontWeight: "480" }}
+          >
+            For Express Checkout, Exciting Offers & More.
+          </h4>
         </div>
         <strong
-          style={{ fontSize: "15px", fontFamily: "Fira Sans, sans-serif",paddingLeft:'3%'}}
+          style={{
+            fontSize: "15px",
+            fontFamily: "Fira Sans, sans-serif",
+            paddingLeft: "3%",
+          }}
         >
           Have A Coupon Code?
         </strong>
@@ -292,29 +303,120 @@ function CheckOutMain({ data }) {
             maxHeight: "39.5px",
             marginLeft: "-.5%",
             color: "white",
-            fontWeight: "500",paddingLeft:'3%'
+            fontWeight: "500",
+            paddingLeft: "3%",
           }}
         >
           APPLY
         </button>
 
         <Invoice>
-           
           <label className={styles.container} for="tooltip">
             Contribute Rs.99 For COVID Relief Through GiveIndia.
             <ArrowDropDownIcon for="tooltip" className={styles.tooltiparrow} />
-            <input id="tooltip" type="checkbox"/>
-            <span className={styles.checkmark} ></span>
+            <input id="tooltip" type="checkbox" />
+            <span className={styles.checkmark}></span>
           </label>
-          <div style={{float:'left',fontWeight:'500',marginLeft:'4%'}}>MRP</div><div style={{textAlign:'right',marginRight:'5%',fontWeight:'500'}}>₹{actual === 0 ? "ZERO" : actual}</div>
-          <div style={{float:'left',fontWeight:'500',marginLeft:'4%',color:'#588209'}}>Retail Discount</div><div style={{textAlign:'right',marginRight:'5%',fontWeight:'500',color:'#588209'}}>(-) ₹{saving === 0 ? "Zero" : saving}</div>
-          <div style={{float:'left',fontWeight:'700',marginLeft:'4%'}}>Offer Price</div><div style={{textAlign:'right',marginRight:'5%',fontWeight:'700'}}>₹{offer === 0 ? 'zero' : offer}</div>
-           <div style={{  borderBottom:' 1px solid #d6d4d4',marginTop:'5%',marginBottom:'3%'}}></div>
-          <div style={{float:'left',fontWeight:'500',marginLeft:'4%',fontSize:'19px'}}>You Pay</div><div style={{textAlign:'right',marginRight:'5%',fontWeight:'500',fontSize:'19px'}}>₹{totalcheckout === 0 ? 'zero' : totalcheckout}</div>
-          <div style={{textAlign:'right',fontWeight:'500',marginRight:'5%',fontSize:'12px',color:'#b3b1b1'}}>(Inclusive of all taxes)</div>
-          <div style={{marginTop:'4%',paddingLeft:'3%',color:'#14a9cc',fontWeight:'400',fontSize:'14px'}}>No Cost EMI available. EMI starting ₹ 735/month</div>
-          <button style={{backgroundColor:'#e96a19',width:'100%',border:'none',minHeight:'42px',maxHeight:'42px',color:'white',fontWeight:'500',marginTop:'8%',textAlign:'center'}}>PLACE ORDER</button>
-          
+          <div style={{ float: "left", fontWeight: "500", marginLeft: "4%" }}>
+            MRP
+          </div>
+          <div
+            style={{ textAlign: "right", marginRight: "5%", fontWeight: "500" }}
+          >
+            ₹{actual === 0 ? "ZERO" : actual}
+          </div>
+          <div
+            style={{
+              float: "left",
+              fontWeight: "500",
+              marginLeft: "4%",
+              color: "#588209",
+            }}
+          >
+            Retail Discount
+          </div>
+          <div
+            style={{
+              textAlign: "right",
+              marginRight: "5%",
+              fontWeight: "500",
+              color: "#588209",
+            }}
+          >
+            (-) ₹{saving === 0 ? "Zero" : saving}
+          </div>
+          <div style={{ float: "left", fontWeight: "700", marginLeft: "4%" }}>
+            Offer Price
+          </div>
+          <div
+            style={{ textAlign: "right", marginRight: "5%", fontWeight: "700" }}
+          >
+            ₹{offer === 0 ? "zero" : offer}
+          </div>
+          <div
+            style={{
+              borderBottom: " 1px solid #d6d4d4",
+              marginTop: "5%",
+              marginBottom: "3%",
+            }}
+          ></div>
+          <div
+            style={{
+              float: "left",
+              fontWeight: "500",
+              marginLeft: "4%",
+              fontSize: "19px",
+            }}
+          >
+            You Pay
+          </div>
+          <div
+            style={{
+              textAlign: "right",
+              marginRight: "5%",
+              fontWeight: "500",
+              fontSize: "19px",
+            }}
+          >
+            ₹{offer === 0 ? "zero" : offer}
+          </div>
+          <div
+            style={{
+              textAlign: "right",
+              fontWeight: "500",
+              marginRight: "5%",
+              fontSize: "12px",
+              color: "#b3b1b1",
+            }}
+          >
+            (Inclusive of all taxes)
+          </div>
+          <div
+            style={{
+              marginTop: "4%",
+              paddingLeft: "3%",
+              color: "#14a9cc",
+              fontWeight: "400",
+              fontSize: "14px",
+            }}
+          >
+            No Cost EMI available. EMI starting ₹ 735/month
+          </div>
+          <button
+            style={{
+              backgroundColor: "#e96a19",
+              width: "100%",
+              border: "none",
+              minHeight: "42px",
+              maxHeight: "42px",
+              color: "white",
+              fontWeight: "500",
+              marginTop: "8%",
+              textAlign: "center",
+            }}
+          >
+            PLACE ORDER
+          </button>
         </Invoice>
       </PaymentDisplay>
     </ProductMain>
