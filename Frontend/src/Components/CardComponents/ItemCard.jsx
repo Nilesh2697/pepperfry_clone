@@ -3,11 +3,9 @@ import { ItemCustomCard } from "./CustomCardStyle";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import {Link} from "react-router-dom";
 
-export const ItemCard = ({item,category}) => {
 
-    const handleAdd=()=>{
-        console.log(item._id)
-    }
+export const ItemCard = ({item,category,handleAdd,handleAddToWishList}) => {
+    
     return (
         <ItemCustomCard key={item?._id}>        
             <img
@@ -17,11 +15,11 @@ export const ItemCard = ({item,category}) => {
             />
             <br />
             <h2>
-            <button onClick={handleAdd}>cart</button>   
+            <button onClick={()=>handleAdd(item)}>cart</button>   
             <Link to={`/item/${item._id}/${category}`} style={{textDecoration:"none",color:"black"}}>{item.name}</Link></h2>
             <div>
                 <p>{item.madeBy}</p>
-                <FavoriteBorderIcon />
+                <FavoriteBorderIcon onClick={()=>handleAddToWishList(item)}/>
             </div>
             <div>
                 <span>{item.offer_price}</span>

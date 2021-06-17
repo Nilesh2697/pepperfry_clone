@@ -1,4 +1,5 @@
 import {
+  GET_USER_ID,
   LOGIN_WITH_FACEBOOK,
   LOGIN_WITH_GOOGLE,
   LOG_IN_FAILURE,
@@ -87,6 +88,22 @@ export const login = (payload) => (dispatch) => {
     })
     .catch((err) => dispatch(loginFailure(err)));
 };
+
+export const getUserId = (payload) => (dispatch) => {  
+  axios
+    .get(`http://localhost:3001/users/${payload.email}/${payload.password}`)
+    .then((res) => {
+      dispatch(getUserIdSuccess(res.data));
+    })
+    .catch((err) => err);
+};
+ 
+const getUserIdSuccess=(payload)=>{
+  return{
+    type: GET_USER_ID,
+    payload
+  }
+}
 
 const loginWithGoogleSuccess = (payload) => {
   return {

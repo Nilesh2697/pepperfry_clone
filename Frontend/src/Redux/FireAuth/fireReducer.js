@@ -1,5 +1,6 @@
 import { clearData, getData, saveData } from "../../Redux/localStorage";
 import {
+  GET_USER_ID,
   LOGIN_WITH_FACEBOOK,
   LOGIN_WITH_GOOGLE,
   LOG_IN_FAILURE,
@@ -22,7 +23,8 @@ import {
 } from "./fireActionType";
 
 const auth = getData("isAuth");
-
+const isName =getData("isName");
+const isUser =getData("isUser");
 const inState = {
   isLoading: false,
   isAuth:auth||false,
@@ -37,11 +39,12 @@ const inState = {
   facebookPassword: "",
   isMessage: "",
   userData: [],
-  displayName: "",
+  displayName: isName||"",
   phone: "",
   isRegisterAuthFB: false,
   isRegisterAuthG: false,
   isResetLoading:false,
+  userId:isUser||""
 };
 
 export const fireReducer = (state = inState, action) => {
@@ -56,12 +59,14 @@ export const fireReducer = (state = inState, action) => {
     }
     case REGISTER_USER_SUCCESS: {
       saveData("isAuth",true)
+      saveData("isName",payload.first_name)
       return {
         ...state,
         isLoading: false,
         displayName: payload.first_name,
         registerSuccess: true,
         isAuth: true,
+        userId:payload._id
       };
     }
     case REGISTER_USER_FAILURE: {
@@ -83,6 +88,8 @@ export const fireReducer = (state = inState, action) => {
         ...state,
         isAuth: true,
         userData: payload,
+        userId:payload[0]._id,
+        displayName: payload[0].first_name,
       };
     }
     case LOG_IN_FAILURE: {
@@ -124,6 +131,8 @@ export const fireReducer = (state = inState, action) => {
         ...state,
         isAuth: true,
         displayName: payload.displayName,
+        googleEmail: payload.email,
+        googlePassword: payload.uid,
       };
     }
     case LOGIN_WITH_FACEBOOK: {
@@ -132,6 +141,8 @@ export const fireReducer = (state = inState, action) => {
         ...state,
         isAuth: true,
         displayName: payload.displayName,
+        facebook: payload.email,
+        facebookPassword: payload.uid,
       };
     }
     case REGISTER_REQUEST_WITH_GOOGLE: {
@@ -149,6 +160,7 @@ export const fireReducer = (state = inState, action) => {
         displayName: payload.displayName,
         isRegisterAuthG: true,
         phone: payload.phoneNumber,
+        userId:payload._id
       };
     }
     case REGISTER_REQUEST_WITH_FACEBOOK: {
@@ -166,10 +178,11 @@ export const fireReducer = (state = inState, action) => {
         displayName: payload.displayName,
         isRegisterAuthFB: true,
         phone: payload.phone,
+        userId:payload._id
       };
     }
     case LOG_OUT: {
-      clearData("isAuth")
+      clearData()
       return {
         ...state,
         isAuth: false,
@@ -177,6 +190,12 @@ export const fireReducer = (state = inState, action) => {
         isRegisterAuth: false,
         isRegisterAuthFB: false,
         isRegisterAuthG: false,
+        facebook:"",
+        facebookPassword:"",
+        googleEmail: "",
+        googlePassword: "",
+        userId:"",
+        userData:[]
       };
     }
     case RESET_PASSWORD_REQUEST:{
@@ -197,6 +216,12 @@ export const fireReducer = (state = inState, action) => {
         ...state,
        isError:true,
        isMessage:"Failed to reset password"
+      }
+    }
+    case GET_USER_ID:{
+      return{
+        ...state,
+        userId:payload[0]._id
       }
     }
     default:
