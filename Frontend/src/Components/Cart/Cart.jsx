@@ -8,7 +8,10 @@ import IconButton from "@material-ui/core/IconButton";
 import {CardSectionTab} from "./CartSectionTab";
 import CloseIcon from "@material-ui/icons/Close";
 import FavoriteBorderOutlinedIcon from "@material-ui/icons/FavoriteBorderOutlined";
-import {Link} from 'react-router-dom';
+import { getData } from '../../Redux/localStorage';
+import { useSelector } from 'react-redux';
+
+
 
 
 const useStyles = makeStyles({
@@ -20,13 +23,17 @@ const useStyles = makeStyles({
   },
 });
 
- function Cart( ) {
+function Cart({wish}) {
+   
   const classes = useStyles();
   const [state, setState] = React.useState({ 
     right: false,
   });
   const [modal,setModal] =React.useState(0)
-   
+  const isData = getData("finalCart");
+  const inCart = useSelector((state) => state.fireReducer.inCart);
+  const isData2 = getData("wishList");
+  const inWishList =  useSelector(state=>state.categoryReducer.inWishList);
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -35,8 +42,38 @@ const useStyles = makeStyles({
 
     setState({ ...state, [anchor]: open });
   };
+  const cartRef = React.useRef(0);
+  React.useEffect(() => {
+    if (isData?.length > 0 && isData?.length > inCart?.length)
+    {
+      cartRef.current=isData?.length
+    }
+    else if (inCart?.length > 0 && isData?.length < inCart?.length)
+    {
+      cartRef.current=inCart?.length
+    }
+    else
+    {
+      cartRef.current=0
+    }
+  }, [isData?.length, inCart?.length])
 
-
+  const wishRef = React.useRef(0);
+  React.useEffect(() => {
+    if (isData2?.length > 0 && isData2?.length > inWishList?.length)
+    {
+      wishRef.current=isData2?.length
+    }
+    else if (inWishList?.length > 0 && isData2?.length < inWishList?.length)
+    {
+      wishRef.current=inWishList?.length
+    }
+    else
+    {
+      wishRef.current=0
+    }
+  }, [isData2?.length, inWishList?.length])
+  
   const list = (anchor) => (
     <div
       className={clsx(classes.list)}
@@ -63,7 +100,7 @@ const useStyles = makeStyles({
               onClick={ toggleDrawer("right", true)}
             >
               <div onClick={handleModal1} >
-                <Badge badgeContent={0} color="secondary">
+                <Badge badgeContent={wishRef.current} color="secondary">
                   <FavoriteBorderOutlinedIcon
                     style={{ fontSize: 28, marginLeft: 0 }}
                     
@@ -79,7 +116,7 @@ const useStyles = makeStyles({
               onClick={ toggleDrawer("right", true)}
             >
               <div onClick={handleModal} >
-                <Badge badgeContent={0} color="secondary">
+                <Badge badgeContent={cartRef.current} color="secondary">
                   <ShoppingCartOutlinedIcon
                     style={{ fontSize: 28, marginLeft: 10 }}
                   />
@@ -107,7 +144,7 @@ const useStyles = makeStyles({
             </div>
           </div>
             {list("right")}
-        <CardSectionTab no={modal} />
+         <CardSectionTab />
           </SwipeableDrawer>  
     </div>
   );
