@@ -52,16 +52,9 @@ const useStyles = makeStyles({
    const handleModal=()=>{
        setModal(0)
    }
-
-  //  const handlecheckout = () => {
-  //      const path = '/checkout';
-
-  //      if(path === '/checkout'){
-  //         <Link to='/checkout' target='_blank'></Link>
-  //      } else {
-
-  //      }
-  //  }
+  const handlecheckout = () => {
+    <Link to='/checkout' target='_blank'></Link>
+  }
   return (
     <div>   
        
@@ -117,8 +110,8 @@ const useStyles = makeStyles({
           </div>
             {list("right")}
             <CardSectionTab no={modal}/>
-            <Link  to='/checkout' target='_blank'>
-                <button style={{backgroundColor:'#e96a19',width:'93%',border:'none',height:'8.5%',color:'white',fontWeight:'500',marginLeft:'3.5%',marginTop:'98%'}}>PROCEED TO PAY SECURELY</button>
+            <Link to='/checkout' style={{backgroundColor:'#e96a19',width:'93%',border:'none',height:'6.5%',color:'white',fontWeight:'500',marginLeft:'3.5%',marginTop:'98%',textAlign:'center',paddingTop:'2.5%'}} target='_blank'>
+                PROCEED TO PAY SECURELY
             </Link>
           </SwipeableDrawer>  
     </div>

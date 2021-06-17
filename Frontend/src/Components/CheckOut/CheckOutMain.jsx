@@ -17,7 +17,8 @@ import CardGiftcardOutlinedIcon from "@material-ui/icons/CardGiftcardOutlined";
 import styles from "./Checkout.module.css";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import DateRangeSharpIcon from "@material-ui/icons/DateRangeSharp";
-import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
+import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 const db = [
   {
@@ -110,6 +111,8 @@ const db = [
 ];
 
 function CheckOutMain() {
+
+    
   return (
     <ProductMain>
       <ProductDisplay>
@@ -202,17 +205,34 @@ function CheckOutMain() {
                     Delivery By
                   </h5>
                   
-                    <div className={styles.photocont}>
-                     <img style={{width:'8%',marginLeft:'50%',marginTop:'-9.5%'}} src='https://www.materialui.co/materialIcons/action/info_outline_grey_192x192.png' alt='info'/>
-                     <span>Due to the current lockdown across cities, deleiveries may take more longer than usual.</span>
-                      <h4 style={{ marginLeft: "17%", marginTop: "-14.5%" }}>
+                    <div className={styles.tooltip}>
+                     <img style={{width:'8%',marginLeft:'50%',marginTop:'-10%'}} src='https://www.materialui.co/materialIcons/action/info_outline_grey_192x192.png' alt='info'/>
+                     <span className={styles.tooltiptext}>Due to the current lockdown across cities, deleiveries may take more longer than usual.</span>
+                     </div>
+                      <h4 style={{ marginLeft: "17%", marginTop: "-15%" }}>
                         Fri, 25 Jun
                       </h4>
-                    </div>
+                      <h4 style={{ marginLeft: "17%", marginTop: "-6%" }}>Charges ₹ 999</h4>
+                      <img style={{width:'10%',marginTop:'-6%'}} src='https://static.thenounproject.com/png/390337-200.png' alt='stack'/>
+                      <h5 style={{
+                      fontSize: "12px",
+                      fontWeight: "700",
+                      color: "#969696",
+                      marginTop: "-11%",
+                      marginLeft: "17%",
+                    }}>Assembly</h5>
+                    <h4 style={{marginLeft:'17%',marginTop:'-5%'}}>{item.details.assembly}</h4>
 
                 </ProData>
-                <ProPrice></ProPrice>
-                <ProEdit></ProEdit>
+                <ProPrice>
+                    <button>-</button>
+                    <div>{}</div>
+                    <button>+</button>
+                </ProPrice>
+                <ProEdit>
+                    <DeleteOutlineOutlinedIcon style={{marginLeft:'60%'}}/>
+                    <FavoriteIcon style={{color:"#969696"}}/>
+                </ProEdit>
               </div>
             );
           })}

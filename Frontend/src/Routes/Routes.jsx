@@ -9,17 +9,23 @@ import { Ads } from "../Components/AdsModel/Ads";
 import { ProductPage } from "../Components/ProductPage/ProductPage";
 import { CheckOutPage } from "../Components/CheckOut/CheckOutPage";
 import { IndividualProductPage } from "../Components/IndividualPage/IndividualproductPage";
+import { useLocation } from 'react-router-dom';
+
 
 const Routes = () => {
 
-  const path = "/checkout";
-  return (
-    <div>
-      {!path === "/checkout" ? (
-        <>
-          <NavBar />
-            <DropDown />
-            <Ads />
+  
+    
+
+    const pathname = window.location.pathname
+    console.log(pathname)
+
+
+    return (
+        <div>
+            {pathname !== "/checkout" && <NavBar />}
+            {pathname !== "/checkout" && <DropDown />}
+            {pathname !== "/checkout" && <Ads />}
             <Switch>
                 <Route path="/" exact>
                     <Home />
@@ -33,16 +39,21 @@ const Routes = () => {
                 <Route exact path="/item/:id/:endpoint">
                     <ProductPage />
                 </Route>
+                <Route path="/checkout">
+                    <CheckOutPage />
+                </Route>
             </Switch>
+
             <Footer />
-        </>
-      ) : (
-        <Route path="/checkout">
-          <CheckOutPage />
-        </Route>
-      )}
+       
+
     </div>
   );
+
+    {pathname !== "/checkout" && <Footer />}
+       
+   
+
 };
 
 export default Routes;

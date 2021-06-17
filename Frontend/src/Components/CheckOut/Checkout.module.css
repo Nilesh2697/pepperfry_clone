@@ -133,31 +133,25 @@ label[for="tooltip"]:hover:not(:focus)::after {
 }
 
 
-.photocont {
-  max-width: 25em;
-  height: auto;
+.tooltip {
   position: relative;
-  margin: 1.563em auto;
+  display: inline-block;
 }
 
-.photocont img {
-  cursor: pointer;
-}
-
-.photocont >  img >  span {
+.tooltip .tooltiptext {
   visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
   position: absolute;
-  left: 15em;
-  top: -2.3em;
-  background: #ffff6b;
-  width: 17em;
-  border: 1px solid #404040;
-  font-size: 0.8em;
-  padding: 0.3em;
-  cursor: default;
-  line-height: 1.4;
+  z-index: 1;
 }
 
-.photocont img:hover span {
+.tooltip:hover .tooltiptext {
   visibility: visible;
 }

@@ -212,18 +212,19 @@ export const Product = styled.div `
 export const ProImage = styled.div ` 
 border: 1px solid black;
 width: 75%;
-
 `
 
 export const ProData = styled.div ` 
  border: 1px solid black;
  margin-left: -15%;
  font-size: 13px;
+ width:'60%'
 `
 
 export const ProPrice = styled.div ` 
+border: 1px solid black;
 `
 
 export const ProEdit = styled.div ` 
-
+ border: 1px solid black;
 `
