@@ -20,7 +20,7 @@ export const IndividualProductPage = () => {
     
     const handleAdd = (item1, counter = 1) => {
         let flag = 0;
-        console.log(finalCart)
+        // console.log(finalCart)
         let cartItem = finalCart?.map((el) => {
             if (el.id === item1._id) {
                 flag = 1;
@@ -102,7 +102,7 @@ export const IndividualProductPage = () => {
 
     React.useEffect(() => {
         dispatch(getDataByCategory(category));
-    }, []);
+    }, [category]);
 
 
    
