@@ -1,24 +1,24 @@
 import {
-    LOGIN_WITH_FACEBOOK,
-    LOGIN_WITH_GOOGLE,
-    LOG_IN_FAILURE,
-    LOG_IN_REQUEST,
-    LOG_IN_SUCCESS,
-    LOG_OUT,
-    REGISTER_REQUEST_WITH_FACEBOOK,
-    REGISTER_REQUEST_WITH_GOOGLE,
-    REGISTER_USER_FAILURE,
-    REGISTER_USER_REQUEST,
-    REGISTER_USER_SUCCESS,
-    REGISTER_WITH_FACEBOOK_SUCCESS,
-    REGISTER_WITH_GOOGLE_SUCCESS,
-    RESET_PASSWORD_FAILURE,
-    RESET_PASSWORD_REQUEST,
-    RESET_PASSWORD_SUCCESS,
-    TOGGLE_BETWEEN_REGISTER_LOGIN,
-    TOGGLE_TO_FORGET,
-    TOGGLE_TO_LOGIN,
-    TOGGLE_TO_REGISTER,
+  GET_USER_ID,
+  LOGIN_WITH_FACEBOOK,
+  LOGIN_WITH_GOOGLE,
+  LOG_IN_FAILURE,
+  LOG_IN_REQUEST,
+  LOG_IN_SUCCESS,
+  LOG_OUT,
+  REGISTER_REQUEST_WITH_FACEBOOK,
+  REGISTER_REQUEST_WITH_GOOGLE,
+  REGISTER_USER_FAILURE,
+  REGISTER_USER_REQUEST,
+  REGISTER_USER_SUCCESS,
+  REGISTER_WITH_FACEBOOK_SUCCESS,
+  REGISTER_WITH_GOOGLE_SUCCESS,
+  RESET_PASSWORD_FAILURE,
+  RESET_PASSWORD_REQUEST,
+  RESET_PASSWORD_SUCCESS,
+  TOGGLE_TO_FORGET,
+  TOGGLE_TO_LOGIN,
+  TOGGLE_TO_REGISTER,
 } from "./fireActionType";
 import axios from "axios";
 import { auth, google, facebook } from "./firebaseConfig";
@@ -87,6 +87,22 @@ export const login = (payload) => (dispatch) => {
         })
         .catch((err) => dispatch(loginFailure(err)));
 };
+
+export const getUserId = (payload) => (dispatch) => {  
+  axios
+    .get(`http://localhost:3001/users/${payload.email}/${payload.password}`)
+    .then((res) => {
+      dispatch(getUserIdSuccess(res.data));
+    })
+    .catch((err) => err);
+};
+ 
+const getUserIdSuccess=(payload)=>{
+  return{
+    type: GET_USER_ID,
+    payload
+  }
+}
 
 const loginWithGoogleSuccess = (payload) => {
     return {
