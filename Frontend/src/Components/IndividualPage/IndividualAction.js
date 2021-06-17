@@ -104,12 +104,12 @@ export const addToWishList =(userId,payload)=>(dispatch)=>{
 }
 
 
-export const finalCartSuccess=(payload)=>{
-    return{
-        type:FINAL_CART_SET_SUCCESS,
-        payload
-    }
-}
+// export const finalCartSuccess=(payload)=>{
+//     return{
+//         type:FINAL_CART_SET_SUCCESS,
+//         payload
+//     }
+// }
 
 export const finalWishListSuccess=(payload)=>{
     return{
@@ -171,3 +171,4 @@ export const fetchInWishList =(payload)=>(dispatch)=>{
     .then(res=>dispatch(fetchInWishListSuccess(res.data[0].wishlist)))
     .catch(err=>dispatch(fetchInWishListFailure(err)))
 }
+
