@@ -1,5 +1,8 @@
 import { clearData, getData, saveData } from "../../Redux/localStorage";
 import {
+  FETCH_IN_CART_FAILURE,
+  FETCH_IN_CART_REQUEST,
+  FETCH_IN_CART_SUCCESS,
   GET_USER_ID,
   LOGIN_WITH_FACEBOOK,
   LOGIN_WITH_GOOGLE,
@@ -25,6 +28,7 @@ import {
 const auth = getData("isAuth");
 const isName =getData("isName");
 const isUser =getData("isUser");
+
 const inState = {
   isLoading: false,
   isAuth:auth||false,
@@ -44,7 +48,8 @@ const inState = {
   isRegisterAuthFB: false,
   isRegisterAuthG: false,
   isResetLoading:false,
-  userId:isUser||""
+  userId:isUser||"",
+  inCart:[],
 };
 
 export const fireReducer = (state = inState, action) => {
@@ -195,7 +200,8 @@ export const fireReducer = (state = inState, action) => {
         googleEmail: "",
         googlePassword: "",
         userId:"",
-        userData:[]
+        userData:[],
+        inCart:[],
       };
     }
     case RESET_PASSWORD_REQUEST:{
@@ -224,6 +230,25 @@ export const fireReducer = (state = inState, action) => {
         userId:payload[0]._id
       }
     }
+    case FETCH_IN_CART_SUCCESS:{
+      return{
+          ...state,
+          isLoading:false,
+          inCart:payload
+      }
+  }
+  case FETCH_IN_CART_FAILURE:{
+      return{
+          ...state,
+          isError:true
+      }
+  }
+  case FETCH_IN_CART_REQUEST:{
+      return{
+          ...state,
+          isLoading:true
+      }
+  }
     default:
       return state;
   }

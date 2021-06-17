@@ -2,7 +2,7 @@ import React from "react";
 import { ItemCard } from "../CardComponents/ItemCard";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, finalCartSuccess, getDataByCategory } from "./IndividualAction";
+import { addToCart, addToWishList, finalCartSuccess, finalWishListSuccess, getDataByCategory } from "./IndividualAction";
 import { saveData } from "../../Redux/localStorage";
 
 
@@ -13,7 +13,7 @@ export const IndividualProductPage=()=>{
     // const cart = useSelector(state=>state.categoryReducer.cart);
     const finalCart = useSelector(state=>state.categoryReducer.finalCart);
     const userId = useSelector(state=>state.fireReducer.userId);
-   
+    const finalWishlist = useSelector(state=>state.categoryReducer.finalWishlist);
    
     
     const handleAdd = (item1, counter = 1) => {
@@ -40,6 +40,11 @@ export const IndividualProductPage=()=>{
           id: item1._id,
           madeBy:item1.madeBy,
           image: item1.img[0],
+          details:item1.details,
+          total_savings:item1.total_savings,
+          price:item1.price,
+          savings:item1?.savings,
+          ap:item1?.ap
         };
         dispatch(finalCartSuccess([...finalCart, payLoad]));
         if (userId !== undefined || userId !== "") {
@@ -59,7 +64,7 @@ export const IndividualProductPage=()=>{
        
         let flag = 0;
   
-        let cartItem = finalCart?.map((el) => {
+        let cartItem = finalWishlist?.map((el) => {
           
           if (el.id === item1._id) {
              
@@ -79,24 +84,30 @@ export const IndividualProductPage=()=>{
             id: item1._id,
             madeBy:item1.madeBy,
             image: item1.img[0],
+            details:item1.details,
+            total_savings:item1.total_savings,
+            price:item1.price,
+            savings:item1?.savings,
+            ap:item1?.ap
           };
-          dispatch(finalCartSuccess([...finalCart, payLoad]));
+          dispatch(finalWishListSuccess([...finalWishlist, payLoad]));
           if (userId !== undefined || userId !== "") {
-            dispatch(addToCart(userId, [...finalCart, payLoad]));
+            dispatch(addToWishList(userId, [...finalWishlist, payLoad]));
           }
-          saveData("finalCart",([...finalCart, payLoad]));
+          saveData("wishList",([...finalWishlist, payLoad]));
         } else {
-          dispatch(finalCartSuccess(cartItem));
+          dispatch(finalWishListSuccess(cartItem));
           if (userId !== undefined || userId !== "") {
-            dispatch(addToCart(userId, cartItem));
+            dispatch(addToWishList(userId, cartItem));
           }
-          saveData("finalCart", cartItem )
+          saveData("wishList", cartItem )
         }
       };
 
     React.useEffect(()=>{
         dispatch(getDataByCategory(category))
     },[])
+
    
     return(
         <>

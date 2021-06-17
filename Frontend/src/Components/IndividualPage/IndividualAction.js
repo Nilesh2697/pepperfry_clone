@@ -118,24 +118,24 @@ export const finalWishListSuccess=(payload)=>{
     }
 }
 
-export const fetchInCartRequest=(payload)=>{
-    return{
-        type:FETCH_IN_CART_REQUEST,
-        payload
-    }
-}
-export const fetchInCartSuccess=(payload)=>{
-    return{
-        type:FETCH_IN_CART_SUCCESS,
-        payload
-    }
-}
-export const fetchInCartFailure=(payload)=>{
-    return{
-        type:FETCH_IN_CART_FAILURE,
-        payload
-    }
-}
+// export const fetchInCartRequest=(payload)=>{
+//     return{
+//         type:FETCH_IN_CART_REQUEST,
+//         payload
+//     }
+// }
+// export const fetchInCartSuccess=(payload)=>{
+//     return{
+//         type:FETCH_IN_CART_SUCCESS,
+//         payload
+//     }
+// }
+// export const fetchInCartFailure=(payload)=>{
+//     return{
+//         type:FETCH_IN_CART_FAILURE,
+//         payload
+//     }
+// }
 
 export const fetchInWishListRequest=(payload)=>{
     return{
@@ -156,16 +156,18 @@ export const fetchInWishListFailure=(payload)=>{
     }
 }
 
-export const fetchInCart =(payload)=>(dispatch)=>{
-    dispatch(fetchInCartRequest());
-    axios.get(`http://localhost:3001/userbyID/${payload}`)
-    .then(res=>dispatch(fetchInCartSuccess(res.data.cart)))
-    .catch(err=>dispatch(fetchInCartFailure(err)))
-}
+// export const fetchInCart =(payload)=>(dispatch)=>{
+//     console.log(payload)
+//     dispatch(fetchInCartRequest());
+//     axios.get(`http://localhost:3001/userbyID/${payload}`)
+//     .then(res=>dispatch(fetchInCartSuccess(res.data[0].carts)))
+//     .catch(err=>dispatch(fetchInCartFailure(err)))
+// }
 
 export const fetchInWishList =(payload)=>(dispatch)=>{
+   
     dispatch(fetchInWishListRequest());
     axios.get(`http://localhost:3001/userbyID/${payload}`)
-    .then(res=>dispatch(fetchInWishListSuccess(res.data)))
+    .then(res=>dispatch(fetchInWishListSuccess(res.data[0].wishlist)))
     .catch(err=>dispatch(fetchInWishListFailure(err)))
 }
