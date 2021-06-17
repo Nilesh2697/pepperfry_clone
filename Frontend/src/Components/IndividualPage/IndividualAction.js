@@ -159,7 +159,7 @@ export const fetchInWishListFailure=(payload)=>{
 export const fetchInCart =(payload)=>(dispatch)=>{
     dispatch(fetchInCartRequest());
     axios.get(`http://localhost:3001/userbyID/${payload}`)
-    .then(res=>dispatch(fetchInCartSuccess(res.data)))
+    .then(res=>dispatch(fetchInCartSuccess(res.data.cart)))
     .catch(err=>dispatch(fetchInCartFailure(err)))
 }
 
