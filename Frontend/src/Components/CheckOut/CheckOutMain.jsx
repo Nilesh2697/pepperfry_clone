@@ -110,26 +110,29 @@ const db = [
   },
 ];
 
-function CheckOutMain({data}) {
+function CheckOutMain({data,key}) {
     const [count, setCount] = React.useState(1)
     const cartpro = data[0]?.cart
     
-    console.log(cartpro)
     //console.log(cartpro)
 
-    // const cartlist = cartitem.map((i) => {
-    //     console.log(i.item)
-    // })
     
     const handlecartvalue = (value,id) => {
-        const Id = cartpro?.map((ident) => {
-            console.log(ident.id)
+        
+        const Id = cartpro?.map((ident) => { 
+            const finalid = ident?.id
+            if(finalid === id){
+                setCount(value+count)
+            } else {
+                
+            }
+            
         })
-        console.log(Id?.id)
+        
     //   id? setCount(value_count) : null 
     }
   return (
-    <ProductMain>
+    <ProductMain key={key}>
       <ProductDisplay>
         <div>
           <h2 style={{ letterSpacing: "-1px" }}>

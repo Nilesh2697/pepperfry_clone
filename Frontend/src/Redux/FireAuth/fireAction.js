@@ -1,27 +1,30 @@
 import {
-    LOGIN_WITH_FACEBOOK,
-    LOGIN_WITH_GOOGLE,
-    LOG_IN_FAILURE,
-    LOG_IN_REQUEST,
-    LOG_IN_SUCCESS,
-    LOG_OUT,
-    REGISTER_REQUEST_WITH_FACEBOOK,
-    REGISTER_REQUEST_WITH_GOOGLE,
-    REGISTER_USER_FAILURE,
-    REGISTER_USER_REQUEST,
-    REGISTER_USER_SUCCESS,
-    REGISTER_WITH_FACEBOOK_SUCCESS,
-    REGISTER_WITH_GOOGLE_SUCCESS,
-    RESET_PASSWORD_FAILURE,
-    RESET_PASSWORD_REQUEST,
-    RESET_PASSWORD_SUCCESS,
-    TOGGLE_BETWEEN_REGISTER_LOGIN,
-    TOGGLE_TO_FORGET,
-    TOGGLE_TO_LOGIN,
-    TOGGLE_TO_REGISTER,
+    FETCH_IN_CART_REQUEST,
+  FETCH_IN_CART_SUCCESS,
+  GET_USER_ID,
+  LOGIN_WITH_FACEBOOK,
+  LOGIN_WITH_GOOGLE,
+  LOG_IN_FAILURE,
+  LOG_IN_REQUEST,
+  LOG_IN_SUCCESS,
+  LOG_OUT,
+  REGISTER_REQUEST_WITH_FACEBOOK,
+  REGISTER_REQUEST_WITH_GOOGLE,
+  REGISTER_USER_FAILURE,
+  REGISTER_USER_REQUEST,
+  REGISTER_USER_SUCCESS,
+  REGISTER_WITH_FACEBOOK_SUCCESS,
+  REGISTER_WITH_GOOGLE_SUCCESS,
+  RESET_PASSWORD_FAILURE,
+  RESET_PASSWORD_REQUEST,
+  RESET_PASSWORD_SUCCESS,
+  TOGGLE_TO_FORGET,
+  TOGGLE_TO_LOGIN,
+  TOGGLE_TO_REGISTER,
 } from "./fireActionType";
 import axios from "axios";
 import { auth, google, facebook } from "./firebaseConfig";
+import { FETCH_IN_WISHLIST_FAILURE } from "../../Components/IndividualPage/IndividualActionType";
 
 const registerUserRequest = () => {
     return {
@@ -87,6 +90,22 @@ export const login = (payload) => (dispatch) => {
         })
         .catch((err) => dispatch(loginFailure(err)));
 };
+
+export const getUserId = (payload) => (dispatch) => {  
+  axios
+    .get(`http://localhost:3001/users/${payload.email}/${payload.password}`)
+    .then((res) => {
+      dispatch(getUserIdSuccess(res.data));
+    })
+    .catch((err) => err);
+};
+ 
+const getUserIdSuccess=(payload)=>{
+  return{
+    type: GET_USER_ID,
+    payload
+  }
+}
 
 const loginWithGoogleSuccess = (payload) => {
     return {
@@ -206,3 +225,31 @@ export const resetPassword = (payload) => (dispatch) => {
         .then((res) => dispatch(resetPasswordSuccess(res)))
         .catch((err) => dispatch(resetPasswordFailure(err)));
 };
+
+
+export const fetchInCartRequest=(payload)=>{
+    return{
+        type:FETCH_IN_CART_REQUEST,
+        payload
+    }
+}
+export const fetchInCartSuccess=(payload)=>{
+    return{
+        type:FETCH_IN_CART_SUCCESS,
+        payload
+    }
+}
+export const fetchInCartFailure=(payload)=>{
+    return{
+        type:FETCH_IN_WISHLIST_FAILURE,
+        payload
+    }
+}
+
+export const fetchInCart =(payload)=>(dispatch)=>{
+    console.log(payload)
+    dispatch(fetchInCartRequest());
+    axios.get(`http://localhost:3001/userbyID/${payload}`)
+    .then(res=>dispatch(fetchInCartSuccess(res.data[0].cart)))
+    .catch(err=>dispatch(fetchInCartFailure(err)))
+}

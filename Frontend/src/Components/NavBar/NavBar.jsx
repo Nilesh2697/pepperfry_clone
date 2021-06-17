@@ -21,9 +21,11 @@ import { getSearch } from "../../Redux/Search/action";
 import { useDispatch, useSelector } from "react-redux";
 import {Cart} from "../Cart/Cart"
 import {
+  getUserId,
   logOut,
   registerUserWithSM,
 } from "../../Redux/FireAuth/fireAction";
+import { clearData, saveData } from "../../Redux/localStorage";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -121,6 +123,8 @@ function NavBar() {
   const searchResult = useSelector((state) => state.search.data);
 
   const isAuth = useSelector((state) => state.fireReducer.isAuth);
+  const userId = useSelector((state) => state.fireReducer.userId);
+  const registerSucces = useSelector((state) => state.fireReducer.registerSuccess);
 
   const [state] = React.useState(inState);
 
@@ -129,12 +133,15 @@ function NavBar() {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
+  const userRef = React.useRef(null);
+  
+
   const handleSearch = (e) => {
     let payload = e.target.value;
     setSearchData({ ...searchData, payload });
   };
   
-  
+ 
 
 
 
@@ -154,6 +161,9 @@ function NavBar() {
     phone,
     displayName,
   } = useSelector((state) => state.fireReducer);
+
+  saveData("isName",displayName)
+  saveData("isUser",userId)
 
   const handleClick = () => {
     history.push("/");
@@ -185,6 +195,35 @@ function NavBar() {
     const handleMobileMenuOpen = (event) => {
         setMobileMoreAnchorEl(event.currentTarget);
     };
+  
+  //   window.onbeforeunload = function (e) {
+  //     clearData("isAuth")
+  // };
+
+    React.useEffect(()=>{
+
+       if(isAuth){
+        userRef.current=true;
+        // console.log(userId)
+         if(userId===undefined||userId===""){
+          if(googlePassword===""){
+            const pay={
+              email:facebook,
+              password:facebookPassword
+            }
+            dispatch(getUserId(pay))
+          }
+          else if(facebookPassword===""){
+            const pay={
+              email:googleEmail,
+              password:googlePassword
+            }
+            dispatch(getUserId(pay))
+          }
+         }
+       }
+    },[isAuth,registerSucces])
+
 
     React.useEffect(() => {
         if (isRegisterAuthG) {

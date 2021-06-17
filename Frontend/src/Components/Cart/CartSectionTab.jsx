@@ -6,6 +6,8 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+import {CartView} from "./CartView";
+import{WishListView} from "./WishListView"
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -37,14 +39,16 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `full-width-tab-${index}`,
-    "aria-controls": `full-width-tabpanel-${index}`
+    "aria-controls": `full-width-tabpanel-${index}`,
+    
   };
 }
 
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.paper,
-    width: 475
+    width: 475,
+    paddingLeft:0
   }
 }));
 
@@ -90,10 +94,10 @@ export function CardSectionTab({no=0}) {
       </AppBar>
 
       <TabPanel value={value} index={0} dir={theme.direction}>
-       item one
+       <CartView/>
       </TabPanel>
       <TabPanel value={value} index={1} dir={theme.direction}>
-        Item Two
+       <WishListView/>
       </TabPanel>
       <TabPanel value={value} index={2} dir={theme.direction}>
         Item Three

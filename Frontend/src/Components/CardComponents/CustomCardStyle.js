@@ -136,11 +136,14 @@ export const ItemCustomCard = styled.div`
     font-size: 2.3vh;
     display: flex;
     flex-direction: column;
-    background: white;
+    background: rgb(240, 240, 240);
+    /* background: white; */
     /* border: 1px solid red; */
     cursor: pointer;
-    width: 50%;
-    padding: 1% 1%;
+    /* width: 50%; */
+    padding: 2% 2%;
+    margin-left: 4%;
+    margin-top: 4%;
 
     :hover {
         button {
@@ -150,10 +153,9 @@ export const ItemCustomCard = styled.div`
 
     & > :nth-child(1) {
         & img {
-            /* border: 1px solid red; */
-            /* position: relative; */
             cursor: pointer;
-            height: 2500px;
+            /* height: 2500px; */
+            width: 100%;
         }
     }
 
@@ -206,23 +208,26 @@ export const ItemCustomCard = styled.div`
     }
     & > div:nth-child(7) {
         display: flex;
+        /* justify-content: space-between; */
         /* border: 1px solid black; */
-        width: 70%;
-        & > div:nth-child(1) {
-            margin-top: 5%;
-            /*border: solid pink 2px; */
-            width: 50%;
+        /* width: 80%; */
+        & > :nth-child(1) {
+            /* margin-top: 5%; */
+            /* border: solid blue 2px; */
+            /* width: 200px !important; */
             font-size: 12px;
+            margin: auto;
+            /* padding: 1% 20%; */
         }
 
-        & > div:nth-child(2) {
+        & > :nth-child(3) {
             display: flex;
             /* justify-content: center; */
             /* border: solid red 3px; */
-            padding: 1%;
-            & img {
-                width: 30%;
-                height: 60%;
+            /* padding: 1%; */
+            img {
+                width: 20%;
+                /* height: 90%; */
                 margin-left: 5%;
             }
         }
@@ -243,4 +248,32 @@ export const AddToCartDiv = styled.button`
     font-weight: bold;
     visibility: hidden;
     cursor: pointer;
+`;
+
+export const EmptyCardDiv = styled.div`
+    @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap");
+    font-family: "Fira Sans", sans-serif;
+    width: 280px;
+    margin: auto;
+    margin-top: 50px;
+    border: solid black 1px;
+    text-align: center;
+    & img {
+        margin-top: 10px;
+    }
+    & p {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: black;
+    }
+    & > div {
+        border: 1.5px solid rgb(241, 101, 33);
+        padding: 10px 20px;
+        color: rgb(241, 101, 33);
+        cursor: pointer;
+        width: 250px;
+        margin: auto;
+        font-weight: 800;
+    }
 `;

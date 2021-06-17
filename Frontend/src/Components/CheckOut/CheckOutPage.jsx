@@ -2,15 +2,16 @@ import React from 'react';
 import { CheckOutNavbar } from './CheckOutNavbar';
 import {CheckOutFooter} from './CheckOutFooter';
 import { CheckOutMain } from './CheckOutMain';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 function CheckOutPage(){
 
    const [data,setData] = React.useState([])
-    const id = '60ca2b366e0cdd6758c8cd86';
-
+    
+   const userId = useSelector(state=>state.fireReducer.userId);
     const getuserdataforcheckout = () => {
-        axios.get(`http://localhost:3001/userbyID/${id}`)
+        axios.get(`http://localhost:3001/userbyID/${userId}`)
         .then((res) => {
            
             console.log(res.data)
@@ -28,7 +29,7 @@ function CheckOutPage(){
 
        
         <div>
-            <CheckOutNavbar data={data}/>
+            <CheckOutNavbar key={userId} data={data}/>
             <CheckOutMain data={data}/>
             <CheckOutFooter/>
         </div>

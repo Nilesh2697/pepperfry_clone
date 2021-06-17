@@ -9,7 +9,7 @@ import NotificationsNoneOutlined from '@material-ui/icons/NotificationsNoneOutli
 function CheckOutNavbar({data}){
   const [name,setName] = React.useState('')
     const user = data[0]?.first_name
-    console.log(user)    
+   // console.log(user)    
 
     return (
         <CheckOutNav>
