@@ -17,120 +17,47 @@ import CardGiftcardOutlinedIcon from "@material-ui/icons/CardGiftcardOutlined";
 import styles from "./Checkout.module.css";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import DateRangeSharpIcon from "@material-ui/icons/DateRangeSharp";
-import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import DeleteOutlineOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 
-const db = [
-  {
-    id: 1,
-    name: "Esteban 3 Seater Half Leather Sofa in Grey Colour",
-    img: [
-      "https://ii1.pepperfry.com/media/catalog/product/e/s/800x400/esteban-3-seater-half-leather-sofa-in-grey-colour-by-casacraft-esteban-3-seater-half-leather-sofa-in-8akxht.jpg",
-      "https://ii1.pepperfry.com/media/catalog/product/e/s/800x400/esteban-half-leather-three-seater-sofa-in-grey-colour-by-casacraft-esteban-half-leather-three-seater-nqijeg.jpg",
-      "https://ii1.pepperfry.com/media/catalog/product/e/s/800x400/esteban-half-leather-three-seater-sofa-in-grey-colour-by-casacraft-esteban-half-leather-three-seater-qoh0xi.jpg",
-      "https://ii1.pepperfry.com/media/catalog/product/e/s/800x400/esteban-half-leather-three-seater-sofa-in-grey-colour-by-casacraft-esteban-half-leather-three-seater-ra9orm.jpg",
-    ],
-    madeBy: "CasaCraft by Pepperfry",
-    offer_price: "1,13,999",
-    actual_price: "1,84,999",
-    total_savings: "71,000 (38% Off)",
-    price: 113999,
-    seater: 3,
-    details: {
-      brand: "CasaCraft",
-      dimensions:
-        "H 35 x W 83 x D 38; Seating Height -18 (All dimension in inches)",
-      weight: "64 KG",
-      warranty: "36 Months' Warranty",
-      assembly: "Carpenter Assembly",
-      "primary material": "Half Leather",
-      "room type": "Living Room",
-      "seating height": 18,
-      overview:
-        "Casacraft offers the best in comfort with elan. The collections are a series of modern trendy designs, simple yet striking and represent the ideals of minimalism. The designs are a perfect blend of functionality and exceptional aesthetics. Each piece is crafted with passion and follows international standards on quality and style. Contemporary Style Sofas are very current and in trend. Its a very fluid, simplistic style which takes its cues from the in-vogue polishes, textures and colours of the season and is bereft of any ornamentation or embellishments. In this style you can see nods to modern, traditional, art deco and even futuristic design.",
-    },
-  },
-  {
-    id: 2,
-    name: "Amelia 2 Seater Sofa in Charcoal Grey Colour",
-    img: [
-      "https://ii1.pepperfry.com/media/catalog/product/a/m/800x400/amelia-2-seater-sofa-in-charcoal-grey-colour-by-casacraft-amelia-2-seater-sofa-in-charcoal-grey-colo-mc0vev.jpg",
-      "https://ii1.pepperfry.com/media/catalog/product/a/m/800x400/amelia-two-seater-sofa-in-charcoal-grey-colour-by-casacraft-amelia-two-seater-sofa-in-charcoal-grey--3g7ees.jpg",
-      "https://ii1.pepperfry.com/media/catalog/product/a/m/800x400/amelia-two-seater-sofa-in-charcoal-grey-colour-by-casacraft-amelia-two-seater-sofa-in-charcoal-grey--qsy3nv.jpg",
-      "https://ii1.pepperfry.com/media/catalog/product/a/m/800x400/amelia-two-seater-sofa-in-charcoal-grey-colour-by-casacraft-amelia-two-seater-sofa-in-charcoal-grey--nifmkr.jpg",
-    ],
-    madeBy: "CasaCraft by Pepperfry",
-    offer_price: "28,999",
-    actual_price: "46,999",
-    total_savings: "18,000 (38% Off)",
-    price: 28999,
-    seater: 2,
-    details: {
-      brand: "CasaCraft",
-      dimensions:
-        "H 34.5 x W 48 x D 31; Seating Height-18.5 (All Dimension in Inches)",
-      weight: "26.95 KG",
-      warranty: "36 Months' Warranty",
-      assembly: "No Assembly Required",
-      "primary material": "Fabric",
-      "room type": "Living Room",
-      "seating height": 19,
-      overview:
-        "Casacraft offers the best in comfort with elan. The collections are a series of modern trendy designs, simple yet striking and represent the ideals of minimalism. The designs are a perfect blend of functionality and exceptional aesthetics. Each piece is crafted with passion and follows international standards on quality and style. Contemporary Style Sofas are very current and in trend. Its a very fluid, simplistic style which takes its cues from the in-vogue polishes, textures and colours of the season and is bereft of any ornamentation or embellishments. In this style you can see nods to modern, traditional, art deco and even futuristic design.",
-    },
-  },
-  {
-    id: 3,
-    name: "Miranda 3 Seater Sofa in Navy Blue Colour",
-    img: [
-      "https://ii1.pepperfry.com/media/catalog/product/m/i/800x400/miranda-3-seater-sofa-in-navy-blue-colour-by-woodsworth-miranda-3-seater-sofa-in-navy-blue-colour-by-ee7lmu.jpg",
-      "https://ii1.pepperfry.com/media/catalog/product/m/i/800x400/miranda-three-seater-sofa-in-navy-blue-colour-by-woodsworth-miranda-three-seater-sofa-in-navy-blue-c-ecuf5p.jpg",
-      "https://ii1.pepperfry.com/media/catalog/product/m/i/800x400/miranda-three-seater-sofa-in-navy-blue-colour-by-woodsworth-miranda-three-seater-sofa-in-navy-blue-c-cjlzqj.jpg",
-      "https://ii1.pepperfry.com/media/catalog/product/m/i/800x400/miranda-three-seater-sofa-in-navy-blue-colour-by-woodsworth-miranda-three-seater-sofa-in-navy-blue-c-zd5fj8.jpg",
-    ],
-    madeBy: "Woodsworth by Pepperfry",
-    offer_price: "49,999",
-    actual_price: "81,999",
-    total_savings: "32,000 (39% Off)",
-    price: 49999,
-    seater: 3,
-    details: {
-      brand: "Woodsworth",
-      dimensions:
-        " H 35.5 x W 80 x D 35.5; Seating Height-18; Seating Depth - 22.5 (all dimensions in inches)",
-      weight: "54 KG",
-      warranty: "36 Months' Warranty",
-      assembly: "Carpenter Assembly",
-      "primary material": "Fabric",
-      "room type": "Living Room",
-      "seating height": 18,
-      overview:
-        "Woodsworth is our premium homegrown label thats part classic, part contemporary. A delectable amalgamation of the timeless and trendy, a precarious balance of function and flair. Woodsworth is a harmonious fit for all tastes, styles and spaces. This type is attributed to Thomas W. Lawson, an American businessman and author who commissioned the model for extra comfort. You can recognize a Lawson by three back cushions and arms lower than the back (slightly rolled or square). You can find textile and leather finishes and various embedded materials, including metal and wood. Furniture bought on Pepperfry.com comes with a 3 Year Warranty against any manufacturing defects. So go ahead and buy with confidence.",
-    },
-  },
-];
+function CheckOutMain({ data, key }) {
+  const cartpro = data[0]?.cart;
+  const qty = cartpro?.map((i) => i.qty);
+  const [count, setCount] = React.useState(1);
+  //console.log(cartpro)
 
-function CheckOutMain({data,key}) {
-    const [count, setCount] = React.useState(1)
-    const cartpro = data[0]?.cart
-    
-    //console.log(cartpro)
+  const handlecartvalue = (val, id, e) => {
+    cartpro?.map((ele, i) => {
+      const finalid = ele?.id;
+      e = Number(e)
+      //console.log(finalid, quantity,i)
+      if ( i === e && finalid === id) {
+        const quantity = count;
+            console.log(quantity,i,e,finalid,id)
+            setCount(quantity + val);
+            console.log(count);
+      
+       
+      } else {
+        // if (e !== i && finalid !== id) {
+        //     const quantity = count
+        //   setCount((quantity-quantity) +1);
+        // }
+      }
+    });
 
-    
-    const handlecartvalue = (value,id) => {
-        
-        const Id = cartpro?.map((ident) => { 
-            const finalid = ident?.id
-            if(finalid === id){
-                setCount(value+count)
-            } else {
-                
-            }
-            
-        })
-        
-    //   id? setCount(value_count) : null 
-    }
+    //   id? setCount(value_count) : null
+  };
+
+  const calculatecartval = () => {
+      
+  }
+
+  React.useEffect(() => {
+      calculatecartval()
+  },[])
+  
+  
   return (
     <ProductMain key={key}>
       <ProductDisplay>
@@ -190,8 +117,8 @@ function CheckOutMain({data,key}) {
           </button>
         </Pincode>
         <Product>
-            {/* {console.log(cartitem)} */}
-          {cartpro?.map((item) => {
+          {/* {console.log(cartitem)} */}
+          {cartpro?.map((item,i) => {
             return (
               <div
                 style={{
@@ -223,34 +150,69 @@ function CheckOutMain({data,key}) {
                   >
                     Delivery By
                   </h5>
-                  
-                    <div className={styles.tooltip}>
-                     <img style={{width:'8%',marginLeft:'50%',marginTop:'-10%'}} src='https://www.materialui.co/materialIcons/action/info_outline_grey_192x192.png' alt='info'/>
-                     <span className={styles.tooltiptext}>Due to the current lockdown across cities, deleiveries may take more longer than usual.</span>
-                     </div>
-                      <h4 style={{ marginLeft: "17%", marginTop: "-15%" }}>
-                        Fri, 25 Jun
-                      </h4>
-                      <h4 style={{ marginLeft: "17%", marginTop: "-6%" }}>Charges ₹ 999</h4>
-                      <img style={{width:'10%',marginTop:'-6%'}} src='https://static.thenounproject.com/png/390337-200.png' alt='stack'/>
-                      <h5 style={{
+
+                  <div className={styles.tooltip}>
+                    <img
+                      style={{
+                        width: "8%",
+                        marginLeft: "50%",
+                        marginTop: "-10%",
+                      }}
+                      src="https://www.materialui.co/materialIcons/action/info_outline_grey_192x192.png"
+                      alt="info"
+                    />
+                    <span className={styles.tooltiptext}>
+                      Due to the current lockdown across cities, deleiveries may
+                      take more longer than usual.
+                    </span>
+                  </div>
+                  <h4 style={{ marginLeft: "17%", marginTop: "-15%" }}>
+                    Fri, 25 Jun
+                  </h4>
+                  <h4 style={{ marginLeft: "17%", marginTop: "-6%" }}>
+                    Charges ₹ 999
+                  </h4>
+                  <img
+                    style={{ width: "10%", marginTop: "-6%" }}
+                    src="https://static.thenounproject.com/png/390337-200.png"
+                    alt="stack"
+                  />
+                  <h5
+                    style={{
                       fontSize: "12px",
                       fontWeight: "700",
                       color: "#969696",
                       marginTop: "-11%",
                       marginLeft: "17%",
-                    }}>Assembly</h5>
-                    {/* <h4 style={{marginLeft:'17%',marginTop:'-5%'}}>{item.details.assembly}</h4> */}
-
+                    }}
+                  >
+                    Assembly
+                  </h5>
+                  {/* <h4 style={{marginLeft:'17%',marginTop:'-5%'}}>{item.details.assembly}</h4> */}
                 </ProData>
                 <ProPrice>
-                    <button disabled={count ===0? true : false} onClick={() => {handlecartvalue(-1,item.id)}}>-</button>
-                    <div>{count}</div>
-                    <button onClick={() => {handlecartvalue(1,item.id)}}>+</button>
+                  <button
+                    value={i}
+                    disabled={count === 0 ? true : false}
+                    onClick={(e) => {
+                      handlecartvalue(-1, item.id,e.target.value);
+                    }}
+                  >
+                    -
+                  </button>
+                  <div>{count}</div>
+                  <button
+                    value={i}
+                    onClick={(e) => {
+                      handlecartvalue(1, item.id,e.target.value);
+                    }}
+                  >
+                    +
+                  </button>
                 </ProPrice>
                 <ProEdit>
-                    <DeleteOutlineOutlinedIcon style={{marginLeft:'60%'}}/>
-                    <FavoriteIcon style={{color:"#969696"}}/>
+                  <DeleteOutlineOutlinedIcon style={{ marginLeft: "60%" }} />
+                  <FavoriteIcon style={{ color: "#969696" }} />
                 </ProEdit>
               </div>
             );

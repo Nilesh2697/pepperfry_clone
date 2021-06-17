@@ -20,8 +20,7 @@ function CheckOutPage(){
         })
         .catch((err) => console.log(err))
     }
-
-   
+ 
     React.useEffect(() => {
         getuserdataforcheckout();
     },[])
