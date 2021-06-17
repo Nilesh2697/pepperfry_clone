@@ -10,7 +10,6 @@ import { ProductPage } from "../Components/ProductPage/ProductPage";
 import { CheckOutPage } from "../Components/CheckOut/CheckOutPage";
 import { IndividualProductPage } from "../Components/IndividualPage/IndividualproductPage";
 import { ErrorPath } from "../Components/ErrorPage/ErrorPath";
-import App from "../Components/Payment/Payment";
 
 const Routes = () => {
 
@@ -33,9 +32,6 @@ const Routes = () => {
                 </Route>
                 <Route exact path="/item/:id/:endpoint">
                     <ProductPage />
-                </Route>
-                <Route path="/payment">
-                    <App />
                 </Route>
                 <Route path="/checkout">
                     <CheckOutPage />
