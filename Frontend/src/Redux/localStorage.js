@@ -12,5 +12,6 @@ export function getData(key) {
 }
 
 export const clearData = (key) => {
-    localStorage.removeItem(key);
+    // localStorage.removeItem(key);
+    localStorage.clear();
 };
