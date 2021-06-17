@@ -19,80 +19,82 @@ import { useHistory } from "react-router";
 import { connect } from "react-redux";
 import { getSearch } from "../../Redux/Search/action";
 import { useDispatch, useSelector } from "react-redux";
-import {Cart} from "../Cart/Cart"
+import { Cart } from "../Cart/Cart";
 import {
-  getUserId,
-  logOut,
-  registerUserWithSM,
+    getUserId,
+    logOut,
+    registerUserWithSM,
 } from "../../Redux/FireAuth/fireAction";
 import { clearData, saveData } from "../../Redux/localStorage";
+import { Login } from "../Login/Login";
+import { ForgetPassword } from "../Login/ForgetPassword";
 
 const useStyles = makeStyles((theme) => ({
-  grow: {
-    flexGrow: 1,
-  },
+    grow: {
+        flexGrow: 1,
+    },
 
-  // title: {
-  //   display: "none",
-  //   marginLeft:160,
-  //   [theme.breakpoints.up("xs")]: {
-  //     display: "block"
-  //   }
-  // },
-  search: {
-    position: "relative",
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.black, 0.05),
-    "&:hover": {
-      backgroundColor: fade(theme.palette.common.black, 0.1),
+    // title: {
+    //   display: "none",
+    //   marginLeft:160,
+    //   [theme.breakpoints.up("xs")]: {
+    //     display: "block"
+    //   }
+    // },
+    search: {
+        position: "relative",
+        borderRadius: theme.shape.borderRadius,
+        backgroundColor: fade(theme.palette.common.black, 0.05),
+        "&:hover": {
+            backgroundColor: fade(theme.palette.common.black, 0.1),
+        },
+        marginRight: theme.spacing(2),
+        marginLeft: 0,
+        width: "40vw",
+        [theme.breakpoints.up("sm")]: {
+            marginLeft: theme.spacing(5),
+            width: "auto",
+        },
+        height: 42,
     },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: "40vw",
-    [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(5),
-      width: "auto",
+    searchIcon: {
+        // padding: theme.spacing(0, 2),
+        // height: "100%",
+        position: "absolute",
+        // pointerEvents: "none",
+        // display: "flex",
+        // alignItems: "center",
+        // justifyContent: "center",
+        marginTop: -28,
+        marginRight: -40,
+        right: 50,
     },
-    height: 42,
-  },
-  searchIcon: {
-    // padding: theme.spacing(0, 2),
-    // height: "100%",
-    position: "absolute",
-    // pointerEvents: "none",
-    // display: "flex",
-    // alignItems: "center",
-    // justifyContent: "center",
-    marginTop: -28,
-    marginRight: -40,
-    right: 50,
-  },
-  inputRoot: {
-    color: "inherit",
-  },
-  inputInput: {
-    padding: theme.spacing(1.5, 4, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(0)}px)`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("md")]: {
-      width: "75ch",
+    inputRoot: {
+        color: "inherit",
     },
-  },
-  sectionDesktop: {
-    display: "none",
-    [theme.breakpoints.up("md")]: {
-      display: "flex",
+    inputInput: {
+        padding: theme.spacing(1.5, 4, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(1em + ${theme.spacing(0)}px)`,
+        transition: theme.transitions.create("width"),
+        width: "100%",
+        [theme.breakpoints.up("md")]: {
+            width: "75ch",
+        },
     },
-    marginRight: "10%",
-  },
-  sectionMobile: {
-    display: "flex",
-    [theme.breakpoints.up("md")]: {
-      display: "none",
+    sectionDesktop: {
+        display: "none",
+        [theme.breakpoints.up("md")]: {
+            display: "flex",
+        },
+        marginRight: "10%",
     },
-  },
+    sectionMobile: {
+        display: "flex",
+        [theme.breakpoints.up("md")]: {
+            display: "none",
+        },
+    },
 }));
 
 const inState = {
@@ -112,118 +114,115 @@ const inState = {
 };
 
 function NavBar() {
-  const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [anchorE2, setAnchorE2] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-  const [searchData, setSearchData] = React.useState({})
-  const [displayDrop, setDisplayDrop] = React.useState("block")
-  const history = useHistory();
-  const dispatch = useDispatch();
-  const searchResult = useSelector((state) => state.search.data);
+    const classes = useStyles();
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [anchorE2, setAnchorE2] = React.useState(null);
+    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+    const [searchData, setSearchData] = React.useState({});
+    const [displayDrop, setDisplayDrop] = React.useState("block");
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const searchResult = useSelector((state) => state.search.data);
+    const loginToggle = useSelector((state) => state.fireReducer.login_page);
+    const registerToggle = useSelector(
+        (state) => state.fireReducer.register_page,
+    );
+    const forgetToggle = useSelector((state) => state.fireReducer.forget_page);
 
-  const isAuth = useSelector((state) => state.fireReducer.isAuth);
-  const userId = useSelector((state) => state.fireReducer.userId);
-  const registerSucces = useSelector((state) => state.fireReducer.registerSuccess);
+    const isAuth = useSelector((state) => state.fireReducer.isAuth);
+    const userId = useSelector((state) => state.fireReducer.userId);
+    const registerSucces = useSelector(
+        (state) => state.fireReducer.registerSuccess,
+    );
 
-  const [state] = React.useState(inState);
+    const [state] = React.useState(inState);
 
-  const regRef = React.useRef(state);
+    const regRef = React.useRef(state);
 
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+    const isMenuOpen = Boolean(anchorEl);
+    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const userRef = React.useRef(null);
-  
+    const userRef = React.useRef(null);
 
-  const handleSearch = (e) => {
-    let payload = e.target.value;
-    setSearchData({ ...searchData, payload });
-  };
-  
- 
+    const handleSearch = (e) => {
+        let payload = e.target.value;
+        setSearchData({ ...searchData, payload });
+    };
 
+    React.useEffect(() => {
+        dispatch(getSearch(searchData.payload));
+    }, [searchData]);
 
+    // console.log(searchResult.length, searchData.payload.length)
 
-  React.useEffect(() => {
-    dispatch(getSearch(searchData.payload));
-  }, [searchData]);
+    const {
+        isRegisterAuthFB,
+        isRegisterAuthG,
+        googleEmail,
+        googlePassword,
+        facebook,
+        facebookPassword,
+        phone,
+        displayName,
+    } = useSelector((state) => state.fireReducer);
 
-  // console.log(searchResult.length, searchData.payload.length)
+    saveData("isName", displayName);
+    saveData("isUser", userId);
 
-  const {
-    isRegisterAuthFB,
-    isRegisterAuthG,
-    googleEmail,
-    googlePassword,
-    facebook,
-    facebookPassword,
-    phone,
-    displayName,
-  } = useSelector((state) => state.fireReducer);
+    const handleClick = () => {
+        history.push("/");
+    };
 
-  saveData("isName",displayName)
-  saveData("isUser",userId)
+    const handleLogout = () => {
+        dispatch(logOut());
+    };
 
-  const handleClick = () => {
-    history.push("/");
-  };
+    const handleProfileMenuOpen = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
 
-  const handleLogout = () => {
-    dispatch(logOut());
-  };
+    const handleDrawerOpen = () => {
+        setAnchorE2(!anchorE2);
+    };
 
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  
-  const handleDrawerOpen=()=>{
-    setAnchorE2(!anchorE2);
-  }
+    const handleMobileMenuClose = () => {
+        setMobileMoreAnchorEl(null);
+    };
 
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
-  
- 
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
-  };
-
+    const handleMenuClose = () => {
+        setAnchorEl(null);
+        handleMobileMenuClose();
+    };
 
     const handleMobileMenuOpen = (event) => {
         setMobileMoreAnchorEl(event.currentTarget);
     };
-  
-  //   window.onbeforeunload = function (e) {
-  //     clearData("isAuth")
-  // };
 
-    React.useEffect(()=>{
+    //   window.onbeforeunload = function (e) {
+    //     clearData("isAuth")
+    // };
 
-       if(isAuth){
-        userRef.current=true;
-        // console.log(userId)
-         if(userId===undefined||userId===""){
-          if(googlePassword===""){
-            const pay={
-              email:facebook,
-              password:facebookPassword
+    React.useEffect(() => {
+        if (isAuth) {
+            userRef.current = true;
+            // console.log(userId)
+            if (userId === undefined || userId === "") {
+                if (googlePassword === "") {
+                    const pay = {
+                        email: facebook,
+                        password: facebookPassword,
+                    };
+                    dispatch(getUserId(pay));
+                } else if (facebookPassword === "") {
+                    const pay = {
+                        email: googleEmail,
+                        password: googlePassword,
+                    };
+                    dispatch(getUserId(pay));
+                }
             }
-            dispatch(getUserId(pay))
-          }
-          else if(facebookPassword===""){
-            const pay={
-              email:googleEmail,
-              password:googlePassword
-            }
-            dispatch(getUserId(pay))
-          }
-         }
-       }
-    },[isAuth,registerSucces])
-
+        }
+    }, [isAuth, registerSucces]);
 
     React.useEffect(() => {
         if (isRegisterAuthG) {
@@ -293,7 +292,9 @@ function NavBar() {
                         style={{ background: "#ef6630" }}
                         onClick={handleMenuClose}
                     >
-                        <Register />
+                        {registerToggle && <Register />}
+                        {loginToggle && <Login />}
+                        {forgetToggle && <ForgetPassword />}
                     </MenuItem>
                     <MenuItem onClick={handleMenuClose}>
                         <span style={{ fontSize: 11 }}>
@@ -351,126 +352,164 @@ function NavBar() {
         </Menu>
     );
 
-  const handleSearchClick = (id) => {
-    setDisplayDrop("none")
-    history.push(`/item/${id}/searchbyID`)
-    setSearchData("")
-    setDisplayDrop("block")
-  }
+    const handleSearchClick = (id) => {
+        setDisplayDrop("none");
+        history.push(`/item/${id}/searchbyID`);
+        setSearchData("");
+        setDisplayDrop("block");
+    };
 
-  return (
-    <div className={classes.grow}>
-
-      <AppBar
-        style={{
-          borderBottom: "2px solid #E7E7E7",
-          height: 70,
-          boxShadow: "none",
-        }}
-        color="transparent"
-        position="static"
-      >
-        <Toolbar>
-          <div style={{marginLeft: "10%", width: "9%", height: 50, cursor: "pointer"}} onClick={() => handleClick()}>
-            <img
-              style={{
-                width: "100%",
-                height: "100%",
-              }}
-              src={logo}
-              alt="pepperfry"
-            />
-          </div>
-
-          <div style={{ marginLeft: "2.5%"}} className={classes.search}>
-            <InputBase
-              placeholder="Search"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ "aria-label": "search" }}
-              onChange={(e) => handleSearch(e)}
-            />
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            {searchData.payload?.length > 0 ? 
-                        <div style={{
-                          position: "absolute",
-                          backgroundColor: "white",
-                          width: "100%",
-                          height: "auto",
-                          zIndex: 2,
-                          borderRadius: 0,
-                          background: "white",
-                          boxShadow:  "-3px 3px 2px grey, 5px -5px 2px #ffffff",
-                          display: displayDrop,
+    return (
+        <div className={classes.grow}>
+            <AppBar
+                style={{
+                    borderBottom: "2px solid #E7E7E7",
+                    height: 70,
+                    boxShadow: "none",
+                }}
+                color="transparent"
+                position="static"
+            >
+                <Toolbar>
+                    <div
+                        style={{
+                            marginLeft: "10%",
+                            width: "9%",
+                            height: 50,
+                            cursor: "pointer",
                         }}
-                        // onClick={}
+                        onClick={() => handleClick()}
+                    >
+                        <img
+                            style={{
+                                width: "100%",
+                                height: "100%",
+                            }}
+                            src={logo}
+                            alt="pepperfry"
+                        />
+                    </div>
+
+                    <div
+                        style={{ marginLeft: "2.5%" }}
+                        className={classes.search}
+                    >
+                        <InputBase
+                            placeholder="Search"
+                            classes={{
+                                root: classes.inputRoot,
+                                input: classes.inputInput,
+                            }}
+                            inputProps={{ "aria-label": "search" }}
+                            onChange={(e) => handleSearch(e)}
+                        />
+                        <div className={classes.searchIcon}>
+                            <SearchIcon />
+                        </div>
+                        {searchData.payload?.length > 0 ? (
+                            <div
+                                style={{
+                                    position: "absolute",
+                                    backgroundColor: "white",
+                                    width: "100%",
+                                    height: "auto",
+                                    zIndex: 2,
+                                    borderRadius: 0,
+                                    background: "white",
+                                    boxShadow:
+                                        "-3px 3px 2px grey, 5px -5px 2px #ffffff",
+                                    display: displayDrop,
+                                }}
+                                // onClick={}
+                            >
+                                {searchResult.length > 0 &&
+                                    searchResult.map((el) => (
+                                        <p
+                                            onClick={() =>
+                                                handleSearchClick(el._id)
+                                            }
+                                            style={{
+                                                zIndex: 1,
+                                                marginLeft: "2%",
+                                                paddingTop: 5,
+                                                cursor: "pointer",
+                                            }}
+                                        >
+                                            {el.name}
+                                        </p>
+                                    ))}
+                            </div>
+                        ) : (
+                            <div style={{ display: "none" }}></div>
+                        )}
+                    </div>
+                    <div className={classes.grow} />
+                    <div className={classes.sectionDesktop}>
+                        <IconButton
+                            aria-label="show 4 new mails"
+                            color="inherit"
+                            style={{ backgroundColor: "transparent" }}
                         >
-                          {searchResult.length > 0 && searchResult.map(el => (
-                            <p onClick={()=> handleSearchClick(el._id)} style={{zIndex: 1, marginLeft: "2%", paddingTop: 5, cursor: "pointer"}}>{el.name}</p>
-                          ))}
-                      </div>
-                      : <div style={{display: "none"}}></div>  
-          }  
-          </div>
-          <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
-            <IconButton
-              aria-label="show 4 new mails"
-              color="inherit"
-              style={{ backgroundColor: "transparent" }}
-            >
-              <div>
-                <Badge badgeContent={0} color="secondary">
-                  <LocalShippingOutlinedIcon
-                    style={{ fontSize: 28, marginLeft: "-62%" }}
-                  />
-                </Badge>
-                <div style={{ fontSize: 12, marginLeft: -35 }}>Track</div>
-              </div>
-            </IconButton>
-         
-          
+                            <div>
+                                <Badge badgeContent={0} color="secondary">
+                                    <LocalShippingOutlinedIcon
+                                        style={{
+                                            fontSize: 28,
+                                            marginLeft: "-62%",
+                                        }}
+                                    />
+                                </Badge>
+                                <div style={{ fontSize: 12, marginLeft: -35 }}>
+                                    Track
+                                </div>
+                            </div>
+                        </IconButton>
 
-            <Cart/>
+                        <Cart />
 
-
-            <IconButton
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-              style={{ backgroundColor: "transparent" }}
-            >
-              <div style={{ lineHeight: "80%", marginTop: "10%" }}>
-                <PermIdentityOutlinedIcon
-                  style={{ fontSize: 28, marginLeft: 15, marginTop: 5 }}
-                />
-                <div style={{ fontSize: 12, marginLeft: 15 }}>Profile</div>
-              </div>
-            </IconButton>
-          </div>
-          <div className={classes.sectionMobile}>
-            <IconButton
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-                <MoreIcon />
-            </IconButton>
-          </div>
-        </Toolbar>
-    </AppBar>
-    {renderMobileMenu}
-    {renderMenu}
-</div>);}
+                        <IconButton
+                            edge="end"
+                            aria-label="account of current user"
+                            aria-controls={menuId}
+                            aria-haspopup="true"
+                            onClick={handleProfileMenuOpen}
+                            color="inherit"
+                            style={{ backgroundColor: "transparent" }}
+                        >
+                            <div
+                                style={{ lineHeight: "80%", marginTop: "10%" }}
+                            >
+                                <PermIdentityOutlinedIcon
+                                    style={{
+                                        fontSize: 28,
+                                        marginLeft: 15,
+                                        marginTop: 5,
+                                    }}
+                                />
+                                <div style={{ fontSize: 12, marginLeft: 15 }}>
+                                    Profile
+                                </div>
+                            </div>
+                        </IconButton>
+                    </div>
+                    <div className={classes.sectionMobile}>
+                        <IconButton
+                            aria-label="show more"
+                            aria-controls={mobileMenuId}
+                            aria-haspopup="true"
+                            onClick={handleMobileMenuOpen}
+                            color="inherit"
+                        >
+                            <MoreIcon />
+                        </IconButton>
+                    </div>
+                </Toolbar>
+            </AppBar>
+            {renderMobileMenu}
+            {renderMenu}
+        </div>
+    );
+}
 
 const mapStateToProps = (state) => {
     return {};
