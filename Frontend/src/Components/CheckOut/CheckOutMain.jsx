@@ -111,17 +111,22 @@ const db = [
 ];
 
 function CheckOutMain({data}) {
-
+    const [count, setCount] = React.useState(1)
     const cartpro = data[0]?.cart
-
+    
     console.log(cartpro)
+    //console.log(cartpro)
 
     // const cartlist = cartitem.map((i) => {
     //     console.log(i.item)
     // })
     
-    const handlecartvalue = () => {
-
+    const handlecartvalue = (value,id) => {
+        const Id = cartpro?.map((ident) => {
+            console.log(ident.id)
+        })
+        console.log(Id?.id)
+    //   id? setCount(value_count) : null 
     }
   return (
     <ProductMain>
@@ -236,9 +241,9 @@ function CheckOutMain({data}) {
 
                 </ProData>
                 <ProPrice>
-                    <button onClick={() => {handlecartvalue(-1)}}>-</button>
-                    <div>{}</div>
-                    <button onClick={() => {handlecartvalue(1)}}>+</button>
+                    <button disabled={count ===0? true : false} onClick={() => {handlecartvalue(-1,item.id)}}>-</button>
+                    <div>{count}</div>
+                    <button onClick={() => {handlecartvalue(1,item.id)}}>+</button>
                 </ProPrice>
                 <ProEdit>
                     <DeleteOutlineOutlinedIcon style={{marginLeft:'60%'}}/>
