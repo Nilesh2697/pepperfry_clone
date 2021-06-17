@@ -10,11 +10,12 @@ function CheckOutPage(){
    const [data,setData] = React.useState([])
     
    const userId = useSelector(state=>state.fireReducer.userId);
+   console.log(userId)
     const getuserdataforcheckout = () => {
         axios.get(`http://localhost:3001/userbyID/${userId}`)
         .then((res) => {
            
-            console.log(res.data)
+            //console.log(res.data)
             setData(res.data)
            
         })

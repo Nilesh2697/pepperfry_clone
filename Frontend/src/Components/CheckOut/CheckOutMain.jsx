@@ -50,7 +50,10 @@ function CheckOutMain({ data, key }) {
   };
 
   const calculatecartval = () => {
-      
+      console.log(data[0])
+    data[0]?.cart?.map((el) => {
+        console.log(el)
+    })
   }
 
   React.useEffect(() => {
