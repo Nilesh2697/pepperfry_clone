@@ -168,7 +168,7 @@ function CheckOutMain({ data }) {
                 style={{
                   display: "grid",
                   gridTemplateColumns: "repeat(4,1fr)",
-                  border: "1px solid #969696",
+                  border: "1px solid #e7e2e2",
                   padding: "2% 2%",
                 }}
               >
@@ -234,8 +234,9 @@ function CheckOutMain({ data }) {
                   </h5>
                   {/* <h4 style={{marginLeft:'17%',marginTop:'-5%'}}>{item.details.assembly}</h4> */}
                 </ProData>
-                <ProPrice>
+                {/* <ProPrice>
                   <button
+                    style={{}}
                     value={i}
                     disabled={count === 0 ? true : false}
                     onClick={(e) => {
@@ -253,10 +254,10 @@ function CheckOutMain({ data }) {
                   >
                     +
                   </button>
-                </ProPrice>
+                </ProPrice> */}
                 <ProEdit>
                   <DeleteOutlineOutlinedIcon style={{ marginLeft: "60%" }} />
-                  <FavoriteIcon style={{ color: "#969696" }} />
+                  <FavoriteIcon style={{ color: "#b8b8b8" }} />
                 </ProEdit>
               </div>
             );
@@ -264,8 +265,12 @@ function CheckOutMain({ data }) {
         </Product>
       </ProductDisplay>
       <PaymentDisplay>
+      <div style={{width:'100%',border:'1px solid #e7e2e2',marginTop:'-2.5%',marginBottom:'4%'}}>
+                <h3 style={{paddingLeft:'3%'}}>Login OR Register</h3>
+                <h4 style={{paddingLeft:'3%',color:'#acabab',fontWeight:'480'}}>For Express Checkout, Exciting Offers & More.</h4>
+        </div>
         <strong
-          style={{ fontSize: "15px", fontFamily: "Fira Sans, sans-serif" }}
+          style={{ fontSize: "15px", fontFamily: "Fira Sans, sans-serif",paddingLeft:'3%'}}
         >
           Have A Coupon Code?
         </strong>
@@ -283,27 +288,33 @@ function CheckOutMain({ data }) {
             backgroundColor: "#e96a19",
             width: "30%",
             border: "none",
-            minHeight: "11.2%",
-            maxHeight: "11.2%",
+            minHeight: "39.5px",
+            maxHeight: "39.5px",
             marginLeft: "-.5%",
             color: "white",
-            fontWeight: "500",
+            fontWeight: "500",paddingLeft:'3%'
           }}
         >
           APPLY
         </button>
 
         <Invoice>
+           
           <label className={styles.container} for="tooltip">
             Contribute Rs.99 For COVID Relief Through GiveIndia.
             <ArrowDropDownIcon for="tooltip" className={styles.tooltiparrow} />
             <input id="tooltip" type="checkbox"/>
             <span className={styles.checkmark} ></span>
           </label>
-          <div style={{float:'left'}}>MRP</div><div style={{textAlign:'right',marginRight:'5%'}}>₹{actual === 0 ? "ZERO" : actual}</div>
-          <div style={{float:'left'}}>Retail Discount</div><div>(-) ₹{saving === 0 ? "Zero" : saving}</div>
-          <div style={{float:'left'}}>Offer Price</div><div>{offer === 0 ? 'zero' : offer}</div>
-          <div style={{float:'left'}}>You Pay</div><div>{totalcheckout === 0 ? 'zero' : totalcheckout}</div>
+          <div style={{float:'left',fontWeight:'500',marginLeft:'4%'}}>MRP</div><div style={{textAlign:'right',marginRight:'5%',fontWeight:'500'}}>₹{actual === 0 ? "ZERO" : actual}</div>
+          <div style={{float:'left',fontWeight:'500',marginLeft:'4%',color:'#588209'}}>Retail Discount</div><div style={{textAlign:'right',marginRight:'5%',fontWeight:'500',color:'#588209'}}>(-) ₹{saving === 0 ? "Zero" : saving}</div>
+          <div style={{float:'left',fontWeight:'700',marginLeft:'4%'}}>Offer Price</div><div style={{textAlign:'right',marginRight:'5%',fontWeight:'700'}}>₹{offer === 0 ? 'zero' : offer}</div>
+           <div style={{  borderBottom:' 1px solid #d6d4d4',marginTop:'5%',marginBottom:'3%'}}></div>
+          <div style={{float:'left',fontWeight:'500',marginLeft:'4%',fontSize:'19px'}}>You Pay</div><div style={{textAlign:'right',marginRight:'5%',fontWeight:'500',fontSize:'19px'}}>₹{totalcheckout === 0 ? 'zero' : totalcheckout}</div>
+          <div style={{textAlign:'right',fontWeight:'500',marginRight:'5%',fontSize:'12px',color:'#b3b1b1'}}>(Inclusive of all taxes)</div>
+          <div style={{marginTop:'4%',paddingLeft:'3%',color:'#14a9cc',fontWeight:'400',fontSize:'14px'}}>No Cost EMI available. EMI starting ₹ 735/month</div>
+          <button style={{backgroundColor:'#e96a19',width:'100%',border:'none',minHeight:'42px',maxHeight:'42px',color:'white',fontWeight:'500',marginTop:'8%',textAlign:'center'}}>PLACE ORDER</button>
+          
         </Invoice>
       </PaymentDisplay>
     </ProductMain>

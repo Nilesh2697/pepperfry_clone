@@ -1,5 +1,6 @@
 import React from "react";
 import { EmptyCardDiv } from "./CustomCardStyle";
+import { Link } from "react-router-dom";
 
 export const RecentlyViewedEmptyCard = () => {
     return (
@@ -9,7 +10,7 @@ export const RecentlyViewedEmptyCard = () => {
                 alt="Empty Recently Viewed List Logo"
             />
             <p>Nothing To Display Here</p>
-            <div>START SHOPPING</div>
+          <div> <Link to={"/"} style={{textDecoration:"none",color:"rgb(241, 101, 33)"}}> START SHOPPING</Link></div>
         </EmptyCardDiv>
     );
 };

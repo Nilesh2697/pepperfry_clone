@@ -2,7 +2,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getData, saveData } from "../../Redux/localStorage";
 import { addToWishList,  fetchInWishList,  finalWishListSuccess } from '../IndividualPage/IndividualAction';
-import {WishList} from "./WishList"
+import {WishList} from "./WishList";
+import { MyWishListEmptyCard } from "../CardComponents/MyWishListEmptyCard";
 
 export const WishListView=()=>{
     const isAuth = useSelector(state=>state.fireReducer.isAuth);
@@ -46,7 +47,7 @@ export const WishListView=()=>{
            }):isData?.length>0?isData.map((el)=>{
                 return <WishList handleRemove1={handleRemove1} el={el}/>
                    
-           }):null
+           }):<MyWishListEmptyCard/>
         }
         </>
     )

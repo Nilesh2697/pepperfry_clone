@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getData, saveData } from "../../Redux/localStorage";
 import {  fetchInCart } from '../../Redux/FireAuth/fireAction';
 import { CartCard } from "./CartCard";
-import { finalCartSuccess,addToCart } from "../IndividualPage/IndividualAction";
+import { addToCart } from "../IndividualPage/IndividualAction";
+import { finalCartSuccess } from "../../Redux/FireAuth/fireAction";
+import { MyCartEmptyCard } from "../CardComponents/MyCartEmptyCard";
 
 export const CartView=()=>{
     const isAuth = useSelector(state=>state.fireReducer.isAuth);
@@ -11,7 +13,7 @@ export const CartView=()=>{
     const userId = useSelector(state=>state.fireReducer.userId);
     const isData = getData("finalCart");
     const inCart =  useSelector(state=>state.fireReducer.inCart);
-    const finalCart = useSelector(state=>state.categoryReducer.finalCart);
+    const finalCart = useSelector(state=>state.fireReducer.finalCart);
 
 
     console.log(inCart,isData)
@@ -45,7 +47,7 @@ export const CartView=()=>{
            }):isData?.length>0?isData.map((el)=>{
                 return <CartCard handleRemove={handleRemove} el={el}/>
                    
-           }):null
+           }):<MyCartEmptyCard/>
         }
         </>
     )

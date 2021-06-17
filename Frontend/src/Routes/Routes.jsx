@@ -9,8 +9,7 @@ import { Ads } from "../Components/AdsModel/Ads";
 import { ProductPage } from "../Components/ProductPage/ProductPage";
 import { CheckOutPage } from "../Components/CheckOut/CheckOutPage";
 import { IndividualProductPage } from "../Components/IndividualPage/IndividualproductPage";
-import { useLocation } from 'react-router-dom';
-
+import { ErrorPath } from "../Components/ErrorPage/ErrorPath";
 
 const Routes = () => {
 
@@ -37,8 +36,12 @@ const Routes = () => {
                 <Route exact path="/item/:id/:endpoint">
                     <ProductPage />
                 </Route>
+
                 <Route path="/checkout">
                     <CheckOutPage />
+                </Route>
+                <Route>
+                    <ErrorPath />
                 </Route>
             </Switch>
             {pathname !== "/checkout" && <Footer />}

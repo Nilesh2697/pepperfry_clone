@@ -11,8 +11,9 @@ import { Divider, Link, Button } from '@material-ui/core';
 import style from "./Prodbutton.module.css";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import { addToCart, finalCartSuccess } from '../IndividualPage/IndividualAction'
+import { addToCart } from '../IndividualPage/IndividualAction'
 import { saveData } from '../../Redux/localStorage'
+import { finalCartSuccess } from '../../Redux/FireAuth/fireAction'
 
 const Prodmoreinfoback = styled.div`
     width: 100%;
@@ -181,7 +182,7 @@ const Moretab = styled.div`
 const ProductPage = () => {
 
     const [count, setCount] = React.useState(0);
-    const finalCart = useSelector(state=>state.categoryReducer.finalCart);
+    const finalCart = useSelector(state=>state.fireReducer.finalCart);
     const userId = useSelector(state=>state.fireReducer.userId);
     const finalWishlist = useSelector(state=>state.categoryReducer.finalWishlist);
 

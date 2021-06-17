@@ -68,7 +68,7 @@ export const Footer = styled.div `
    background-color: #EFEFEF;
    grid-template-columns: repeat(3,1fr);
    padding-bottom: 3%;
-   margin-top: 40%;
+   margin-top: 5%;
 `
 
 export const FootPayment = styled.div ` 
@@ -171,6 +171,7 @@ export const ProductDisplay = styled.div `
   margin-left: 24.7%;
   width: 100%;
   padding-right: -5%;
+  margin-top: 5%;
 `
 
 export const Pincode = styled.div ` 
@@ -184,38 +185,37 @@ export const Pincode = styled.div `
 `
 
 export const PaymentDisplay = styled.div ` 
-  margin-top: 5%;
+  margin-top: 10%;
   margin-right: 10%;
   height: 50%;
   width:'60%';
   margin-left: 27%;
   padding-top: 4%;
-  border: 1px solid black;
+
 `
 export const Invoice = styled.div ` 
    
  width:'60%';
- height: 250%;
- border: 1px solid #bfbebe;
+ height: 250px;
+ border: 1px solid #e7e2e2;
  border-top-width: 3px;
  margin-top: 2%;
- padding-top: -5%;
+ padding-top: -5% 4%;
+ line-height: 1.8;
 `
 
 export const Product = styled.div ` 
   width:100%;
   margin-left :11.5 ;
-  border: 1px solid #969696;
+  border: 1px solid #e7e2e2;
   
 `
 
 export const ProImage = styled.div ` 
-border: 1px solid black;
 width: 75%;
 `
 
 export const ProData = styled.div ` 
- border: 1px solid black;
  margin-left: -15%;
  font-size: 13px;
  width:'60%'
@@ -226,5 +226,6 @@ border: 1px solid black;
 `
 
 export const ProEdit = styled.div ` 
- border: 1px solid black;
+ padding-left: 15%;
+ width:170%
 `
