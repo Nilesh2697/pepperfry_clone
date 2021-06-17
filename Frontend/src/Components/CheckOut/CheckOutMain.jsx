@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import {
   PaymentDisplay,
   Pincode,
@@ -20,49 +20,77 @@ import DateRangeSharpIcon from "@material-ui/icons/DateRangeSharp";
 import DeleteOutlineOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 
-function CheckOutMain({ data, key }) {
+const calculatecartval = (data, cartpro, handleSetActual,handleSaving,handleOffer) => {
+  console.log(data);
+  var actualsum = 0;
+  var Savings = 0;
+  var Offer = 0;
+  const cartac = data[0]?.cart;
+  cartac?.map((el) => {
+    //console.log(el.ap);
+    console.log(el.savings)
+    Savings = Savings + el.savings
+    actualsum = actualsum + el.ap;
+    Offer = Offer+Number(el.offer_price)
+  });
+
+  handleSetActual(actualsum);
+  handleSaving(Savings)
+  handleOffer(Offer)
+ 
+  //   return sum;
+  // handleSetActual(actualsum);
+};
+function CheckOutMain({ data }) {
+  console.log(data);
+  const [actual, setActual] = React.useState(0);
+  const [saving, setSaving] = React.useState(0);
+  const [offer,setOffer] = React.useState(0);
+  let amountRef = useRef(actual);
   const cartpro = data[0]?.cart;
   const qty = cartpro?.map((i) => i.qty);
   const [count, setCount] = React.useState(1);
   //console.log(cartpro)
-
-  const handlecartvalue = (val, id, e) => {
-    cartpro?.map((ele, i) => {
-      const finalid = ele?.id;
-      e = Number(e)
-      //console.log(finalid, quantity,i)
-      if ( i === e && finalid === id) {
-        const quantity = count;
-            console.log(quantity,i,e,finalid,id)
-            setCount(quantity + val);
-            console.log(count);
-      
-       
-      } else {
-        // if (e !== i && finalid !== id) {
-        //     const quantity = count
-        //   setCount((quantity-quantity) +1);
-        // }
-      }
-    });
-
-    //   id? setCount(value_count) : null
+  var flag = 0;
+  const handleSetActual = (val) => {
+    setActual(val);
+  };
+  const handleSaving = (val) => {
+    setSaving(val);
   };
 
-  const calculatecartval = () => {
-      console.log(data[0])
-    data[0]?.cart?.map((el) => {
-        console.log(el)
-    })
-  }
+  const handleOffer = (val) => {
+    setOffer(val);
+  };
+  useEffect(
+    () =>
+      (amountRef.current = calculatecartval(data, cartpro, handleSetActual,handleSaving,handleOffer)),
+    [data]
+  );
 
-  React.useEffect(() => {
-      calculatecartval()
-  },[])
-  
-  
+  //   calculatecartval(data, cartpro);
+
+  const handlecartvalue = (val, id, e, Name) => {
+    cartpro?.map((ele, i) => {
+      const finalid = ele?.id;
+      const name = ele?.item;
+      e = Number(e);
+      //console.log(finalid, quantity,i)
+      if (name === Name && i === e && finalid === id) {
+        flag = 1;
+        console.log(count, i, e, finalid, id, name, Name);
+        if (flag === 1) {
+          setCount(count + val);
+          console.log(count);
+        }
+      } else {
+        flag = 0;
+      }
+    });
+  };
+
   return (
-    <ProductMain key={key}>
+    <ProductMain>
       <ProductDisplay>
         <div>
           <h2 style={{ letterSpacing: "-1px" }}>
@@ -121,7 +149,7 @@ function CheckOutMain({ data, key }) {
         </Pincode>
         <Product>
           {/* {console.log(cartitem)} */}
-          {cartpro?.map((item,i) => {
+          {cartpro?.map((item, i) => {
             return (
               <div
                 style={{
@@ -198,7 +226,7 @@ function CheckOutMain({ data, key }) {
                     value={i}
                     disabled={count === 0 ? true : false}
                     onClick={(e) => {
-                      handlecartvalue(-1, item.id,e.target.value);
+                      handlecartvalue(-1, item.id, e.target.value, item.item);
                     }}
                   >
                     -
@@ -207,7 +235,7 @@ function CheckOutMain({ data, key }) {
                   <button
                     value={i}
                     onClick={(e) => {
-                      handlecartvalue(1, item.id,e.target.value);
+                      handlecartvalue(1, item.id, e.target.value, item.item);
                     }}
                   >
                     +
@@ -259,6 +287,9 @@ function CheckOutMain({ data, key }) {
             <input id="tooltip" type="checkbox" />
             <span className={styles.checkmark}></span>
           </label>
+          <div>{actual === 0 ? "ZERO" : actual}</div>
+          <div>{saving === 0 ? "Zero" : saving}</div>
+          <div>{offer === 0 ? 'zero' : offer}</div>
         </Invoice>
       </PaymentDisplay>
     </ProductMain>

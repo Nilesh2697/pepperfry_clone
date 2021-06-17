@@ -52,6 +52,7 @@ const useStyles = makeStyles({
    const handleModal=()=>{
        setModal(0)
    }
+
   return (
     <div>   
        
