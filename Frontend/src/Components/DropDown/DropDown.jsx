@@ -331,7 +331,7 @@ const DropDown = () => {
                                     >
                                     <span> Settees</span>
                                     </NavLink>
-                                    Settees
+                                    
                                 </MenuItem>
                                 <MenuItem
                                     style={{ fontSize: 14 }}
