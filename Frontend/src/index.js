@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./Redux/store";
+import { Payment } from "./Components/DEMO/Payment";
 // import { GeoLocation } from "./Components/DEMO/GeoLocation";
 // import { MyCartEmptyCard } from "./Components/CardComponents/MyCartEmptyCard";
 // import { MyWishListEmptyCard } from "./Components/CardComponents/MyWishListEmptyCard";
@@ -16,7 +17,8 @@ ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
             <BrowserRouter>
-                <App />
+                {/* <App /> */}
+                <Payment />
                 {/* <GeoLocation /> */}
             </BrowserRouter>
         </Provider>
