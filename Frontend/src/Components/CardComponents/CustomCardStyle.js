@@ -136,11 +136,14 @@ export const ItemCustomCard = styled.div`
     font-size: 2.3vh;
     display: flex;
     flex-direction: column;
-    background: white;
+    background: rgb(240, 240, 240);
+    /* background: white; */
     /* border: 1px solid red; */
     cursor: pointer;
-    width: 50%;
-    padding: 1% 1%;
+    /* width: 50%; */
+    padding: 2% 2%;
+    margin-left: 4%;
+    margin-top: 4%;
 
     :hover {
         button {
@@ -150,10 +153,9 @@ export const ItemCustomCard = styled.div`
 
     & > :nth-child(1) {
         & img {
-            /* border: 1px solid red; */
-            /* position: relative; */
             cursor: pointer;
-            height: 2500px;
+            /* height: 2500px; */
+            width: 100%;
         }
     }
 
@@ -206,23 +208,26 @@ export const ItemCustomCard = styled.div`
     }
     & > div:nth-child(7) {
         display: flex;
+        /* justify-content: space-between; */
         /* border: 1px solid black; */
-        width: 70%;
-        & > div:nth-child(1) {
-            margin-top: 5%;
-            /*border: solid pink 2px; */
-            width: 50%;
+        /* width: 80%; */
+        & > :nth-child(1) {
+            /* margin-top: 5%; */
+            /* border: solid blue 2px; */
+            /* width: 200px !important; */
             font-size: 12px;
+            margin: auto;
+            /* padding: 1% 20%; */
         }
 
-        & > div:nth-child(2) {
+        & > :nth-child(3) {
             display: flex;
             /* justify-content: center; */
             /* border: solid red 3px; */
-            padding: 1%;
-            & img {
-                width: 30%;
-                height: 60%;
+            /* padding: 1%; */
+            img {
+                width: 20%;
+                /* height: 90%; */
                 margin-left: 5%;
             }
         }

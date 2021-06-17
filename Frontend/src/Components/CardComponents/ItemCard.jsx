@@ -3,9 +3,12 @@ import { AddToCartDiv, ItemCustomCard } from "./CustomCardStyle";
 import FavoriteRoundedIcon from "@material-ui/icons/FavoriteRounded";
 import { Link } from "react-router-dom";
 
-
-export const ItemCard = ({item,category,handleAdd,handleAddToWishList}) => {
-    
+export const ItemCard = ({
+    item,
+    category,
+    handleAdd,
+    handleAddToWishList,
+}) => {
     return (
         <ItemCustomCard
             key={item?._id}
@@ -19,15 +22,25 @@ export const ItemCard = ({item,category,handleAdd,handleAddToWishList}) => {
                     style={{ height: 220 }}
                 />
 
-                <AddToCartDiv onClick={()=>handleAdd(item)}>ADD TO CART</AddToCartDiv>
+                <AddToCartDiv onClick={() => handleAdd(item)}>
+                    ADD TO CART
+                </AddToCartDiv>
             </div>
 
             <br />
-            <h2>  
-            <Link to={`/item/${item._id}/${category}`} style={{textDecoration:"none",color:"black"}}>{item.name}</Link></h2>
+            <h2>
+                <Link
+                    to={`/item/${item._id}/${category}`}
+                    style={{ textDecoration: "none", color: "black" }}
+                >
+                    {item.name}
+                </Link>
+            </h2>
             <div>
                 <p>{item.madeBy}</p>
-                <FavoriteRoundedIcon onClick={()=>handleAddToWishList(item)}/>
+                <FavoriteRoundedIcon
+                    onClick={() => handleAddToWishList(item)}
+                />
             </div>
             <div>
                 <span> ₹ {item.offer_price}</span>
@@ -38,6 +51,7 @@ export const ItemCard = ({item,category,handleAdd,handleAddToWishList}) => {
             </p>
             <div>
                 <div style={{ fontWeight: "bold" }}>Make a Set</div>
+                <div></div>
                 <div>
                     <img src={item.img[1]} alt="Item_Img" />
                     <img src={item.img[2]} alt="Item_Img" />
