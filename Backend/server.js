@@ -1142,8 +1142,8 @@ db.initialize(
 /////////////////Razor Pay start/////////////////////////////////////////
 
 const razorpay = new Razorpay({
-	key_id: 'rzp_test_JCFowIVGRAjSMc',
-	key_secret: 'qy72gO1vdP4zTvW6xd0diI6k'
+	key_id: 'rzp_test_J2k9Sh8dP5mkAX',
+	key_secret: 'cQ9yNuRz9xfSeLWvQwRK1YZH'
 })
 
 server.post('/razorpay/:amount', async (req, res) => {

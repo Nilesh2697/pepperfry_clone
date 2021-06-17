@@ -19,6 +19,7 @@ import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import DateRangeSharpIcon from "@material-ui/icons/DateRangeSharp";
 import DeleteOutlineOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import axios from "axios"
 
 const calculatecartval = (
   data,
@@ -136,6 +137,9 @@ function CheckOutMain({ data }) {
   //////////////////////////Razorpay starts////////////////////////////////////////
   const name = data[0]?.name
   const email = data[0]?.email
+  const cartItem = data[0]?.cart
+  const usID = data[0]?._id
+
 	async function displayRazorpay() {
 		const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
 
@@ -144,14 +148,14 @@ function CheckOutMain({ data }) {
 			return
 		}
 
-		const data = await fetch(`http://localhost:3001/razorpay/${totalcheckout}`, { method: 'POST' }).then((t) =>
+		const data = await fetch(`http://localhost:3001/razorpay/${offer}`, { method: 'POST' }).then((t) =>
 			t.json()
 		)
 
 		console.log(data)
 
 		const options = {
-			key: 'rzp_test_JCFowIVGRAjSMc',
+			key: 'rzp_test_J2k9Sh8dP5mkAX',
 			currency: data.currency,
 			amount: data.amount.toString(),
 			order_id: data.id,
@@ -174,12 +178,17 @@ function CheckOutMain({ data }) {
 	}
 
   const orderSubmit = () => {
-    alert("k")
+    axios.put(`http://localhost:3001/users/${usID}`,{
+      cart:[],
+      orders: cartItem
+    }).then(resp => console.log(resp.data))
+    .catch(err => console.log(err))
+    localStorage.removeItem('finalCart')
   }
 
-  {
+  React.useEffect(()=>{
     status.length > 0 && orderSubmit()
-  }
+  },[status])
 
 ///////////////////Razorpay ends/////////////////////////
   return (
