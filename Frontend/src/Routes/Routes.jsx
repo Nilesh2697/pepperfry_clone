@@ -7,6 +7,7 @@ import { Home } from "../Components/HomePage/Home";
 import NavBar from "../Components/NavBar/NavBar";
 import { Ads } from "../Components/AdsModel/Ads";
 import { ProductPage } from "../Components/ProductPage/ProductPage";
+import { CheckOutPage } from "../Components/CheckOut/CheckOutPage";
 import { IndividualProductPage } from "../Components/IndividualPage/IndividualproductPage";
 import { ErrorPath } from "../Components/ErrorPage/ErrorPath";
 import App from "../Components/Payment/Payment";
@@ -19,7 +20,7 @@ const Routes = () => {
         <div>
             {pathname !== "/checkout" && <NavBar />}
             {pathname !== "/checkout" && <DropDown />}
-            <Ads />
+            {pathname !== "/checkout" && <Ads />}
             <Switch>
                 <Route path="/" exact>
                     <Home />
@@ -35,6 +36,9 @@ const Routes = () => {
                 </Route>
                 <Route path="/payment">
                     <App />
+                </Route>
+                <Route path="/checkout">
+                    <CheckOutPage />
                 </Route>
                 <Route>
                     <ErrorPath />

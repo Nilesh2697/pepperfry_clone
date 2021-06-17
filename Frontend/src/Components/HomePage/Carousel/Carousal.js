@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const MainCar = styled.div`
     max-width: 89%;
     margin: auto;
-    margin-top: 3.5%;
+    margin-top: 1%;
     padding-left: 5.5%;
 
     @media (max-width: 768px) {
@@ -44,7 +44,7 @@ export const SmallBan = styled.div`
 `;
 
 export const ImageSize = styled.img`
-    width: 100%;
+    width: 92%;
     height: 45%;
 
     @media (max-width: 768px) {
@@ -63,3 +63,5 @@ export const BannerTwo = styled.img`
         width: 100%;
     }
 `;
+
+

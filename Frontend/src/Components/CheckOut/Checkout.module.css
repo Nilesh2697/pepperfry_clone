@@ -1,0 +1,157 @@
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.field {
+  width: 70%;
+  padding: 1.5%;
+  padding-left: 9%;
+  font-size: 15px;
+  font-weight: 500;
+  border: 1px solid #969696;
+  margin-top: 1%;
+  caret-color: #969696;
+}
+
+.icon {
+  padding: 12px;
+  color: #bfbebe;
+  width: 70px;
+  text-align: left;
+}
+
+.field::placeholder {
+  color: #bfbebe;
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 42px;
+  cursor: pointer;
+  font-size: 12px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #737171;
+  margin-top: 3%;
+  font-weight: 600;
+  text-decoration: underline;
+  padding-bottom: 4%;
+  border-bottom: 1px solid #d6d4d4;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  margin-left: 3%;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  border-radius: 2px;
+  margin-top: 1.5%;
+  border: 1px solid #969696;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: white;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #e96a19;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 10px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#tooltip {
+  position: relative;
+}
+
+label[for="tooltip"]:hover:not(:focus)::after {
+  content: "Your contribution will help critical patients and Covid-Care Centres with life saving equipment. Visit https://Indiafigthscorona.giveindia.org";
+  display: block;
+  position: absolute;
+  margin-top: -22.9%;
+  border: 1px solid black;
+  background: black;
+  color: white;
+  width: 65%;
+  text-align: center;
+  padding: 2%;
+}
+
+.tooltiparrow {
+  padding-top: -49%;
+  margin-left: -44%;
+  width: 30%;
+  color: black;
+  visibility: hidden;
+  outline: none;
+}
+
+.container:hover > .tooltiparrow {
+  visibility: visible;
+}
+
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}

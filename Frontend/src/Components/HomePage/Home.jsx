@@ -39,9 +39,7 @@ export const Home = () => {
 
     return (
         <div>
-            {/* <Ads /> */}
             <Carousalone />
-            {/* <CarouselMain/> */}
             <br />
             <br />
             <BankOffer />
@@ -49,7 +47,7 @@ export const Home = () => {
             <br />
             <HomeChikHome />
             <br />
-            <br />
+            <br/>
             <HouseFavourite />
             <br />
             <br />
