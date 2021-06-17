@@ -20,24 +20,29 @@ import DateRangeSharpIcon from "@material-ui/icons/DateRangeSharp";
 import DeleteOutlineOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 
-const calculatecartval = (data, cartpro, handleSetActual,handleSaving,handleOffer) => {
-  console.log(data);
+const calculatecartval = (data, cartpro, handleSetActual,handleSaving,handleOffer,handleTotal) => {
+  //console.log(data);
   var actualsum = 0;
   var Savings = 0;
   var Offer = 0;
+  var Total = 0;
+  var covid = 99;
   const cartac = data[0]?.cart;
   cartac?.map((el) => {
     //console.log(el.ap);
-    console.log(el.savings)
+   // console.log(el.savings)
     Savings = Savings + el.savings
     actualsum = actualsum + el.ap;
-    Offer = Offer+Number(el.offer_price)
+    Offer = Offer+Number(el.price)
   });
-
+  
   handleSetActual(actualsum);
   handleSaving(Savings)
   handleOffer(Offer)
- 
+
+  Total = Total+ actualsum+Savings+Offer
+  handleTotal(Total)
+
   //   return sum;
   // handleSetActual(actualsum);
 };
@@ -46,6 +51,8 @@ function CheckOutMain({ data }) {
   const [actual, setActual] = React.useState(0);
   const [saving, setSaving] = React.useState(0);
   const [offer,setOffer] = React.useState(0);
+  const [totalcheckout, setTotalCheckout] = React.useState(0)
+
   let amountRef = useRef(actual);
   const cartpro = data[0]?.cart;
   const qty = cartpro?.map((i) => i.qty);
@@ -62,12 +69,18 @@ function CheckOutMain({ data }) {
   const handleOffer = (val) => {
     setOffer(val);
   };
+
+  const handleTotal = (val) => {
+      setTotalCheckout(val)
+  }
+
   useEffect(
     () =>
-      (amountRef.current = calculatecartval(data, cartpro, handleSetActual,handleSaving,handleOffer)),
+      (amountRef.current = calculatecartval(data, cartpro, handleSetActual,handleSaving,handleOffer,handleTotal)),
     [data]
   );
-
+ 
+  
   //   calculatecartval(data, cartpro);
 
   const handlecartvalue = (val, id, e, Name) => {
@@ -78,10 +91,10 @@ function CheckOutMain({ data }) {
       //console.log(finalid, quantity,i)
       if (name === Name && i === e && finalid === id) {
         flag = 1;
-        console.log(count, i, e, finalid, id, name, Name);
+        //console.log(count, i, e, finalid, id, name, Name);
         if (flag === 1) {
           setCount(count + val);
-          console.log(count);
+          //console.log(count);
         }
       } else {
         flag = 0;
@@ -284,12 +297,13 @@ function CheckOutMain({ data }) {
           <label className={styles.container} for="tooltip">
             Contribute Rs.99 For COVID Relief Through GiveIndia.
             <ArrowDropDownIcon for="tooltip" className={styles.tooltiparrow} />
-            <input id="tooltip" type="checkbox" />
-            <span className={styles.checkmark}></span>
+            <input id="tooltip" type="checkbox"/>
+            <span className={styles.checkmark} ></span>
           </label>
-          <div>{actual === 0 ? "ZERO" : actual}</div>
-          <div>{saving === 0 ? "Zero" : saving}</div>
-          <div>{offer === 0 ? 'zero' : offer}</div>
+          <div style={{float:'left'}}>MRP</div><div style={{textAlign:'right',marginRight:'5%'}}>₹{actual === 0 ? "ZERO" : actual}</div>
+          <div style={{float:'left'}}>Retail Discount</div><div>(-) ₹{saving === 0 ? "Zero" : saving}</div>
+          <div style={{float:'left'}}>Offer Price</div><div>{offer === 0 ? 'zero' : offer}</div>
+          <div style={{float:'left'}}>You Pay</div><div>{totalcheckout === 0 ? 'zero' : totalcheckout}</div>
         </Invoice>
       </PaymentDisplay>
     </ProductMain>
