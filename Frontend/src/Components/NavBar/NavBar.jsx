@@ -144,8 +144,7 @@ function NavBar() {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const userRef = React.useRef(null);
-  
+  const userRef = React.useRef(null);  
   
   const cartData= useSelector(state=>state.fireReducer.inCart)
 

@@ -9,10 +9,13 @@ import Box from "@material-ui/core/Box";
 import { CartView } from "./CartView";
 import { WishListView } from "./WishListView";
 import { RecentlyView } from "./RecentlyView";
+import { getData } from "../../Redux/localStorage";
+import { useSelector } from "react-redux";
+import Badge from "@material-ui/core/Badge";
 
 function TabPanel(props) {
-    const { children, value, index, ...other } = props;
-
+    const { children, value, index, wish,total, ...other } = props;
+    console.log(wish,total,children, value, index)
     return (
         <div
             role="tabpanel"
@@ -59,11 +62,44 @@ export function CardSectionTab({ no = 0 }) {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-
+    const isData = getData("finalCart");
+    const inCart = useSelector((state) => state.fireReducer.inCart);
+    const isData2 = getData("wishList");
+    const inWishList =  useSelector(state=>state.categoryReducer.inWishList);
     // const handleChangeIndex = (index) => {
     //   setValue(index);
     // };
+    const cartRef = React.useRef(0);
+  React.useEffect(() => {
+    if (isData?.length > 0 && isData?.length > inCart?.length)
+    {
+      cartRef.current=isData?.length
+    }
+    else if (inCart?.length > 0 && isData?.length < inCart?.length)
+    {
+      cartRef.current=inCart?.length
+    }
+    else
+    {
+      cartRef.current=0
+    }
+  }, [isData?.length, inCart?.length])
 
+  const wishRef = React.useRef(0);
+  React.useEffect(() => {
+    if (isData2?.length > 0 && isData2?.length > inWishList?.length)
+    {
+      wishRef.current=isData2?.length
+    }
+    else if (inWishList?.length > 0 && isData2?.length < inWishList?.length)
+    {
+      wishRef.current=inWishList?.length
+    }
+    else
+    {
+      wishRef.current=0
+    }
+  }, [isData2?.length, inWishList?.length])
     return (
         <div className={classes.root}>
             <AppBar
@@ -77,6 +113,7 @@ export function CardSectionTab({ no = 0 }) {
                     aria-label="full width tabs example"
                     style={{}}
                 >
+                  
                     <Tab
                         style={{
                             background: "white",
@@ -84,9 +121,14 @@ export function CardSectionTab({ no = 0 }) {
                             fontSize: 12,
                             height: 30,
                         }}
-                        label="MY CART"
+                        label={<Badge badgeContent={cartRef.current} color="secondary">
+                        MY CART
+                       </Badge>}
                         {...a11yProps(0)}
-                    />
+                        >
+                      
+                      </Tab>
+                  
                     <Tab
                         style={{
                             background: "white",
@@ -94,7 +136,9 @@ export function CardSectionTab({ no = 0 }) {
                             fontSize: 12,
                             height: 30,
                         }}
-                        label="MY WISHLIST"
+                        label={<Badge badgeContent={wishRef.current} color="primary">
+                        MY WISHLIST
+                       </Badge>}
                         {...a11yProps(1)}
                     />
                     <Tab
