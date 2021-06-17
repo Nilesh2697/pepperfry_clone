@@ -11,6 +11,8 @@ import { Divider, Link, Button } from '@material-ui/core';
 import style from "./Prodbutton.module.css";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import { addToCart, finalCartSuccess } from '../IndividualPage/IndividualAction'
+import { saveData } from '../../Redux/localStorage'
 
 const Prodmoreinfoback = styled.div`
     width: 100%;
@@ -178,7 +180,58 @@ const Moretab = styled.div`
 
 const ProductPage = () => {
 
-    const [count, setCount] = React.useState(0)
+    const [count, setCount] = React.useState(0);
+    const finalCart = useSelector(state=>state.categoryReducer.finalCart);
+    const userId = useSelector(state=>state.fireReducer.userId);
+    const finalWishlist = useSelector(state=>state.categoryReducer.finalWishlist);
+
+    const handleAddCart = (item1, counter = 1) => {
+        let flag = 0;
+     
+        let cartItem = finalCart?.map((el) => {
+            if (el.id === item1._id) {
+                flag = 1;
+                return { ...el, qty: el.qty + counter };
+            } else {
+                return el;
+            }
+        });
+
+      if (flag === 0) {
+        const payLoad = {
+          item: item1.name,
+          qty: counter,
+          actual_price: item1.actual_price,
+          offer_price: item1.offer_price,
+          id: item1._id,
+          madeBy:item1.madeBy,
+          image: item1?.img[0],
+          details:item1.details,
+          total_savings:item1.total_savings,
+          price:item1.price,
+          savings:item1?.savings,
+          ap:item1?.ap
+        };
+        dispatch(finalCartSuccess([...finalCart, payLoad]));
+        if (userId !== undefined || userId !== "") {
+          dispatch(addToCart(userId, [...finalCart, payLoad]));
+        }
+        saveData("finalCart",([...finalCart, payLoad]));
+      } else {
+        dispatch(finalCartSuccess(cartItem));
+        if (userId !== undefined || userId !== "") {
+          dispatch(addToCart(userId, cartItem));
+        }
+    };
+    }
+
+
+
+
+
+
+
+
 
     const dispatch = useDispatch()
 
@@ -196,7 +249,7 @@ const ProductPage = () => {
 
     const itemData = useSelector((state) => state.item.data)
 
-    console.log(itemData[0])
+    //console.log(itemData[0])
 
     const handleIncrement = (val) => {
         setCount(count+val)
@@ -318,7 +371,9 @@ const ProductPage = () => {
                     </select>
                 </Prodqunt>
                 <div style={{display: "flex"}}>
-                    <Button style={{
+                    <Button 
+                    onClick={()=>handleAddCart(itemData[0])}
+                    style={{
                         backgroundColor: "#F16521",
                         color: "white",
                         fontWeight: "bold",
