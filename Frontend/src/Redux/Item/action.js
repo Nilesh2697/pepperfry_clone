@@ -40,15 +40,3 @@ const get_item_failure = () => {
     };
 };
 
-// export const getLocation = (payload) => {
-//     axios
-//         .get(
-//             `https://us1.locationiq.com/v1/reverse.php?key=${process.env.REACT_APP_LOCATION_APP_ID}&lat=${payload.latitude}&lon=${payload.longitude}&format=json`,
-//         )
-//         .then((res) => {
-//             return res;
-//         })
-//         .catch(() => {
-//             return 0;
-//         });
-// };

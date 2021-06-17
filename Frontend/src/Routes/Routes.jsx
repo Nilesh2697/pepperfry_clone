@@ -7,10 +7,14 @@ import { Home } from "../Components/HomePage/Home";
 import NavBar from "../Components/NavBar/NavBar";
 import { Ads } from "../Components/AdsModel/Ads";
 import { ProductPage } from "../Components/ProductPage/ProductPage";
+import { CheckOutPage } from "../Components/CheckOut/CheckOutPage";
 import { IndividualProductPage } from "../Components/IndividualPage/IndividualproductPage";
 import { ErrorPath } from "../Components/ErrorPage/ErrorPath";
 
 const Routes = () => {
+
+  
+    
 
     const pathname = window.location.pathname
 
@@ -18,7 +22,7 @@ const Routes = () => {
         <div>
             {pathname !== "/checkout" && <NavBar />}
             {pathname !== "/checkout" && <DropDown />}
-            <Ads />
+            {pathname !== "/checkout" && <Ads />}
             <Switch>
                 <Route path="/" exact>
                     <Home />
@@ -31,6 +35,10 @@ const Routes = () => {
                 </Route>
                 <Route exact path="/item/:id/:endpoint">
                     <ProductPage />
+                </Route>
+
+                <Route path="/checkout">
+                    <CheckOutPage />
                 </Route>
                 <Route>
                     <ErrorPath />

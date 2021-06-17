@@ -37,7 +37,7 @@
   }
   
   .slideshowDot.active {
-    background-color: #6a0dad;
+    background-color: darkgray;
   }
 
   @media (max-width:768px){
