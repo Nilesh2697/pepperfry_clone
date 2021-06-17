@@ -17,8 +17,8 @@ ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
             <BrowserRouter>
-                {/* <App /> */}
-                <Payment />
+                <App />
+                {/* <Payment /> */}
                 {/* <GeoLocation /> */}
             </BrowserRouter>
         </Provider>
