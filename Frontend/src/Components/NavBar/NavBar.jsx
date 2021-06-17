@@ -21,11 +21,14 @@ import { getSearch } from "../../Redux/Search/action";
 import { useDispatch, useSelector } from "react-redux";
 import {Cart} from "../Cart/Cart"
 import {
+  fetchInCart,
   getUserId,
   logOut,
   registerUserWithSM,
 } from "../../Redux/FireAuth/fireAction";
-import { clearData, saveData } from "../../Redux/localStorage";
+import { clearData, getData, saveData } from "../../Redux/localStorage";
+import { addToCart} from "../IndividualPage/IndividualAction";
+import { finalCartSuccess } from "../../Redux/FireAuth/fireAction";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -135,13 +138,77 @@ function NavBar() {
 
   const userRef = React.useRef(null);
   
+  
+  const cartData= useSelector(state=>state.fireReducer.inCart)
 
   const handleSearch = (e) => {
     let payload = e.target.value;
     setSearchData({ ...searchData, payload });
   };
-  
- 
+  React.useEffect(()=>{
+    if(isAuth===true){
+      dispatch(fetchInCart(userId))
+    }
+  },[userId]);
+
+
+
+  React.useEffect(()=>{
+    if(isAuth===true){
+      let isData = getData("finalCart");//local
+      let item1=cartData;//server
+      console.log(isData)
+      console.log(item1)
+    
+      if(item1!==undefined&&item1!==null&&isData!==undefined&&isData!==null){
+        let cartItem = [];
+
+        if (item1.length >= isData.length) {
+          for (let i = 0; i < item1.length; i++) {
+            let flag2 = 0;
+            for (let j = 0; j < isData.length; j++) {
+              if (item1[i]._id === isData[j].id) {
+               
+                flag2 = 1;
+                item1[i].qty = item1[i].qty + isData[j].qty;
+                cartItem.push(item1[i]);
+              }
+            }
+            if (flag2 === 0) {
+              cartItem.push(item1[i]);
+            }
+          }
+        } else if (item1.length < isData.length) {
+          for (let i = 0; i < isData.length; i++) {
+            let flag2 = 0;
+            for (let j = 0; j < item1.length; j++) {
+              if (isData[i].id === item1[j]._id) {
+              
+                flag2 = 1;
+                isData[i].qty = item1[j].qty + isData[i].qty;
+                cartItem.push(isData[i]);
+              }
+            }
+            if (flag2 === 0) {
+              cartItem.push(isData[i]);
+            }
+          }
+        }
+         dispatch(finalCartSuccess(cartItem));
+        if (userId !== undefined || userId !== "") {
+          dispatch(addToCart(userId,cartItem));
+        }
+        console.log(cartItem);
+      }
+       else if(isData!==undefined&&isData!==null&&isData?.length>0&&item1===[]){
+        dispatch(finalCartSuccess(isData));
+        if (userId !== undefined || userId !== "") {
+          dispatch(addToCart(userId,isData));
+        }
+
+      }
+}
+  },[isAuth,cartData])
 
 
 

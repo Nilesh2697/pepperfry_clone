@@ -2,22 +2,24 @@ import React from "react";
 import { ItemCard } from "../CardComponents/ItemCard";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, addToWishList, finalCartSuccess, finalWishListSuccess, getDataByCategory } from "./IndividualAction";
+import { addToCart, addToWishList, finalWishListSuccess, getDataByCategory } from "./IndividualAction";
 import { saveData } from "../../Redux/localStorage";
+import { finalCartSuccess } from "../../Redux/FireAuth/fireAction";
 
 export const IndividualProductPage = () => {
     const dispatch = useDispatch();
     const { category } = useParams();
     const list = useSelector((state) => state.categoryReducer.list);
-    // const cart = useSelector(state=>state.categoryReducer.cart);
-    const finalCart = useSelector(state=>state.categoryReducer.finalCart);
+   
+    const finalCart = useSelector(state=>state.fireReducer.finalCart);
     const userId = useSelector(state=>state.fireReducer.userId);
+   
     const finalWishlist = useSelector(state=>state.categoryReducer.finalWishlist);
    
     
     const handleAdd = (item1, counter = 1) => {
         let flag = 0;
-
+        console.log(finalCart)
         let cartItem = finalCart?.map((el) => {
             if (el.id === item1._id) {
                 flag = 1;
@@ -101,9 +103,6 @@ export const IndividualProductPage = () => {
         dispatch(getDataByCategory(category));
     }, []);
 
-    // React.useEffect(()=>{
-    //     dispatch(getDataByCategory(category))
-    // },[])
 
    
     return(

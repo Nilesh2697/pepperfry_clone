@@ -3,6 +3,7 @@ import {
   FETCH_IN_CART_FAILURE,
   FETCH_IN_CART_REQUEST,
   FETCH_IN_CART_SUCCESS,
+  FINAL_CART_SET_SUCCESS,
   GET_USER_ID,
   LOGIN_WITH_FACEBOOK,
   LOGIN_WITH_GOOGLE,
@@ -28,6 +29,7 @@ import {
 const auth = getData("isAuth");
 const isName =getData("isName");
 const isUser =getData("isUser");
+const isCart = getData("finalCart");
 
 const inState = {
   isLoading: false,
@@ -50,6 +52,7 @@ const inState = {
   isResetLoading:false,
   userId:isUser||"",
   inCart:[],
+  finalCart:isCart||[],
 };
 
 export const fireReducer = (state = inState, action) => {
@@ -202,6 +205,7 @@ export const fireReducer = (state = inState, action) => {
         userId:"",
         userData:[],
         inCart:[],
+        finalCart:[]
       };
     }
     case RESET_PASSWORD_REQUEST:{
@@ -249,6 +253,13 @@ export const fireReducer = (state = inState, action) => {
           isLoading:true
       }
   }
+  case FINAL_CART_SET_SUCCESS:{
+    return{
+        ...state,
+        isLoading:false,
+        finalCart:payload
+    }
+}
     default:
       return state;
   }
