@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 export const CartCard=({el,handleRemove})=>{
-   
+  
     return(
         <>
         <div style={{width:440,margin:"auto",display:"flex",justifyContent:"flex-start",paddingBottom:20,paddingTop:10,borderBottom:"1px solid silver"}}>

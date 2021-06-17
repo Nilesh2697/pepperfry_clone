@@ -1,4 +1,6 @@
 import {
+    FETCH_IN_CART_REQUEST,
+  FETCH_IN_CART_SUCCESS,
   GET_USER_ID,
   LOGIN_WITH_FACEBOOK,
   LOGIN_WITH_GOOGLE,
@@ -22,6 +24,7 @@ import {
 } from "./fireActionType";
 import axios from "axios";
 import { auth, google, facebook } from "./firebaseConfig";
+import { FETCH_IN_WISHLIST_FAILURE } from "../../Components/IndividualPage/IndividualActionType";
 
 const registerUserRequest = () => {
     return {
@@ -222,3 +225,31 @@ export const resetPassword = (payload) => (dispatch) => {
         .then((res) => dispatch(resetPasswordSuccess(res)))
         .catch((err) => dispatch(resetPasswordFailure(err)));
 };
+
+
+export const fetchInCartRequest=(payload)=>{
+    return{
+        type:FETCH_IN_CART_REQUEST,
+        payload
+    }
+}
+export const fetchInCartSuccess=(payload)=>{
+    return{
+        type:FETCH_IN_CART_SUCCESS,
+        payload
+    }
+}
+export const fetchInCartFailure=(payload)=>{
+    return{
+        type:FETCH_IN_WISHLIST_FAILURE,
+        payload
+    }
+}
+
+export const fetchInCart =(payload)=>(dispatch)=>{
+    console.log(payload)
+    dispatch(fetchInCartRequest());
+    axios.get(`http://localhost:3001/userbyID/${payload}`)
+    .then(res=>dispatch(fetchInCartSuccess(res.data[0].cart)))
+    .catch(err=>dispatch(fetchInCartFailure(err)))
+}
