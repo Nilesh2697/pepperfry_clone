@@ -249,7 +249,7 @@ function CheckOutMain({ data }) {
                 </ProData>
                 <ProPrice>
                   <div style={{color:'#898686',fontWeight:'500',textDecoration:'line-through'}}>₹ {item.actual_price}</div>
-                  <div style={{color:'#e96a19',fontWeight:'500'}}>₹ {item.offer_price}</div>
+                  <div style={{color:'#e96a19', fontWeight:'500'}}>₹ {item.offer_price}</div>
                 </ProPrice>
                 <ProEdit>
                   <DeleteOutlineOutlinedIcon />
