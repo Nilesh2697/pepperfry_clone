@@ -222,7 +222,7 @@ export const ProData = styled.div `
 `
 
 export const ProPrice = styled.div ` 
-border: 1px solid black;
+padding-left: 25%;
 `
 
 export const ProEdit = styled.div ` 
