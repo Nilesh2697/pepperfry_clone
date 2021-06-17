@@ -256,7 +256,7 @@ export const EmptyCardDiv = styled.div`
     width: 280px;
     margin: auto;
     margin-top: 50px;
-    border: solid black 1px;
+    // border: solid black 1px;
     text-align: center;
     & img {
         margin-top: 10px;

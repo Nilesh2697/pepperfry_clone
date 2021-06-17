@@ -1,15 +1,21 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
-import TextField from '@material-ui/core/TextField';
-import CloseIcon from '@material-ui/icons/Close';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Modal from "@material-ui/core/Modal";
+import TextField from "@material-ui/core/TextField";
+import CloseIcon from "@material-ui/icons/Close";
 import Button from "@material-ui/core/Button";
-import {Register} from "./Register";
-import {useDispatch,useSelector} from "react-redux";
-import { login, loginWithFacebook, loginWithGoogle, toggle, toggleToForget, toggleToRegister } from '../../Redux/FireAuth/fireAction';
-import {Redirect} from "react-router-dom";
-import {ForgetPassword} from "./ForgetPassword"
-
+import { Register } from "./Register";
+import { useDispatch, useSelector } from "react-redux";
+import {
+    login,
+    loginWithFacebook,
+    loginWithGoogle,
+    toggle,
+    toggleToForget,
+    toggleToRegister,
+} from "../../Redux/FireAuth/fireAction";
+import { Redirect } from "react-router-dom";
+import { ForgetPassword } from "./ForgetPassword";
 
 function getModalStyle() {
     const top = 50;
@@ -23,214 +29,241 @@ function getModalStyle() {
 }
 
 const useStyles = makeStyles((theme) => ({
-  paper: {
-    position: 'absolute',
-    width: 670,
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2,3,0,0),
-  },
+    paper: {
+        position: "absolute",
+        width: 670,
+        backgroundColor: theme.palette.background.paper,
+        boxShadow: theme.shadows[5],
+        padding: theme.spacing(2, 3, 0, 0),
+    },
 }));
 
 const inState = {
-  email: "",
-  password: "",
+    email: "",
+    password: "",
 };
 
-
-const imageUrl="https://ii1.pepperfry.com/images/new_login_modal_bg_2020.jpg";
+const imageUrl = "https://ii1.pepperfry.com/images/new_login_modal_bg_2020.jpg";
 
 export function Login() {
     const classes = useStyles();
     // getModalStyle is not a pure function, we roll the style only on the first render
     const [modalStyle] = React.useState(getModalStyle);
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(true);
 
-  const [state,setState]=  React.useState(inState);
-  const dispatch =useDispatch();
-  const isAuth= useSelector(state=>state.fireReducer.isAuth)
-  const isError= useSelector(state=>state.fireReducer.isError)
-  const isMessage = useSelector(state=>state.fireReducer.isMessage)
+    const [state, setState] = React.useState(inState);
+    const dispatch = useDispatch();
+    const isAuth = useSelector((state) => state.fireReducer.isAuth);
+    const isError = useSelector((state) => state.fireReducer.isError);
+    const isMessage = useSelector((state) => state.fireReducer.isMessage);
 
-  const handleChange=(e)=>{
-      const {value,name} = e.target;
-      setState({...state,[name]:value})
-  }
-  const registerToggle = useSelector(state=>state.fireReducer.register_page);
-  const forgetToggle = useSelector(state=>state.fireReducer.forget_page);
+    const handleChange = (e) => {
+        const { value, name } = e.target;
+        setState({ ...state, [name]: value });
+    };
+    const registerToggle = useSelector(
+        (state) => state.fireReducer.register_page,
+    );
+    const forgetToggle = useSelector((state) => state.fireReducer.forget_page);
 
-  
-  // React.useEffect(()=>{
-      
-  // },[isMessage,isError])
+    // React.useEffect(()=>{
 
+    // },[isMessage,isError])
 
-  const handleSubmit=(e)=>{
-    e.preventDefault();
-     dispatch(login(state))
-  }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(login(state));
+    };
 
-  const handleToggleRegister=()=>{
-    dispatch(toggleToRegister())
-  }
+    const handleToggleRegister = () => {
+        dispatch(toggleToRegister());
+    };
 
- const handleLoginWithGoogle=()=>{
-     dispatch(loginWithGoogle())
- }
- const handleToggleToForget=()=>{
-    dispatch(toggleToForget())
- }
-const handleLoginWithFacebook=()=>{
-    dispatch(loginWithFacebook())
-}
-  const handleOpen = () => {
-    setOpen(true);
-  };
+    const handleLoginWithGoogle = () => {
+        dispatch(loginWithGoogle());
+    };
+    const handleToggleToForget = () => {
+        dispatch(toggleToForget());
+    };
+    const handleLoginWithFacebook = () => {
+        dispatch(loginWithFacebook());
+    };
+    const handleOpen = () => {
+        setOpen(true);
+    };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
- 
+    const handleClose = () => {
+        setOpen(false);
+    };
 
-  const body = (
-    <div style={modalStyle} className={classes.paper}>
-      <div style={{ display: "flex" }}>
-        <div  style={{ width: 300,marginTop:-14,height:520,marginBottom:0 ,backgroundImage:`url(${imageUrl})`}}>
-          <h4 style ={{textAlign:"center",marginTop:"10%"}}>Log In</h4>
-          <p style ={{textAlign:"center",color:"#ef6630"}}>You Will Be Able To Track <br/>Your Order, Use Wishlist & More.</p>
+    const body = (
+        <div style={modalStyle} className={classes.paper}>
+            <div style={{ display: "flex" }}>
+                <div
+                    style={{
+                        width: 300,
+                        marginTop: -14,
+                        height: 520,
+                        marginBottom: 0,
+                        backgroundImage: `url(${imageUrl})`,
+                    }}
+                >
+                    <h4 style={{ textAlign: "center", marginTop: "10%" }}>
+                        Log In
+                    </h4>
+                    <p style={{ textAlign: "center", color: "#ef6630" }}>
+                        You Will Be Able To Track <br />
+                        Your Order, Use Wishlist & More.
+                    </p>
+                </div>
+                <div>
+                    <CloseIcon
+                        style={{ marginLeft: 330, cursor: "pointer" }}
+                        onClick={handleClose}
+                    />
+                    {isError ? <p>{isMessage}</p> : null}
+                    <form onSubmit={handleSubmit}>
+                        <div style={{ marginLeft: 30, width: 300 }}>
+                            <div style={{ display: "flex" }}>
+                                <TextField
+                                    id="standard-basic"
+                                    label="email"
+                                    color="secondary"
+                                    name="email"
+                                    type="email"
+                                    onChange={handleChange}
+                                />
+                                <p
+                                    style={{
+                                        margin: 0,
+                                        fontSize: 10,
+                                        fontWeight: "bold",
+                                        marginTop: 20,
+                                        marginLeft: 7,
+                                        color: "#ef6630",
+                                        cursor: "pointer",
+                                    }}
+                                >
+                                    LOGIN USING OTP
+                                </p>
+                            </div>
+                            <TextField
+                                id="standard-basic"
+                                fullWidth
+                                type="password"
+                                label="Password"
+                                color="secondary"
+                                name="password"
+                                onChange={handleChange}
+                            />
+                            <Button
+                                fullWidth
+                                style={{
+                                    marginTop: 30,
+                                    height: 45,
+                                    background: "#ef6630",
+                                }}
+                                variant="contained"
+                                color="secondary"
+                                type="submit"
+                            >
+                                LOGIN
+                            </Button>
+                        </div>
+                    </form>
+                    <div style={{ marginLeft: 30, width: 300 }}>
+                        <p
+                            onClick={handleToggleToForget}
+                            style={{
+                                fontSize: 14,
+                                marginTop: 6,
+                                cursor: "pointer",
+                            }}
+                        >
+                            <u>Forgot Password</u>
+                        </p>
+                        <Button
+                            fullWidth
+                            variant="outlined"
+                            style={{
+                                color: "#ef6630",
+                                fontSize: 12,
+                                marginTop: 90,
+                                height: 40,
+                            }}
+                            onClick={handleToggleRegister}
+                        >
+                            New to Pepperfry? Register Here.
+                        </Button>
+                    </div>
+                    <div style={{ display: "flex", width: 300, marginTop: 20 }}>
+                        <p
+                            style={{
+                                fontSize: 12,
+                                marginLeft: 70,
+                                fontWeight: "bold",
+                                color: "silver",
+                                marginTop: 10,
+                            }}
+                        >
+                            OR continue with{" "}
+                        </p>
+                        <img
+                            style={{
+                                width: 30,
+                                height: 30,
+                                marginTop: 6,
+                                marginLeft: 20,
+                                cursor: "pointer",
+                            }}
+                            onClick={handleLoginWithFacebook}
+                            src="https://ii1.pepperfry.com/images/social_login_fb_2x.png"
+                            alt="facebook"
+                        />
+                        <img
+                            style={{
+                                width: 30,
+                                height: 30,
+                                marginTop: 6,
+                                marginLeft: 20,
+                                cursor: "pointer",
+                            }}
+                            onClick={handleLoginWithGoogle}
+                            src="https://ii1.pepperfry.com/images/social_login_google_2x.png"
+                            alt="google"
+                        />
+                    </div>
+                </div>
+            </div>
         </div>
+    );
+
+    if (isAuth) {
+        return <Redirect to={"/"} push />;
+    }
+    //   return(
+    //     <>
+    //     </>
+    // )
+    // console.log("REGISTERTOGGLE ", registerToggle);
+    // console.log("FORGETTOGGLE ", forgetToggle);
+    console.log("In Login.jsx");
+
+    return forgetToggle ? (
+        <ForgetPassword />
+    ) : (
         <div>
-          <CloseIcon
-            style={{ marginLeft: 330, cursor: "pointer" }}
-            onClick={handleClose}
-          />
-          {isError?<p>{isMessage}</p>:null}
-          <form onSubmit={handleSubmit}>
-            <div style={{ marginLeft: 30, width: 300 }}>
-              <div style={{ display: "flex" }}>
-                <TextField
-                  id="standard-basic"
-                  label="email"
-                  color="secondary"
-                  name="email"
-                  type="email"
-                  onChange={handleChange}
-                />
-                <p
-                  style={{
-                    margin: 0,
-                    fontSize: 10,
-                    fontWeight: "bold",
-                    marginTop: 20,
-                    marginLeft: 7,
-                    color: "#ef6630",
-                    cursor: "pointer",
-                  }}
-                >
-                  LOGIN USING OTP
-                </p>
-              </div>
-              <TextField
-                id="standard-basic"
-                fullWidth
-                type="password"
-                label="Password"
-                color="secondary"
-                name="password"
-                onChange={handleChange}
-              />
-              <Button
-                fullWidth
-                style={{ marginTop: 30, height: 45, background: "#ef6630" }}
-                variant="contained"
-                color="secondary"
-                type="submit"
-              >
-                LOGIN
-              </Button>           
-            </div>
-          </form>
-          <div style={{ marginLeft: 30, width: 300 }}>
-          <p onClick={handleToggleToForget} style={{ fontSize: 14,  marginTop: 6,cursor:"pointer" }}>
-             <u>Forgot Password</u>
-              </p>
-              <Button
-                fullWidth
-                variant="outlined"
-                style={{
-                  color: "#ef6630",
-                  fontSize: 12,
-                  marginTop: 90,
-                  height: 40,
-                }}
-                onClick={handleToggleRegister}
-              >
-                New to Pepperfry? Register Here.
-              </Button>
-            </div>
-          <div style={{ display: "flex", width: 300, marginTop: 20 }}>
-                <p
-                  style={{
-                    fontSize: 12,
-                    marginLeft: 70,
-                    fontWeight: "bold",
-                    color: "silver",
-                    marginTop: 10,
-                  }}
-                >
-                  OR continue with{" "}
-                </p>              
-                <img 
-                  style={{
-                    width: 30,
-                    height: 30,
-                    marginTop: 6,
-                    marginLeft: 20,
-                    cursor:"pointer"
-                  }}
-                  onClick={handleLoginWithFacebook}
-                  src="https://ii1.pepperfry.com/images/social_login_fb_2x.png"
-                  alt="facebook"
-                />
-                <img
-                  style={{
-                    width: 30,
-                    height: 30,
-                    marginTop: 6,
-                    marginLeft: 20,
-                    cursor:"pointer"
-                  }}
-                  onClick={handleLoginWithGoogle}
-                  src="https://ii1.pepperfry.com/images/social_login_google_2x.png"
-                  alt="google"
-                />
-              </div>
+            <p type="p" style={{ margin: 0 }} onClick={handleOpen}>
+                Login/Register
+            </p>
+            <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="simple-modal-title"
+                aria-describedby="simple-modal-description"
+            >
+                {body}
+            </Modal>
         </div>
-      </div>
-    </div>
-  );
- 
-  if(isAuth){
-   return <Redirect to={"/"} push/>
-  }
-//   return(
-//     <>
-//     </>
-// )
-
-  return registerToggle?<Register/>:forgetToggle?<ForgetPassword/>:(
-    <div>
-      <p type="p" style={{margin:0}} onClick={handleOpen}>
-        Login/Register
-      </p>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
-      >
-        {body}
-      </Modal>
-    </div>
-  )
+    );
 }

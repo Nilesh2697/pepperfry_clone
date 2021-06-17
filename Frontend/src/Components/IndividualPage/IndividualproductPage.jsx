@@ -112,6 +112,7 @@ export const IndividualProductPage = () => {
                     display: "grid",
                     width: 800,
                     gridTemplateColumns: "repeat(2, 1fr)",
+                    margin:"auto"
                 }}
             >
                 {list?.length > 0
