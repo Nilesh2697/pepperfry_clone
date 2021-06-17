@@ -19,6 +19,7 @@ import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import DateRangeSharpIcon from "@material-ui/icons/DateRangeSharp";
 import DeleteOutlineOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import axios from "axios"
 
 const calculatecartval = (
   data,
@@ -53,12 +54,30 @@ const calculatecartval = (
   //   return sum;
   // handleSetActual(actualsum);
 };
+
+////////////////////Razor pay//////////////////////
+function loadScript(src) {
+	return new Promise((resolve) => {
+		const script = document.createElement('script')
+		script.src = src
+		script.onload = () => {
+			resolve(true)
+		}
+		script.onerror = () => {
+			resolve(false)
+		}
+		document.body.appendChild(script)
+	})
+}
+///////////////////////////////////////////////////
+
 function CheckOutMain({ data }) {
-  console.log(data);
+  console.log(data[0]);
   const [actual, setActual] = React.useState(0);
   const [saving, setSaving] = React.useState(0);
-  const [offer, setOffer] = React.useState(0);
-  const [totalcheckout, setTotalCheckout] = React.useState(0);
+  const [offer,setOffer] = React.useState(0);
+  const [totalcheckout, setTotalCheckout] = React.useState(0)
+  const [status, setStatus] = React.useState("")
 
   let amountRef = useRef(actual);
   const cartpro = data[0]?.cart;
@@ -115,6 +134,63 @@ function CheckOutMain({ data }) {
     });
   };
 
+  //////////////////////////Razorpay starts////////////////////////////////////////
+  const name = data[0]?.name
+  const email = data[0]?.email
+  const cartItem = data[0]?.cart
+  const usID = data[0]?._id
+
+	async function displayRazorpay() {
+		const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
+
+		if (!res) {
+			alert('Razorpay SDK failed to load. Are you online?')
+			return
+		}
+
+		const data = await fetch(`http://localhost:3001/razorpay/${offer}`, { method: 'POST' }).then((t) =>
+			t.json()
+		)
+
+		console.log(data)
+
+		const options = {
+			key: 'rzp_test_J2k9Sh8dP5mkAX',
+			currency: data.currency,
+			amount: data.amount.toString(),
+			order_id: data.id,
+			name: 'Donation',
+			description: 'Thank you for nothing. Please give us some money',
+			image: '',
+			handler: function (response) {
+				setStatus(response.razorpay_payment_id)
+				// alert(response.razorpay_order_id)
+				// alert(response.razorpay_signature
+			},
+			prefill: {
+				name,
+				email,
+				phone_number: '9899999999'
+			}
+		}
+		const paymentObject = new window.Razorpay(options)
+		paymentObject.open()
+	}
+
+  const orderSubmit = () => {
+    axios.put(`http://localhost:3001/users/${usID}`,{
+      cart:[],
+      orders: cartItem
+    }).then(resp => console.log(resp.data))
+    .catch(err => console.log(err))
+    localStorage.removeItem('finalCart')
+  }
+
+  React.useEffect(()=>{
+    status.length > 0 && orderSubmit()
+  },[status])
+
+///////////////////Razorpay ends/////////////////////////
   return (
     <ProductMain>
       <ProductDisplay>
@@ -403,6 +479,7 @@ function CheckOutMain({ data }) {
             No Cost EMI available. EMI starting ₹ 735/month
           </div>
           <button
+            onClick={displayRazorpay}
             style={{
               backgroundColor: "#e96a19",
               width: "100%",
