@@ -109,6 +109,6 @@
 
 ### Suman Charkraborty
 - **Github** : SumanChakraborty1998
-- **Email** : 
+- **Email** : SumanChakraborty1998@gmail.com
 - **Linkedin** : https://www.linkedin.com/in/suman-chakraborty-699308120
 
