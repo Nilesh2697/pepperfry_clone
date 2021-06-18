@@ -15,11 +15,12 @@ export const MyWishListEmptyCard = () => {
                 <div
                     style={{
                         display: "flex",
-                        padding: "1% 2%",
-                        gap: "5px",
+                        // padding: "1% 2%",
+                        gap: "1px",
                         // border: "1px solid black",
-                        width: "65%",
+                        width: "68%",
                         margin: "auto",
+                        // textAlign: "center",
                     }}
                 >
                     START WISHING
