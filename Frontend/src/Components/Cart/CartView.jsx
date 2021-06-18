@@ -38,44 +38,43 @@ export const CartView = () => {
     }, [finalCart]);
 
     return (
-      <>
-        {inCart?.length > 0 ? (
-          inCart.map((el) => {
-            return <CartCard handleRemove={handleRemove} el={el} />;
-          })
-        ) : isData?.length > 0 ? (
-          isData.map((el) => {
-            return <CartCard handleRemove={handleRemove} el={el} />;
-          })
-        ) : (
-          <MyCartEmptyCard />
-        )}
-        {inCart?.length > 0 || isData?.length > 0 ? (
-          <Link
-            to="/checkout"
-            target="_blank"
-          >
+        <>
+            {inCart?.length > 0 ? (
+                inCart.map((el) => {
+                    return <CartCard handleRemove={handleRemove} el={el} />;
+                })
+            ) : isData?.length > 0 ? (
+                isData.map((el) => {
+                    return <CartCard handleRemove={handleRemove} el={el} />;
+                })
+            ) : (
+                <MyCartEmptyCard />
+            )}
+            {inCart?.length > 0 || isData?.length > 0 ? (
+                <Link to="/checkout" target="_blank">
                     <div
-                     style={{
-                        backgroundColor: "#e96a19",
-                        border: "none",
-                        minHeight: "6.5%",
-                        maxHeight: "15.5%",
-                        color: "white",
-                        fontWeight: "500",
-                        marginLeft: "3.5%",
-                        marginTop: 30,
-                        textAlign: "center",
-                        paddingBottom: 15,
-                        paddingLeft: 50,
-                        paddingRight: 50,
-                        paddingTop:15,
-                        marginBottom: "2%",
-                      }}
-                    
-                    > PROCEED TO PAY SECURELY </div>
-          </Link>
-        ) : null}
-      </>
+                        style={{
+                            backgroundColor: "#e96a19",
+                            border: "none",
+                            minHeight: "6.5%",
+                            maxHeight: "15.5%",
+                            color: "white",
+                            fontWeight: "500",
+                            marginLeft: "3.5%",
+                            marginTop: 30,
+                            textAlign: "center",
+                            paddingBottom: 15,
+                            paddingLeft: 50,
+                            paddingRight: 50,
+                            paddingTop: 15,
+                            marginBottom: "2%",
+                        }}
+                    >
+                        {" "}
+                        PROCEED TO PAY SECURELY{" "}
+                    </div>
+                </Link>
+            ) : null}
+        </>
     );
 };
