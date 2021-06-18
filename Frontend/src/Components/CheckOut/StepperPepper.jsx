@@ -15,7 +15,7 @@ function StepperPepper(){
        <div>        
           {steps.map((step) => {
             return <>
-                    <StepContent style={step === 'Cart' ? {color:'#e9a019'}:step === '------- Delivery & Billing Address  ------- Payment' ? {color:'black'}:null}>{step}</StepContent>
+                    <StepContent style={step === 'Cart' ? {color:'#e9a019',fontWeight:'600'}:step === '------- Delivery & Billing Address  ------- Payment' ? {color:'#969696'}:null}>{step}</StepContent>
                 </>
           })} 
       </div>     
