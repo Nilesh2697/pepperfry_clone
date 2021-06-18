@@ -16,7 +16,7 @@ export const CartView = () => {
     const inCart = useSelector((state) => state.fireReducer.inCart);
     const finalCart = useSelector((state) => state.fireReducer.finalCart);
 
-    console.log(inCart, isData);
+    // console.log(inCart, isData);
 
     const handleRemove = (id) => {
         let cartItem = finalCart?.filter((el) => {
