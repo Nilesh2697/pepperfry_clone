@@ -62,8 +62,12 @@
 
 - There are many Child pages linked to the Exercise page, but for this clone following pages are made.
 1. Sofas
-2. Face
-3. Lips
+2. Chairs
+3. Tables
+4. Seating
+5. Cabinetry
+6. Dining & Bar
+7. Beds
 
 - There are some Key Features which are added in website clone such as,
 
@@ -71,32 +75,40 @@
 
 ## Add to Cart & Add to Wishlist
 
+<img width="929" alt="Screenshot (640)" src="https://github.com/Vinesh3124/pepperfry_clone/blob/master/Frontend/src/Images/Cart.png">
+<img width="929" alt="Screenshot (640)" src="https://github.com/Vinesh3124/pepperfry_clone/blob/master/Frontend/src/Images/WishList.png">
 
-<img width="929" alt="Screenshot (640)" src="https://github.com/Vinesh3124/pepperfry_clone/blob/master/Frontend/src/Images/Register.png">
-<img width="929" alt="Screenshot (640)" src="https://github.com/Vinesh3124/pepperfry_clone/blob/master/Frontend/src/Images/Register.png">
+## Item Page
 
+<img width="929" alt="Screenshot (640)" src="https://github.com/Vinesh3124/pepperfry_clone/blob/master/Frontend/src/Images/SingleProductPage.png">
 
+## Checkout Page
 
+<img width="929" alt="Screenshot (640)" src="https://github.com/Vinesh3124/pepperfry_clone/blob/master/Frontend/src/Images/CheckOut.png">
 
+## Razorpay Checkout
 
+<img width="929" alt="Screenshot (640)" src="https://github.com/Vinesh3124/pepperfry_clone/blob/master/Frontend/src/Images/RazorPayPatment.png">
 
+## Team Members and Contributors
 
+### Vinesh Nair
+- **Github** : Vinesh3124
+- **Email** : vinesh.nair31@gmail.com
+- **Linkedin** : https://www.linkedin.com/in/vinesh-nair3124/
 
+### Avinash Sinha
+- **Github** : avinashkumarsinha007
+- **Email** : 
+- **Linkedin** : 
 
+### Shalini Sharma
+- **Github** : 
+- **Email** :
+- **Linkedin** : 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+### Suman Charkraborty
+- **Github** : SumanChakraborty1998
+- **Email** : 
+- **Linkedin** : 
 
