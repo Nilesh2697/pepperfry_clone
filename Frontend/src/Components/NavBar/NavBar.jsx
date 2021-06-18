@@ -153,6 +153,8 @@ function NavBar() {
         let payload = e.target.value;
         setSearchData({ ...searchData, payload });
     };
+    const finalCart = useSelector((state) => state.fireReducer.finalCart);
+
     React.useEffect(() => {
         if (isAuth === true) {
             if (
@@ -163,17 +165,15 @@ function NavBar() {
                 dispatch(fetchInCart(userId));
             }
         }
-    }, [userId, cartData]);
+    }, [userId, cartData,finalCart]);
 
-    const [f, setF] = React.useState(false);
+    
 
     React.useEffect(() => {
         if (isAuth === true) {
             let isData = getData("finalCart"); //local
             let item1 = cartData; //server
-            console.log(isData);
-            console.log(item1);
-
+           
             if (
                 item1 !== undefined &&
                 item1 !== null &&
