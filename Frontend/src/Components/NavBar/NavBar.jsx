@@ -21,14 +21,14 @@ import { getSearch } from "../../Redux/Search/action";
 import { useDispatch, useSelector } from "react-redux";
 import { Cart } from "../Cart/Cart";
 import {
-  fetchInCart,
-  getUserId,
-  logOut,
-  registerUserWithSM,
-  finalCartSuccess
+    fetchInCart,
+    getUserId,
+    logOut,
+    registerUserWithSM,
+    finalCartSuccess,
 } from "../../Redux/FireAuth/fireAction";
 import { clearData, getData, saveData } from "../../Redux/localStorage";
-import { addToCart} from "../IndividualPage/IndividualAction";
+import { addToCart } from "../IndividualPage/IndividualAction";
 import { Login } from "../Login/Login";
 import { ForgetPassword } from "../Login/ForgetPassword";
 
@@ -117,156 +117,111 @@ const inState = {
 };
 
 function NavBar() {
-  const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [anchorE2, setAnchorE2] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-  const [searchData, setSearchData] = React.useState({})
-  const [displayDrop, setDisplayDrop] = React.useState("block")
-  const history = useHistory();
-  const dispatch = useDispatch();
-  const searchResult = useSelector((state) => state.search.data);
-  const loginToggle = useSelector((state) => state.fireReducer.login_page);
+    const classes = useStyles();
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [anchorE2, setAnchorE2] = React.useState(null);
+    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+    const [searchData, setSearchData] = React.useState({});
+    const [displayDrop, setDisplayDrop] = React.useState("block");
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const searchResult = useSelector((state) => state.search.data);
+    const loginToggle = useSelector((state) => state.fireReducer.login_page);
     const registerToggle = useSelector(
         (state) => state.fireReducer.register_page,
     );
     const forgetToggle = useSelector((state) => state.fireReducer.forget_page);
 
-  const isAuth = useSelector((state) => state.fireReducer.isAuth);
-  const userId = useSelector((state) => state.fireReducer.userId);
-  const registerSucces = useSelector((state) => state.fireReducer.registerSuccess);
- 
+    const isAuth = useSelector((state) => state.fireReducer.isAuth);
+    const userId = useSelector((state) => state.fireReducer.userId);
+    const registerSucces = useSelector(
+        (state) => state.fireReducer.registerSuccess,
+    );
 
-  const [state] = React.useState(inState);
+    const [state] = React.useState(inState);
 
-  const regRef = React.useRef(state);
+    const regRef = React.useRef(state);
 
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+    const isMenuOpen = Boolean(anchorEl);
+    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const userRef = React.useRef(null);  
-  
-  const cartData= useSelector(state=>state.fireReducer.inCart)
+    const userRef = React.useRef(null);
 
-  const handleSearch = (e) => {
-    let payload = e.target.value;
-    setSearchData({ ...searchData, payload });
-  };
-  React.useEffect(()=>{
-    if (isAuth === true)
-    {
-      if (cartData === undefined || cartData === "" || cartData === null)
-      {
-      dispatch(fetchInCart(userId))       
-      }
-    }
-  },[userId,cartData]);
+    const cartData = useSelector((state) => state.fireReducer.inCart);
 
-  const [f, setF] = React.useState(false);
-
-  React.useEffect(()=>{
-    if(isAuth===true){
-      let isData = getData("finalCart");//local
-      let item1=cartData;//server
-      console.log(isData)
-      console.log(item1)
-    
-      if(item1!==undefined&&item1!==null&&isData!==undefined&&isData!==null&&item1!==""){
-        let cartItem = [];
-
-       
-          for (let i = 0; i < item1.length; i++)
-          {
-            cartItem.push(item1[i])
-          }
-        let flag2 = 0;
-        
-          for (let i = 0; i < isData.length; i++) {
-            let j = 0
-            for (j = 0; j < cartItem.length; j++) {
-              if ( isData[i].id === cartItem[j]._id) {
-               
-                flag2 = 1;
-                break;
-               
-              }
+    const handleSearch = (e) => {
+        let payload = e.target.value;
+        setSearchData({ ...searchData, payload });
+    };
+    React.useEffect(() => {
+        if (isAuth === true) {
+            if (
+                cartData === undefined ||
+                cartData === "" ||
+                cartData === null
+            ) {
+                dispatch(fetchInCart(userId));
             }
-            if (flag2 === 1) {
-              isData[i].qty = cartItem[j].qty + isData[j].qty;
-              flag2 = 0;
-            }
-            else
-            {
-              cartItem.push(isData[i]);
-            }
-          }
-        
-         dispatch(finalCartSuccess(cartItem));
-        if (userId !== undefined || userId !== "") {
-          dispatch(addToCart(userId,cartItem));
         }
-        console.log(cartItem);
-      }
-       else if(isData!==undefined&&isData!==null&&isData?.length>0&&item1===[]){
-        dispatch(finalCartSuccess(isData));
-        if (userId !== undefined || userId !== "") {
-          dispatch(addToCart(userId,isData));
+    }, [userId, cartData]);
+
+    const [f, setF] = React.useState(false);
+
+    React.useEffect(() => {
+        if (isAuth === true) {
+            let isData = getData("finalCart"); //local
+            let item1 = cartData; //server
+            console.log(isData);
+            console.log(item1);
+
+            if (
+                item1 !== undefined &&
+                item1 !== null &&
+                isData !== undefined &&
+                isData !== null &&
+                item1 !== ""
+            ) {
+                let cartItem = [];
+
+                for (let i = 0; i < item1.length; i++) {
+                    cartItem.push(item1[i]);
+                }
+                let flag2 = 0;
+
+                for (let i = 0; i < isData.length; i++) {
+                    let j = 0;
+                    for (j = 0; j < cartItem.length; j++) {
+                        if (isData[i].id === cartItem[j]._id) {
+                            flag2 = 1;
+                            break;
+                        }
+                    }
+                    if (flag2 === 1) {
+                        isData[i].qty = cartItem[j].qty + isData[j].qty;
+                        flag2 = 0;
+                    } else {
+                        cartItem.push(isData[i]);
+                    }
+                }
+
+                dispatch(finalCartSuccess(cartItem));
+                if (userId !== undefined || userId !== "") {
+                    dispatch(addToCart(userId, cartItem));
+                }
+                console.log(cartItem);
+            } else if (
+                isData !== undefined &&
+                isData !== null &&
+                isData?.length > 0 &&
+                item1 === []
+            ) {
+                dispatch(finalCartSuccess(isData));
+                if (userId !== undefined || userId !== "") {
+                    dispatch(addToCart(userId, isData));
+                }
+            }
         }
-
-      }
-}
-  },[isAuth])
-
-
-
-  React.useEffect(() => {
-    dispatch(getSearch(searchData.payload));
-  }, [searchData]);
-
-  // console.log(searchResult.length, searchData.payload.length)
-
-  const {
-    isRegisterAuthFB,
-    isRegisterAuthG,
-    googleEmail,
-    googlePassword,
-    facebook,
-    facebookPassword,
-    phone,
-    displayName,
-  } = useSelector((state) => state.fireReducer);
-
-  saveData("isName",displayName)
-  saveData("isUser",userId)
-
-  const handleClick = () => {
-    history.push("/");
-  };
-
-  const handleLogout = () => {
-    dispatch(logOut());
-  };
-
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  
-  const handleDrawerOpen=()=>{
-    setAnchorE2(!anchorE2);
-  }
-
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
-  
- 
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
-  };
-    
-    
-
+    }, [isAuth]);
 
     React.useEffect(() => {
         dispatch(getSearch(searchData.payload));
@@ -274,6 +229,50 @@ function NavBar() {
 
     // console.log(searchResult.length, searchData.payload.length)
 
+    const {
+        isRegisterAuthFB,
+        isRegisterAuthG,
+        googleEmail,
+        googlePassword,
+        facebook,
+        facebookPassword,
+        phone,
+        displayName,
+    } = useSelector((state) => state.fireReducer);
+
+    saveData("isName", displayName);
+    saveData("isUser", userId);
+
+    const handleClick = () => {
+        history.push("/");
+    };
+
+    const handleLogout = () => {
+        dispatch(logOut());
+    };
+
+    const handleProfileMenuOpen = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleDrawerOpen = () => {
+        setAnchorE2(!anchorE2);
+    };
+
+    const handleMobileMenuClose = () => {
+        setMobileMoreAnchorEl(null);
+    };
+
+    const handleMenuClose = () => {
+        setAnchorEl(null);
+        handleMobileMenuClose();
+    };
+
+    React.useEffect(() => {
+        dispatch(getSearch(searchData.payload));
+    }, [searchData]);
+
+    // console.log(searchResult.length, searchData.payload.length)
 
     const handleMobileMenuOpen = (event) => {
         setMobileMoreAnchorEl(event.currentTarget);
