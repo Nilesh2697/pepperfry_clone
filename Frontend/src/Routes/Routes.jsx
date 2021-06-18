@@ -13,9 +13,6 @@ import { ErrorPath } from "../Components/ErrorPage/ErrorPath";
 
 const Routes = () => {
 
-  
-    
-
     const pathname = window.location.pathname
 
     return (
@@ -36,7 +33,6 @@ const Routes = () => {
                 <Route exact path="/item/:id/:endpoint">
                     <ProductPage />
                 </Route>
-
                 <Route path="/checkout">
                     <CheckOutPage />
                 </Route>

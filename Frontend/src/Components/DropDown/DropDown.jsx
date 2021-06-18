@@ -321,7 +321,17 @@ const DropDown = () => {
                                     style={{ fontSize: 14 }}
                                     onClick={handleClose}
                                 >
-                                    Settees
+                                    <NavLink
+                                      to="/product/furniture/settees"
+                                      style={{ color: "black", textDecoration: "none" }}
+                                      activeStyle={{
+                                          fontWeight: "bold",
+                                          color: "red",
+                                      }}
+                                    >
+                                    <span> Settees</span>
+                                    </NavLink>
+                                    
                                 </MenuItem>
                                 <MenuItem
                                     style={{ fontSize: 14 }}
@@ -385,7 +395,16 @@ const DropDown = () => {
                                 style={{ fontSize: 14 }}
                                 onClick={handleClose}
                             >
-                                Arm Chairs
+                                <NavLink
+                                      to="/product/furniture/chairs"
+                                      style={{ color: "black", textDecoration: "none" }}
+                                      activeStyle={{
+                                          fontWeight: "bold",
+                                          color: "red",
+                                      }}
+                                    >
+                                    <span> Chairs</span>
+                                    </NavLink>
                             </MenuItem>
                             <MenuItem
                                 style={{ fontSize: 14 }}
@@ -472,7 +491,16 @@ const DropDown = () => {
                                     style={{ fontSize: 14 }}
                                     onClick={handleClose}
                                 >
-                                    Coffee Tables
+                                   <NavLink
+                                      to="/product/furniture/tables"
+                                      style={{ color: "black", textDecoration: "none" }}
+                                      activeStyle={{
+                                          fontWeight: "bold",
+                                          color: "red",
+                                      }}
+                                    >
+                                    <span>Coffee Table</span>
+                                    </NavLink>
                                 </MenuItem>
                                 <MenuItem
                                     style={{ fontSize: 14 }}
@@ -542,7 +570,17 @@ const DropDown = () => {
                                 style={{ fontSize: 14 }}
                                 onClick={handleClose}
                             >
-                                Shoe Racks
+                                <NavLink
+                                      to="/product/furniture/cabinetry"
+                                      style={{ color: "black", textDecoration: "none" }}
+                                      activeStyle={{
+                                          fontWeight: "bold",
+                                          color: "red",
+                                      }}
+                                    >
+                                    <span>Shoe Racks</span>
+                                    </NavLink>
+                               
                             </MenuItem>
                             <MenuItem
                                 style={{ fontSize: 14 }}
@@ -629,7 +667,17 @@ const DropDown = () => {
                                     style={{ fontSize: 14 }}
                                     onClick={handleClose}
                                 >
-                                    Dining Sets
+                                     <NavLink
+                                      to="/product/furniture/dining&bar"
+                                      style={{ color: "black", textDecoration: "none" }}
+                                      activeStyle={{
+                                          fontWeight: "bold",
+                                          color: "red",
+                                      }}
+                                    >
+                                    <span> Dining Sets</span>
+                                    </NavLink>
+                                   
                                 </MenuItem>
                                 <MenuItem
                                     style={{ fontSize: 14 }}
@@ -694,7 +742,18 @@ const DropDown = () => {
                                     style={{ fontSize: 14 }}
                                     onClick={handleClose}
                                 >
-                                    Beds
+                                     <NavLink
+                                      to="/product/furniture/beds"
+                                      style={{ color: "black", textDecoration: "none" }}
+                                      activeStyle={{
+                                          fontWeight: "bold",
+                                          color: "red",
+                                      }}
+                                    >
+                                    <span> Beds</span>
+                                    </NavLink>
+                                   
+                                    
                                 </MenuItem>
                                 <MenuItem
                                     style={{ fontSize: 14 }}
