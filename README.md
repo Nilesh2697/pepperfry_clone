@@ -99,16 +99,16 @@
 
 ### Avinash Sinha
 - **Github** : avinashkumarsinha007
-- **Email** : 
-- **Linkedin** : 
+- **Email** : avinashkumarsinha007@gmail.com
+- **Linkedin** : www.linkedin.com/in/avinash-kumar-sinha-90413318a
 
 ### Shalini Sharma
-- **Github** : 
-- **Email** :
-- **Linkedin** : 
+- **Github** : https://github.com/00shalini
+- **Email** : shalini07061997@gmail.com
+- **Linkedin** : https://www.linkedin.com/in/shalini-sharma-8b0466163
 
 ### Suman Charkraborty
 - **Github** : SumanChakraborty1998
 - **Email** : 
-- **Linkedin** : 
+- **Linkedin** : https://www.linkedin.com/in/suman-chakraborty-699308120
 
