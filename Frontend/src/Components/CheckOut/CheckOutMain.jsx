@@ -194,7 +194,7 @@ function CheckOutMain({ data }) {
                 </ProImage>
                 <ProData>
                   <h4 style={{ fontWeight: 600 }}>{item.item}</h4>
-                  {/* <h4 style={{ color: "#e96a19" }}>{item.details.warranty}</h4> */}
+                  <h4 style={{ color: "#e96a19" }}>{item.details.warranty}</h4>
                   <DateRangeSharpIcon style={{ width: "10%" }} />
                   <h5
                     style={{
@@ -245,7 +245,7 @@ function CheckOutMain({ data }) {
                   >
                     Assembly
                   </h5>
-                  {/* <h4 style={{marginLeft:'17%',marginTop:'-5%'}}>{item.details.assembly}</h4> */}
+                  <h4 style={{marginLeft:'17%',marginTop:'-5%'}}>{item.details.assembly}</h4>
                 </ProData>
                 <ProPrice>
                   <div style={{color:'#898686',fontWeight:'500',textDecoration:'line-through'}}>₹ {item.actual_price}</div>
@@ -323,7 +323,7 @@ function CheckOutMain({ data }) {
           <div
             style={{ textAlign: "right", marginRight: "5%", fontWeight: "500" }}
           >
-            ₹{actual === 0 ? "ZERO" : actual}
+            ₹{actual === 0 ? "ZERO" : new Intl.NumberFormat('en-IN', { maximumSignificantDigits: actual.length }).format(actual)}
           </div>
           <div
             style={{
@@ -343,7 +343,7 @@ function CheckOutMain({ data }) {
               color: "#588209",
             }}
           >
-            (-) ₹{saving === 0 ? "Zero" : saving}
+            (-) ₹{saving === 0 ? "Zero" : new Intl.NumberFormat('en-IN', { maximumSignificantDigits: saving.length }).format(saving)}
           </div>
           <div style={{ float: "left", fontWeight: "700", marginLeft: "4%" }}>
             Offer Price
@@ -351,7 +351,7 @@ function CheckOutMain({ data }) {
           <div
             style={{ textAlign: "right", marginRight: "5%", fontWeight: "700" }}
           >
-            ₹{offer === 0 ? "zero" : offer}
+            ₹{offer === 0 ? "zero" : new Intl.NumberFormat('en-IN', { maximumSignificantDigits: offer.length }).format(offer)}
           </div>
           <div
             style={{
@@ -378,7 +378,7 @@ function CheckOutMain({ data }) {
               fontSize: "19px",
             }}
           >
-            ₹{offer === 0 ? "zero" : offer}
+            ₹{offer === 0 ? "zero" : new Intl.NumberFormat('en-IN', { maximumSignificantDigits: offer.length }).format(offer)}
           </div>
           <div
             style={{
