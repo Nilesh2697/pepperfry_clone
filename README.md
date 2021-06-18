@@ -3,7 +3,7 @@
 ##### Pepperfry is an Indian online marketplace for furniture and home décor. The company was formed by Ex-eBay executives Ambareesh Murty and Ashish Shah started Pepperfry in Mumbai in 2012. The company is headquartered in Mumbai, Maharashtra and operates as a subsidiary of Trendsutra Platform Services Private Limited.
 
 ## Tech Stacks Used
-<img src="https://agileengine.com/wp-content/uploads/2018/02/mern.jpg" width="80%">
+<img src="https://agileengine.com/wp-content/uploads/2018/02/mern.jpg" width="100%">
 
 ## Source
 
