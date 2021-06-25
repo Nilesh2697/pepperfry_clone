@@ -108,7 +108,7 @@
 - **Linkedin** : https://www.linkedin.com/in/shalini-sharma-8b0466163
 
 ### Suman Charkraborty
-- **Github** : SumanChakraborty1998
-- **Email** : SumanChakraborty1998@gmail.com
+- **Github** : https://github.com/SumanChakraborty1998/
+- **Email** : sumanchakra8145@gmail.com
 - **Linkedin** : https://www.linkedin.com/in/suman-chakraborty-699308120
 
