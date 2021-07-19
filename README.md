@@ -90,7 +90,7 @@
 
 ## Razorpay Checkout
 
-<img width="929" alt="Screenshot (640)" src="https://github.com/Vinesh3124/pepperfry_clone/blob/master/Frontend/src/Images/RazorPayPatment.png">
+<img width="929" alt="Screenshot (640)" src="https://github.com/Vinesh3124/pepperfry_clone/blob/master/Frontend/src/Images/RazorPay.png">
 
 ## Team Members and Contributors
 
