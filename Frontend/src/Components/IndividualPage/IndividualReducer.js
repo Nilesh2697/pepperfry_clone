@@ -11,7 +11,8 @@ const inState ={
 //   finalCart:isCart||[],
 //   inCart:[],
   finalWishlist:isWished||[],
-  inWishList:[]
+  inWishList: [],
+  addToWish:null,
 }
 
 export const IndividualReducer =(state=inState,{type,payload})=>{
@@ -65,7 +66,8 @@ export const IndividualReducer =(state=inState,{type,payload})=>{
             case ADD_TO_WISHLIST_SUCCESS:{
                 return{
                     ...state,
-                    isLoading:false
+                    isLoading: false,
+                    addToWish:payload
                 }
             }
             case ADD_TO_WISHLIST_FAILURE:{

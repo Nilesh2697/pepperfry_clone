@@ -14,8 +14,8 @@ import { useSelector } from "react-redux";
 import Badge from "@material-ui/core/Badge";
 
 function TabPanel(props) {
-    const { children, value, index, wish, total, ...other } = props;
-    console.log(wish, total, children, value, index);
+    const { children, value, index, ...other } = props;
+    
     return (
         <div
             role="tabpanel"
@@ -66,33 +66,53 @@ export function CardSectionTab({ no = 0 }) {
     const inCart = useSelector((state) => state.fireReducer.inCart);
     const isData2 = getData("wishList");
     const inWishList = useSelector((state) => state.categoryReducer.inWishList);
+    const finalCart = useSelector((state) => state.fireReducer.finalCart);
+    const finalWishlist = useSelector(state=>state.categoryReducer.finalWishlist);
+
+
     // const handleChangeIndex = (index) => {
     //   setValue(index);
     // };
-    const cartRef = React.useRef(0);
+    const cartRef = React.useRef(null);
     React.useEffect(() => {
-        if (isData?.length > 0 && isData?.length > inCart?.length) {
+        if (isData?.length > 0 && isData?.length >= inCart?.length) {
             cartRef.current = isData?.length;
         } else if (inCart?.length > 0 && isData?.length < inCart?.length) {
             cartRef.current = inCart?.length;
-        } else {
-            cartRef.current = 0;
+        } else if(isData?.length > 0){
+            cartRef.current = isData?.length;
         }
-    }, [isData?.length, inCart?.length]);
+        else if (inCart?.length > 0)
+        {
+            cartRef.current = inCart?.length;
+        }
+        
+    }, [isData?.length, inCart?.length, value, finalCart,cartRef]);
+    
+   
 
     const wishRef = React.useRef(0);
     React.useEffect(() => {
-        if (isData2?.length > 0 && isData2?.length > inWishList?.length) {
+        if (isData2?.length > 0 && isData2?.length >= inWishList?.length) {
             wishRef.current = isData2?.length;
         } else if (
             inWishList?.length > 0 &&
             isData2?.length < inWishList?.length
         ) {
             wishRef.current = inWishList?.length;
-        } else {
+        }
+        else if(isData2?.length > 0){
+            cartRef.current = isData2?.length;
+        }
+        else if (inWishList?.length > 0)
+        {
+            cartRef.current = inWishList?.length;
+        }
+        else
+        {
             wishRef.current = 0;
         }
-    }, [isData2?.length, inWishList?.length]);
+    }, [isData2?.length, inWishList?.length,value, finalWishlist,wishRef]);
     return (
         <div className={classes.root}>
             <AppBar
@@ -113,7 +133,7 @@ export function CardSectionTab({ no = 0 }) {
                             fontSize: 12,
                             height: 30,
                         }}
-                        label={<Badge color="secondary">MY CART</Badge>}
+                        label={<Badge  badgeContent={inCart?.length?inCart?.length:isData?.length?isData?.length:0} color="secondary">MY CART</Badge>}
                         {...a11yProps(0)}
                     ></Tab>
 
@@ -126,7 +146,7 @@ export function CardSectionTab({ no = 0 }) {
                         }}
                         label={
                             <Badge
-                                // badgeContent={wishRef.current}
+                                badgeContent={inWishList?.length?inWishList?.length:isData2?.length?isData2?.length:0}
                                 color="primary"
                             >
                                 MY WISHLIST

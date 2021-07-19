@@ -92,9 +92,9 @@ export const addToWishList =(userId,payload)=>(dispatch)=>{
      if(userId!==""||userId !== undefined||userId !== null){
         dispatch(addToWishListRequest())
         axios.put(`http://localhost:3001/users/${userId}`,{
-            params:{
-                wishList:3
-            }
+         
+                wishList:payload
+            
            }    
            )
            .then(res=>dispatch(addToWishListSuccess(res.data)))
