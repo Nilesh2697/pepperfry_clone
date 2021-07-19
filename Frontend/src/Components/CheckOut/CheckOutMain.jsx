@@ -20,6 +20,8 @@ import DateRangeSharpIcon from "@material-ui/icons/DateRangeSharp";
 import DeleteOutlineOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import axios from "axios"
+import { Redirect,useHistory } from "react-router-dom";
+// import {Redirect} from "react-router-dom"
 
 const calculatecartval = (
   data,
@@ -70,6 +72,10 @@ function loadScript(src) {
 	})
 }
 ///////////////////////////////////////////////////
+
+const reloadPage = () => {
+  window.location.reload()
+} 
 
 function CheckOutMain({ data }) {
   console.log(data[0]);
@@ -152,14 +158,14 @@ function CheckOutMain({ data }) {
 			t.json()
 		)
 
-		console.log(data)
+		// console.log(data)
 
 		const options = {
 			key: 'rzp_test_J2k9Sh8dP5mkAX',
 			currency: data.currency,
 			amount: data.amount.toString(),
 			order_id: data.id,
-			name: 'Donation',
+			name: 'Payments',
 			description: 'Thank you for nothing. Please give us some money',
 			image: '',
 			handler: function (response) {
@@ -183,9 +189,15 @@ function CheckOutMain({ data }) {
       orders: cartItem
     }).then(resp => console.log(resp.data))
     .catch(err => console.log(err))
-    localStorage.removeItem('finalCart')
+   .finally(()=>{
+     localStorage.removeItem('finalCart')
+    })
+    setTimeout(()=>{
+      reloadPage()
+    }, 2000)
+    // history.push("/")
   }
-
+  
   React.useEffect(()=>{
     status.length > 0 && orderSubmit()
   },[status])
