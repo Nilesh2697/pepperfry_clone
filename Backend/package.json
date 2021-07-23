@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js --verbose"
+    "server": "nodemon server.js --verbose",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -19,5 +20,8 @@
     "nodemon": "^2.0.7",
     "razorpay": "^2.0.6",
     "shortid": "^2.2.16"
+  },
+  "engines": {
+    "node": "12.19.0"
   }
 }
