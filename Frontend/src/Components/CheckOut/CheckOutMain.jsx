@@ -154,7 +154,7 @@ function CheckOutMain({ data }) {
 			return
 		}
 
-		const data = await fetch(`http://localhost:3001/razorpay/${offer}`, { method: 'POST' }).then((t) =>
+		const data = await fetch(`https://glacial-atoll-43442.herokuapp.com/razorpay/${offer}`, { method: 'POST' }).then((t) =>
 			t.json()
 		)
 
@@ -184,7 +184,7 @@ function CheckOutMain({ data }) {
 	}
 
   const orderSubmit = () => {
-    axios.put(`http://localhost:3001/users/${usID}`,{
+    axios.put(`https://glacial-atoll-43442.herokuapp.com/users/${usID}`,{
       cart:[],
       orders: cartItem
     }).then(resp => console.log(resp.data))

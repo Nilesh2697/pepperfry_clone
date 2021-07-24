@@ -14,7 +14,7 @@ function CheckOutPage() {
     //console.log(userId)
     const getuserdataforcheckout = () => {
         axios
-            .get(`http://localhost:3001/userbyID/${userId}`)
+            .get(`https://glacial-atoll-43442.herokuapp.com/userbyID/${userId}`)
             .then((res) => {
                 //console.log(res.data)
                 setData(res.data);

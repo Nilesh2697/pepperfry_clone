@@ -4,7 +4,7 @@ import axios from "axios"
 const getSearch = (payload) => (dispatch) => {
     const search_req = search_request()
     dispatch(search_req)
-    axios.get(`http://localhost:3001/search/${payload}`)
+    axios.get(`https://glacial-atoll-43442.herokuapp.com/search/${payload}`)
     .then(resp => {
         const success_req = search_success(resp.data)
         dispatch(success_req)
