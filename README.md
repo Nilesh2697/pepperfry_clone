@@ -1,70 +1,116 @@
-# Getting Started with Create React App
+# Pepperfry clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+###### It's an E-Commerce website(Pepperfry) clone which sells furniture.
 
-## Available Scripts
+##### Pepperfry is an Indian online marketplace for furniture and home décor. The company was formed by Ex-eBay executives Ambareesh Murty and Ashish Shah started Pepperfry in Mumbai in 2012. The company is headquartered in Mumbai, Maharashtra and operates as a subsidiary of Trendsutra Platform Services Private Limited.
 
-In the project directory, you can run:
+## Tech Stacks Used
+<img src="https://agileengine.com/wp-content/uploads/2018/02/mern.jpg" width="100%">
 
-### `npm start`
+## Source
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- React: [React](https://www.npmjs.com/package/react)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Redux: [Redux](https://www.npmjs.com/package/redux) 
 
-### `npm test`
+- React-Redux: [React-Redux](https://www.npmjs.com/package/react-redux)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Redux-thunks: [Redux-thunks](https://www.npmjs.com/package/thunks)
 
-### `npm run build`
+- Images: [Pepperfry](https://https://www.pepperfry.com//)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Fonts: [Google Fonts](https://fonts.google.com/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Material UI: [Material UI](https://material-ui.com/) 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Ant Design: [Ant Design](https://ant.design/) 
 
-### `npm run eject`
+- Firebase: [Firebase](https://firebase.google.com/) 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Axios: [Axios](https://www.npmjs.com/package/axios)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Styled Components: [Styled Components](https://styled-components.com/)  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- React Tabs: [React Tabs](https://www.npmjs.com/package/react-tabs)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Mongoose: [Mongoose](https://www.npmjs.com/package/mongoose)
 
-## Learn More
+- Express: [Express](https://www.npmjs.com/package/express)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- RazorPay: [RazorPay](https://razorpay.com/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- RazorPay Node SDK: [RazorPay Node SDK](https://www.npmjs.com/package/razorpay)
 
-### Code Splitting
+- Bootstrap: [Bootstrap](https://www.npmjs.com/package/bootstrap)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Loading Page
 
-### Analyzing the Bundle Size
+- The Landing Page of Pepperfry website displays various products, offers and ads of their own.
+- There is Pagination and Live Search enabled on the Landing Page.
+- In top section there is a Header which displays Dropdown menu of pages.
+- At the bottom section there is a footer, both Header & Footer are same across all the pages.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<img width="929" alt="Screenshot (640)" src="https://github.com/Vinesh3124/pepperfry_clone/blob/master/Frontend/src/Images/LandingPage.png">
 
-### Making a Progressive Web App
+## Login Page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Existing user can Login and new user's can Register themselves.
+- to Register and Login there are Two option,
 
-### Advanced Configuration
+<img width="929" alt="Screenshot (640)" src="https://github.com/Vinesh3124/pepperfry_clone/blob/master/Frontend/src/Images/Register.png">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+## Product Page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- There are many Child pages linked to the Exercise page, but for this clone following pages are made.
+1. Sofas
+2. Chairs
+3. Tables
+4. Seating
+5. Cabinetry
+6. Dining & Bar
+7. Beds
 
-### `npm run build` fails to minify
+- There are some Key Features which are added in website clone such as,
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<img width="929" alt="Screenshot (640)" src="https://github.com/Vinesh3124/pepperfry_clone/blob/master/Frontend/src/Images/SingleCategory.png">
+
+## Add to Cart & Add to Wishlist
+
+<img width="929" alt="Screenshot (640)" src="https://github.com/Vinesh3124/pepperfry_clone/blob/master/Frontend/src/Images/Cart.png">
+<img width="929" alt="Screenshot (640)" src="https://github.com/Vinesh3124/pepperfry_clone/blob/master/Frontend/src/Images/WishList.png">
+
+## Item Page
+
+<img width="929" alt="Screenshot (640)" src="https://github.com/Vinesh3124/pepperfry_clone/blob/master/Frontend/src/Images/SingleProductPage.png">
+
+## Checkout Page
+
+<img width="929" alt="Screenshot (640)" src="https://github.com/Vinesh3124/pepperfry_clone/blob/master/Frontend/src/Images/CheckOut.png">
+
+## Razorpay Checkout
+
+<img width="929" alt="Screenshot (640)" src="https://github.com/Vinesh3124/pepperfry_clone/blob/master/Frontend/src/Images/RazorPay.png">
+
+## Team Members and Contributors
+
+### Vinesh Nair
+- **Github** : Vinesh3124
+- **Email** : vinesh.nair31@gmail.com
+- **Linkedin** : https://www.linkedin.com/in/vinesh-nair3124/
+
+### Avinash Sinha
+- **Github** : avinashkumarsinha007
+- **Email** : avinashkumarsinha007@gmail.com
+- **Linkedin** : www.linkedin.com/in/avinash-kumar-sinha-90413318a
+
+### Shalini Sharma
+- **Github** : https://github.com/00shalini
+- **Email** : shalini07061997@gmail.com
+- **Linkedin** : https://www.linkedin.com/in/shalini-sharma-8b0466163
+
+### Suman Charkraborty
+- **Github** : https://github.com/SumanChakraborty1998/
+- **Email** : sumanchakra8145@gmail.com
+- **Linkedin** : https://www.linkedin.com/in/suman-chakraborty-699308120
+

@@ -24,7 +24,7 @@ export const getDataByCategoryFailure=(payload)=>{
 export const getDataByCategory=(payload)=>(dispatch)=>{
    dispatch(getDataByCategoryRequest())
 
-   axios.get(`http://localhost:3001/${payload}`)
+   axios.get(`https://glacial-atoll-43442.herokuapp.com/${payload}`)
    .then(res=>dispatch(getDataByCategorySuccess(res.data)))
    .catch(err=>dispatch(getDataByCategoryFailure(err)))
 }
@@ -75,7 +75,7 @@ export const addToCart =(userId,payload)=>(dispatch)=>{
     console.log(userId,payload)
      if(userId!==""||userId !== undefined||userId !== null){
         dispatch(addToCartRequest())
-        axios.put(`http://localhost:3001/users/${userId}`,{
+        axios.put(`https://glacial-atoll-43442.herokuapp.com/users/${userId}`,{
             
                 cart:payload
             
@@ -91,10 +91,10 @@ export const addToWishList =(userId,payload)=>(dispatch)=>{
     console.log(userId,payload)
      if(userId!==""||userId !== undefined||userId !== null){
         dispatch(addToWishListRequest())
-        axios.put(`http://localhost:3001/users/${userId}`,{
-            params:{
-                wishList:3
-            }
+        axios.put(`https://glacial-atoll-43442.herokuapp.com/users/${userId}`,{
+         
+                wishList:payload
+            
            }    
            )
            .then(res=>dispatch(addToWishListSuccess(res.data)))
@@ -167,7 +167,7 @@ export const fetchInWishListFailure=(payload)=>{
 export const fetchInWishList =(payload)=>(dispatch)=>{
    
     dispatch(fetchInWishListRequest());
-    axios.get(`http://localhost:3001/userbyID/${payload}`)
+    axios.get(`https://glacial-atoll-43442.herokuapp.com/userbyID/${payload}`)
     .then(res=>dispatch(fetchInWishListSuccess(res.data[0].wishlist)))
     .catch(err=>dispatch(fetchInWishListFailure(err)))
 }

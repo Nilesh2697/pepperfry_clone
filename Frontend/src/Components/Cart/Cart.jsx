@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     },
 });
 
-function Cart({ wish }) {
+function Cart() {
     const classes = useStyles();
     const [state, setState] = React.useState({
         right: false,
@@ -30,6 +30,8 @@ function Cart({ wish }) {
     const inCart = useSelector((state) => state.fireReducer.inCart);
     const isData2 = getData("wishList");
     const inWishList = useSelector((state) => state.categoryReducer.inWishList);
+    const finalCart = useSelector((state) => state.fireReducer.finalCart);
+    const finalWishlist = useSelector(state=>state.categoryReducer.finalWishlist);
 
     const toggleDrawer = (anchor, open) => (event) => {
         if (
@@ -51,7 +53,7 @@ function Cart({ wish }) {
         } else {
             cartRef.current = 0;
         }
-    }, [isData?.length, inCart?.length]);
+    }, [isData?.length, inCart?.length,finalCart]);
 
     const wishRef = React.useRef(0);
     React.useEffect(() => {
@@ -65,7 +67,7 @@ function Cart({ wish }) {
         } else {
             wishRef.current = 0;
         }
-    }, [isData2?.length, inWishList?.length]);
+    }, [isData2?.length, inWishList?.length,finalWishlist]);
 
     const list = (anchor) => (
         <div
@@ -91,7 +93,7 @@ function Cart({ wish }) {
                 onClick={toggleDrawer("right", true)}
             >
                 <div onClick={handleModal1}>
-                    <Badge color="secondary">
+                    <Badge  badgeContent={inWishList?.length?inWishList?.length:isData2?.length?isData2?.length:0} color="secondary">
                         <FavoriteBorderOutlinedIcon
                             style={{ fontSize: 28, marginLeft: 0 }}
                         />
@@ -106,7 +108,7 @@ function Cart({ wish }) {
                 onClick={toggleDrawer("right", true)}
             >
                 <div onClick={handleModal}>
-                    <Badge color="secondary">
+                    <Badge badgeContent={inCart?.length?inCart?.length:isData?.length?isData?.length:0} color="secondary">
                         <ShoppingCartOutlinedIcon
                             style={{ fontSize: 28, marginLeft: 10 }}
                         />
@@ -153,7 +155,7 @@ function Cart({ wish }) {
                     </div>
                 </div>
                 {list("right")}
-                <CardSectionTab />
+                <CardSectionTab no={modal}/>
             </SwipeableDrawer>
         </div>
     );
