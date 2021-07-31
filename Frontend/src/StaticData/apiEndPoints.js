@@ -1,85 +1,94 @@
 //**************HOME PAGE REQUEST END POINTS*****************
-export const homeChikHomeEndPoint = "http://localhost:3001/homeChick";
+export const homeChikHomeEndPoint =
+    "https://glacial-atoll-43442.herokuapp.com/homeChick";
 
-export const houseFavouriteListEndPoint = "http://localhost:3001/houseFavList";
+export const houseFavouriteListEndPoint =
+    "https://glacial-atoll-43442.herokuapp.com/houseFavList";
 
 export const happyHomeEssentialsEndPoint =
-    "http://localhost:3001/happyHomeEssentials";
+    "https://glacial-atoll-43442.herokuapp.com/happyHomeEssentials";
 
-export const nightEssentialEndPoint = "http://localhost:3001/nightEssential";
+export const nightEssentialEndPoint =
+    "https://glacial-atoll-43442.herokuapp.com/nightEssential";
 
-export const decorationListEndPoint = "http://localhost:3001/decorationList";
+export const decorationListEndPoint =
+    "https://glacial-atoll-43442.herokuapp.com/decorationList";
 
 export const modernStyleBannersEndPoint =
-    "http://localhost:3001/modernStyleBanners";
+    "https://glacial-atoll-43442.herokuapp.com/modernStyleBanners";
 
 //******************DYNAMIC PAGE REQUEST END POINTS (COMMON FOR ALL)****************
 
-export const FACILITIES_LIST_END_POINT = "http://localhost:3001/facilitiesList";
+export const FACILITIES_LIST_END_POINT =
+    "https://glacial-atoll-43442.herokuapp.com/facilitiesList";
 
-export const FAQ_LIST_END_POINT = "http://localhost:3001/faqList";
+export const FAQ_LIST_END_POINT =
+    "https://glacial-atoll-43442.herokuapp.com/faqList";
 
-export const FIRST_SALE_LOGO_END_POINT = "http://localhost:3001/firstSaleLogo";
+export const FIRST_SALE_LOGO_END_POINT =
+    "https://glacial-atoll-43442.herokuapp.com/firstSaleLogo";
 
 //****************DYNAMIC PAGE REQUEST END POINTS (FURNITURE)***********************
 
-export const FURNITURE_BRAND_LIST_END_POINT = "http://localhost:3001/brandList";
+export const FURNITURE_BRAND_LIST_END_POINT =
+    "https://glacial-atoll-43442.herokuapp.com/brandList";
 
 export const FURNITURE_CATEGORY_LIST_END_POINT =
-    "http://localhost:3001/categoryHeadingList";
+    "https://glacial-atoll-43442.herokuapp.com/categoryHeadingList";
 
 export const FURNITURE_NEWARIVAL_LIST_END_POINT =
-    "http://localhost:3001/newArivalList";
+    "https://glacial-atoll-43442.herokuapp.com/newArivalList";
 
 export const FURNITURE_SHOP_BY_STYLE_LIST_END_POINT =
-    "http://localhost:3001/shopByStyleList";
+    "https://glacial-atoll-43442.herokuapp.com/shopByStyleList";
 
 export const FURNITURE_SPOTLIGHT_LIST_END_POINT =
-    "http://localhost:3001/spotLightList";
+    "https://glacial-atoll-43442.herokuapp.com/spotLightList";
 
 //******************DYNAMIC PAGE REQUEST END POINTS (LIVING)****************
 export const LIVING_CATEGORY_LIST_END_POINT =
-    "http://localhost:3001/livingCategoryHeadingList";
+    "https://glacial-atoll-43442.herokuapp.com/livingCategoryHeadingList";
 
 export const LIVING_SPOTLIGHT_LIST_END_POINT =
-    "http://localhost:3001/livingSpotlightList";
+    "https://glacial-atoll-43442.herokuapp.com/livingSpotlightList";
 
 export const LIVING_NEWARIVAL_LIST_END_POINT =
-    "http://localhost:3001/livingNewArivalList";
+    "https://glacial-atoll-43442.herokuapp.com/livingNewArivalList";
 
 export const LIVING_SHOP_BY_STYLE_LIST_END_POINT =
-    "http://localhost:3001/livingShopByStyle";
+    "https://glacial-atoll-43442.herokuapp.com/livingShopByStyle";
 
 export const LIVING_BRAND_LIST_END_POINT =
-    "http://localhost:3001/livingBrandList";
+    "https://glacial-atoll-43442.herokuapp.com/livingBrandList";
 
 //******************DYNAMIC PAGE REQUEST END POINTS (BEDROOM)****************
 export const BEDROOM_CATEGORY_LIST_END_POINT =
-    "http://localhost:3001/bedroomCategoryHeadingList";
+    "https://glacial-atoll-43442.herokuapp.com/bedroomCategoryHeadingList";
 
 export const BEDROOM_SPOTLIGHT_LIST_END_POINT =
-    "http://localhost:3001/bedroomSpotlightList";
+    "https://glacial-atoll-43442.herokuapp.com/bedroomSpotlightList";
 
 export const BEDROOM_NEWARIVAL_LIST_END_POINT =
-    "http://localhost:3001/bedroomNewArivalList";
+    "https://glacial-atoll-43442.herokuapp.com/bedroomNewArivalList";
 
 export const BEDROOM_SHOP_BY_STYLE_LIST_END_POINT =
-    "http://localhost:3001/bedroomShopByStyle";
+    "https://glacial-atoll-43442.herokuapp.com/bedroomShopByStyle";
 
 export const BEDROOM_BRAND_LIST_END_POINT =
-    "http://localhost:3001/bedroomBrandList";
+    "https://glacial-atoll-43442.herokuapp.com/bedroomBrandList";
 
 //******************DYNAMIC PAGE REQUEST END POINTS (WFH)****************
 export const WFH_CATEGORY_LIST_END_POINT =
-    "http://localhost:3001/wfhCategoryHeadingList";
+    "https://glacial-atoll-43442.herokuapp.com/wfhCategoryHeadingList";
 
 export const WFH_SPOTLIGHT_LIST_END_POINT =
-    "http://localhost:3001/wfhSpotlightList";
+    "https://glacial-atoll-43442.herokuapp.com/wfhSpotlightList";
 
 export const WFH_NEWARIVAL_LIST_END_POINT =
-    "http://localhost:3001/wfhNewArivalList";
+    "https://glacial-atoll-43442.herokuapp.com/wfhNewArivalList";
 
 export const WFH_SHOP_BY_STYLE_LIST_END_POINT =
-    "http://localhost:3001/wfhShopByStyle";
+    "https://glacial-atoll-43442.herokuapp.com/wfhShopByStyle";
 
-export const WFH_BRAND_LIST_END_POINT = "http://localhost:3001/wfhBrandList";
+export const WFH_BRAND_LIST_END_POINT =
+    "https://glacial-atoll-43442.herokuapp.com/wfhBrandList";
