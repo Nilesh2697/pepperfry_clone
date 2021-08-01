@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 import {
-    // homeChikHomeEndPoint,
+    homeChikHomeEndPoint,
     houseFavouriteListEndPoint,
     happyHomeEssentialsEndPoint,
     nightEssentialEndPoint,
@@ -22,8 +22,8 @@ import { Carousalone } from "./Carousel/Carousalone";
 
 export const Home = () => {
     const dispatch = useDispatch();
-    const homeChikHomeEndPoint =
-        "https://glacial-atoll-43442.herokuapp.com/homeChick";
+    // const homeChikHomeEndPoint =
+    //     "https://glacial-atoll-43442.herokuapp.com/homeChick";
     const handleGetData = () => {
         dispatch(
             getData(
