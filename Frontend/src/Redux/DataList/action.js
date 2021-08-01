@@ -187,6 +187,7 @@ export const getData =
         eight = null,
     ) =>
     async (dispatch) => {
+        console.log("One : ", one);
         try {
             one === null
                 ? dispatch(getDataRequestOne()) &&
