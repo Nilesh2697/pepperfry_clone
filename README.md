@@ -51,7 +51,7 @@ You can also take the glimpse of our Project,just follow the below steps:
 
     1.Clone the repo using https://github.com/Vinesh3124/pepperfry_clone.git.
     
-    2.Open the front-end folder and run the command npm run start in terminal to start the app.
+    2.Open the front-end folder and run the command npm i and then npm run start in terminal to start the app.
 
     3.Go to the browser you will land in the landing page just Register and login if you have signed up before or do the signup.
 
@@ -61,7 +61,7 @@ You can also take the glimpse of our Project,just follow the below steps:
 
     1.Clone the repo using https://github.com/Vinesh3124/pepperfry_clone.git.
     
-    2.Open the backend folder and run the command npm run server in terminal to start the backend.
+    2.Open the backend folder and run the command npm i and then npm run server in terminal to start the backend.
 
     3.On success it will show all the connected endpoints in the terminal.
 
